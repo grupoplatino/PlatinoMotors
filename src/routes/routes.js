@@ -1,19 +1,18 @@
-import React, { Component } from 'react'
-import {Routes, Route} from 'react-router-dom';
+import React from 'react'
+import {Route,Routes} from 'react-router-dom';
 
 import{
-    Home as Home,
+    Home
 } from '../pages/home/index';
-import {
-    Main as MainLayout,
-  } from '..'
 
-function routes() {
+const Links = ()=> {
     return (  
-        <Routes>
-            <Route navigate path='/' element={Home}></Route>
-        </Routes>
+       
+            <Routes>
+                <Route path='/' element={Home}></Route>
+            </Routes>
+     
     );
-}
+};
 
-export default routes;
+export default Links;

@@ -2,6 +2,10 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
+    
+    fontFamily: {
+      body: ['Poppins', 'sans-serif'] 
+    },
     colors:{
       primary : '#FA2E0A',
       pirmaryScarlet: {
