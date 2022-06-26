@@ -1,9 +1,13 @@
-import {foother} from '../../components/foother';
-import {navBar} from '../../components/nav-bar';
-function layout() {
+import Foother from '../../components/foother';
+import Navbar from '../../components/nav-bar';
+function Layout({children}) {
     return (
-        <foother></foother>
+        <div className='h-screen'>
+        <Navbar/>
+         {children}
+        <Foother/>
+        </div>
     );
 }
 
-export default layout;
+export default Layout;

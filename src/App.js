@@ -1,7 +1,4 @@
 import './App.css';
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { createBrowserHistory } from 'history';
 import { Link } from "react-router-dom";
 function App() {
   return (

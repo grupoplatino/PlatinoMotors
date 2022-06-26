@@ -1,50 +1,51 @@
 import React from "react";
-import Logo from '../assets/platino_motors_logo.svg'
+import { PlatinoMotorsBlack } from "../assets/index";
 
 
 export default function Navbar({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      <nav className="relative flex flex-wrap items-center  justify-between px-2 py-3 bg-background mb-3">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-start align-middle">
-          <a href="/"><img className="h-10 sm:h-8 lg:w-auto xl:h-10 sm:justify-start" src={Logo} alt="" /></a>
-          <div className="w-full relative flex justify-end lg:w-auto lg:static lg:block lg:justify-end">
+      <nav className="relative flex flex-wrap items-center  justify-between px-2 bg-background">
+        <div className={"container px-4 mx-auto flex items-center justify-center sm:justify-start " +(navbarOpen ? "flex-wrap" : " flex-nowrap")}>
+          <a href="/">
+            <img className="h-10 container  w-auto md:h-15" src={PlatinoMotorsBlack} alt="Platino Motors Logo" />
+          </a>
+          <div className="w-full relative flex justify-end">
             <button
-              className="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              className="cursor-pointer leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent  lg:hidden  outline-none focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
-              <i className="fas fa-bars"></i>
             </button>
           </div>
-          <div className={"lg:flex flex-grow items-center" +(navbarOpen ? "flex" : " hidden")}>
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto sm:content-center">
-              <li className="nav-item">
+          <div className={"lg:flex pt-2 pb-0 flex-grow  items-center" +(navbarOpen ? "flex" : " hidden")}>
+            <ul className="flex flex-col lg:flex-row  list-none lg:ml-auto">
+              <li className="nav-item ">
                 <a
-                  className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75"
+                  className="px-3  py-2 flex items-center text-xs font-bold leading-snug hover:opacity-75"
                   href="/catalogo"
                 >
-                  <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Venta/Renta</span>
+                  <span className="ml-2">Venta/Renta</span>
                 </a>
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-xs  font-bold leading-snug text-white hover:opacity-75"
+                  className="px-3 py-2 flex align-middle items-center text-xs   font-bold leading-snug  hover:opacity-75"
                   href="/servicios"
                 >
-                  <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Partes/Servicio</span>
+                 <span className="ml-2 align-middle">Partes/Servicio</span>
                 </a>
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-xs  font-bold leading-snug text-white hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-xs  font-bold  hover:opacity-75"
                   href="/financiamiento"
                 >
-                  <i className="fab fa-pinterest text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Financiamiento</span>
+                  <span className="ml-2">Financiamiento</span>
                 </a>
               </li>
               <li className="nav-item">
@@ -52,7 +53,7 @@ export default function Navbar({ fixed }) {
                   className="px-3 py-2 flex items-center text-xs  font-bold leading-snug text-blackPearl hover:opacity-75"
                   href="/contacto"
                 >
-                  <i className="fab fa-pinterest inline-block align-middle text-lg leading-lg text-white opacity-75"></i><span className="ml-2">Contacto</span>
+                  <span className="ml-2">Contacto</span>
                 </a>
               </li>
               <li className="nav-item">

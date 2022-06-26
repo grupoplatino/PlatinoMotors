@@ -1,28 +1,23 @@
-import {  React } from "react";
-import Navbar from "../../components/nav-bar";
-import Foother from "../../components/foother";
-import mainLogo from'../../assets/sany-logo-white.png';
-
-
+import {React} from "react";
+import {SanyWhiteLogo} from '../../assets/index';
 
 function Home() {
     return (
         <>
-       <Navbar/>
         <div className="relative bg-white    overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
                     <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                         <div className="sm:text-center lg:text-left">
-                            <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                                <span className="block xl:inline">Compra y Renta</span>{' '}
+                            <h1 className="text-4xl tracking-tight font-extrabold font-poppins text-gray-900 sm:text-5xl md:text-6xl">
+                                <span className="block xl:inline font-poppins">Compra y Renta</span>{' '}
                                 <span className="block text-indigo-600 xl:inline">de Maquinaria</span>
                             </h1>
                             <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                                 Distribuidor exclusivo de
                             </p>
                             <div className="sm:flex sm:justify-center lg:justify-start">
-                            <img className="h-9 sm:h-7 xl:h-9 sm:flex sm:justify-center lg:justify-start" alt="SANY" src={mainLogo}/>
+                            <img className="h-9 sm:h-7 xl:h-9 sm:flex sm:justify-center lg:justify-start" alt="SANY" src={SanyWhiteLogo}/>
                             </div>
                             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                 <div className="rounded-md">
@@ -47,7 +42,6 @@ function Home() {
                 />
             </div>
         </div>
-        <Foother/>
         </>
     );
 }

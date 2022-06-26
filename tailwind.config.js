@@ -48,7 +48,7 @@ module.exports = {
         800 : '#060B24',
         900 : '#050A1F',
       },
-      
+      white:'#FFFFFF',
 
       fiord:'#42506E',
       fiord:{
