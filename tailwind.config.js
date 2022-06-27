@@ -1,10 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    
-    fontFamily: {
-      body: ['Poppins', 'sans-serif'] 
+    extend:{
+      fontFamily:{
+        'pop': ['Poppins','sans-serif'],
+      }
     },
     colors:{
       primary : '#FA2E0A',
@@ -113,7 +115,12 @@ module.exports = {
       background:'#F9FAFC',
       
       startGradiant:'#F72F26',
-      endGradiant:'#B50D21'
+      endGradiant:'#B50D21',
+      extends:{
+        backgroundImage: (theme) =>({
+          'hero-img': "url('./src/assets/images/landing_hero.jpg')",
+        })
+      }
     }
   },
   plugins: [],

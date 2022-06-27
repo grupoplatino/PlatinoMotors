@@ -13,7 +13,7 @@ function Foother() {
                         <div className='flex flex-nowrap align-middle gap-2 mb-1'>
                             <div className='mt-2'><img className='h-3' src={EmailWhiteIcon} alt='email icon' /></div>
                             <div>
-                                <p className='text'>
+                                <p className='font-pop'>
                                     havila@platino.hn
                                 </p>
                             </div>
@@ -21,7 +21,7 @@ function Foother() {
                         <div className='flex flex-nowrap align-middle gap-2 mb-1'>
                             <div className='mt-1'><img className='h-4' src={PhoneWhiteIcon} alt='phone icon' /></div>
                             <div>
-                                <p className='text'>
+                                <p className='font-pop'>
                                     +504 3295-1859
                                 </p>
                             </div>
@@ -29,7 +29,7 @@ function Foother() {
                         <div className='flex flex-nowrap align-middle gap-2 mb-1'>
                             <div className='mt-1'><img className='h-4' src={FacebookWhiteIcon} alt='facebook icon' /></div>
                             <div>
-                                <p className='text'>
+                                <p className='font-pop'>
                                    /platinomotors
                                 </p>
                             </div>
@@ -37,7 +37,7 @@ function Foother() {
                         <div className='flex flex-nowrap align-middle gap-2 mb-1'>
                             <div className='mt-1'><img className='h-4' src={InstagramWhiteIcon} alt='instagram icon' /></div>
                             <div>
-                                <p className='text'>
+                                <p className='font-pop'>
                                     @platinomotors
                                 </p>
                             </div>
@@ -45,7 +45,7 @@ function Foother() {
                         <div className='flex flex-nowrap align-middle gap-2 ali'>
                             <div className='mt-1'><img className='h-4' src={MapsWhiteIcon} alt='maps icon' /></div>
                             <div>
-                                <p className='text'>
+                                <p className='font-pop'>
                                 Autopista a La Lima, Bulevar del Este contiguo a Maderera Noriega. <br/>San Pedro Sula, Cortes.
                                 </p>
                             </div>
@@ -53,12 +53,12 @@ function Foother() {
                     </div>
                     <div className='mb-5 text-white'>
                         <hr className='bg-primary mb-5 h-0.5 border-none'></hr>
-                        <p className='mb-1 font-bold'><strong>Sobre Nosotros</strong></p>
-                        <p className='font-mono text-sm text-justify font-light text-white mb-5'> Distribuimos, vendemos y rentamos maquinaria de alta potencia y calidad para el mercado minero, portuario y de contruccion. Además ofrecemos el servicio de mantenimiento preventivo y correctivo de nuestras maquinarias, asi garantizamos la satisfaccion y rentabilidad de nuestros clientes.</p>
+                        <p className='mb-1 font-bold font-pop'><strong>Sobre Nosotros</strong></p>
+                        <p className=' text-sm text-justify font-light text-white mb-5 font-pop'> Distribuimos, vendemos y rentamos maquinaria de alta potencia y calidad para el mercado minero, portuario y de contruccion. Además ofrecemos el servicio de mantenimiento preventivo y correctivo de nuestras maquinarias, asi garantizamos la satisfaccion y rentabilidad de nuestros clientes.</p>
                         <hr className='bg-primary mb-5 h-0.5 border-none'></hr>
-                        <p className='bold mb-1 font-bold'><strong>Empleos</strong></p>
-                        <p className='text-sm font-light mb-1'>¿Quieres unirte a nuestro equipo de trabajo?</p>
-                       <p className='text-sm font-light hover:opacity-80'> <a target='_blank' rel="noreferrer" href='https://www.grupoplatino.hn/#/Careers'>Ver Plazas Vacantes </a></p>
+                        <p className='bold mb-1 font-bold font-pop'><strong>Empleos</strong></p>
+                        <p className='text-sm font-light mb-1 font-pop'>¿Quieres unirte a nuestro equipo de trabajo?</p>
+                       <p className='text-sm font-light font-pop hover:opacity-80'> <a target='_blank' rel="noreferrer" href='https://www.grupoplatino.hn/#/Careers'>Ver Plazas Vacantes </a></p>
                     </div>
                 </div>
                 
@@ -66,7 +66,7 @@ function Foother() {
             <div className=' max-w-7xl  container  mx-auto   px-4'>
                 <div className='grid grid-cols-1 gap-10  sm:grid-cols-2'>
                         <div className='mb-0 sm:mb-0   justify-items-start'>
-                            <p className='text-center sm:text-start text-sm'>© 2021 Distribuidora Platino S.A. Todos los derechos reservados.</p>
+                            <p className='text-center sm:text-start text-sm font-pop'>© 2021 Distribuidora Platino S.A. Todos los derechos reservados.</p>
                         </div>
                         <div className='mb-5 sm:mb-0 grid grid-cols-1 sm:grid-cols-2'>
                             <div className=' grid grid-cols-1 justify-items-center sm:justify-items-start'>

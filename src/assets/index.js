@@ -14,3 +14,4 @@ export{default as PlatinoMotorsBlack} from './corporative_logos/platino_motors_l
 export{default as SanyWhiteLogo} from './corporative_logos/sany_logo_white.png';
 
 //Images
+export{default as LandingHero} from './images/landing_hero.jpg';
