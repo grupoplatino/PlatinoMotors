@@ -67,7 +67,7 @@ module.exports = {
       },
       
 
-      'bermuda-gray':'#6C80AB',
+      'bermudaGray':'#6C80AB',
       bermudaGray:{
         50  : '#B6C0D5',
         100 : '#A7B3CD',
@@ -82,7 +82,7 @@ module.exports = {
       },
       
       
-      'light':'#E2E6EE',
+      lightPlaceHolder:'#E2E6EE',
       otherLight:{
         50  : '#F9FAFC',
         100 : '#F6F8FA',

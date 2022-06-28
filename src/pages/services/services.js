@@ -1,11 +1,8 @@
-import Foother from "../../components/foother";
-import Navbar from "../../components/nav-bar";
+import { HeroServices } from "../../components";
 
 function Services() {
     return ( <>
-    <Navbar/>
-    <div>Servicios</div>
-    <Foother/>
+    <HeroServices/>
     </> );
 }
 

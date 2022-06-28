@@ -25,7 +25,7 @@ function Searcher() {
                             <input type='text' className="bg-black caret-secondaryDeepCove-100 border-b text-sm  text-white  focus:border-otherLight block w-full pl-2 p-2.5 " placeholder="Categoria"></input>
                         </div>
                         <div className="mx-4  grow px-0 py-2 flex justify-between mb-2 sm:mb-0">
-                            <input type='text' className="bg-black border-b text-sm  text-white  focus:border-otherLight block w-full pl-2 p-2.5 " placeholder="Modelo"></input>
+                            <input type='text' variant="standard" className="bg-black text-sm border-b text-white block w-full pl-2 p-2.5 " placeholder="Modelo"/>
                         </div>
                         <div className="mx-0 px-0 py-2 flex justify-center sm:justify-between mb-2 sm:mb-0">
                             <button className="rounded-full sm:ml-3  text-background bg-gradient-to-r p-8 sm:p-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
@@ -43,7 +43,6 @@ function Searcher() {
                 </form>
             </div>
         </div>
-
     );
 }
 

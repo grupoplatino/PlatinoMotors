@@ -1,5 +1,5 @@
 import { React } from "react";
-import {Hero,ReferenceImgRight,ReferneceImgLeft,Searcher,SliderHome} from "../../components/index";
+import {Hero,ReferenceImgRight,ReferneceImgLeft,Searcher,SliderHome, SliderOpinions,ContactUs} from "../../components/index";
 
 
 function Home() {
@@ -10,6 +10,8 @@ function Home() {
         <SliderHome/>
         <ReferneceImgLeft/>
         <ReferenceImgRight/>
+        <SliderOpinions/>
+        <ContactUs/>
         </>
     );
 }
