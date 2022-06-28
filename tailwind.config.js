@@ -1,7 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
+    extend:{
+      fontFamily:{
+        'pop': ['Poppins','sans-serif'],
+      }
+    },
     colors:{
       primary : '#FA2E0A',
       pirmaryScarlet: {
@@ -44,7 +50,7 @@ module.exports = {
         800 : '#060B24',
         900 : '#050A1F',
       },
-      
+      white:'#FFFFFF',
 
       fiord:'#42506E',
       fiord:{
@@ -61,7 +67,7 @@ module.exports = {
       },
       
 
-      'bermuda-gray':'#6C80AB',
+      'bermudaGray':'#6C80AB',
       bermudaGray:{
         50  : '#B6C0D5',
         100 : '#A7B3CD',
@@ -76,7 +82,7 @@ module.exports = {
       },
       
       
-      'light':'#E2E6EE',
+      lightPlaceHolder:'#E2E6EE',
       otherLight:{
         50  : '#F9FAFC',
         100 : '#F6F8FA',
@@ -109,7 +115,12 @@ module.exports = {
       background:'#F9FAFC',
       
       startGradiant:'#F72F26',
-      endGradiant:'#B50D21'
+      endGradiant:'#B50D21',
+      extends:{
+        backgroundImage: (theme) =>({
+          'hero-img': "url('./src/assets/images/landing_hero.jpg')",
+        })
+      }
     }
   },
   plugins: [],
