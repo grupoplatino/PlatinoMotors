@@ -1,5 +1,5 @@
 import { React } from "react";
-import {Hero,ReferneceImgLeft,Searcher,SliderHome} from "../../components/index";
+import {Hero,ReferenceImgRight,ReferneceImgLeft,Searcher,SliderHome} from "../../components/index";
 
 
 function Home() {
@@ -9,6 +9,7 @@ function Home() {
         <Searcher/>
         <SliderHome/>
         <ReferneceImgLeft/>
+        <ReferenceImgRight/>
         </>
     );
 }

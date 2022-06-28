@@ -15,3 +15,4 @@ export{default as SanyWhiteLogo} from './corporative_logos/sany_logo_white.png';
 
 //Images
 export{default as LandingHero} from './images/landing_hero.jpg';
+export{default as PostSale} from './images/landing_post_venta.jpg';
