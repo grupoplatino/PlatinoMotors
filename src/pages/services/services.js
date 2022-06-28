@@ -1,9 +1,11 @@
-import { HeroServices } from "../../components";
+import { HeroServices, Maintenance, SpecialAtention } from "../../components";
 
 function Services() {
-    return ( <>
+    return (<>
     <HeroServices/>
-    </> );
+    <Maintenance/>
+    <SpecialAtention/>
+    </>);
 }
 
 export default Services;

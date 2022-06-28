@@ -1,5 +1,5 @@
 import React from 'react';
-import {GrupoPlatinoAllWhite, FacebookWhiteIcon, InstagramWhiteIcon, EmailWhiteIcon, MapsWhiteIcon,PhoneWhiteIcon,PlatinoMotorsWhite,PlatinoHnWhite} from '../assets/index';
+import {GrupoPlatinoAllWhite, FacebookWhiteIcon, InstagramWhiteIcon, EmailWhiteIcon, MapsWhiteIcon,PhoneWhiteIcon,PlatinoHnWhite, PlatinoMotorsWhite} from '../assets/index';
 function Foother() {
     return (
         <footer className='text-white px-2 py-2 sm:py-7 bg-black '>

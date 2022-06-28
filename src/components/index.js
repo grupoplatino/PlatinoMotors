@@ -7,3 +7,5 @@ export {default as ReferenceImgRight} from './reference_img_right/reference_img_
 export {default as SliderOpinions} from './landing/opinion_slider/opinion_slider';
 export {default as ContactUs} from './landing/contact_us';
 export {default as HeroServices} from './services/hero_services';
+export {default as Maintenance} from './services/maintenance';
+export {default as SpecialAtention} from './services/special_atention';
