@@ -1,10 +1,9 @@
-<svg width="20px" height="29px" viewBox="0 0 20 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="30px" height="20px" viewBox="0 0 30 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="Financiamiento" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g transform="translate(-1305.000000, -1012.000000)">
-            <rect fill="#F8F9FA" x="0" y="0" width="1440" height="3191"></rect>
-            <g id="Group" transform="translate(1290.000000, 1001.500000)">
+        <g id="Mobile-Financiamiento" transform="translate(-173.000000, -924.000000)">
+            <g id="icon/arrow-right-copy" transform="translate(163.000000, 909.000000)">
                 <polygon id="Fill-1" points="0 50 50 50 50 0 0 0"></polygon>
-                <path d="M34.3175,26.0294 L16.4505,38.7724 C15.6555,39.3394 15.0965,39.0034 15.0965,38.0284 L15.0965,11.9724 C15.0965,10.9964 15.6555,10.6614 16.4505,11.2274 L34.2965,23.9704 C35.0905,24.5364 35.1125,25.4644 34.3175,26.0294" id="Fill-2" fill="#091033"></path>
+                <path d="M34.3175,26.0294 L16.4505,38.7724 C15.6555,39.3394 15.0965,39.0034 15.0965,38.0284 L15.0965,11.9724 C15.0965,10.9964 15.6555,10.6614 16.4505,11.2274 L34.2965,23.9704 C35.0905,24.5364 35.1125,25.4644 34.3175,26.0294" id="Fill-2" fill="#FA2E0A" transform="translate(24.999742, 25.000140) rotate(90.000000) translate(-24.999742, -25.000140) "></path>
             </g>
         </g>
     </g>

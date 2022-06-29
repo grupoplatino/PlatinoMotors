@@ -1,11 +1,10 @@
-import {FinancingHero} from "../../components/index";
+import {FinancingHero, StepsToFinancing} from "../../components/index";
 
 
 function Financing() {
     return ( <>
-    
      <FinancingHero/>
-
+     <StepsToFinancing/>
     </> );
 }
 
