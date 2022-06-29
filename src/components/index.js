@@ -10,3 +10,5 @@ export {default as HeroServices} from './services/hero_services';
 export {default as Maintenance} from './services/maintenance';
 export {default as SpecialAtention} from './services/special_atention';
 export {default as SpareParts} from './services/spare_parts';
+export { default as FinancingHero} from './financing/financing_hero';
+export {default as StepsToFinancing} from './financing/steps_to_financing';

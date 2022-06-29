@@ -21,6 +21,12 @@ background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
 }
+.financingHero{
+  background-image: url("../src/assets/images/sany-retroexcavadora.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  }
 .tab {
   overflow: hidden;
   }

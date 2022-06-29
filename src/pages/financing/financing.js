@@ -1,11 +1,11 @@
-import Foother from "../../components/foother";
-import Navbar from "../../components/nav-bar";
+import {FinancingHero} from "../../components/index";
+
 
 function Financing() {
     return ( <>
-     <Navbar/>
-     <div>Financiamiento</div>
-     <Foother/>
+    
+     <FinancingHero/>
+
     </> );
 }
 
