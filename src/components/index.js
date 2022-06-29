@@ -9,3 +9,4 @@ export {default as ContactUs} from './landing/contact_us';
 export {default as HeroServices} from './services/hero_services';
 export {default as Maintenance} from './services/maintenance';
 export {default as SpecialAtention} from './services/special_atention';
+export {default as SpareParts} from './services/spare_parts';

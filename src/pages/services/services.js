@@ -1,10 +1,11 @@
-import { HeroServices, Maintenance, SpecialAtention } from "../../components";
+import { HeroServices, Maintenance, SpareParts, SpecialAtention } from "../../components";
 
 function Services() {
     return (<>
     <HeroServices/>
     <Maintenance/>
     <SpecialAtention/>
+    <SpareParts/>
     </>);
 }
 

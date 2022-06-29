@@ -25,3 +25,5 @@ export{default as PostSale} from './images/landing_post_venta.jpg';
 export{default as AvatarExample} from './images/avatar_example.png';
 export{default as ServicesHero} from './images/services_hero.png';
 export{default as MaintenanceMen} from './images/maintenance_men.webp';
+export{default as SpecialAtentionMachine} from './images/SY_500H_special_atention.png';
+export{default as SparePartsImg} from './images/SY_500H_spare_parts.png';
