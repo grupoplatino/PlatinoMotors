@@ -10,7 +10,7 @@ function Hero() {
                         <p className="text-white text-center sm:text-left text-5xl font-bold font-pop mb-5">de Maquinaria</p>
                         <p className="text-white text-center sm:text-left font-pop  text-md">Distribuidor exclusivo de</p>
                         <div className="justify-center flex sm:justify-start">
-                        <img className="h-10 mb-8" src={SanyWhiteLogo}/>
+                        <img className="h-10 mb-8" alt="Sany Logo" src={SanyWhiteLogo}/>
                         </div>
                         <div className="flex justify-center sm:justify-start">
                         <button className="text-background bg-gradient-to-r rounded-3xl px-10 py-1 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
