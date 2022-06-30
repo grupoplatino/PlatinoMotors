@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Home, Financing, Contact, Services, Shop} from "../pages";
+import { Home, Financing, Contact, Services, Shop, DetailProduct} from "../pages";
 
 function Pages() {
     return ( 
@@ -10,6 +10,7 @@ function Pages() {
                 <Route path='/servicios' element={<Services/>}/>
                 <Route path='/catalogo' element={<Shop/>}/>
                 <Route path='*' navigate element={<Home/>}/>
+                <Route path="/shop/product" element={<DetailProduct/>}/>
         </Routes>
      );
 }

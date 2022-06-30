@@ -13,6 +13,11 @@ export{default as ConfidenceCheckIcon} from './icons/confidence_check_icon.svg';
 export{default as ToolsIcon} from './icons/tools_icon.svg';
 export{default as RightArrowBlack} from './icons/right_arrow_black.svg';
 export{default as DownArrowOrange} from './icons/down_arrow_orange.svg';
+export{default as RightArrowBread} from './icons/right_arrow_bread.svg';
+export{default as RightArrowBreadOrange} from './icons/right_arrow_bread_orange.svg';
+export{default as ShareIcon} from './icons/share_icon.svg';
+export{default as SeeIcon} from './icons/see_icon.svg';
+export{default as CalculatorWhiteIcon} from './icons/calculator_white_icon.svg';
 
 //Logos
 export{default as GrupoPlatinoAllWhite} from './corporative_logos/grupo_platino_white.png';

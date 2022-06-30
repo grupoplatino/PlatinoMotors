@@ -17,3 +17,4 @@ export {default as StepsToFinancing} from './financing/steps_to_financing';
 export {default as SelectFinancingPlan} from './financing/select_financing_plan';
 //Components for Details of a single Product
 export {default as HeaderProduct} from './detail_product/header_product';
+export {default as BannerProduct} from './detail_product/banner_product';
