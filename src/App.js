@@ -1,19 +1,14 @@
 import './App.css';
-import { Link } from "react-router-dom";
+import {BrowserRouter } from "react-router-dom";
+import Layout from './config/theme/layout';
+import Pages from './routes/routes';
 function App() {
   return (
-    <div>
-      <h1>Bookkeeper</h1>
-      <nav
-        style={{
-          borderBottom: "solid 1px",
-          paddingBottom: "1rem",
-        }}
-      >
-        <Link to="/Home">Index</Link> |{" "}
-        <Link to="/expenses">Expenses</Link>
-      </nav>
-    </div>
+    <BrowserRouter>
+        <Layout>
+            <Pages/>
+        </Layout>
+    </BrowserRouter>
   );
 }
 export default App;

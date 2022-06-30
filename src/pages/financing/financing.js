@@ -1,10 +1,11 @@
-import {FinancingHero, StepsToFinancing} from "../../components/index";
+import {FinancingHero, SelectFinancingPlan, StepsToFinancing} from "../../components/index";
 
 
 function Financing() {
     return ( <>
      <FinancingHero/>
      <StepsToFinancing/>
+     <SelectFinancingPlan/>
     </> );
 }
 
