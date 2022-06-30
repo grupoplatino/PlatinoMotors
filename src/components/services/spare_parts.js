@@ -7,7 +7,7 @@ function SpareParts() {
             <div className="flex flex-wrap justify-center rounded-md md:justify-between">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-0 mx-2 md:mx-0 bg-white rounded-xl drop-shadow-md">
                     <div className="">
-                    <div class="mx-2 md:mx-0"> 
+                    <div className="mx-2 md:mx-0"> 
                         <img src={SparePartsImg} className="object-cover w-max mt-2 md:mt-0 md:mx-0 rounded-l-xl rounded-r-xl md:rounded-r-none" style={{ width: "100%", height: '45vh' }} alt="repuestos SANY Honduras"/>
                     </div>
                     </div>
