@@ -21,6 +21,12 @@ background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
 }
+.financingHero{
+  background-image: url("../src/assets/images/sany-retroexcavadora.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  }
 .tab {
   overflow: hidden;
   }
@@ -29,7 +35,7 @@ background-repeat: no-repeat;
   }
   .tab-content {
   max-height: 0;
-  transition: all 0.5s;
+  transition: all 0.3s;
   }
   input:checked + .tab-label .test {
       background-color: #000;
@@ -43,7 +49,7 @@ background-repeat: no-repeat;
     display: none;
   }
   input:checked + .tab-label::after {
-  transform: rotate(90deg);
+  transform: rotate(60deg);
   }
   input:checked ~ .tab-content {
   max-height: 100vh;

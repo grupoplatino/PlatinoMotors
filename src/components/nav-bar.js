@@ -5,8 +5,8 @@ import { PlatinoMotorsBlack } from "../assets/index";
 export default function Navbar({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
-    <>
-      <nav className="relative flex flex-wrap items-center  justify-between px-2 bg-background">
+
+      <nav className="fixed w-screen flex flex-wrap items-center  z-20 justify-between px-2 bg-background">
         <div className={"container px-4 mx-auto flex items-center justify-center sm:justify-start " +(navbarOpen ? "flex-wrap" : " flex-nowrap")}>
           <a href="/">
             <img className="h-10 container  w-auto md:h-15" src={PlatinoMotorsBlack} alt="Platino Motors Logo" />
@@ -70,6 +70,6 @@ export default function Navbar({ fixed }) {
           </div>
         </div>
       </nav>
-    </>
+
   );
 }

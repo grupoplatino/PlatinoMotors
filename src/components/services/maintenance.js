@@ -28,23 +28,22 @@ function Maintenance() {
                                 <p className='font-pop text-justify mx-2 md:mx-0'>Brindamos todo el mantenimiento que tu maquinaria necesita para mantenerse operando en su mejor estado. Nos aseguramos de alargar al máximo la vida útil de tus equipos para hacer que tu inversion sea altamente rentable    </p>
                             </div>
                             <div className="mb-0 md:mb-6 col-span-12 md:pb-0 md:col-span-6">
-                                <div class="tabs">
+                                <div className="tabs">
                                     {faq.map(function (item, index) {
                                         return (
                                             <div key={
                                                 index
-                                            } class="border-none rounded-md tab mt-3">
-                                                <div class=" bg-white relative">
-                                                    <input class="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
-                                                    <header class="flex justify-between items-center align-middle py-2 px-5  cursor-pointer select-none tab-label" for="chck1">
+                                            } className="border-none rounded-md tab mt-3">
+                                                <div className=" bg-white relative">
+                                                    <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
+                                                    <header className="flex justify-between items-center align-middle py-2 px-5  cursor-pointer select-none tab-label" >
                                                         <div className="flex  pt-2 align-middle">  
-
                                                          {item.icon}
-                                                        <span class="text-lg ml-3">
+                                                        <span className="text-lg ml-3">
                                                             {item.title}
                                                         </span>
                                                         </div>
-                                                        <div class="rounded-full  border-grey w-7 h-7 flex items-center justify-center test">
+                                                        <div className="rounded-full  border-grey w-7 h-7 flex items-center justify-center test">
                                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 plus" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                                                 <path strokeLinecap="none" strokeLinejoin="none" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                                             </svg>
@@ -53,8 +52,8 @@ function Maintenance() {
                                                             </svg>
                                                         </div>
                                                     </header>
-                                                    <div class="tab-content">
-                                                        <div class="pl-8 pr-8 pb-5 text-grey-darkest">
+                                                    <div className="tab-content">
+                                                        <div className="pl-8 pr-8 pb-5 text-grey-darkest">
                                                             <p>
                                                                 {item.message}
                                                             </p>

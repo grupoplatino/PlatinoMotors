@@ -11,6 +11,8 @@ export{default as LinkedinBlackIcon} from './icons/linkedin_black_icon.svg';
 export{default as WhatsappBlackIcon} from './icons/whatsapp_black_icon.svg';
 export{default as ConfidenceCheckIcon} from './icons/confidence_check_icon.svg';
 export{default as ToolsIcon} from './icons/tools_icon.svg';
+export{default as RightArrowBlack} from './icons/right_arrow_black.svg';
+export{default as DownArrowOrange} from './icons/down_arrow_orange.svg';
 
 //Logos
 export{default as GrupoPlatinoAllWhite} from './corporative_logos/grupo_platino_white.png';
@@ -18,6 +20,7 @@ export{default as PlatinoHnWhite} from './corporative_logos/logo_platinohn_white
 export{default as PlatinoMotorsWhite} from './corporative_logos/platino_motors_logo_white_letters.svg';
 export{default as PlatinoMotorsBlack} from './corporative_logos/platino_motors_logo.svg';
 export{default as SanyWhiteLogo} from './corporative_logos/sany_logo_white.png';
+export{default as PlatinoCapitalWhite} from './corporative_logos/platino_capital_white.svg';
 
 //Images
 export{default as LandingHero} from './images/landing_hero.jpg';
