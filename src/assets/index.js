@@ -18,6 +18,7 @@ export{default as RightArrowBreadOrange} from './icons/right_arrow_bread_orange.
 export{default as ShareIcon} from './icons/share_icon.svg';
 export{default as SeeIcon} from './icons/see_icon.svg';
 export{default as CalculatorWhiteIcon} from './icons/calculator_white_icon.svg';
+export{default as DownloadBlackIcon} from './icons/download_black_icon.svg';
 
 //Logos
 export{default as GrupoPlatinoAllWhite} from './corporative_logos/grupo_platino_white.png';

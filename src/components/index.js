@@ -18,3 +18,4 @@ export {default as SelectFinancingPlan} from './financing/select_financing_plan'
 //Components for Details of a single Product
 export {default as HeaderProduct} from './detail_product/header_product';
 export {default as BannerProduct} from './detail_product/banner_product';
+export {default as TabsProduct} from './detail_product/tabs_product';

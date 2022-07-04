@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderProduct, BannerProduct } from "../../../components";
+import { HeaderProduct, BannerProduct, TabsProduct } from "../../../components";
 
 function DetailProduct() {
     const product= {
@@ -14,7 +14,7 @@ function DetailProduct() {
         motor: "Yanmar 3TNV70",
         weight: "1920kg",
         manualAttachment: "",
-        cualities: [
+        qualities: [
             {
                 title: "Caractieristica uno",
                 description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
@@ -34,43 +34,48 @@ function DetailProduct() {
         ],
         dataSheet: [
             {
-                title: "Titulo",
-                value: "Value"
+                title: "Motor",
+                value: "XB-4588"
             },
             {
-                title: "Titulo",
-                value: "Value"
+                title: "Tamaño",
+                value: "15Tons"
             },
             {
-                title: "Titulo",
-                value: "Value"
+                title: "Color",
+                value: "Negro"
             },
             {
-                title: "Titulo",
-                value: "Value"
+                title: "Garantia",
+                value: "4 años"
             },
             {
-                title: "Titulo",
-                value: "Value"
+                title: "Fabricante",
+                value: "SANY"
             },
             {
-                title: "Titulo",
-                value: "Value"
+                title: "Caja de cambios",
+                value: "Manual"
             },
             {
-                title: "Titulo",
-                value: "Value"
+                title: "Llantas",
+                value: "Antibalas"
             },
             {
-                title: "Titulo",
-                value: "Value"
-            }
+                title: "Cabina",
+                value: "Acondicionada"
+            },
+            {
+                title: "Montura",
+                value: "Cuero"
+            },
         ]
     };
     
     return (<>
     <HeaderProduct product={product}/>
     <BannerProduct product={product}/>
+    <TabsProduct product={product}/>
     </> );
 }
 
