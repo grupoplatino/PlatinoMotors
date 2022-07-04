@@ -15,6 +15,9 @@ const productsCategories = [
     { name: "SY-ACCD-1234", id: 1 },
     { name: "SY-EEED-1234", id: 1 },
 ]
+const openInNewTab = url => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
 function TabsProduct(props) {
 
@@ -26,7 +29,7 @@ function TabsProduct(props) {
                 </div>
                 <div className='flex mx-5'>
                     <div className='grow'>
-                        <DataSheet data={props.product.dataSheet} />
+                        <DataSheet data={props.product} />
                     </div>
                 </div>
                 <div className='flex mx-5'>
@@ -85,10 +88,11 @@ function Qualities(props) {
     );
 }
 function DataSheet(props) {
-    let sheetdata = props.data;
+    let sheetdata = props.data.dataSheet;
     let quantityData = sheetdata.length;
     let leftSheet = [], rightSheet = [];
     let half = (quantityData / 2);
+    console.log(props.data.manualAttachment);
     if (quantityData % 2 === 0) {
         let counter = 0;
         for (let i = 0; i < half; i++) {
@@ -168,8 +172,8 @@ function DataSheet(props) {
             </div>
             <div className='flex justify-center py-5'>
                 <div className="ml-2  grow sm:grow-0 ">
-                    <button type="button" className="text-black font-pop bg-white w-full rounded-3xl pr-6 pl-6   focus:ring-4 
-                                    focus:outline-none focus:ring-blue-300  border border-black font-medium text-sm px-5 py-4 sm:py-2 text-center mr-2 mb-2"><div className="flex justify-center"><img className="h-5 md:h-4 mr-2" src={DownloadBlackIcon} alt="Cotizar" /> <p>Cotizar</p></div></button>
+                    <button type="button" onClick={()=>openInNewTab(props.data.manualAttachment)} className="text-black font-pop bg-white w-full rounded-3xl pr-6 pl-6   focus:ring-4 
+                                    focus:outline-none focus:ring-blue-300  border border-black font-medium text-sm px-5 py-4 sm:py-2 text-center mr-2 mb-2"><div className="flex justify-center"><img className="h-5 md:h-4 mr-2" src={DownloadBlackIcon} alt="Cotizar" /> <p>Descargar Brochure</p></div></button>
                 </div>
             </div>
         </div>

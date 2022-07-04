@@ -13,7 +13,7 @@ function DetailProduct() {
         img: "https://www.sanyglobal.com/all/d/file/p/2016-12-16/68f19ca0a089c2b4d8149a4283e52f42.jpg",
         motor: "Yanmar 3TNV70",
         weight: "1920kg",
-        manualAttachment: "",
+        manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
         qualities: [
             {
                 title: "Caractieristica uno",

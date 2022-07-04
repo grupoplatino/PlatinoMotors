@@ -113,7 +113,7 @@ module.exports = {
       
 
       background:'#F9FAFC',
-      
+      blue: '#1C4ED8',
       startGradiant:'#F72F26',
       endGradiant:'#B50D21',
       extends:{

@@ -1,12 +1,97 @@
-
+import React, { useState } from 'react';
+import { LinkedinIcon, OpenNewTabIcon } from '../../assets';
+import { Maps } from '../../components';
 
 function Contact() {
-    return ( 
-    <>
-   
-    <div>Contacto</div>
-    
-    </> );
+
+    const [message, setMessage] = useState({});
+
+    return (
+        <div>
+            <section className="w-full py-24 text-white bg-success bg-img-contact-header">
+                <div className="flex items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-16 max-w-4xl">
+                    <div className="flex flex-col w-full mx-auto text-center">
+                        <div className="relative items-center w-full mx-auto align-middle">
+                            <div className="pb-12">
+                                <h1 data-aos="zoom-in" className="max-w-4xl text-4xl font-bold leading-none tracking-tighter text-neutral-600 md:text-4xl lg:text-4xl lg:max-w-7xl">
+                                    Contáctanos
+                                </h1>
+                                <p data-aos="zoom-in" className="mt-5 text-base leading-relaxed">
+                                    ¿Tiene alguna duda o comentario sobre nuestra
+                                    web corporativa? Utilice el formulario de contacto que
+                                    aparece en la parte inferior.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div className="flex flex-col py-12 px-5 items-center justify-center">
+                    <div className="flex p-2 mb-2 space-x-6">
+                        <a data-aos="fade-up" data-aos-easing="ease-in-back" data-aos-delay="1000" data-aos-offset="0" href="https://www.linkedin.com/company/grupo-empresarial-platino-hn/" target="_blank" rel="noreferrer" className="flex text-black items-end space-x-1 hover:text-gray-500">
+                            <img src={LinkedinIcon} alt="linkeding icon"/>
+                            <span className="text-3xl font-semibold">Linkedin</span>
+                        </a>
+                    </div>
+                    <div className="flex justify-center w-full">
+                        <p data-aos="fade-up" data-aos-easing="ease-in-back" data-aos-delay="1500" data-aos-offset="0" className="text-base font-light text-gray-400">
+                            Buscanos en nuestra red social oficial y encuentra nuestras plazas disponibles.
+                        </p>
+                    </div>
+                    <div className="pt-10 w-auto">
+                        <button data-aos="fade-up" data-aos-easing="ease-in-back" data-aos-delay="2000" data-aos-offset="0" className="space-x-2 bg-blue text-white font-semibold px-12 py-2">
+                            <a href="https://www.linkedin.com/company/grupo-empresarial-platino-hn/" target="_blank" rel='noreferrer'>Aplica a tu trabajo ideal...  <img className="h-4" src={OpenNewTabIcon} alt="Abrir tab"/></a>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section className="w-full">
+                <div className="flex flex-col lg:flex-row">
+                    <div className="w-full p-6 bg-otherLight-500  lg:w-3/5 lg:p-24">
+                        <form id="create-course-form">
+                            <div className="overflow-hidden">
+                                <div className="px-4 py-5 sm:p-6">
+                                    <div className="grid grid-cols-6 gap-6">
+                                        <div className="col-span-6 sm:col-span-3">
+                                        <input type='number' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block w-full pl-2 p-2.5 " placeholder="Nombre"></input>
+                                        </div>
+
+                                        <div className="col-span-6 sm:col-span-3">
+                                        <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block w-full pl-2 p-2.5 " placeholder="Apellido"></input>
+                                        </div>
+
+                                        <div className="col-span-6 sm:col-span-3">
+                                        <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block w-full pl-2 p-2.5 " placeholder="Correo Electrónico"></input>
+                                        </div>
+
+                                        <div className="col-span-6 sm:col-span-3">
+                                        <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block w-full pl-2 p-2.5 " placeholder="Asunto"></input>
+                                        </div>
+                                        <div className="col-span-6 sm:col-span-6">
+                                            <textarea onChange={e => setMessage({ ...message, message: e.target.value })} name="message" rows="10" placeholder="Escribe tu mensaje aqui..." className="mt-1 block p-2 w-full shadow-sm sm:text-sm border-gray-300" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="px-4 w-full py-3 text-center  sm:px-6">
+                                    <button
+                                        type="submit"
+                                        value="submit"
+                                        className=""
+                                    >
+                                        Enviar Mensaje
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="w-full h-maps-mobile lg:w-2/5 lg:h-auto">
+                        <Maps />
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
 }
 
 export default Contact;
