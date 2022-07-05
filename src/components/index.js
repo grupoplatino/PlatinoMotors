@@ -24,3 +24,5 @@ export {default as BannerProduct} from './detail_product/banner_product';
 export {default as TabsProduct} from './detail_product/tabs_product';
 //Components for Contact Page
 export {default as Maps} from './contact/maps';
+//Components for Category Shop Page
+export {default as HeroCategory} from './category/hero_category';
