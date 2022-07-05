@@ -27,7 +27,7 @@ function Contact() {
                 </div>
             </section>
             <section>
-                <div className="flex flex-col py-12 px-5 items-center justify-center">
+                <div className="flex flex-col bg-otherLight-500   py-12 px-5 items-center justify-center">
                     <div className="flex p-2 mb-2 space-x-6">
                         <a data-aos="fade-up" data-aos-easing="ease-in-back" data-aos-delay="1000" data-aos-offset="0" href="https://www.linkedin.com/company/grupo-empresarial-platino-hn/" target="_blank" rel="noreferrer" className="flex text-black items-end space-x-1 hover:text-gray-500">
                             <img src={LinkedinIcon} alt="linkeding icon"/>
@@ -48,28 +48,25 @@ function Contact() {
             </section>
             <section className="w-full">
                 <div className="flex flex-col lg:flex-row">
-                    <div className="w-full p-6 bg-otherLight-500  lg:w-3/5 lg:p-24">
+                    <div className="w-full p-6 bg-otherLight-50  lg:w-3/5 lg:p-24">
                         <form id="create-course-form">
                             <div className="overflow-hidden">
                                 <div className="px-4 py-5 sm:p-6">
                                     <div className="grid grid-cols-6 gap-6">
                                         <div className="col-span-6 sm:col-span-3">
-                                        <input type='number' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block w-full pl-2 p-2.5 " placeholder="Nombre"></input>
+                                        <input type='number' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block text-pop w-full pl-2 p-2.5 " placeholder="Nombre"></input>
                                         </div>
-
                                         <div className="col-span-6 sm:col-span-3">
-                                        <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block w-full pl-2 p-2.5 " placeholder="Apellido"></input>
+                                        <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block text-pop w-full pl-2 p-2.5 " placeholder="Apellido"></input>
                                         </div>
-
                                         <div className="col-span-6 sm:col-span-3">
-                                        <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block w-full pl-2 p-2.5 " placeholder="Correo Electrónico"></input>
+                                        <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block text-pop w-full pl-2 p-2.5 " placeholder="Correo Electrónico"></input>
                                         </div>
-
                                         <div className="col-span-6 sm:col-span-3">
-                                        <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block w-full pl-2 p-2.5 " placeholder="Asunto"></input>
+                                        <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block text-pop w-full pl-2 p-2.5 " placeholder="Asunto"></input>
                                         </div>
                                         <div className="col-span-6 sm:col-span-6">
-                                            <textarea onChange={e => setMessage({ ...message, message: e.target.value })} name="message" rows="10" placeholder="Escribe tu mensaje aqui..." className="mt-1 block p-2 w-full shadow-sm sm:text-sm border-gray-300" required />
+                                            <textarea onChange={e => setMessage({ ...message, message: e.target.value })} name="message" rows="10" placeholder="Escribe tu mensaje aqui..." className="mt-1 block border border-otherLight-400 p-2 w-full shadow-sm bg-otherLight-50 sm:text-sm border-gray-300" required />
                                         </div>
                                     </div>
                                 </div>
@@ -77,7 +74,8 @@ function Contact() {
                                     <button
                                         type="submit"
                                         value="submit"
-                                        className=""
+                                        className="text-background bg-gradient-to-r rounded-3xl pr-6 pl-6 pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
+                                        focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2"
                                     >
                                         Enviar Mensaje
                                     </button>
