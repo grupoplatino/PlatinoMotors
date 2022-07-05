@@ -21,7 +21,7 @@ export{default as CalculatorWhiteIcon} from './icons/calculator_white_icon.svg';
 export{default as DownloadBlackIcon} from './icons/download_black_icon.svg';
 export{default as OpenNewTabIcon} from './icons/open_new_tab_icon.svg';
 export{default as LinkedinIcon} from './icons/linkedin_icon.svg';
-
+export{default as IsoGray} from './icons/iso_gray.svg';
 //Logos
 export{default as GrupoPlatinoAllWhite} from './corporative_logos/grupo_platino_white.png';
 export{default as PlatinoHnWhite} from './corporative_logos/logo_platinohn_white.svg';

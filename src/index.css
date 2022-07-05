@@ -2,9 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Poppins','Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,42 +16,63 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.services_and_parts{
-background-image: url("../src/assets/images/services_hero.png");
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+
+.services_and_parts {
+  background-image: url("../src/assets/images/services_hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.financingHero{
+
+.financingHero {
   background-image: url("../src/assets/images/sany-retroexcavadora.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  }
+}
+
 .tab {
   overflow: hidden;
-  }
-  .tab-label .test .minus {
-    display: none;
-  }
-  .tab-content {
+}
+
+.tab-label .test .minus {
+  display: none;
+}
+
+.tab-content {
   max-height: 0;
   transition: all 0.3s;
-  }
-  input:checked + .tab-label .test {
-      background-color: #000;
-  }
-  input:checked + .tab-label .test .minus {
-    display:block;
-      transform: rotate(180deg);
-      stroke: #fff;
-  }
-  input:checked + .tab-label .test .plus {
-    display: none;
-  }
-  input:checked + .tab-label::after {
+}
+
+input:checked+.tab-label .test {
+  background-color: #000;
+}
+
+input:checked+.tab-label .test .minus {
+  display: block;
+  transform: rotate(180deg);
+  stroke: #fff;
+}
+
+input:checked+.tab-label .test .plus {
+  display: none;
+}
+
+input:checked+.tab-label::after {
   transform: rotate(60deg);
-  }
-  input:checked ~ .tab-content {
+}
+
+input:checked~.tab-content {
   max-height: 100vh;
-  }
+}
+
+.h-iso-gray {
+  background-image: url("./assets/icons/iso_gray.svg");
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.bg-t {
+  background-color: transparent;
+}

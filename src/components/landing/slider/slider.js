@@ -9,8 +9,8 @@ import "./slider.css";
 
 function SliderHome() {
     return (
-        <div className="container my-5 mx-auto">
-            <div  className="carousel">
+        <div className="container mb-5 mt-16 mx-auto">
+            <div className="carousel">
                 <Slider
                     autoplay={false}
                     autoplaySpeed={5000}
@@ -24,7 +24,7 @@ function SliderHome() {
                 >
                     {data.map((item) => (
                         <div>
-                            <img src={item} className="rounded-xl" alt="" style={{ width: "100%", height: "60vh" }} />
+                            <img src={item} className="rounded-3xl" alt="" style={{ width: "100%", height: "75vh" }} />
                         </div>
                     ))}
                 </Slider>
@@ -37,7 +37,7 @@ const PreviousBtn = (props) => {
     return (
         <div className={className} onClick={onClick}>
             <div className="bg-white bg-opacity-50 rounded-full p">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="#000000" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="#3c4963" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
             </div>
@@ -49,8 +49,7 @@ const NextBtn = (props) => {
     return (
         <div className={className} onClick={onClick}>
             <div className="bg-white bg-opacity-50 rounded-full p">
-
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="#000000" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="#3c4963" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
             </div>
