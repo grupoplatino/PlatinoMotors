@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PlatinoMotors/static/css/main.e72c3b52.css",
-    "main.js": "/PlatinoMotors/static/js/main.df672272.js",
+    "main.js": "/PlatinoMotors/static/js/main.6353aba5.js",
     "static/media/services_hero.png": "/PlatinoMotors/static/media/services_hero.2a242535a23e3d8bd442.png",
     "static/media/sany-retroexcavadora.png": "/PlatinoMotors/static/media/sany-retroexcavadora.88f6e6762bc353aaae69.png",
     "static/media/hero_background.png": "/PlatinoMotors/static/media/hero_background.4466fde4e04da10df971.png",
@@ -55,10 +55,10 @@
     "static/media/right_arrow_black.svg": "/PlatinoMotors/static/media/right_arrow_black.146ded2110477f7ba9d8c4f4eee73987.svg",
     "static/media/linkedin_icon.svg": "/PlatinoMotors/static/media/linkedin_icon.9960d005bbffe9dbd9d2e4a0c0b28573.svg",
     "main.e72c3b52.css.map": "/PlatinoMotors/static/css/main.e72c3b52.css.map",
-    "main.df672272.js.map": "/PlatinoMotors/static/js/main.df672272.js.map"
+    "main.6353aba5.js.map": "/PlatinoMotors/static/js/main.6353aba5.js.map"
   },
   "entrypoints": [
     "static/css/main.e72c3b52.css",
-    "static/js/main.df672272.js"
+    "static/js/main.6353aba5.js"
   ]
 }
