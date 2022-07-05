@@ -660,6 +660,7 @@ function Category() {
     return (
         <div>
            <HeroCategory category={categories[0]} products={products}/>
+         
         </div>
     );
 }

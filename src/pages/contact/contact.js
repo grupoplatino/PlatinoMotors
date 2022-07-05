@@ -16,7 +16,7 @@ function Contact() {
                     <div className="flex flex-col w-full mx-auto text-center">
                         <div className="relative items-center w-full mx-auto align-middle">
                             <div className="pb-12">
-                                <h1 data-aos="zoom-in" className="max-w-4xl text-4xl font-bold font-pop leading-none tracking-tighter text-neutral-600 md:text-4xl lg:text-4xl lg:max-w-7xl">
+                                <h1 data-aos="zoom-in" className="max-w-4xl text-4xl font-bold font-pop leading-none tracking-tighter md:text-4xl lg:text-4xl lg:max-w-7xl">
                                     Contáctanos
                                 </h1>
                                 <p data-aos="zoom-in" className="mt-5 text-base font-pop leading-relaxed">
@@ -54,7 +54,8 @@ function Contact() {
                         <form id="create-course-form">
                             <div className="overflow-hidden">
                                 <div className='flex justify-center'>
-                                    <p className='font-pop text-black text-2xl font-semibold'>Escribenos</p></div>
+                                    <p className='font-pop text-black text-3xl font-semibold'>Escribenos</p>
+                                    <p className='font-pop text-black text-md font-semibold'>Llena el siguiente formulario y dentro de poco un asesor de servicio al cliente se pondra en contacto contigo</p></div>
                                 <div className="px-4 py-5 sm:p-6">
                                     <div className="grid grid-cols-6 gap-6">
                                         <div className="col-span-6 sm:col-span-3">
