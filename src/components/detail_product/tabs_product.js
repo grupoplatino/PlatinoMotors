@@ -1,5 +1,5 @@
-import React from 'react';
-import { DownloadBlackIcon } from '../../assets';
+import React from "react";
+import { DownloadBlackIcon } from "../../assets";
 
 const products = [
     { name: "SY-AAAA-1234", id: 1 },
@@ -16,24 +16,24 @@ const productsCategories = [
     { name: "SY-EEED-1234", id: 1 },
 ]
 const openInNewTab = url => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
+    window.open(url, "_blank", "noopener,noreferrer");
+};
 
 function TabsProduct(props) {
 
     return (
         <div className="bg-otherLight-50">
             <div className="container mx-auto">
-                <div className='flex mx-5'>
+                <div className="flex mx-5">
                     <Qualities qualities={props.product.qualities} />
                 </div>
-                <div className='flex mx-5'>
-                    <div className='grow'>
+                <div className="flex mx-5">
+                    <div className="grow">
                         <DataSheet data={props.product} />
                     </div>
                 </div>
-                <div className='flex mx-5'>
-                    <div className='grow'>
+                <div className="flex mx-5">
+                    <div className="grow">
                         <QuotePetition product={props.product} />
                     </div>
                 </div>
@@ -44,8 +44,8 @@ function TabsProduct(props) {
 function Qualities(props) {
     return (
         <div>
-            <div className='flex py-5 justify-center'>
-                <p className='font-pop text-2xl font-semibold'>Características</p>
+            <div className="flex py-5 justify-center">
+                <p className="font-pop text-2xl font-semibold">Características</p>
             </div>
             <div className="mb-0 md:mb-6 col-span-12 md:pb-0 md:col-span-6">
                 <div className="tabs">
@@ -116,17 +116,17 @@ function DataSheet(props) {
     }
     return (
         <div>
-            <div className='flex py-5  justify-center'>
-                <p className='font-pop text-2xl font-semibold'>Ficha Técnica</p>
+            <div className="flex py-5 justify-center">
+                <p className="font-pop text-2xl font-semibold">Ficha Técnica</p>
             </div>
-            <div className='grid grid-cols-1  gap-1 md:grid-cols-2'>
-                <div className='grid grid-cols-2'>
+            <div className="grid grid-cols-1 gap-1 md:grid-cols-2">
+                <div className="grid grid-cols-2">
                     <div>
                         {
                             leftSheet.map(function (item, index) {
                                 return (
                                     <div key={index} className="bg-white rounded-sm py-2 pl-2 my-1">
-                                        <p className='font-pop font-semibold text-sm'>{item.title}</p>
+                                        <p className="font-pop font-semibold text-sm">{item.title}</p>
                                     </div>
                                 );
                             })
@@ -137,32 +137,31 @@ function DataSheet(props) {
                             leftSheet.map(function (item, index) {
                                 return (
                                     <div key={index} className="bg-white rounded-sm py-2 pl-2 my-1">
-                                        <p className='font-pop  text-sm'>{item.value}</p>
+                                        <p className="font-pop text-sm">{item.value}</p>
                                     </div>
                                 );
                             })
                         }
                     </div>
                 </div>
-                <div className='grid grid-cols-2'>
-                    <div className=''>
+                <div className="grid grid-cols-2">
+                    <div>
                         {
                             rightSheet.map(function (item, index) {
                                 return (
                                     <div key={index} className="bg-white rounded-sm py-2 pl-2 my-1">
-                                        <p className='font-pop font-semibold text-sm'>{item.title}</p>
+                                        <p className="font-pop font-semibold text-sm">{item.title}</p>
                                     </div>
                                 );
-
                             })
                         }
                     </div>
-                    <div className=''>
+                    <div>
                         {
                             rightSheet.map(function (item, index) {
                                 return (
                                     <div key={index} className="bg-white rounded-sm py-2 pl-2 my-1">
-                                        <p className='font-pop   text-sm'>{item.value}</p>
+                                        <p className="font-pop text-sm">{item.value}</p>
                                     </div>
                                 );
                             })
@@ -170,10 +169,15 @@ function DataSheet(props) {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-center py-5'>
-                <div className="ml-2  grow sm:grow-0 ">
-                    <button type="button" onClick={()=>openInNewTab(props.data.manualAttachment)} className="text-black font-pop bg-white w-full rounded-3xl pr-6 pl-6   focus:ring-4 
-                                    focus:outline-none focus:ring-blue-300  border border-black font-medium text-sm px-5 py-4 sm:py-2 text-center mr-2 mb-2"><div className="flex justify-center"><img className="h-5 md:h-4 mr-2" src={DownloadBlackIcon} alt="Cotizar" /> <p>Descargar Brochure</p></div></button>
+            <div className="flex justify-center py-5">
+                <div className="ml-2 grow sm:grow-0 ">
+                    <button type="button" onClick={() => openInNewTab(props.data.manualAttachment)} className="text-black font-pop bg-white w-full rounded-3xl pr-6 pl-6 focus:ring-4 
+                                    focus:outline-none focus:ring-blue-300  border border-black font-medium text-sm px-5 py-4 sm:py-2 text-center mr-2 mb-2">
+                        <div className="flex justify-center">
+                            <img className="h-5 md:h-4 mr-2" src={DownloadBlackIcon} alt="Cotizar" />
+                            <p>Descargar Brochure</p>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
@@ -182,13 +186,13 @@ function DataSheet(props) {
 function QuotePetition(props) {
     return (<div>
         <form>
-            <div className='flex justify-center'>
-                <p className='font-pop text-2xl font-semibold'>Cotización</p>
+            <div className="flex justify-center">
+                <p className="font-pop text-2xl font-semibold">Cotización</p>
             </div>
-            <div className='flex justify-center py-5'>
-                <div className='grid  grow px-2 md:px-48 grid-cols-1 md:grid-cols-2'>
+            <div className="flex justify-center py-5">
+                <div className="grid  grow px-2 md:px-48 grid-cols-1 md:grid-cols-2">
                     <div className="flex  mb-0 mx-2">
-                        <select name="products" className='font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2'>
+                        <select name="products" className="font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2">
                             {
                                 productsCategories.map(function (item, index) {
                                     return (
@@ -199,7 +203,7 @@ function QuotePetition(props) {
                         </select>
                     </div>
                     <div className="flex  mb-0 mx-2">
-                        <select name="products" className='font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2'>
+                        <select name="products" className="font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2">
                             {
                                 products.map(function (item, index) {
                                     return (
@@ -211,26 +215,26 @@ function QuotePetition(props) {
                     </div>
                 </div>
             </div>
-            <div className='flex px-2 md:px-48 justify-center'>
-                <input type='text' className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Nombres"></input>
+            <div className="flex px-2 md:px-48 justify-center">
+                <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Nombres"></input>
             </div>
-            <div className='flex px-2 md:px-48 justify-center'>
-                <input type='text' className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Compañia"></input>
+            <div className="flex px-2 md:px-48 justify-center">
+                <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Compañia"></input>
             </div>
-            <div className='flex px-2 md:px-48 justify-center'>
-                <input type='text' className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="RTN"></input>
+            <div className="flex px-2 md:px-48 justify-center">
+                <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="RTN"></input>
             </div>
-            <div className='flex px-2 md:px-48 justify-center'>
-                <input type='text' className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Numero"></input>
+            <div className="flex px-2 md:px-48 justify-center">
+                <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Numero"></input>
             </div>
-            <div className='flex px-2 md:px-48 justify-center'>
-                <input type='text' className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="E-mail"></input>
+            <div className="flex px-2 md:px-48 justify-center">
+                <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="E-mail"></input>
             </div>
             <div>
-                
             </div>
         </form>
-    </div>);
+    </div>
+    );
 }
 
 export default TabsProduct;

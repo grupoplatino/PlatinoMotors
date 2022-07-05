@@ -11,12 +11,12 @@ function Contact() {
 
     return (
         <div>
-            <section className="w-full financingHero py-24 text-white bg-success bg-img-contact-header">
+            <section className="w-full financingHero py-24 text-white bg-img-contact-header">
                 <div className="flex items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-16 max-w-4xl">
                     <div className="flex flex-col w-full mx-auto text-center">
                         <div className="relative items-center w-full mx-auto align-middle">
                             <div className="pb-12">
-                                <h1 data-aos="zoom-in" className="max-w-4xl text-4xl font-bold font-pop leading-none tracking-tighter text-neutral-600 md:text-4xl lg:text-4xl lg:max-w-7xl">
+                                <h1 data-aos="zoom-in" className="max-w-4xl text-4xl font-bold font-pop leading-none tracking-tighter md:text-4xl lg:text-4xl lg:max-w-7xl">
                                     Contáctanos
                                 </h1>
                                 <p data-aos="zoom-in" className="mt-5 text-base font-pop leading-relaxed">

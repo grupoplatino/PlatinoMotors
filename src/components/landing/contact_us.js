@@ -11,10 +11,10 @@ function ContactUs() {
                 <form>
                     <div className="grid grid-cols-1 gap-1 md:gap-5 mb-0 sm:grid-cols-2">
                         <div className="wrap mb-3">
-                            <input type="text" className=" border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop" placeholder="Nombres"></input>
+                            <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop" placeholder="Nombres"></input>
                         </div>
                         <div className="wrap mb-3">
-                            <input type="text" className="border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block w-full pl-2 p-2.5 " placeholder="Apellidos"></input>
+                            <input type="text" className="border-b text-sm bg-otherLight-50 text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block w-full pl-2 p-2.5 " placeholder="Apellidos"></input>
                         </div>
                     </div>
                     <div className="grid grid-cols-1 gap-1 md:gap-5 sm:grid-cols-2">
@@ -42,7 +42,7 @@ function ContactUs() {
                     <div className="grid grid-cols-5 gap-2">
                         <div className="border border-secondary rounded-full p-2 mx-auto w-9">
                             <a href="mailto:havila@platino.hn" target="_blank" rel="noreferrer">
-                                <img className="h-4" src={EmailBlackIcon} alt="correo"/>
+                                <img className="h-4" src={EmailBlackIcon} alt="correo" />
                             </a>
                         </div>
                         <div className="border border-secondary rounded-full p-2 mx-auto">
@@ -63,7 +63,7 @@ function ContactUs() {
                         <div className="border border-secondary rounded-full p-2 mx-auto">
                             <a href="https://hn.linkedin.com/company/grupo-empresarial-platino-hn" target="_blank" rel="noreferrer" >
                                 <img className="h-4" src={LinkedinBlackIcon} alt="linkedin" />
-                                </a>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -30,6 +30,15 @@ export{default as PlatinoMotorsBlack} from './corporative_logos/platino_motors_l
 export{default as SanyWhiteLogo} from './corporative_logos/sany_logo_white.png';
 export{default as PlatinoCapitalWhite} from './corporative_logos/platino_capital_white.svg';
 
+export{default as PlatinoMotors} from './corporative_logos/platino_motors.png';
+export{default as PlatinoRepuestos} from './corporative_logos/platino_repuestos.png';
+export{default as PlatinoUsados} from './corporative_logos/platino_usados.png';
+export{default as PlatinoCapital} from './corporative_logos/platino_capital.png';
+export{default as PlatinoFerreteria} from './corporative_logos/platino_ferreteria.png';
+export{default as PlatinoSoftware} from './corporative_logos/platino_software.png';
+export{default as PlatinoLogistic} from './corporative_logos/platino_logistic.png';
+export{default as PlatinoInmobiliaria} from './corporative_logos/inmobiliaria_platino.png';
+
 //Images
 export{default as LandingHero} from './images/landing_hero.jpg';
 export{default as PostSale} from './images/landing_post_venta.jpg';

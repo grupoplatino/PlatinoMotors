@@ -12,8 +12,8 @@ const containerStyle = {
 };
 
 const center = {
-    lat: 15.502087292025857,
-    lng: -88.00053436934307
+    lat: 15.501326685099473,
+    lng: -88.00034585060841
 };
 
 const api_key = config.googleMapsApiKey;

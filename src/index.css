@@ -76,3 +76,10 @@ input:checked~.tab-content {
 .bg-t {
   background-color: transparent;
 }
+
+.bg-hero{
+  background-image: url("../src/assets/images/hero_background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
