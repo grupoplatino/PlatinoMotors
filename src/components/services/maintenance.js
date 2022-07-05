@@ -61,7 +61,7 @@ function Maintenance() {
                                                     </div>
                                                 </div>
                                             </div>
-                                        )
+                                        );
                                     })}
                                 </div>
                             </div>

@@ -1,0 +1,14 @@
+
+<svg width="8px" height="12px" viewBox="0 0 8 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Catalog" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile---Item-View" transform="translate(-227.000000, -94.000000)">
+            <rect fill="#FFFFFF" x="0" y="0" width="375" height="5522"></rect>
+            <g id="breadcrumbs" transform="translate(16.000000, 90.000000)">
+                <g id="icon/chevron-copy-2" transform="translate(206.000000, 1.000000)">
+                    <polygon id="Fill-1" points="0 18 18 18 18 0 0 0"></polygon>
+                    <path d="M12.564108,8.386272 L5.631948,3.699792 C5.132628,3.362472 4.921308,3.538872 5.161788,4.091112 L6.858828,7.988472 C7.101468,8.541072 7.101468,9.445752 6.860988,9.998712 L5.160348,13.908672 C4.920588,14.461272 5.132628,14.637672 5.631948,14.299632 L12.564108,9.614592 C13.063428,9.276552 13.063428,8.723592 12.564108,8.386272" id="Fill-2" fill="#FA2E0A"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

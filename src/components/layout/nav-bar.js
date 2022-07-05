@@ -1,6 +1,5 @@
 import React from "react";
-import { PlatinoMotorsBlack } from "../assets/index";
-
+import { PlatinoMotorsBlack } from "../../assets/index";
 
 export default function Navbar({ fixed }) {
   const [navbarOpen, setNavbarOpen] = React.useState(false);

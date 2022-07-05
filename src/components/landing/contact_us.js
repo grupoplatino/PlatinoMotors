@@ -25,7 +25,6 @@ function ContactUs() {
                     <div className="grid grid-cols-1">
                         <div className="wrap  mb-1 sm:mb-0">
                             <input type='text' className=" border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Escribe tu mensaje aqui"></input>
-
                         </div>
                     </div>
                     <div className="flex justify-center md:justify-start mt-2 md:mt-5">
@@ -39,23 +38,23 @@ function ContactUs() {
                     </div>
                     <div className='grid grid-cols-5 gap-2'>
                         <div className='border border-secondary rounded-full w-7 p-1'>
-                            <a href='mailto:havila@platino.hn' target="_blank"  rel="noreferrer" >
+                            <a href='mailto:havila@platino.hn' target="_blank" rel="noreferrer" >
                                 <img className='h-4' src={EmailBlackIcon} alt="correo" /> </a>
                         </div>
                         <div className='border border-secondary  rounded-full p-1'>
-                            <a href='https://google.com' target="_blank"  rel="noreferrer" >
+                            <a href='https://google.com' target="_blank" rel="noreferrer" >
                                 <img className='h-4' src={WhatsappBlackIcon} alt="whatsapp" /> </a>
                         </div>
                         <div className='border border-secondary rounded-full p-1'>
-                            <a href='https://www.facebook.com/platinomotors/' target="_blank"  rel="noreferrer" >
+                            <a href='https://www.facebook.com/platinomotors/' target="_blank" rel="noreferrer" >
                                 <img className='h-4' src={FacebookBlackIcon} alt="facebook" /> </a>
                         </div>
                         <div className='border border-secondary rounded-full p-1'>
-                            <a href='https://www.instagram.com/platinomotors/?hl=es' target="_blank"  rel="noreferrer" >
+                            <a href='https://www.instagram.com/platinomotors/?hl=es' target="_blank" rel="noreferrer" >
                                 <img className='h-4' src={InstagramBlackIcon} alt="instagram" /> </a>
                         </div>
                         <div className='border border-secondary rounded-full p-1 '>
-                            <a href='https://hn.linkedin.com/company/grupo-empresarial-platino-hn' target="_blank"  rel="noreferrer" >
+                            <a href='https://hn.linkedin.com/company/grupo-empresarial-platino-hn' target="_blank" rel="noreferrer" >
                                 <img className='h-4' src={LinkedinBlackIcon} alt="linkedin" /> </a>
                         </div>
                     </div>
