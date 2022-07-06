@@ -11,7 +11,7 @@ function Contact() {
 
     return (
         <div>
-            <section className="w-full financingHero py-24 text-white bg-success bg-img-contact-header">
+            <section className="w-full financingHero py-24 text-white bg-img-contact-header">
                 <div className="flex items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-16 max-w-4xl">
                     <div className="flex flex-col w-full mx-auto text-center">
                         <div className="relative items-center w-full mx-auto align-middle">
@@ -55,7 +55,10 @@ function Contact() {
                             <div className="overflow-hidden">
                                 <div className='flex justify-center'>
                                     <p className='font-pop text-black text-3xl font-semibold'>Escribenos</p>
-                                    <p className='font-pop text-black text-md font-semibold'>Llena el siguiente formulario y dentro de poco un asesor de servicio al cliente se pondra en contacto contigo</p></div>
+                                </div>
+                                <div className='flex justify-center px-10'>
+                                    <p className='font-pop text-gray-500 text-sm text-center font-semibold'>Llena el siguiente formulario y dentro de poco un asesor de servicio al cliente se pondra en contacto contigo.</p>
+                                </div>
                                 <div className="px-4 py-5 sm:p-6">
                                     <div className="grid grid-cols-6 gap-6">
                                         <div className="col-span-6 sm:col-span-3">

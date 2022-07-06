@@ -1,11 +1,11 @@
 import React from 'react';
-import { HeroCategory} from '../../../components';
+import { HeroCategory, ProductCollection} from '../../../components';
 function Category() {
     const products =[
         {
             id: 1,
             status: "Disponible",
-            name: "SY16 C EU-US",
+            name: "SY11 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
             categoryId: 1,
@@ -75,8 +75,8 @@ function Category() {
         },
         {
             id: 1,
-            status: "Disponible",
-            name: "SY16 C EU-US",
+            status: "No Disponible",
+            name: "SY12 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
             categoryId: 1,
@@ -146,8 +146,8 @@ function Category() {
         },
         {
             id: 1,
-            status: "Disponible",
-            name: "SY16 C EU-US",
+            status: "Por Encargo",
+            name: "SY13 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
             categoryId: 1,
@@ -225,7 +225,7 @@ function Category() {
             category: "Volqueta",
             subCategoryId: 2,
             subCategory: "Excavadora Mediana",
-            img: "https://www.sanyglobal.com/all/d/file/p/2016-12-16/68f19ca0a089c2b4d8149a4283e52f42.jpg",
+            img: "https://img.directindustry.es/images_di/photo-m2/52887-16186553.jpg",
             motor: "Yanmar 3TNV70",
             weight: "1920kg",
             manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
@@ -296,7 +296,7 @@ function Category() {
             category: "Volqueta",
             subCategoryId: 2,
             subCategory: "Excavadora Mediana",
-            img: "https://www.sanyglobal.com/all/d/file/p/2016-12-16/68f19ca0a089c2b4d8149a4283e52f42.jpg",
+            img: "https://img.directindustry.es/images_di/photo-m2/52887-16186553.jpg",
             motor: "Yanmar 3TNV70",
             weight: "1920kg",
             manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
@@ -367,7 +367,7 @@ function Category() {
             category: "Volqueta",
             subCategoryId: 2,
             subCategory: "Excavadora Mediana",
-            img: "https://www.sanyglobal.com/all/d/file/p/2016-12-16/68f19ca0a089c2b4d8149a4283e52f42.jpg",
+            img: "https://img.directindustry.es/images_di/photo-m2/52887-16186553.jpg",
             motor: "Yanmar 3TNV70",
             weight: "1920kg",
             manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
@@ -435,10 +435,10 @@ function Category() {
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
             categoryId: 3,
-            category: "Grua",
+            category: "Mixer",
             subCategoryId: 3,
             subCategory: "Excavadora Mediana",
-            img: "https://www.sanyglobal.com/all/d/file/p/2016-12-16/68f19ca0a089c2b4d8149a4283e52f42.jpg",
+            img: "https://www.sanyglobal.com/all/d/file/p/2016-12-19/1a576ff33686891e211a9dc50ff7039a.jpg",
             motor: "Yanmar 3TNV70",
             weight: "1920kg",
             manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
@@ -506,10 +506,10 @@ function Category() {
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
             categoryId: 3,
-            category: "Grua",
+            category: "Mixer",
             subCategoryId: 3,
             subCategory: "Excavadora Mediana",
-            img: "https://www.sanyglobal.com/all/d/file/p/2016-12-16/68f19ca0a089c2b4d8149a4283e52f42.jpg",
+            img: "https://www.sanyglobal.com/all/d/file/p/2016-12-19/1a576ff33686891e211a9dc50ff7039a.jpg",
             motor: "Yanmar 3TNV70",
             weight: "1920kg",
             manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
@@ -577,10 +577,10 @@ function Category() {
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
             categoryId: 3,
-            category: "Grua",
+            category: "Mixer",
             subCategoryId: 3,
             subCategory: "Excavadora Mediana",
-            img: "https://www.sanyglobal.com/all/d/file/p/2016-12-16/68f19ca0a089c2b4d8149a4283e52f42.jpg",
+            img: "https://www.sanyglobal.com/all/d/file/p/2016-12-19/1a576ff33686891e211a9dc50ff7039a.jpg",
             motor: "Yanmar 3TNV70",
             weight: "1920kg",
             manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
@@ -653,15 +653,15 @@ function Category() {
         },
         {
             id:3,
-            name:"Gruas"
+            name:"Mixer"
         }
     ];
 
     return (
-        <div>
-           <HeroCategory category={categories[0]} products={products}/>
-         
-        </div>
+        <>
+           <HeroCategory category={categories[2]} products={products}/>
+           <ProductCollection category={categories[2]} products={products} />
+        </>
     );
 }
 

@@ -26,3 +26,5 @@ export {default as TabsProduct} from './detail_product/tabs_product';
 export {default as Maps} from './contact/maps';
 //Components for Category Shop Page
 export {default as HeroCategory} from './category/hero_category';
+export {default as ProductCollection} from './category/ProductCollection';
+export {default as ProductCard} from './category/product_card'
