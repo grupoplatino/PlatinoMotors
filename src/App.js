@@ -1,14 +1,14 @@
 import './App.css';
-import {BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import Layout from './config/theme/layout';
 import Pages from './routes/routes';
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
         <Layout>
             <Pages/>
         </Layout>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 export default App;

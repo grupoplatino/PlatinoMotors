@@ -31,13 +31,13 @@ function ContactUs() {
                         </div>
                     </div>
                     <div className="flex justify-center md:justify-start mt-2 md:mt-5">
-                        <button className="text-white font-pop text-xs bg-gradient-to-r rounded-3xl px-6 py-3 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
+                        <button className="text-white font-pop text-xs bg-gradient-to-r rounded-3xl px-14 md:px-6 py-3 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
                         focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-center mb-2">Enviar Mensaje</button>
                     </div>
                 </form>
-                <div className="flex mt-2 md:mt-5 flex-wrap justify-center md:justify-start">
+                <div className="flex mt-2 md:mt-5 flex-wrap">
                     <div className="mr-2 mt-1">
-                        <p className="font-pop text-sm font-semibold text-black ">o puedes contactarnos por</p>
+                        <p className="font-pop text-sm font-semibold text-black my-4 md:my-0">o puedes contactarnos por</p>
                     </div>
                     <div className="grid grid-cols-5 gap-2">
                         <div className="border border-secondary rounded-full p-2 mx-auto w-9">

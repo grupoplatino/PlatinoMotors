@@ -1,5 +1,5 @@
-.carousel .slick-arrow.slick-prev,
-.carousel .slick-arrow.slick-next {
+.opinion-carousel .slick-arrow.slick-prev,
+.opinion-carousel .slick-arrow.slick-next {
   background: none;
   width: 100px;
   height: 104px;
@@ -9,13 +9,13 @@
   justify-content: center;
   z-index: 1;
 }
-.carousel .slick-prev {
+.opinion-carousel .slick-prev {
   left: 0;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
 
 }
-.carousel .slick-next {
+.opinion-carousel .slick-next {
   right: 0;
   border-bottom-left-radius: 7px;
   border-top-left-radius: 7px;
@@ -54,4 +54,15 @@
 .slick-dots li.slick-active button:before {
   opacity: 0.75;
   color: rgb(255, 255, 255);
+}
+
+@media (max-width: 768px) {
+  .opinion-carousel .slick-arrow.slick-prev,
+  .opinion-carousel .slick-arrow.slick-next {
+    display: none;
+  }
+
+  .opinion-carousel .slick-dots li button {
+    display: none;
+  }
 }

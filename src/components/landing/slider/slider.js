@@ -9,7 +9,7 @@ import "./slider.css";
 
 function SliderHome() {
     return (
-        <div className="container mb-5 mt-16 mx-auto">
+        <div className="container px-5 lg:px-0 mb-5 mt-16 mx-auto">
             <div className="carousel">
                 <Slider
                     autoplay={false}
@@ -22,9 +22,9 @@ function SliderHome() {
 
                     dotsClass="slick-dots"
                 >
-                    {data.map((item) => (
-                        <div>
-                            <img src={item} className="rounded-3xl" alt="" style={{ width: "100%", height: "75vh" }} />
+                    {data.map((item, index) => (
+                        <div key={index}>
+                            <img src={item} className="rounded-3xl img-slider-bg" alt="" />
                         </div>
                     ))}
                 </Slider>
