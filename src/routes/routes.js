@@ -11,7 +11,6 @@ function Pages() {
                 <Route path='/catalogo' element={<Shop/>}/>
                 <Route path="/shop/product" element={<DetailProduct/>}/>
                 <Route path="/shop/category" element={<Category/>}/>
-                
         </Routes>
     );
 }

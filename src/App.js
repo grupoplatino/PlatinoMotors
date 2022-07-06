@@ -1,14 +1,15 @@
 import './App.css';
-import {  HashRouter as Router } from "react-router-dom";
+import {HashRouter } from "react-router-dom";
 import Layout from './config/theme/layout';
 import Pages from './routes/routes';
+
 function App() {
   return (
-    <Router>
+    <HashRouter>
         <Layout>
-            <Pages/>
+             <Pages/>
         </Layout>
-    </Router>
+    </HashRouter>
   );
 }
 export default App;
