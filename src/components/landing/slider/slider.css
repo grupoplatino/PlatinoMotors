@@ -107,8 +107,8 @@
   height: 75vh;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .img-slider-bg{
-    height: 50vh;
+    height: 40vh !important;
   }
 }

@@ -70,7 +70,14 @@ const Footer = () => {
         cssEase: "linear",
         responsive: [
             {
-                breakpoint: 900,
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 4,
                     slidesToScroll: 1,
@@ -160,21 +167,24 @@ const Footer = () => {
             </div>
             <div className="max-w-7xl container mx-auto px-4 mb-4">
                 <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
-                    <div className="mb-0 sm:mb-0 justify-items-start">
+                    <div className="hidden sm:block">
                         <p className="text-center sm:text-start text-sm font-pop">© 2021 Distribuidora Platino S.A. Todos los derechos reservados.</p>
                     </div>
                     <div className="mb-5 sm:mb-0 grid grid-cols-1 sm:grid-cols-2">
-                        <div className="grid grid-cols-1 justify-items-center sm:justify-items-start">
-                            <img className="h-10 mb-5 sm:h-10" src={PlatinoHnWhite} alt="Platino Hn" />
+                        <div className="mx-auto">
+                            <img className="h-10 mb-5" src={PlatinoHnWhite} alt="Platino Hn" />
                         </div>
-                        <div className="grid grid-cols-1 justify-items-center sm:justify-items-end">
-                            <img className="h-10 sm:h-10" src={GrupoPlatinoAllWhite} alt="Grupo Platino" />
+                        <div className="sm:hidden mb-5">
+                            <p className="text-center sm:text-start text-sm font-pop">© 2021 Distribuidora Platino S.A. Todos los derechos reservados.</p>
+                        </div>
+                        <div className="mx-auto">
+                            <img className="h-10" src={GrupoPlatinoAllWhite} alt="Grupo Platino" />
                         </div>
                     </div>
                 </div>
             </div>
             <div className="bg-white">
-                <div className="container mx-auto px-4 lg:px-0 py-6">
+                <div className="mx-5 lg:px-0 py-6">
                     <Slider {...settings}>
                         {companies.map(function (item, index) {
                             return (

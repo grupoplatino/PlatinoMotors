@@ -28,7 +28,7 @@ function SliderOpinion() {
                                         <p className="font-pop font-extrabold text-white mb-4">Titulo de la opinion</p>
                                     </div>
                                     <div className="flex justify-center ">
-                                        <p className="mx-6 md:mx-10 lg:mx-14 font-pop text-white font-medium text-center"> Loren imsum et dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo cosequat.</p>
+                                        <p className="mx-6 md:mx-24 lg:mx-14 font-pop text-white font-medium text-center"> Loren imsum et dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo cosequat.</p>
                                     </div>
                                     <div className="flex justify-center align-middle pt-5">
                                         <div className="">

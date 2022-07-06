@@ -1,5 +1,6 @@
 {
   "name": "platino-motors",
+  "homepage": "https://grupoplatino.github.io/PlatinoMotors",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
