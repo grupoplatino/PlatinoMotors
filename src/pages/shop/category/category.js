@@ -5,6 +5,7 @@ function Category() {
         {
             id: 1,
             status: "Disponible",
+            brand: "SANY",
             name: "SY11 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
@@ -76,6 +77,7 @@ function Category() {
         {
             id: 1,
             status: "No Disponible",
+            brand: "SANY",
             name: "SY12 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
@@ -147,6 +149,7 @@ function Category() {
         {
             id: 1,
             status: "Por Encargo",
+            brand: "SANY",
             name: "SY13 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
@@ -218,6 +221,7 @@ function Category() {
         {
             id: 1,
             status: "Disponible",
+            brand: "SANY",
             name: "SY16 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
@@ -289,6 +293,7 @@ function Category() {
         {
             id: 1,
             status: "Disponible",
+            brand: "SANY",
             name: "SY16 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
@@ -360,6 +365,7 @@ function Category() {
         {
             id: 1,
             status: "Disponible",
+            brand:"SANY",
             name: "SY16 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
@@ -431,6 +437,7 @@ function Category() {
         {
             id: 1,
             status: "Disponible",
+            brand: "SANY",
             name: "SY16 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
@@ -502,6 +509,7 @@ function Category() {
         {
             id: 1,
             status: "Disponible",
+            brand: "SANY",
             name: "SY16 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
@@ -573,6 +581,7 @@ function Category() {
         {
             id: 1,
             status: "Disponible",
+            brand: "SANY",
             name: "SY16 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
@@ -659,8 +668,8 @@ function Category() {
 
     return (
         <>
-           <HeroCategory category={categories[2]} products={products}/>
-           <ProductCollection category={categories[2]} products={products} />
+           <HeroCategory category={categories[0]} products={products}/>
+           <ProductCollection category={categories[0]} products={products} />
         </>
     );
 }
