@@ -1,6 +1,6 @@
 //Layout Components
 export {default as NavBar} from './layout/nav-bar';
-export {default as Foother} from './layout/foother';
+export {default as Footer} from './layout/footer';
 //Components for Home Page
 export {default as Hero} from './landing/hero';
 export {default as Searcher} from './landing/searcher';

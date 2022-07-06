@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Home, Financing, Contact, Services, Shop, DetailProduct, Category} from "../pages";
 
 function Pages() {
-    return ( 
+    return (
         <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/financiamiento' element={<Financing/>}/>
@@ -13,6 +13,6 @@ function Pages() {
                 <Route path="/shop/product" element={<DetailProduct/>}/>
                 <Route path="/shop/category" element={<Category/>}/>
         </Routes>
-     );
+    );
 }
 export default Pages;

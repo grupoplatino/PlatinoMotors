@@ -1,11 +1,11 @@
-import { Foother, NavBar } from "../../components";
+import { Footer, NavBar } from "../../components";
 
 function Layout({children}) {
     return (
         <div className='h-screen'>
         <NavBar/>
          {children}
-        <Foother/>
+        <Footer/>
         </div>
     );
 }
