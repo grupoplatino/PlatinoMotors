@@ -15,9 +15,10 @@ import {
     PlatinoLogistic,
     PlatinoRepuestos,
     PlatinoSoftware,
-    PlatinoUsados
+    PlatinoUsados,
+    RightArrowWhiteIcon
 } from "../../assets/index";
-import arrow_white from "../../assets/icons/rigth_arrow_white.svg";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -159,7 +160,7 @@ const Footer = () => {
                         <p className="text-sm font-light font-pop hover:opacity-80 flex items-center">
                             <a target="_blank" rel="noreferrer" href="https://www.grupoplatino.hn/#/Careers">Ver Plazas Vacantes </a>
                             <span>
-                                <img className="h-3 ml-3" src={arrow_white} alt="" />
+                                <img className="h-3 ml-3" src={RightArrowWhiteIcon} alt="" />
                             </span>
                         </p>
                     </div>

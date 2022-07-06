@@ -8,9 +8,10 @@ export default function Navbar({ fixed }) {
 
       <nav className="fixed w-screen flex flex-wrap items-center z-20 justify-between px-2 py-2 bg-background">
         <div className={"container px-4 mx-auto flex items-center justify-center sm:justify-start " +(navbarOpen ? "flex-wrap" : " flex-nowrap")}>
-          <a href="/">
+          <Link to="/">
             <img className="h-10 container w-auto md:h-15" src={PlatinoMotorsBlack} alt="Platino Motors Logo" />
-          </a>
+          </Link>
+          
           <div className="w-full relative flex justify-end">
             <button
               className="cursor-pointer leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent lg:hidden outline-none focus:outline-none"

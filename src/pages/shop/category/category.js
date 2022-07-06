@@ -80,13 +80,13 @@ function Category() {
             brand: "SANY",
             name: "SY12 C EU-US",
             cucharon: '0.04m',
-            motorPower: "10,3/2200kW/rpm",
+            motorPower: "112,2/2200kW/rpm",
             categoryId: 1,
             category: "Excavadora",
             subCategoryId: 1,
             subCategory: "Excavadora Mediana",
             img: "https://www.sanyglobal.com/all/d/file/p/2016-12-16/68f19ca0a089c2b4d8149a4283e52f42.jpg",
-            motor: "Yanmar 3TNV70",
+            motor: "Yanmar 14TNV8",
             weight: "1920kg",
             manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
             qualities: [
@@ -668,8 +668,8 @@ function Category() {
 
     return (
         <>
-           <HeroCategory category={categories[0]} products={products}/>
-           <ProductCollection category={categories[0]} products={products} />
+           <HeroCategory category={categories[2]} products={products}/>
+           <ProductCollection category={categories[2]} products={products} />
         </>
     );
 }
