@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/PlatinoMotors/static/css/main.d81a1ccf.css",
-    "main.js": "/PlatinoMotors/static/js/main.123f6489.js",
+    "main.css": "/PlatinoMotors/static/css/main.6f4e2c7a.css",
+    "main.js": "/PlatinoMotors/static/js/main.fe339e87.js",
     "static/media/services_hero.png": "/PlatinoMotors/static/media/services_hero.2a242535a23e3d8bd442.png",
     "static/media/sany-retroexcavadora.png": "/PlatinoMotors/static/media/sany-retroexcavadora.88f6e6762bc353aaae69.png",
     "static/media/hero_background.png": "/PlatinoMotors/static/media/hero_background.4466fde4e04da10df971.png",
@@ -25,6 +25,7 @@
     "static/media/platino_motors_logo_white_letters.svg": "/PlatinoMotors/static/media/platino_motors_logo_white_letters.c61b529a79988627114bc9a8fee39370.svg",
     "static/media/tools_icon.svg": "/PlatinoMotors/static/media/tools_icon.7f1c2ab4844f32e3d66a35085721f722.svg",
     "static/media/platino_motors_logo.svg": "/PlatinoMotors/static/media/platino_motors_logo.6788eaf092cb747a1d0e939a5cb66d26.svg",
+    "static/media/update_white_icon.svg": "/PlatinoMotors/static/media/update_white_icon.c54d4dc3ef60de21b387344404876344.svg",
     "static/media/logo_platinohn_white.svg": "/PlatinoMotors/static/media/logo_platinohn_white.e517f5e233842923d29cdcb30aa17d89.svg",
     "static/media/slick.svg": "/PlatinoMotors/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/iso_gray.svg": "/PlatinoMotors/static/media/iso_gray.9d5dabda297c2a08cb59fb48f30b2b64.svg",
@@ -55,11 +56,12 @@
     "static/media/open_new_tab_icon.svg": "/PlatinoMotors/static/media/open_new_tab_icon.2317b40cc7ccb3d04883e35f534ae1b8.svg",
     "static/media/right_arrow_black.svg": "/PlatinoMotors/static/media/right_arrow_black.146ded2110477f7ba9d8c4f4eee73987.svg",
     "static/media/linkedin_icon.svg": "/PlatinoMotors/static/media/linkedin_icon.9960d005bbffe9dbd9d2e4a0c0b28573.svg",
-    "main.d81a1ccf.css.map": "/PlatinoMotors/static/css/main.d81a1ccf.css.map",
-    "main.123f6489.js.map": "/PlatinoMotors/static/js/main.123f6489.js.map"
+    "static/media/shopping_cart.svg": "/PlatinoMotors/static/media/shopping_cart.cd430c46ae9c8a2a3439ecd24135af89.svg",
+    "main.6f4e2c7a.css.map": "/PlatinoMotors/static/css/main.6f4e2c7a.css.map",
+    "main.fe339e87.js.map": "/PlatinoMotors/static/js/main.fe339e87.js.map"
   },
   "entrypoints": [
-    "static/css/main.d81a1ccf.css",
-    "static/js/main.123f6489.js"
+    "static/css/main.6f4e2c7a.css",
+    "static/js/main.fe339e87.js"
   ]
 }
