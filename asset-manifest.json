@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/PlatinoMotors/static/css/main.e72c3b52.css",
-    "main.js": "/PlatinoMotors/static/js/main.562b2cfe.js",
+    "main.css": "/PlatinoMotors/static/css/main.4e7e386c.css",
+    "main.js": "/PlatinoMotors/static/js/main.98729543.js",
     "static/media/services_hero.png": "/PlatinoMotors/static/media/services_hero.2a242535a23e3d8bd442.png",
     "static/media/sany-retroexcavadora.png": "/PlatinoMotors/static/media/sany-retroexcavadora.88f6e6762bc353aaae69.png",
     "static/media/hero_background.png": "/PlatinoMotors/static/media/hero_background.4466fde4e04da10df971.png",
@@ -17,6 +17,7 @@
     "static/media/platino_repuestos.png": "/PlatinoMotors/static/media/platino_repuestos.e9be5a72d77e3aadae1d.png",
     "static/media/platino_usados.png": "/PlatinoMotors/static/media/platino_usados.fcc0c9be79e2b8f2c43b.png",
     "static/media/platino_ferreteria.png": "/PlatinoMotors/static/media/platino_ferreteria.bf84ce725d920f00294b.png",
+    "static/media/sany_red.png": "/PlatinoMotors/static/media/sany_red.afcbefbbcb1432dd81e7.png",
     "static/media/inmobiliaria_platino.png": "/PlatinoMotors/static/media/inmobiliaria_platino.4e61f25d176c1dbae63d.png",
     "static/media/grupo_platino_white.png": "/PlatinoMotors/static/media/grupo_platino_white.1401ba72c789739b9a3c.png",
     "static/media/sany_logo_white.png": "/PlatinoMotors/static/media/sany_logo_white.83b5022773e14eee1d52.png",
@@ -54,11 +55,11 @@
     "static/media/open_new_tab_icon.svg": "/PlatinoMotors/static/media/open_new_tab_icon.2317b40cc7ccb3d04883e35f534ae1b8.svg",
     "static/media/right_arrow_black.svg": "/PlatinoMotors/static/media/right_arrow_black.146ded2110477f7ba9d8c4f4eee73987.svg",
     "static/media/linkedin_icon.svg": "/PlatinoMotors/static/media/linkedin_icon.9960d005bbffe9dbd9d2e4a0c0b28573.svg",
-    "main.e72c3b52.css.map": "/PlatinoMotors/static/css/main.e72c3b52.css.map",
-    "main.562b2cfe.js.map": "/PlatinoMotors/static/js/main.562b2cfe.js.map"
+    "main.4e7e386c.css.map": "/PlatinoMotors/static/css/main.4e7e386c.css.map",
+    "main.98729543.js.map": "/PlatinoMotors/static/js/main.98729543.js.map"
   },
   "entrypoints": [
-    "static/css/main.e72c3b52.css",
-    "static/js/main.562b2cfe.js"
+    "static/css/main.4e7e386c.css",
+    "static/js/main.98729543.js"
   ]
 }
