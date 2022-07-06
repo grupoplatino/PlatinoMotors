@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { PlatinoMotorsBlack } from "../../assets/index";
 
 export default function Navbar({ fixed }) {
@@ -24,36 +25,16 @@ export default function Navbar({ fixed }) {
           <div className={"lg:flex pt-2 pb-0 flex-grow items-center" +(navbarOpen ? "flex" : " hidden")}>
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item ">
-                <a
-                  className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75"
-                  href="/catalogo"
-                >
-                  <span className="ml-2">Venta/Renta</span>
-                </a>
+                <Link to="/catalogo"><span className="ml-2 px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Venta/Renta</span></Link>
               </li>
               <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex align-middle items-center text-sm font-bold leading-snug hover:opacity-75"
-                  href="/servicios"
-                >
-                 <span className="ml-2 align-middle">Partes/Servicio</span>
-                </a>
+                <Link to="/servicios"><span className="ml-2 px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Partes/Servicio</span></Link>
               </li>
               <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-sm font-bold hover:opacity-75"
-                  href="/financiamiento"
-                >
-                  <span className="ml-2">Financiamiento</span>
-                </a>
+                <Link to="/financiamiento"><span className="ml-2 px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Financiamiento</span></Link>
               </li>
               <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-sm font-bold leading-snug text-blackPearl hover:opacity-75"
-                  href="/contacto"
-                >
-                  <span className="ml-2 mr-8">Contacto</span>
-                </a>
+                <Link to="/contacto"><span className="ml-2 px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Contacto</span></Link>
               </li>
               <li className="nav-item">
                 <button type="button" className="text-background bg-gradient-to-r rounded-3xl pr-6 pl-6 pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 

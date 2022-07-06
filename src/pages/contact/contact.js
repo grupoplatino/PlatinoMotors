@@ -54,7 +54,11 @@ function Contact() {
                         <form id="create-course-form">
                             <div className="overflow-hidden">
                                 <div className='flex justify-center'>
-                                    <p className='font-pop text-black text-2xl font-semibold'>Escribenos</p></div>
+                                    <p className='font-pop text-black text-3xl font-semibold'>Escribenos</p>
+                                </div>
+                                <div className='flex justify-center px-10'>
+                                    <p className='font-pop text-gray-500 text-sm text-center font-semibold'>Llena el siguiente formulario y dentro de poco un asesor de servicio al cliente se pondra en contacto contigo.</p>
+                                </div>
                                 <div className="px-4 py-5 sm:p-6">
                                     <div className="grid grid-cols-6 gap-6">
                                         <div className="col-span-6 sm:col-span-3">
