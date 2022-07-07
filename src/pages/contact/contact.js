@@ -38,7 +38,7 @@ function Contact() {
                         </a>
                     </div>
                     <div className="flex justify-center w-full">
-                        <p data-aos="fade-up" data-aos-easing="ease-in-back" data-aos-delay="1500" data-aos-offset="0" className="text-base font-light font-pop text-gray-400">
+                        <p data-aos="fade-up" data-aos-easing="ease-in-back" data-aos-delay="1500" data-aos-offset="0" className="text-base font-light font-pop text-gray-800">
                             Buscanos en nuestra red social oficial y encuentra nuestras plazas disponibles.
                         </p>
                     </div>
@@ -74,7 +74,7 @@ function Contact() {
                                         <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Asunto"></input>
                                         </div>
                                         <div className="col-span-6 sm:col-span-6">
-                                            <textarea onChange={e => setMessage({ ...message, message: e.target.value })} name="message" rows="10" placeholder="Escribe tu mensaje aqui..." className="mt-1 block border border-otherLight-400 p-2 w-full  shadow-sm bg-otherLight-50 sm:text-sm font-pop border-gray-300" required />
+                                            <textarea onChange={e => setMessage({ ...message, message: e.target.value })} name="message" rows="10" placeholder="Escribe tu mensaje aqui..." className="mt-1 block border p-2 w-full  shadow-sm bg-otherLight-50 sm:text-sm font-pop border-gray-300" required />
                                         </div>
                                     </div>
                                 </div>

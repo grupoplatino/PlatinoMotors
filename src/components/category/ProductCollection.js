@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { UpArrowOrangeIcon, UpdateWhiteIcon, DownArrowBlackIcon } from '../../assets';
-import ProductCard from './product_card';
+import {ProductCard} from '../../components';
+
 
 function ProductCollection(props) {
     const [activeIndex, setActiveIndex] = useState(2);
+    const [activeFilter, setActiveFilter] = useState(2);
     const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
+    const handleSetFilter = (index) => (activeFilter !== index) && setActiveFilter(index);
     let products = [];
     let filters = [
         {
@@ -77,7 +80,7 @@ function ProductCollection(props) {
                                 {
                                     filters.map((item, index) => (
                                         <div key={index}>
-                                            <div onClick={() => handleSetIndex(index)} className='mx-2 py-2'>
+                                            <div onClick={() => handleSetIndex(index)} className='mx-2 py-2 cursor-pointer'>
                                                 <div className='flex justify-between '>
                                                     <p className='font-pop text-sm font-semibold '>{item.title}</p>
                                                     <button>
@@ -111,8 +114,7 @@ function ProductCollection(props) {
                                                         }
                                                     </ul>
                                                 </div>
-                                            )
-                                            }
+                                            )}
                                         </div>
                                     ))
                                 }

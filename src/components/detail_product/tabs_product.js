@@ -1,42 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import { DownloadBlackIcon } from "../../assets";
 
 const products = [
     { name: "SY-AAAA-1234", id: 1 },
     { name: "SY-BBBB-1234", id: 1 },
-    { name: "SY-AABA-1234", id: 1 },
-    { name: "SY-ACCD-1234", id: 1 },
-    { name: "SY-EEED-1234", id: 1 },
+    { name: "SY-CCCC-1234", id: 2 },
+    { name: "SY-DDDD-1234", id: 2 },
+    { name: "SY-EEEE-1234", id: 3 },
 ]
 const productsCategories = [
     { name: "Volquetas", id: 1 },
-    { name: "Retroexcavadora", id: 1 },
-    { name: "Moto Niveladora", id: 1 },
-    { name: "SY-ACCD-1234", id: 1 },
-    { name: "SY-EEED-1234", id: 1 },
+    { name: "Retroexcavadora", id: 2 },
+    { name: "Moto Niveladora", id: 3 },
 ]
 const openInNewTab = url => {
     window.open(url, "_blank", "noopener,noreferrer");
 };
 
-function TabsProduct(props) {
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+};
 
+function TabsProduct(props) {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
+    let tabs = [
+        { name: 'Características', href: '', current: true, child: <Qualities qualities={props.product.qualities} /> },
+        { name: 'Ficha Técnica', href: '', current: false, child: <DataSheet data={props.product} /> },
+        { name: 'Cotización', href: '', current: false, child: <QuotePetition product={props.product} /> },
+    ]
     return (
-        <div className="bg-otherLight-50">
+        <div className="bg-background pb-10">
+            
+            <div className="block  ">
+                <div className="bg-white pt-2 px-2">
+                    <nav className="-mb-px flex justify-center space-x-1 md:space-x-5" aria-label="Tabs">
+                        {tabs.map((tab, index) => (
+                            <p
+                                key={index}
+                                onClick={() => handleSetIndex(index)}
+                                className={classNames(
+                                    activeIndex === index
+                                        ? 'border-primary text-primary font-pop font-semibold  text-base'
+                                        : 'border-transparent text-blackPearl-900 font-pop hover:text-gray-700 text-base hover:border-gray-300',
+                                    'whitespace-nowrap pt-3 pb-2 px-1 border-b-2 font-medium cursor-pointer text-sm'
+                                )}
+                            >
+                                {tab.name}
+                            </p>
+                        ))}
+                    </nav>
+                </div>
+            </div>
+
             <div className="container mx-auto">
-                <div className="flex mx-5">
-                    <Qualities qualities={props.product.qualities} />
+                <div className="flex justify-center">
+                        <div className="grow">
+                            {
+                                tabs[activeIndex].child
+                            }
+                        </div>
                 </div>
-                <div className="flex mx-5">
-                    <div className="grow">
-                        <DataSheet data={props.product} />
-                    </div>
-                </div>
-                <div className="flex mx-5">
-                    <div className="grow">
-                        <QuotePetition product={props.product} />
-                    </div>
-                </div>
+
             </div>
         </div>
     );
@@ -54,7 +79,7 @@ function Qualities(props) {
                             <div key={
                                 index
                             } className="border-none rounded-md tab mt-3">
-                                <div className=" bg-white relative">
+                                <div className="bg-white relative">
                                     <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
                                     <header className="flex justify-between items-center align-middle py-2 px-5  cursor-pointer select-none tab-label" >
                                         <div className="flex  pt-2 align-middle">
@@ -92,7 +117,6 @@ function DataSheet(props) {
     let quantityData = sheetdata.length;
     let leftSheet = [], rightSheet = [];
     let half = (quantityData / 2);
-    console.log(props.data.manualAttachment);
     if (quantityData % 2 === 0) {
         let counter = 0;
         for (let i = 0; i < half; i++) {
@@ -119,7 +143,7 @@ function DataSheet(props) {
             <div className="flex py-5 justify-center">
                 <p className="font-pop text-2xl font-semibold">Ficha Técnica</p>
             </div>
-            <div className="grid grid-cols-1 gap-1 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-1 mx-5 md:mx-0 md:grid-cols-2">
                 <div className="grid grid-cols-2">
                     <div>
                         {
@@ -169,7 +193,7 @@ function DataSheet(props) {
                     </div>
                 </div>
             </div>
-            <div className="flex justify-center py-5">
+            <div className="flex justify-center px-5 md:px-0 py-5">
                 <div className="ml-2 grow sm:grow-0 ">
                     <button type="button" onClick={() => openInNewTab(props.data.manualAttachment)} className="text-black font-pop bg-white w-full rounded-3xl pr-6 pl-6 focus:ring-4 
                                     focus:outline-none focus:ring-blue-300  border border-black font-medium text-sm px-5 py-4 sm:py-2 text-center mr-2 mb-2">
@@ -186,13 +210,13 @@ function DataSheet(props) {
 function QuotePetition(props) {
     return (<div>
         <form>
-            <div className="flex justify-center">
+            <div className="flex pt-5 justify-center">
                 <p className="font-pop text-2xl font-semibold">Cotización</p>
             </div>
-            <div className="flex justify-center py-5">
+            <div className="flex justify-center px-2 py-5">
                 <div className="grid  grow px-2 md:px-48 grid-cols-1 md:grid-cols-2">
-                    <div className="flex  mb-0 mx-2">
-                        <select name="products" className="font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2">
+                    <div className="flex py-2  grow  mb-0 ">
+                        <select name="categories" className="font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2">
                             {
                                 productsCategories.map(function (item, index) {
                                     return (
@@ -202,7 +226,7 @@ function QuotePetition(props) {
                             }
                         </select>
                     </div>
-                    <div className="flex  mb-0 mx-2">
+                    <div className="flex grow py-2 mb-0 ">
                         <select name="products" className="font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2">
                             {
                                 products.map(function (item, index) {
@@ -215,19 +239,19 @@ function QuotePetition(props) {
                     </div>
                 </div>
             </div>
-            <div className="flex px-2 md:px-48 justify-center">
+            <div className="flex px-5 sm:px-0  justify-center">
                 <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Nombres"></input>
             </div>
-            <div className="flex px-2 md:px-48 justify-center">
+            <div className="flex px-5 sm:px-0 justify-center">
                 <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Compañia"></input>
             </div>
-            <div className="flex px-2 md:px-48 justify-center">
+            <div className="flex px-5 sm:px-0 justify-center">
                 <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="RTN"></input>
             </div>
-            <div className="flex px-2 md:px-48 justify-center">
+            <div className="flex px-5 sm:px-0 justify-center">
                 <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Numero"></input>
             </div>
-            <div className="flex px-2 md:px-48 justify-center">
+            <div className="flex px-5 sm:px-0 justify-center">
                 <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="E-mail"></input>
             </div>
             <div>

@@ -113,7 +113,9 @@ const Footer = () => {
                             <div className="mt-2"><img className="h-3" src={EmailWhiteIcon} alt="email icon" /></div>
                             <div>
                                 <p className="font-pop">
+                                    <a href="mailto:havila@platino.hn">
                                     havila@platino.hn
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -129,7 +131,9 @@ const Footer = () => {
                             <div className="mt-1"><img className="h-4" src={FacebookWhiteIcon} alt="facebook icon" /></div>
                             <div>
                                 <p className="font-pop">
+                                    <a href="https://www.facebook.com/platinomotors/" target="_blank" rel="noreferrer">
                                     /platinomotors
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -137,7 +141,10 @@ const Footer = () => {
                             <div className="mt-1"><img className="h-4" src={InstagramWhiteIcon} alt="instagram icon" /></div>
                             <div>
                                 <p className="font-pop">
+                                    <a href="https://www.instagram.com/platinomotors/" target="_blank" rel="noreferrer">
+
                                     @platinomotors
+                                    </a>
                                 </p>
                             </div>
                         </div>

@@ -11,7 +11,6 @@ export default function Navbar({ fixed }) {
           <Link to="/">
             <img className="h-10 container w-auto md:h-15" src={PlatinoMotorsBlack} alt="Platino Motors Logo" />
           </Link>
-          
           <div className="w-full relative flex justify-end">
             <button
               className="cursor-pointer leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent lg:hidden outline-none focus:outline-none"
@@ -26,7 +25,7 @@ export default function Navbar({ fixed }) {
           <div className={"lg:flex pt-2 pb-0 flex-grow items-center" +(navbarOpen ? "flex" : " hidden")}>
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item ">
-                <Link to="/catalogo"><span className="ml-2 px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Venta/Renta</span></Link>
+                <Link to="/shop/category"><span className="ml-2 px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Venta/Renta</span></Link>
               </li>
               <li className="nav-item">
                 <Link to="/servicios"><span className="ml-2 px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Partes/Servicio</span></Link>
