@@ -9,6 +9,7 @@ export {default as ReferneceImgLeft} from './reference_img_left/reference_img_le
 export {default as ReferenceImgRight} from './reference_img_right/reference_img_right';
 export {default as SliderOpinions} from './landing/opinion_slider/opinion_slider';
 export {default as ContactUs} from './landing/contact_us';
+export {default as HeroCategorySlider} from './landing/hero_slider';
 //Components for Services
 export {default as HeroServices} from './services/hero_services';
 export {default as Maintenance} from './services/maintenance';
@@ -27,4 +28,4 @@ export {default as Maps} from './contact/maps';
 //Components for Category Shop Page
 export {default as HeroCategory} from './category/hero_category';
 export {default as ProductCollection} from './category/ProductCollection';
-export {default as ProductCard} from './category/product_card'
+export {default as ProductCard} from './category/product_card';
