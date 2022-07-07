@@ -1,6 +1,6 @@
 //Layout Components
 export {default as NavBar} from './layout/nav-bar';
-export {default as Foother} from './layout/foother';
+export {default as Footer} from './layout/footer';
 //Components for Home Page
 export {default as Hero} from './landing/hero';
 export {default as Searcher} from './landing/searcher';
@@ -24,3 +24,7 @@ export {default as BannerProduct} from './detail_product/banner_product';
 export {default as TabsProduct} from './detail_product/tabs_product';
 //Components for Contact Page
 export {default as Maps} from './contact/maps';
+//Components for Category Shop Page
+export {default as HeroCategory} from './category/hero_category';
+export {default as ProductCollection} from './category/ProductCollection';
+export {default as ProductCard} from './category/product_card'

@@ -11,12 +11,12 @@ function Contact() {
 
     return (
         <div>
-            <section className="w-full financingHero py-24 text-white bg-success bg-img-contact-header">
+            <section className="w-full financingHero py-24 text-white bg-img-contact-header">
                 <div className="flex items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-16 max-w-4xl">
                     <div className="flex flex-col w-full mx-auto text-center">
                         <div className="relative items-center w-full mx-auto align-middle">
                             <div className="pb-12">
-                                <h1 data-aos="zoom-in" className="max-w-4xl text-4xl font-bold font-pop leading-none tracking-tighter text-neutral-600 md:text-4xl lg:text-4xl lg:max-w-7xl">
+                                <h1 data-aos="zoom-in" className="max-w-4xl text-4xl font-bold font-pop leading-none tracking-tighter md:text-4xl lg:text-4xl lg:max-w-7xl">
                                     Contáctanos
                                 </h1>
                                 <p data-aos="zoom-in" className="mt-5 text-base font-pop leading-relaxed">
@@ -38,7 +38,7 @@ function Contact() {
                         </a>
                     </div>
                     <div className="flex justify-center w-full">
-                        <p data-aos="fade-up" data-aos-easing="ease-in-back" data-aos-delay="1500" data-aos-offset="0" className="text-base font-light font-pop text-gray-400">
+                        <p data-aos="fade-up" data-aos-easing="ease-in-back" data-aos-delay="1500" data-aos-offset="0" className="text-base font-light font-pop text-gray-800">
                             Buscanos en nuestra red social oficial y encuentra nuestras plazas disponibles.
                         </p>
                     </div>
@@ -54,7 +54,11 @@ function Contact() {
                         <form id="create-course-form">
                             <div className="overflow-hidden">
                                 <div className='flex justify-center'>
-                                    <p className='font-pop text-black text-2xl font-semibold'>Escribenos</p></div>
+                                    <p className='font-pop text-black text-3xl font-semibold'>Escribenos</p>
+                                </div>
+                                <div className='flex justify-center px-10'>
+                                    <p className='font-pop text-gray-500 text-sm text-center font-semibold'>Llena el siguiente formulario y dentro de poco un asesor de servicio al cliente se pondra en contacto contigo.</p>
+                                </div>
                                 <div className="px-4 py-5 sm:p-6">
                                     <div className="grid grid-cols-6 gap-6">
                                         <div className="col-span-6 sm:col-span-3">
@@ -70,7 +74,7 @@ function Contact() {
                                         <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Asunto"></input>
                                         </div>
                                         <div className="col-span-6 sm:col-span-6">
-                                            <textarea onChange={e => setMessage({ ...message, message: e.target.value })} name="message" rows="10" placeholder="Escribe tu mensaje aqui..." className="mt-1 block border border-otherLight-400 p-2 w-full  shadow-sm bg-otherLight-50 sm:text-sm font-pop border-gray-300" required />
+                                            <textarea onChange={e => setMessage({ ...message, message: e.target.value })} name="message" rows="10" placeholder="Escribe tu mensaje aqui..." className="mt-1 block border p-2 w-full  shadow-sm bg-otherLight-50 sm:text-sm font-pop border-gray-300" required />
                                         </div>
                                     </div>
                                 </div>
