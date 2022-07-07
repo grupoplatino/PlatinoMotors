@@ -1,10 +1,14 @@
-import React from 'react';
-import { UpdateWhiteIcon } from '../../assets';
-import ProductCard from './product_card';
+import React, { useState } from 'react';
+import { UpArrowOrangeIcon, UpdateWhiteIcon, DownArrowBlackIcon } from '../../assets';
+import {ProductCard} from '../../components';
+
 
 function ProductCollection(props) {
+    const [activeIndex, setActiveIndex] = useState(2);
+    const [activeFilter, setActiveFilter] = useState(2);
+    const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
+    const handleSetFilter = (index) => (activeFilter !== index) && setActiveFilter(index);
     let products = [];
-
     let filters = [
         {
             title: "Marca",
@@ -24,7 +28,6 @@ function ProductCollection(props) {
         }
 
     ];
-
     for (let i = 0; i < props.products.length; i++) {
         if (props.products[i].categoryId === props.category.id) {
             products.push(props.products[i]);
@@ -49,7 +52,6 @@ function ProductCollection(props) {
     filters[1].values = motors;
     filters[2].values = motorsPower;
     filters[3].values = statuses;
-
     return (
         <div className="bg-background">
             <div className="container mx-auto">
@@ -62,8 +64,7 @@ function ProductCollection(props) {
                                 </div>
                                 <div className="flex items-center">
                                     <button>
-                                        <div className='flex '>
-
+                                        <div className='flex'>
                                             <div>
                                                 <p className='text-white font-pop text-sm mr-1'>limpiar</p>
                                             </div>
@@ -75,31 +76,47 @@ function ProductCollection(props) {
                                     </button>
                                 </div>
                             </div>
-                            <div className="mt-1 bg-white py-2 rounded-md">
+                            <div className="mt-1 bg-white py-4 px-2 rounded-md">
                                 {
-                                    filters.map((item,index)=>(
-                                    <div key={index}>
-                                        <div className='mx-2'>
-                                            <p className='font-pop text-sm py-1 font-semibold '>{item.title}</p>
-                                            <hr className='bg-primary h-0.5 border-none'></hr>
-                                        </div>
-                                        <div className='mx-2'>
-                                        <ul>
-                                            {
-                                                item.values.map((filter, pk)=>(
-                                                    <div key={pk}>
-                                                        <li>
-                                                            <div className='flex justify-between mr-2'>
-                                                            <p className='font-pop text-gray-500'>{filter}</p>
-                                                            <input type="checkbox" className=''></input>
-                                                            </div>
-                                                        </li>
-                                                    </div>
-                                                ))
-                                            }
-                                        </ul>
+                                    filters.map((item, index) => (
+                                        <div key={index}>
+                                            <div onClick={() => handleSetIndex(index)} className='mx-2 py-2 cursor-pointer'>
+                                                <div className='flex justify-between '>
+                                                    <p className='font-pop text-sm font-semibold '>{item.title}</p>
+                                                    <button>
+                                                        {
+                                                            (activeIndex === index) ?
+                                                            <img className='h-2' src={UpArrowOrangeIcon} alt="up" />
+                                                            :<img className='h-2' src={DownArrowBlackIcon} alt="down"/>
+                                                        }
+                                                    </button>
+                                                </div>
+                                                {
+                                                    (activeIndex === index) 
+                                                    ? <hr className='bg-primary h-0.5 border-none mb-1'></hr>
+                                                    : <hr className=' bg-lightPlaceHolder h-0.5 border-none mb-1'></hr>
+                                                }
                                             </div>
-                                    </div>))
+                                            {(activeIndex === index) && (
+                                                <div className='mx-2'>
+                                                    <ul className='mb-2'>
+                                                        {
+                                                            item.values.map((filter, pk) => (
+                                                                <div key={pk}>
+                                                                    <li>
+                                                                        <div className='flex items-center justify-between'>
+                                                                            <p className='font-pop text-gray-500 text-sm'>{filter}</p>
+                                                                            <input type="checkbox" className='w-4 h-4  border-primary rounded-2 focus:ring-0'></input>
+                                                                        </div>
+                                                                    </li>
+                                                                </div>
+                                                            ))
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))
                                 }
                             </div>
                         </div>

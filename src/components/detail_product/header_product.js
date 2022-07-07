@@ -2,7 +2,7 @@ import React from "react"
 import { CalculatorWhiteIcon, RightArrowBread, RightArrowBreadOrange, SeeIcon, ShareIcon } from "../../assets";
 function HeaderProduct(props) {
     return (
-        <div className="container mx-auto pt-14 bg-white">
+        <div className="container mx-auto pt-20 bg-white">
             <div className="flex flex-wrap justify-start pl-5 items-center">
                 <p className="pr-2 text-blackPearl-900 font-pop text-sm">Tienda</p>
                 <img className="h-3 pr-2" src={RightArrowBread} alt="icono flecha derecha" />

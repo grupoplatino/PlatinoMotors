@@ -22,8 +22,10 @@ export{default as DownloadBlackIcon} from './icons/download_black_icon.svg';
 export{default as OpenNewTabIcon} from './icons/open_new_tab_icon.svg';
 export{default as LinkedinIcon} from './icons/linkedin_icon.svg';
 export{default as UpdateWhiteIcon} from './icons/update_white_icon.svg';
-export{default as ShoppingCart} from './icons/shopping_cart.svg';
-export{default as IsoGray} from './icons/iso_gray.svg';
+export{default as ShoppingCartIcon} from './icons/shopping_cart.svg';
+export{default as IsoGrayIcon} from './icons/iso_gray.svg';
+export{default as DownArrowBlackIcon} from './icons/down_arrow_black_icon.svg';
+export{default as UpArrowOrangeIcon} from './icons/up_arrow_orange_icon.svg';
 //Logos
 export{default as GrupoPlatinoAllWhite} from './corporative_logos/grupo_platino_white.png';
 export{default as PlatinoHnWhite} from './corporative_logos/logo_platinohn_white.svg';

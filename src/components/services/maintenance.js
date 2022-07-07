@@ -38,7 +38,7 @@ function Maintenance() {
                                                     <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
                                                     <header className="flex justify-between items-center align-middle py-2 px-5  cursor-pointer select-none tab-label" >
                                                         <div className="flex  pt-2 align-middle">
-                                                            {item.icon}
+                                                                {item.icon}
                                                             <span className="text-lg ml-3">
                                                                 {item.title}
                                                             </span>

@@ -15,9 +15,10 @@ import {
     PlatinoLogistic,
     PlatinoRepuestos,
     PlatinoSoftware,
-    PlatinoUsados
+    PlatinoUsados,
+    RightArrowWhiteIcon
 } from "../../assets/index";
-import arrow_white from "../../assets/icons/rigth_arrow_white.svg";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -112,7 +113,9 @@ const Footer = () => {
                             <div className="mt-2"><img className="h-3" src={EmailWhiteIcon} alt="email icon" /></div>
                             <div>
                                 <p className="font-pop">
+                                    <a href="mailto:havila@platino.hn">
                                     havila@platino.hn
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -128,7 +131,9 @@ const Footer = () => {
                             <div className="mt-1"><img className="h-4" src={FacebookWhiteIcon} alt="facebook icon" /></div>
                             <div>
                                 <p className="font-pop">
+                                    <a href="https://www.facebook.com/platinomotors/" target="_blank" rel="noreferrer">
                                     /platinomotors
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -136,7 +141,10 @@ const Footer = () => {
                             <div className="mt-1"><img className="h-4" src={InstagramWhiteIcon} alt="instagram icon" /></div>
                             <div>
                                 <p className="font-pop">
+                                    <a href="https://www.instagram.com/platinomotors/" target="_blank" rel="noreferrer">
+
                                     @platinomotors
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -159,7 +167,7 @@ const Footer = () => {
                         <p className="text-sm font-light font-pop hover:opacity-80 flex items-center">
                             <a target="_blank" rel="noreferrer" href="https://www.grupoplatino.hn/#/Careers">Ver Plazas Vacantes </a>
                             <span>
-                                <img className="h-3 ml-3" src={arrow_white} alt="" />
+                                <img className="h-3 ml-3" src={RightArrowWhiteIcon} alt="" />
                             </span>
                         </p>
                     </div>
