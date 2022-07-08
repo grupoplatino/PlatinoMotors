@@ -1,11 +1,12 @@
 import { React } from "react";
-import {Hero,ReferenceImgRight,ReferneceImgLeft,Searcher,SliderHome, SliderOpinions,ContactUs} from "../../components/index";
+import {Hero,ReferenceImgRight,ReferneceImgLeft,Searcher,SliderHome, SliderOpinions,ContactUs, HeroCategorySlider} from "../../components/index";
 
 
 function Home() {
     return (
         <>
         <Hero/>
+        <HeroCategorySlider/>
         <Searcher/>
         <SliderHome/>
         <ReferneceImgLeft/>

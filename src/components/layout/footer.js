@@ -16,7 +16,9 @@ import {
     PlatinoRepuestos,
     PlatinoSoftware,
     PlatinoUsados,
-    RightArrowWhiteIcon
+    RightArrowWhiteIcon,
+
+    YoutubeWhiteIcon
 } from "../../assets/index";
 
 import "slick-carousel/slick/slick.css";
@@ -58,7 +60,6 @@ const Footer = () => {
             logo: PlatinoFerreteria
         },
     ]
-
     const settings = {
         dots: false,
         infinite: true,
@@ -107,7 +108,7 @@ const Footer = () => {
                     <div className="mb-5">
                         <hr className="bg-primary mb-5 h-0.5 border-none"></hr>
                         <div className="grid justify-items-center sm:justify-items-start">
-                            <img className="h-16 sm:justify-center md:justify-start mb-10" src={PlatinoMotorsWhite} alt="Platino Motors Logo" />
+                            <img className="h-16 sm:justify-center md:justify-start mb-7" src={PlatinoMotorsWhite} alt="Platino Motors Logo" />
                         </div>
                         <div className="flex flex-nowrap align-middle gap-3 mb-2">
                             <div className="mt-2"><img className="h-3" src={EmailWhiteIcon} alt="email icon" /></div>
@@ -124,6 +125,16 @@ const Footer = () => {
                             <div>
                                 <p className="font-pop">
                                     +504 3295-1859
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex flex-nowrap align-middle gap-3 mb-2">
+                            <div className="mt-1"><img className="h-4" src={YoutubeWhiteIcon} alt="facebook icon" /></div>
+                            <div>
+                                <p className="font-pop">
+                                    <a href="https://www.youtube.com/channel/UCNVyG_w334QZAfvCrmd2i8A/" target="_blank" rel="noreferrer">
+                                    Platino Motors Honduras
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -176,14 +187,14 @@ const Footer = () => {
             <div className="max-w-7xl container mx-auto px-4 mb-4">
                 <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
                     <div className="hidden sm:block">
-                        <p className="text-center sm:text-start text-sm font-pop">© 2021 Distribuidora Platino S.A. Todos los derechos reservados.</p>
+                        <p className="text-center sm:text-start text-sm font-pop">© 2022 Distribuidora Platino S.A. Todos los derechos reservados.</p>
                     </div>
                     <div className="mb-5 sm:mb-0 grid grid-cols-1 sm:grid-cols-2">
                         <div className="mx-auto">
                             <img className="h-10 mb-5" src={PlatinoHnWhite} alt="Platino Hn" />
                         </div>
                         <div className="sm:hidden mb-5">
-                            <p className="text-center sm:text-start text-sm font-pop">© 2021 Distribuidora Platino S.A. Todos los derechos reservados.</p>
+                            <p className="text-center sm:text-start text-sm font-pop">© 2022 Distribuidora Platino S.A. Todos los derechos reservados.</p>
                         </div>
                         <div className="mx-auto">
                             <img className="h-10" src={GrupoPlatinoAllWhite} alt="Grupo Platino" />
@@ -192,12 +203,12 @@ const Footer = () => {
                 </div>
             </div>
             <div className="bg-white">
-                <div className="mx-5 lg:px-0 py-6">
+                <div className="mx-5  lg:px-0 py-6">
                     <Slider {...settings}>
                         {companies.map(function (item, index) {
                             return (
                                 <div key={index} className="text-center px-4">
-                                    <img src={item.logo} alt={item.name} />
+                                    <img className="h-10" src={item.logo} alt={item.name} />
                                 </div>
                             )
                         })}

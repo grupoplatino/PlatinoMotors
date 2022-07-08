@@ -26,6 +26,8 @@ export{default as ShoppingCartIcon} from './icons/shopping_cart.svg';
 export{default as IsoGrayIcon} from './icons/iso_gray.svg';
 export{default as DownArrowBlackIcon} from './icons/down_arrow_black_icon.svg';
 export{default as UpArrowOrangeIcon} from './icons/up_arrow_orange_icon.svg';
+export{default as YoutubeBlackIcon} from './icons/youtube_black_icon.svg';
+export{default as YoutubeWhiteIcon} from './icons/youtube_white_icon.svg';
 //Logos
 export{default as GrupoPlatinoAllWhite} from './corporative_logos/grupo_platino_white.png';
 export{default as PlatinoHnWhite} from './corporative_logos/logo_platinohn_white.svg';
@@ -51,3 +53,16 @@ export{default as ServicesHero} from './images/services_hero.png';
 export{default as MaintenanceMen} from './images/maintenance_men.webp';
 export{default as SpecialAtentionMachine} from './images/SY_500H_special_atention.png';
 export{default as SparePartsImg} from './images/SY_500H_spare_parts.png';
+
+//Category Reference Images for Home
+export {default as Fireguard} from './category_reference/bomberos.png';
+export {default as Loader} from './category_reference/cargadoras.png';
+export {default as Excavator} from './category_reference/excavadora.png';
+export {default as Crane} from './category_reference/gruas.png';
+export {default as Mixer} from './category_reference/hormigon.png';
+export {default as Mining} from './category_reference/minera.png';
+export {default as MotorGrader} from './category_reference/motoniveladora.png';
+export {default as Pilotage} from './category_reference/pilotaje.png';
+export {default as Port} from './category_reference/portuaria.png';
+export {default as VibroCompactor} from './category_reference/vibrocompactador.png';
+export {default as DumpTruck} from './category_reference/volquetas.png';
