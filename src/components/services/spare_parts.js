@@ -2,10 +2,10 @@ import { SparePartsImg } from "../../assets";
 
 function SpareParts() {
     return (
-        <div className="bg-otherLight-50 mb-2 md:mb-10">
-            <div className="container mx-auto px-2 md:px-0">
+        <div className="bg-otherLight-50">
+            <div className="container mx-auto pb-2 md:pb-5 px-2 md:px-0">
                 <div className="flex flex-wrap justify-center rounded-md md:justify-between">
-                    <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-0 mx-2 md:mx-0 bg-white rounded-xl drop-shadow-md">
+                    <div className="grid grid-cols-1 items-center bg-white md:grid-cols-2 gap-0 mx-2 md:mx-0 rounded-xl drop-shadow-md">
                         <div>
                             <div className="mx-2 md:mx-0">
                                 <img src={SparePartsImg} className="object-cover w-max mt-2 md:mt-0 md:mx-0 rounded-l-xl rounded-r-xl md:rounded-r-none" style={{ width: "100%", height: "45vh" }} alt="repuestos SANY Honduras" />

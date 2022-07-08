@@ -26,6 +26,8 @@ export{default as ShoppingCartIcon} from './icons/shopping_cart.svg';
 export{default as IsoGrayIcon} from './icons/iso_gray.svg';
 export{default as DownArrowBlackIcon} from './icons/down_arrow_black_icon.svg';
 export{default as UpArrowOrangeIcon} from './icons/up_arrow_orange_icon.svg';
+export{default as YoutubeBlackIcon} from './icons/youtube_black_icon.svg';
+export{default as YoutubeWhiteIcon} from './icons/youtube_white_icon.svg';
 //Logos
 export{default as GrupoPlatinoAllWhite} from './corporative_logos/grupo_platino_white.png';
 export{default as PlatinoHnWhite} from './corporative_logos/logo_platinohn_white.svg';

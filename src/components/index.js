@@ -19,6 +19,7 @@ export {default as SpareParts} from './services/spare_parts';
 export {default as FinancingHero} from './financing/financing_hero';
 export {default as StepsToFinancing} from './financing/steps_to_financing';
 export {default as SelectFinancingPlan} from './financing/select_financing_plan';
+export {default as LoginRequest} from './financing/login_request';
 //Components for Details of a single Prodsuct
 export {default as HeaderProduct} from './detail_product/header_product';
 export {default as BannerProduct} from './detail_product/banner_product';
