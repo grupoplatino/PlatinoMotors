@@ -1,4 +1,4 @@
-import { MaintenanceMen, ConfidenceCheckIcon, ToolsIcon } from "../../assets/index";
+import { MaintenanceMen, ConfidenceCheckIcon, ToolsIcon, OrangeCalendarIcon } from "../../assets/index";
 
 
 function Maintenance() {
@@ -38,7 +38,7 @@ function Maintenance() {
                                                     <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
                                                     <header className="flex justify-between items-center align-middle py-2 px-5  cursor-pointer select-none tab-label" >
                                                         <div className="flex  pt-2 align-middle">
-                                                                {item.icon}
+                                                            {item.icon}
                                                             <span className="text-lg ml-3">
                                                                 {item.title}
                                                             </span>
@@ -63,6 +63,29 @@ function Maintenance() {
                                             </div>
                                         );
                                     })}
+                                </div>
+                            </div>
+                            <div className=" bg-white rounded-xl p-5">
+                                <p className="text-center py-2 font-pop text-black font-semibold text-lg">Agenda el mantenimeinto de tu maquinaria con nosotros</p>
+                                <div className="grid grid-cols-4 items-center gap-2">
+                                    <div className="col col-span-3">
+                                        <p className="font-pop font-base text-center">Contacta con un agente y planifica tu próximo mantenimiento. No esperes a que tu equipo de problemas para ir al mecanico.</p>
+                                        <div className="text-center">
+
+                                        <button
+                                            type="submit"
+                                            value="submit"
+                                            className="text-background bg-gradient-to-r mt-5 rounded-3xl from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
+                                            focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-6 py-2.5 text-center"
+                                            >
+                                            Agendar Mantenimiento
+                                        </button>
+                                            </div>
+                                    </div>
+                                    <div className="mx-auto">
+                                        <img src={OrangeCalendarIcon} alt="Calendario" className="h-24" />
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

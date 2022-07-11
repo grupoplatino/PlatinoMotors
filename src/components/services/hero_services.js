@@ -14,7 +14,7 @@ function HeroServices() {
             <div>
                 <div className="container my-10 mx-auto">
                     <div className="flex justify-center md:justify-start bg-white">
-                        <p className="font-pop text-black text-center sm:text-left text-sm">Nos coordinamos para realizar los mantenimientos de rutina, y estaremos cuando necesites reparaciones de garantia. Nuestro objetivo es que nuestro equipo te brinde el maximo rendimiento. Confia en Platino Motors para mantenerte en movimiento durante todo el año.</p>
+                        <p className="font-pop text-black text-center sm:text-left text-md">Nos coordinamos para realizar los mantenimientos de rutina, y estaremos cuando necesites reparaciones de garantia. Nuestro objetivo es que nuestro equipo te brinde el maximo rendimiento. Confia en Platino Motors para mantenerte en movimiento durante todo el año.</p>
                     </div>
                 </div>
             </div>
