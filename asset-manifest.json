@@ -1,8 +1,11 @@
 {
   "files": {
-    "main.css": "/PlatinoMotors/static/css/main.dc9cf6fc.css",
-    "main.js": "/PlatinoMotors/static/js/main.33738126.js",
+    "main.css": "/PlatinoMotors/static/css/main.8abbdbf7.css",
+    "main.js": "/PlatinoMotors/static/js/main.6222e164.js",
     "static/media/services_hero.png": "/PlatinoMotors/static/media/services_hero.2a242535a23e3d8bd442.png",
+    "static/media/slider_2_sany_martillo_hidraulico.png": "/PlatinoMotors/static/media/slider_2_sany_martillo_hidraulico.878fdf1f64b8a0ec7c1c.png",
+    "static/media/slider_1_sany_repuestos.png": "/PlatinoMotors/static/media/slider_1_sany_repuestos.7d75257c5cdbe423d475.png",
+    "static/media/slider_3_sany_retroexcavadora.png": "/PlatinoMotors/static/media/slider_3_sany_retroexcavadora.23979d937b4aace3b016.png",
     "static/media/sany-retroexcavadora.png": "/PlatinoMotors/static/media/sany-retroexcavadora.88f6e6762bc353aaae69.png",
     "static/media/hero_background.png": "/PlatinoMotors/static/media/hero_background.4466fde4e04da10df971.png",
     "static/media/SY_500H_special_atention.png": "/PlatinoMotors/static/media/SY_500H_special_atention.ce0c0782a26602302077.png",
@@ -20,6 +23,7 @@
     "static/media/cargadoras.png": "/PlatinoMotors/static/media/cargadoras.fb403c305b597d10b990.png",
     "static/media/landing_post_venta.jpg": "/PlatinoMotors/static/media/landing_post_venta.109c9291d0047a7ccd56.jpg",
     "static/media/pilotaje.png": "/PlatinoMotors/static/media/pilotaje.2b6558498ecb2aef740a.png",
+    "static/media/platino_hn_panel.png": "/PlatinoMotors/static/media/platino_hn_panel.690f4d0519d5feb13702.png",
     "static/media/maintenance_men.webp": "/PlatinoMotors/static/media/maintenance_men.6e57eee7dd5a4cf1e957.webp",
     "static/media/platino_capital.png": "/PlatinoMotors/static/media/platino_capital.00fe4a5afeecb8594a2e.png",
     "static/media/platino_motors.png": "/PlatinoMotors/static/media/platino_motors.0e764ee6785c053f88cf.png",
@@ -30,6 +34,7 @@
     "static/media/platino_ferreteria.png": "/PlatinoMotors/static/media/platino_ferreteria.bf84ce725d920f00294b.png",
     "static/media/sany_red.png": "/PlatinoMotors/static/media/sany_red.afcbefbbcb1432dd81e7.png",
     "static/media/inmobiliaria_platino.png": "/PlatinoMotors/static/media/inmobiliaria_platino.4e61f25d176c1dbae63d.png",
+    "static/media/all_isotypes.svg": "/PlatinoMotors/static/media/all_isotypes.d8bdb84490159fa232d4752183c2b5b8.svg",
     "static/media/grupo_platino_white.png": "/PlatinoMotors/static/media/grupo_platino_white.1401ba72c789739b9a3c.png",
     "static/media/sany_logo_white.png": "/PlatinoMotors/static/media/sany_logo_white.83b5022773e14eee1d52.png",
     "static/media/platino_capital_white.svg": "/PlatinoMotors/static/media/platino_capital_white.e3fab14c9240e0a8eedd1c6b14c62c15.svg",
@@ -37,6 +42,7 @@
     "static/media/tools_icon.svg": "/PlatinoMotors/static/media/tools_icon.7f1c2ab4844f32e3d66a35085721f722.svg",
     "static/media/platino_motors_logo.svg": "/PlatinoMotors/static/media/platino_motors_logo.6788eaf092cb747a1d0e939a5cb66d26.svg",
     "static/media/update_white_icon.svg": "/PlatinoMotors/static/media/update_white_icon.c54d4dc3ef60de21b387344404876344.svg",
+    "static/media/calendar_orange_icon.svg": "/PlatinoMotors/static/media/calendar_orange_icon.7c52932c2daf2460dee431fc9aee7995.svg",
     "static/media/logo_platinohn_white.svg": "/PlatinoMotors/static/media/logo_platinohn_white.e517f5e233842923d29cdcb30aa17d89.svg",
     "static/media/slick.svg": "/PlatinoMotors/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/iso_gray.svg": "/PlatinoMotors/static/media/iso_gray.9d5dabda297c2a08cb59fb48f30b2b64.svg",
@@ -58,6 +64,8 @@
     "index.html": "/PlatinoMotors/index.html",
     "static/media/right_arrow_bread_orange.svg": "/PlatinoMotors/static/media/right_arrow_bread_orange.4881dfed08ba02217ef97fab856406f9.svg",
     "static/media/email_icon.svg": "/PlatinoMotors/static/media/email_icon.3cb756132ebc0c43430d0f40e9c3f9f8.svg",
+    "static/media/youtube_black_icon.svg": "/PlatinoMotors/static/media/youtube_black_icon.7eadc90cf504ffe619d1cc51a65a550f.svg",
+    "static/media/youtube_white_icon.svg": "/PlatinoMotors/static/media/youtube_white_icon.cb0b91ee699a7b04d2d4c11a12bae5e0.svg",
     "static/media/down_arrow_orange.svg": "/PlatinoMotors/static/media/down_arrow_orange.1e276f0b4a0678e43c20086a8c606adb.svg",
     "static/media/email_black_icon.svg": "/PlatinoMotors/static/media/email_black_icon.a04e893bd4e76485e8ede215a0d331a5.svg",
     "static/media/download_black_icon.svg": "/PlatinoMotors/static/media/download_black_icon.3680db410744c7dfa54728f6d15b3eab.svg",
@@ -69,11 +77,11 @@
     "static/media/right_arrow_black.svg": "/PlatinoMotors/static/media/right_arrow_black.146ded2110477f7ba9d8c4f4eee73987.svg",
     "static/media/linkedin_icon.svg": "/PlatinoMotors/static/media/linkedin_icon.9960d005bbffe9dbd9d2e4a0c0b28573.svg",
     "static/media/shopping_cart.svg": "/PlatinoMotors/static/media/shopping_cart.cd430c46ae9c8a2a3439ecd24135af89.svg",
-    "main.dc9cf6fc.css.map": "/PlatinoMotors/static/css/main.dc9cf6fc.css.map",
-    "main.33738126.js.map": "/PlatinoMotors/static/js/main.33738126.js.map"
+    "main.8abbdbf7.css.map": "/PlatinoMotors/static/css/main.8abbdbf7.css.map",
+    "main.6222e164.js.map": "/PlatinoMotors/static/js/main.6222e164.js.map"
   },
   "entrypoints": [
-    "static/css/main.dc9cf6fc.css",
-    "static/js/main.33738126.js"
+    "static/css/main.8abbdbf7.css",
+    "static/js/main.6222e164.js"
   ]
 }
