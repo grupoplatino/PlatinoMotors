@@ -15,8 +15,8 @@ function ReferenceImgRight() {
                             </div>
                         </div>
                     </div>
-                    <div className="ml-0 md:ml-5 flex justify-center md:justify-start px-2 sm:px-0">
-                        <img alt="Mantenimiento SANY" className="rounded-[15px] object-cover w-max" src={PostSale} />
+                    <div className="ml-0 md:ml-5 flex justify-center md:justify-start 2xl:justify-end px-2 sm:px-0">
+                        <img alt="Mantenimiento SANY" className="rounded-[15px] object-cover w-max 2xl:h-96" src={PostSale} />
                     </div>
                 </div>
             </div>

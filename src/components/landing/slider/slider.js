@@ -29,7 +29,7 @@ function SliderHome() {
                 >
                     {data.map((item, index) => (
                         <div key={index}>
-                            <img src={item} className="rounded-3xl img-slider-bg  object-cover object-center" alt="" />
+                            <img src={item} className="rounded-3xl img-slider-bg object-cover object-center" alt="" />
                         </div>
                     ))}
                 </Slider>

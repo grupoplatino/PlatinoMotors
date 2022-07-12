@@ -5,7 +5,7 @@ function ReferneceImgLeft() {
             <div className="flex justify-center md:justify-between px-2 md:px-0">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-5 my-5">
                     <div className="mr-0 flex justify-center md:justify-start px-2 sm:px-0">
-                        <img alt="Retroexcavadora SANY" className="rounded-[15px] object-cover w-max" src={LandingHero} />
+                        <img alt="Retroexcavadora SANY" className="rounded-[15px] object-cover w-max 2xl:h-96" src={LandingHero} />
                     </div>
                     <div>
                         <div className="grid grid-cols-1 justify-center mb-5 mt-8 md:justify-start">
