@@ -1,6 +1,6 @@
-import React, { useState,Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { Combobox, Transition } from '@headlessui/react'
-import { SelectorIcon,CheckIcon } from "@heroicons/react/solid";
+import { CheckIcon } from "@heroicons/react/solid";
 
 const brands = [
     {
@@ -16,7 +16,7 @@ const brands = [
         name: "Caterpilar"
     }
 ];
-const target = [
+const targets = [
     {
         id: 1,
         name: "Compra"
@@ -724,14 +724,36 @@ const products = [
 ];
 
 function Searcher() {
-    const [selectedBrand, setSelectedBrand] = useState(brands[0])
-    const [query, setQuery] = useState('')
+    const [selectedBrand, setSelectedBrand] = useState(brands[0]);
+    const [selectedTarget, setSelectedTarget] = useState(targets[0]);
+    const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+    const [selectedProduct, setSelectedProduct] = useState(products[0]);
+    const [query, setQuery] = useState('');
     const filteredBrand =
         query === ''
             ? brands
             : brands.filter((brand) => {
-                return brand.name.toLowerCase().includes(query.toLowerCase())
-            })
+                return brand.name.toLowerCase().includes(query.toLowerCase());
+            });
+    const filteredTarget =
+        query === ''
+            ? targets
+            : targets.filter((target) => {
+                return target.name.toLowerCase().includes(query.toLowerCase());
+            });
+    const filteredCategory =
+        query === ''
+            ? categories
+            : categories.filter((category) => {
+                return category.name.toLowerCase().includes(query.toLowerCase());
+            });
+    const filteredProducts =
+        query === ''
+            ? products
+            : products.filter((product) => {
+                return product.name.toLowerCase().includes(query.toLowerCase());
+            }
+            );
 
     return (
         <div className="bg-black relative">
@@ -753,17 +775,16 @@ function Searcher() {
                             <div className="mx-4 px-0 py-2 mb-1 relative md:col-span-2">
                                 <Combobox value={selectedBrand} onChange={setSelectedBrand}>
                                     <div className="relative mt-1">
-                                        <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                                        <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                                             <Combobox.Input
-                                                className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
+                                                className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-white bg-transparent "
                                                 displayValue={(brand) => brand.name}
                                                 onChange={(event) => setQuery(event.target.value)}
                                             />
                                             <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
-                                                <SelectorIcon
-                                                    className="h-5 w-5 text-gray-400"
-                                                    aria-hidden="true"
-                                                />
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="#FFFFFF">
+                                                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                                </svg>
                                             </Combobox.Button>
                                         </div>
                                         <Transition
@@ -773,7 +794,7 @@ function Searcher() {
                                             leaveTo="opacity-0"
                                             afterLeave={() => setQuery('')}
                                         >
-                                            <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                            <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                                 {filteredBrand.length === 0 && query !== '' ? (
                                                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                                         Nada encontrado.
@@ -783,7 +804,7 @@ function Searcher() {
                                                         <Combobox.Option
                                                             key={brand.id}
                                                             className={({ active }) =>
-                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? 'bg-teal-600 text-white' : 'text-gray-900'
+                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? ' text-white bg-pirmaryScarlet-300' : 'text-gray-900'
                                                                 }`
                                                             }
                                                             value={brand}
@@ -798,7 +819,7 @@ function Searcher() {
                                                                     </span>
                                                                     {selected ? (
                                                                         <span
-                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-teal-600'
+                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-otherSuccess-900'
                                                                                 }`}
                                                                         >
                                                                             <CheckIcon className="h-5 w-5" aria-hidden="true" />
@@ -815,13 +836,193 @@ function Searcher() {
                                 </Combobox>
                             </div>
                             <div className="mx-4 px-0 py-2 mb-1 md:col-span-3">
-                                <input type="text" className="bg-t border-b text-sm text-white focus:outline-none focus:border-primary block w-full pl-2 p-2.5" placeholder="Compra y/o Renta"></input>
+                                <Combobox value={selectedTarget} onChange={setSelectedTarget}>
+                                    <div className="relative mt-1">
+                                        <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                                            <Combobox.Input
+                                                className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-white bg-transparent "
+                                                displayValue={(target) => target.name}
+                                                onChange={(event) => setQuery(event.target.value)}
+                                            />
+                                            <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="#FFFFFF">
+                                                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                                </svg>
+                                            </Combobox.Button>
+                                        </div>
+                                        <Transition
+                                            as={Fragment}
+                                            leave="transition ease-in duration-100"
+                                            leaveFrom="opacity-100"
+                                            leaveTo="opacity-0"
+                                            afterLeave={() => setQuery('')}
+                                        >
+                                            <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                                {filteredTarget.length === 0 && query !== '' ? (
+                                                    <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
+                                                        Nada encontrado.
+                                                    </div>
+                                                ) : (
+                                                    filteredTarget.map((target) => (
+                                                        <Combobox.Option
+                                                            key={target.id}
+                                                            className={({ active }) =>
+                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? ' text-white bg-pirmaryScarlet-300' : 'text-gray-900'
+                                                                }`
+                                                            }
+                                                            value={target}
+                                                        >
+                                                            {({ selected, active }) => (
+                                                                <>
+                                                                    <span
+                                                                        className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                                                                            }`}
+                                                                    >
+                                                                        {target.name}
+                                                                    </span>
+                                                                    {selected ? (
+                                                                        <span
+                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-otherSuccess-900'
+                                                                                }`}
+                                                                        >
+                                                                            <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                                                        </span>
+                                                                    ) : null}
+                                                                </>
+                                                            )}
+                                                        </Combobox.Option>
+                                                    ))
+                                                )}
+                                            </Combobox.Options>
+                                        </Transition>
+                                    </div>
+                                </Combobox>
                             </div>
                             <div className="mx-4 px-0 py-2 mb-1 md:col-span-3 lg:col-span-3">
-                                <input type="text" className="bg-t border-b text-sm text-white focus:outline-none focus:border-primary block w-full pl-2 p-2.5" placeholder="Categoria"></input>
+                                <Combobox value={selectedCategory} onChange={setSelectedCategory}>
+                                    <div className="relative mt-1">
+                                        <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                                            <Combobox.Input
+                                                className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-white bg-transparent "
+                                                displayValue={(category) => category.name}
+                                                onChange={(event) => setQuery(event.target.value)}
+                                            />
+                                            <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="#FFFFFF">
+                                                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                                </svg>
+                                            </Combobox.Button>
+                                        </div>
+                                        <Transition
+                                            as={Fragment}
+                                            leave="transition ease-in duration-100"
+                                            leaveFrom="opacity-100"
+                                            leaveTo="opacity-0"
+                                            afterLeave={() => setQuery('')}
+                                        >
+                                            <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                                {filteredCategory.length === 0 && query !== '' ? (
+                                                    <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
+                                                        Nada encontrado.
+                                                    </div>
+                                                ) : (
+                                                    filteredCategory.map((category) => (
+                                                        <Combobox.Option
+                                                            key={category.id}
+                                                            className={({ active }) =>
+                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? ' text-white bg-pirmaryScarlet-300' : 'text-gray-900'
+                                                                }`
+                                                            }
+                                                            value={category}
+                                                        >
+                                                            {({ selected, active }) => (
+                                                                <>
+                                                                    <span
+                                                                        className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                                                                            }`}
+                                                                    >
+                                                                        {category.name}
+                                                                    </span>
+                                                                    {selected ? (
+                                                                        <span
+                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-otherSuccess-900'
+                                                                                }`}
+                                                                        >
+                                                                            <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                                                        </span>
+                                                                    ) : null}
+                                                                </>
+                                                            )}
+                                                        </Combobox.Option>
+                                                    ))
+                                                )}
+                                            </Combobox.Options>
+                                        </Transition>
+                                    </div>
+                                </Combobox>
                             </div>
                             <div className="mx-4 px-0 py-2 mb-2 md:col-span-3">
-                                <input type="text" className="bg-t border-b text-sm text-white focus:outline-none focus:border-primary block w-full pl-2 p-2.5" placeholder="Modelo" />
+                                <Combobox value={selectedProduct} onChange={setSelectedProduct}>
+                                    <div className="relative mt-1">
+                                        <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                                            <Combobox.Input
+                                                className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-white bg-transparent "
+                                                displayValue={(product) => product.name}
+                                                onChange={(event) => setQuery(event.target.value)}
+                                            />
+                                            <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="#FFFFFF">
+                                                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                                </svg>
+                                            </Combobox.Button>
+                                        </div>
+                                        <Transition
+                                            as={Fragment}
+                                            leave="transition ease-in duration-100"
+                                            leaveFrom="opacity-100"
+                                            leaveTo="opacity-0"
+                                            afterLeave={() => setQuery('')}
+                                        >
+                                            <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                                {filteredProducts.length === 0 && query !== '' ? (
+                                                    <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
+                                                        Nada encontrado.
+                                                    </div>
+                                                ) : (
+                                                    filteredProducts.map((product) => (
+                                                        <Combobox.Option
+                                                            key={product.id}
+                                                            className={({ active }) =>
+                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? ' text-white bg-pirmaryScarlet-300' : 'text-gray-900'
+                                                                }`
+                                                            }
+                                                            value={product}
+                                                        >
+                                                            {({ selected, active }) => (
+                                                                <>
+                                                                    <span
+                                                                        className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                                                                            }`}
+                                                                    >
+                                                                        {product.name}
+                                                                    </span>
+                                                                    {selected ? (
+                                                                        <span
+                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-otherSuccess-900'
+                                                                                }`}
+                                                                        >
+                                                                            <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                                                        </span>
+                                                                    ) : null}
+                                                                </>
+                                                            )}
+                                                        </Combobox.Option>
+                                                    ))
+                                                )}
+                                            </Combobox.Options>
+                                        </Transition>
+                                    </div>
+                                </Combobox>
                             </div>
                             <div className="mx-4 mt-4 md:mt-6 md:col-span-12 lg:col-span-1 text-center md:mx-0">
                                 <button className="rounded-full w-full text-white bg-gradient-to-r from-startGradiant to-endGradiant hover:bg-gradient-to-br
