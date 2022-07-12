@@ -71,7 +71,6 @@ function Maintenance() {
                                     <div className="col col-span-3">
                                         <p className="font-pop font-base text-center">Contacta con un agente y planifica tu próximo mantenimiento. No esperes a que tu equipo de problemas para ir al mecanico.</p>
                                         <div className="text-center">
-
                                         <button
                                             type="submit"
                                             value="submit"

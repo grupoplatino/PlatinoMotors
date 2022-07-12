@@ -54,6 +54,9 @@ export{default as MaintenanceMen} from './images/maintenance_men.webp';
 export{default as SpecialAtentionMachine} from './images/SY_500H_special_atention.png';
 export{default as SparePartsImg} from './images/SY_500H_spare_parts.png';
 export{default as PlatinoHnPanel} from './images/platino_hn_panel.png';
+export{default as Slider1Sany} from './images/slider_1_sany_repuestos.png';
+export{default as Slider2Sany} from './images/slider_2_sany_martillo_hidraulico.png';
+export{default as Slider3Sany} from './images/slider_3_sany_retroexcavadora.png';
 //Category Reference Images for Home
 export {default as Fireguard} from './category_reference/bomberos.png';
 export {default as Loader} from './category_reference/cargadoras.png';
