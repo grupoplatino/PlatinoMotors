@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import { Disclosure, Transition } from '@headlessui/react';
 import { UpArrowOrangeIcon, UpdateWhiteIcon, DownArrowBlackIcon } from '../../assets';
-import {ProductCard} from '../../components';
+import { ProductCard } from '../../components';
 
 
 function ProductCollection(props) {
     const [activeIndex, setActiveIndex] = useState(2);
-  
-    const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
-    
+
+
+
     let products = [];
     let filters = [
         {
@@ -40,18 +41,18 @@ function ProductCollection(props) {
         filters[2].values.push(products[i].motorPower);
         filters[3].values.push(products[i].status);
     }
-    let dataBrands = new Set(filters[0].values);
-    let dataMotors = new Set(filters[1].values);
-    let dataMotorsPower = new Set(filters[2].values);
-    let dataStatuses = new Set(filters[3].values);
-    let brands = [...dataBrands];
-    let motors = [...dataMotors];
-    let motorsPower = [...dataMotorsPower];
-    let statuses = [...dataStatuses];
-    filters[0].values = brands;
-    filters[1].values = motors;
-    filters[2].values = motorsPower;
-    filters[3].values = statuses;
+    let dataBrands =        new Set(filters[0].values);
+    let dataMotors =        new Set(filters[1].values);
+    let dataMotorsPower =   new Set(filters[2].values);
+    let dataStatuses =      new Set(filters[3].values);
+    let brands =            [...dataBrands];
+    let motors =            [...dataMotors];
+    let motorsPower =       [...dataMotorsPower];
+    let statuses =          [...dataStatuses];
+    filters[0].values =     brands;
+    filters[1].values =     motors;
+    filters[2].values =     motorsPower;
+    filters[3].values =     statuses;
     return (
         <div className="bg-background">
             <div className="container mx-auto">
@@ -79,43 +80,45 @@ function ProductCollection(props) {
                             <div className="mt-1 bg-white py-4 px-2 rounded-md">
                                 {
                                     filters.map((item, index) => (
-                                        <div key={index}>
-                                            <div onClick={() => handleSetIndex(index)} className='mx-2 py-2 cursor-pointer'>
-                                                <div className='flex justify-between '>
-                                                    <p className='font-pop text-sm font-semibold '>{item.title}</p>
-                                                    <button>
+                                        <Disclosure>
+                                            {({ open }) => (
+                                                <>
+                                                    <Disclosure.Button className="flex w-full justify-between font-pop  bg-white border-b px-4 py-2 text-left text-sm font-medium text-black hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                                                        <span>{item.title}</span>
                                                         {
-                                                            (activeIndex === index) ?
-                                                            <img className='h-2' src={UpArrowOrangeIcon} alt="up" />
-                                                            :<img className='h-2' src={DownArrowBlackIcon} alt="down"/>
+                                                            open ? <img className='h-4 w-4' alt='arrow' src={UpArrowOrangeIcon} /> : <img alt='arrow' className='h-4 w-4' src={DownArrowBlackIcon} />
                                                         }
-                                                    </button>
-                                                </div>
-                                                {
-                                                    (activeIndex === index) 
-                                                    ? <hr className='bg-primary h-0.5 border-none mb-1'></hr>
-                                                    : <hr className=' bg-lightPlaceHolder h-0.5 border-none mb-1'></hr>
-                                                }
-                                            </div>
-                                            {(activeIndex === index) && (
-                                                <div className='mx-2'>
-                                                    <ul className='mb-2'>
-                                                        {
-                                                            item.values.map((filter, pk) => (
-                                                                <div key={pk}>
-                                                                    <li>
-                                                                        <div className='flex items-center justify-between'>
-                                                                            <p className='font-pop text-gray-500 text-sm'>{filter}</p>
-                                                                            <input type="checkbox" className='w-4 h-4  border-primary rounded-2 focus:ring-0'></input>
+                                                    </Disclosure.Button>
+                                                    <Transition
+                                                        enter="transition duration-100 ease-out"
+                                                        enterFrom="transform scale-95 opacity-0"
+                                                        enterTo="transform scale-100 opacity-100"
+                                                        leave="transition duration-75 ease-out"
+                                                        leaveFrom="transform scale-100 opacity-100"
+                                                        leaveTo="transform scale-95 opacity-0">
+                                                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                                                            {
+                                                                item.values.map((item, index) => (
+                                                                    <div key={index}>
+                                                                        <div className='flex font-pop justify-between'>
+                                                                            <div>
+                                                                                <span>{item}</span>
+                                                                            </div>
+                                                                            <div>
+                                                                                <input
+                                                                                    type="checkbox"
+                                                                                    className="focus:ring-primary h-4 w-4 text-primary border-gray rounded"
+                                                                                />
+                                                                            </div>
                                                                         </div>
-                                                                    </li>
-                                                                </div>
-                                                            ))
-                                                        }
-                                                    </ul>
-                                                </div>
+                                                                    </div>
+                                                                ))
+                                                            }
+                                                        </Disclosure.Panel>
+                                                    </Transition>
+                                                </>
                                             )}
-                                        </div>
+                                        </Disclosure>
                                     ))
                                 }
                             </div>

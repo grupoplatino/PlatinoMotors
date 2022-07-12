@@ -1,15 +1,14 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { RightArrowBreadOrange } from "../../assets";
 
 function HeroCategory(props) {
+    
     let cantProducts = 0;
     for (let i = 0; i < props.products.length; i++) {
         if(props.products[i].categoryId === props.category.id){
             cantProducts++;
         }
     }
-   
-    
     return (
     <div className="bg-b bg-white">
         <div className="container mx-auto">

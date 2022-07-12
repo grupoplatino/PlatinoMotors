@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderProduct, BannerProduct, TabsProduct } from "../../../components";
+import { HeaderProduct, BannerProduct, TabsProduct, CompareSpecs } from "../../../components";
 
 function DetailProduct() {
     const product= {
@@ -76,6 +76,7 @@ function DetailProduct() {
     <HeaderProduct product={product}/>
     <BannerProduct product={product}/>
     <TabsProduct product={product}/>
+    <CompareSpecs product={product}/>
     </> );
 }
 
