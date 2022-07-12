@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PlatinoMotors/static/css/main.8abbdbf7.css",
-    "main.js": "/PlatinoMotors/static/js/main.6222e164.js",
+    "main.js": "/PlatinoMotors/static/js/main.ea86a59f.js",
     "static/media/services_hero.png": "/PlatinoMotors/static/media/services_hero.2a242535a23e3d8bd442.png",
     "static/media/slider_2_sany_martillo_hidraulico.png": "/PlatinoMotors/static/media/slider_2_sany_martillo_hidraulico.878fdf1f64b8a0ec7c1c.png",
     "static/media/slider_1_sany_repuestos.png": "/PlatinoMotors/static/media/slider_1_sany_repuestos.7d75257c5cdbe423d475.png",
@@ -78,10 +78,10 @@
     "static/media/linkedin_icon.svg": "/PlatinoMotors/static/media/linkedin_icon.9960d005bbffe9dbd9d2e4a0c0b28573.svg",
     "static/media/shopping_cart.svg": "/PlatinoMotors/static/media/shopping_cart.cd430c46ae9c8a2a3439ecd24135af89.svg",
     "main.8abbdbf7.css.map": "/PlatinoMotors/static/css/main.8abbdbf7.css.map",
-    "main.6222e164.js.map": "/PlatinoMotors/static/js/main.6222e164.js.map"
+    "main.ea86a59f.js.map": "/PlatinoMotors/static/js/main.ea86a59f.js.map"
   },
   "entrypoints": [
     "static/css/main.8abbdbf7.css",
-    "static/js/main.6222e164.js"
+    "static/js/main.ea86a59f.js"
   ]
 }
