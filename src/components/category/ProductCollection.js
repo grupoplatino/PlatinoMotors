@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
 import { UpArrowOrangeIcon, UpdateWhiteIcon, DownArrowBlackIcon } from '../../assets';
 import { ProductCard } from '../../components';
 
 
 function ProductCollection(props) {
-    const [activeIndex, setActiveIndex] = useState(2);
+    
 
 
 

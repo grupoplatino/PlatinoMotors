@@ -1,6 +1,7 @@
 import React from "react";
 import { HeaderProduct, BannerProduct, TabsProduct, CompareSpecs } from "../../../components";
 
+
 function DetailProduct() {
     const product= {
         id: 1,
