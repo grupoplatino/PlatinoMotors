@@ -76,7 +76,7 @@ function ContactUs() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full h-maps-mobile">
+                    <div className="w-full h-80 sm:h-auto mt-5 sm:mt-0">
                         <Maps />
                     </div>
                 </div>

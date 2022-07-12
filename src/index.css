@@ -83,3 +83,7 @@ input:checked~.tab-content {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.none-scroll-custom::-webkit-scrollbar {
+  display: none;
+}
