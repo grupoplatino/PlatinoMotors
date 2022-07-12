@@ -24,10 +24,16 @@ function Maps() {
         googleMapsApiKey: api_key
     })
 
+    const openMap =()=>{
+        let url = "https://goo.gl/maps/DxMNfHoP9jxF8HAQ8";
+        window.open(url, '_blank');
+    }
+
     return isLoaded ? (
         <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
+            onClick={() => openMap()}
             zoom={16}
             options={{
                 styles: [

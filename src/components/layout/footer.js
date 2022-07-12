@@ -101,7 +101,7 @@ const Footer = () => {
     };
     return (
         <footer className="text-white pt-7 bg-black">
-            <div className="p-10 max-w-7xl container px-4 mx-auto flex items-center">
+            <div className="p-10 container px-4 mx-auto flex items-center">
                 <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-10">
                     <div className="mb-5">
                         <hr className="bg-primary mb-5 h-0.5 border-none"></hr>

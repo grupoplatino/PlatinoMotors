@@ -1,6 +1,19 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Crane, DumpTruck, Excavator, Fireguard, Loader, Mining, Mixer, MotorGrader, Pilotage, Port, RightArrowBreadOrange, VibroCompactor } from '../../assets';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { 
+    Crane,
+    DumpTruck,
+    Excavator,
+    Fireguard,
+    Loader,
+    Mining,
+    Mixer,
+    MotorGrader,
+    Pilotage,
+    Port,
+    RightArrowBreadOrange,
+    VibroCompactor } from "../../assets";
+
 const categories = [
     {
         id: 1,
@@ -503,33 +516,61 @@ const products = [
 
 
 ];
+
 function HeroCategorySlider() {
-    const [activeIndex, setActiveIndex] = useState(1);
-    const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
+    const [categoryId, setCategoryId]= useState(categories[0].id);
+    const [allProducts] = useState(products);
+    const [productCategory, setProductCategory] = useState(allProducts.filter(a => a.categoryId === categoryId));
+    // const [activeIndex, setActiveIndex] = useState(1);
+    // const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
+    const handleSetIndex = (categoryId) => {
+        setCategoryId(categoryId);
+        let result = allProducts.filter(a => a.categoryId === categoryId);
+        setProductCategory(result);
+    }
     return (
-        <div className='bg-background'>
-            <div className='grid grid-cols-11 gap-0 bg-white '>
+        <div className="bg-background">
+            <div className="flex overflow-x-auto sm:justify-start lg:justify-center bg-white none-scroll-custom">
                 {
                     categories.map((item) => (
-                        <div key={item.id} className="cursor-pointer" onClick={() => handleSetIndex(item.id)}>
-                            <div className='p-1 border border-gray-100'>
-                                <div className='bg-gray-100 mx-4 my-2 p-1 rounded-md'>
+                        <div key={item.id} className="cursor-pointer py-2 lg:py-0" onClick={() => handleSetIndex(item.id)}>
+                            <div className="p-1 border border-gray-100 w-24 xl:w-auto">
+                                <div className="bg-gray-100 mx-4 my-2 p-1 rounded-md">
                                     <img src={item.img} alt={item.name} />
                                 </div>
                                 <div>
-                                    <p className='font-pop text-center text-fiord-900 text-xs'>{item.name}</p>
+                                    <p className="font-pop text-center text-fiord-900 text-xs truncate">{item.name}</p>
                                 </div>
                             </div>
                         </div>
                     ))
                 }
             </div>
-            <div className='container mx-auto mb-5'>
-                <div className='grid grid-cols-1 py-5 grow gap-4 sm:grid-cols-4'>
+            <div className="hidden lg:block container mx-auto mb-5">
+                <div className="grid grid-cols-1 py-5 grow gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     {
                         // eslint-disable-next-line
-                        products.map(function (item, index) {
-                            if (item.categoryId === activeIndex) {
+                        productCategory.map(function (item, index) {
+
+                            return (
+                                <div key={index}>
+                                    <SpecialProduct product={item} />
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+                <div className="conatiner mx-auto text-center">
+                    <button type="button" className="text-background bg-gradient-to-r rounded-3xl pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
+                focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-20 py-2.5 text-center mr-2 mb-2">Ver todos</button>
+                </div>
+            </div>
+            <div className="block lg:hidden container mx-auto mb-5">
+                <div className="grid grid-cols-1 py-5 grow gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                    {
+                        // eslint-disable-next-line
+                        productCategory.map(function (item, index) {
+                            if (index < 3) {
                                 return (
                                     <div key={index}>
                                         <SpecialProduct product={item} />
@@ -539,83 +580,78 @@ function HeroCategorySlider() {
                         })
                     }
                 </div>
-                <div className='flex justify-center'>
-                <button type="button" className="text-background bg-gradient-to-r rounded-3xl  pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
+                <div className="conatiner mx-auto text-center">
+                    <button type="button" className="text-background bg-gradient-to-r rounded-3xl pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
                 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-20 py-2.5 text-center mr-2 mb-2">Ver todos</button>
                 </div>
             </div>
         </div>
     );
 }
+
 function SpecialProduct(props) {
     return (
-    <div className='flex py-4  px-5 bg-white rounded-3xl shadow-sm hover:shadow-md justify-items-center'>
-        <div className='grow'>
-            <div>
-                <Link to="/shop/product"><p className='font-pop text-black font-medium text-2xl'>{props.product.name}</p></Link>
-            </div>
-            <div className='flex items-center'>
+        <div className="flex mx-6 sm:mx-0 py-4 px-5 bg-white rounded-3xl shadow-sm hover:shadow-md justify-items-center">
+            <div className="grow">
                 <div>
-                <Link to="/shop/product"><p className='font-pop text-primary font-medium text-xs'>Ver Detalles </p></Link>
+                    <Link to="/shop/product"><p className="font-pop text-black font-medium text-2xl">{props.product.name}</p></Link>
+                </div>
+                <div className="flex items-center">
+                    <div>
+                        <Link to="/shop/product"><p className="font-pop text-primary font-medium text-xs">Ver Detalles </p></Link>
+                    </div>
+                    <div>
+                        <img className="ml-1" src={RightArrowBreadOrange} alt="Flecha derecha" />
+                    </div>
                 </div>
                 <div>
-                    <img className='ml-1' src={RightArrowBreadOrange} alt="Flecha derecha"/>
                 </div>
-
-            </div>
-            <div>
-
-            </div>
-            <div className='justify-center flex mb-2'>
-                <img src={props.product.img} alt={props.product.name} className="h- h-40" />
-            </div>
-            <div className='flex flex-nowrap'>
-                <div>
-                    <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Potencia: </p>
+                <div className="justify-center flex mb-2">
+                    <img src={props.product.img} alt={props.product.name} className="h- h-40" />
                 </div>
-                <div>
-                    <p className='font-pop text-fiord text-sm'>{props.product.powerMotor} </p>
+                <div className="flex flex-nowrap">
+                    <div>
+                        <p className="font-pop text-bermudaGray-500 text-sm pr-1">Potencia: </p>
+                    </div>
+                    <div>
+                        <p className="font-pop text-fiord text-sm">{props.product.powerMotor} </p>
+                    </div>
                 </div>
-            </div>
-            <div className='flex flex-nowrap'>
-                <div>
-                    <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Peso: </p>
+                <div className="flex flex-nowrap">
+                    <div>
+                        <p className="font-pop text-bermudaGray-500 text-sm pr-1">Peso: </p>
+                    </div>
+                    <div>
+                        <p className="font-pop text-fiord text-sm">{props.product.weight} </p>
+                    </div>
                 </div>
-                <div>
-                    <p className='font-pop text-fiord text-sm'>{props.product.weight} </p>
+                <div className="flex flex-nowrap">
+                    <div>
+                        <p className="font-pop text-bermudaGray-500 text-sm pr-1">{props.product.interesFactName}: </p>
+                    </div>
+                    <div>
+                        <p className="font-pop text-fiord text-sm">{props.product.interestFact} </p>
+                    </div>
                 </div>
-            </div>
-            <div className='flex flex-nowrap'>
-                <div>
-                    <p className='font-pop text-bermudaGray-500 text-sm pr-1'>{props.product.interesFactName}: </p>
+                <div className="flex flex-nowrap">
+                    <div>
+                        <p className="font-pop text-bermudaGray-500 text-sm pr-1">Motor: </p>
+                    </div>
+                    <div>
+                        <p className="font-pop text-fiord text-sm">{props.product.motor} </p>
+                    </div>
                 </div>
-                <div>
-                    <p className='font-pop text-fiord text-sm'>{props.product.interestFact} </p>
-                </div>
-            </div>
-            <div className='flex flex-nowrap'>
-                <div>
-                    <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Motor: </p>
-                </div>
-                <div>
-                    <p className='font-pop text-fiord text-sm'>{props.product.motor} </p>
-                </div>
-            </div>
-            <div className='flex pt-2 flex-nowrap'>
-                <div>
-                    <p className={(props.product.status === "Disponible" ? 'text-success' : props.product.status === "Por Encargo" ? 'text-black' : 'text-primary') + ' font-pop text-sm pr-1 font-semibold'}>{props.product.status} </p>
-                </div>
-                <div>
-                    <p className='font-pop text-fiord text-sm'>{props.product.status === "Disponible" ? "Entrega inmediata" : props.product.status === "Por Encargo" ? "Entrega en 2 semanas" : ""} </p>
+                <div className="flex pt-2 flex-nowrap">
+                    <div>
+                        <p className={(props.product.status === "Disponible" ? "text-success" : props.product.status === "Por Encargo" ? "text-black" : "text-primary") + " font-pop text-sm pr-1 font-semibold"}>{props.product.status} </p>
+                    </div>
+                    <div>
+                        <p className="font-pop text-fiord text-sm">{props.product.status === "Disponible" ? "Entrega inmediata" : props.product.status === "Por Encargo" ? "Entrega en 2 semanas" : ""} </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>);
-
+    );
 }
-
-
-
-
 
 export default HeroCategorySlider;
