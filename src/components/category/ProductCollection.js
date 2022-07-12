@@ -5,9 +5,9 @@ import {ProductCard} from '../../components';
 
 function ProductCollection(props) {
     const [activeIndex, setActiveIndex] = useState(2);
-    const [activeFilter, setActiveFilter] = useState(2);
+  
     const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
-    const handleSetFilter = (index) => (activeFilter !== index) && setActiveFilter(index);
+    
     let products = [];
     let filters = [
         {

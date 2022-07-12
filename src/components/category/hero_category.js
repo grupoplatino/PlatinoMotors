@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { RightArrowBreadOrange } from "../../assets";
 
 function HeroCategory(props) {
@@ -8,8 +8,8 @@ function HeroCategory(props) {
             cantProducts++;
         }
     }
-    const [activeIndex, setActiveIndex] = useState(2);
-    const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
+   
+    
     return (
     <div className="bg-b bg-white">
         <div className="container mx-auto">
