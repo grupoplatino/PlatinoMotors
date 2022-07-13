@@ -2,13 +2,7 @@ import React from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
 import { UpArrowOrangeIcon, UpdateWhiteIcon, DownArrowBlackIcon } from '../../assets';
 import { ProductCard } from '../../components';
-
-
 function ProductCollection(props) {
-    
-
-
-
     let products = [];
     let filters = [
         {
@@ -35,7 +29,6 @@ function ProductCollection(props) {
         }
     }
     for (let i = 0; i < products.length; i++) {
-
         filters[0].values.push(products[i].brand);
         filters[1].values.push(products[i].motor);
         filters[2].values.push(products[i].motorPower);

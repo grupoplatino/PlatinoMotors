@@ -9,6 +9,7 @@ function DetailProduct() {
         name: "SY16 C EU-US",
         cucharon: '0.04m',
         motorPower: "10,3/2200kW/rpm",
+        categoryId: 1,
         category: "Excavadora",
         subCategory: "Excavadora Mediana",
         img: "https://www.sanyglobal.com/all/d/file/p/2016-12-16/68f19ca0a089c2b4d8149a4283e52f42.jpg",
