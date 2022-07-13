@@ -158,7 +158,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className="flex flex-nowrap align-middle gap-3">
-                            <div className="mt-1"><img className="h-4" src={MapsWhiteIcon} alt="maps icon" /></div>
+                            <div className="mt-1"><img className="h-7" src={MapsWhiteIcon} alt="maps icon" /></div>
                             <div>
                                 <p className="font-pop">
                                     Autopista a La Lima, Bulevar del Este contiguo a Maderera Noriega. <br />San Pedro Sula, Cortes.

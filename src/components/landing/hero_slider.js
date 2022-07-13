@@ -534,7 +534,7 @@ function HeroCategorySlider() {
                 {
                     categories.map((item) => (
                         <div key={item.id} className="cursor-pointer py-2 lg:py-0" onClick={() => handleSetIndex(item.id)}>
-                            <div className="p-1 border border-gray-100 w-24 xl:w-auto">
+                            <div className="p-1 border border-gray-100 w-32 sm:w-28 xl:w-auto">
                                 <div className="bg-gray-100 mx-4 my-2 p-1 rounded-md">
                                     <img src={item.img} alt={item.name} />
                                 </div>
@@ -604,10 +604,8 @@ function SpecialProduct(props) {
                         <img className="ml-1" src={RightArrowBreadOrange} alt="Flecha derecha" />
                     </div>
                 </div>
-                <div>
-                </div>
                 <div className="justify-center flex mb-2">
-                    <img src={props.product.img} alt={props.product.name} className="h- h-40" />
+                    <img src={props.product.img} alt={props.product.name} className="h-40" />
                 </div>
                 <div className="flex flex-nowrap">
                     <div>
