@@ -3,14 +3,34 @@ import { Dialog, Switch, Disclosure, Transition } from '@headlessui/react';
 import { UpArrowOrangeIcon, DownArrowBlackIcon } from '../../assets';
 
 function CompareSpecs(props) {
-    let [isOpen, setIsOpen] = useState(false);
-    const [enabled, setEnabled] = useState(false)
+
+    const vsProduct = [
+        {
+            name: props.product.name,
+        },
+    ];
+    const [isOpen, setIsOpen] = useState(false);
+    const [listed, setListed] = useState(false);
+    
+    const [vsAdded,setVsAdded] = useState(vsProduct[{name: props.product.name}]);
+
     function closeModal() {
         setIsOpen(false)
     };
     function openModal() {
         setIsOpen(true)
     };
+    const addProduct = (product) => {
+        if(listed === true)
+        {
+            let newVsProduct = {
+                name: product.name
+            };
+            vsProduct.push(newVsProduct);
+            console.log(vsProduct);
+        }
+        return setListed;
+    }
     const products = [
         {
             id: 1,
@@ -669,14 +689,8 @@ function CompareSpecs(props) {
             productsBySameCategory.push(products[i]);
         }
     };
-    console.log(productsBySameCategory);
 
 
-    const vsProduct = [
-        {
-            name: props.product.name,
-        }
-    ];
     let filters = [
         {
             title: "Marca",
@@ -855,16 +869,17 @@ function CompareSpecs(props) {
                                                                                 <div className='flex justify-between'>
                                                                                     <p className='font-pop text-black font-medium text-2xl'>{item.name} </p>
                                                                                     <Switch
-                                                                                        checked={enabled}
-                                                                                        onChange={setEnabled}
-                                                                                        className={`${enabled ? 'bg-primary' : ' bg-pirmaryScarlet-100'}
-          relative inline-flex h-5 w-10 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
-                                                                                    >
+                                                                                       
+                                                                                        checked={listed}
+                                                                                        onChange={addProduct(item)}
+                                                                                        className={`${listed ? 'bg-primary' : ' bg-pirmaryScarlet-100'}
+                                                                                            relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+                                                                                        >
                                                                                         <span className="sr-only">Use setting</span>
                                                                                         <span
                                                                                             aria-hidden="true"
-                                                                                            className={`${enabled ? 'translate-x-4' : 'translate-x-0'}
-            pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
+                                                                                            className={`${listed ? 'translate-x-3' : 'translate-x-0'}
+                                                                                             pointer-events-none inline-block h-4 w-5 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
                                                                                         />
                                                                                     </Switch>
                                                                                 </div>
@@ -971,8 +986,5 @@ function CompareSpecs(props) {
         </div>
     );
 };
-
-
-
 
 export default CompareSpecs;
