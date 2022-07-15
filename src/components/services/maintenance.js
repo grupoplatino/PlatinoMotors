@@ -16,7 +16,7 @@ function Maintenance() {
     ]
     return (
         <div className="bg-otherLight-50">
-            <div className="container mx-auto">
+            <div className="container mx-auto lg:px-4 xl:px-0">
                 <div className="px-2 md:px-0">
                     <div className="grid grid-cols-1 items-center lg:grid-cols-2 gap-2 py-5">
                         <div className="px-2 sm:mb-5">

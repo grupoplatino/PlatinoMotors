@@ -2,7 +2,7 @@ import { SpecialAtentionMachine } from "../../assets/index"
 function SpecialAtention() {
     return (
         <div className="bg-otherLight-50">
-            <div className="container mx-auto">
+            <div className="container mx-auto lg:px-4 xl:px-0">
                 <div className="px-2 py-5 rounded-sm">
                     <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-2 bg-white mx-2 md:mx-0 rounded-xl drop-shadow-md">
                         <div className="mx-4 md:mx-5 xl:mx-10 mt-3">

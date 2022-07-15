@@ -14,7 +14,7 @@ function SliderHome() {
         cssEase: "cubic-bezier(0.600, -0.280, 0.735, 0.045)",
     };
     return (
-        <div className="container px-5 lg:px-0 mb-5 mt-16 mx-auto">
+        <div className="container px-5 xl:px-0 mb-5 mt-16 mx-auto">
             <div className="carousel">
                 <Slider
                 {...settings}

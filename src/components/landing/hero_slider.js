@@ -530,7 +530,7 @@ function HeroCategorySlider() {
     }
     return (
         <div className="bg-background">
-            <div className="flex overflow-x-auto sm:justify-start lg:justify-center bg-white none-scroll-custom">
+            <div className="flex overflow-x-auto sm:justify-start xl:justify-center bg-white none-scroll-custom">
                 {
                     categories.map((item) => (
                         <div key={item.id} className="cursor-pointer py-2 lg:py-0" onClick={() => handleSetIndex(item.id)}>
@@ -546,7 +546,7 @@ function HeroCategorySlider() {
                     ))
                 }
             </div>
-            <div className="hidden lg:block container mx-auto mb-5">
+            <div className="hidden xl:block container mx-auto mb-5">
                 <div className="grid grid-cols-1 py-5 grow gap-4 sm:grid-cols-3 lg:grid-cols-4">
                     {
                         // eslint-disable-next-line
@@ -565,8 +565,8 @@ function HeroCategorySlider() {
                 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-20 py-2.5 text-center mr-2 mb-2">Ver todos</button>
                 </div>
             </div>
-            <div className="block lg:hidden container mx-auto mb-5">
-                <div className="grid grid-cols-1 py-5 grow gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="block xl:hidden container mx-auto mb-5 lg:px-4 xl:px-0">
+                <div className="grid grid-cols-1 py-5 grow gap-4 sm:grid-cols-3">
                     {
                         // eslint-disable-next-line
                         productCategory.map(function (item, index) {

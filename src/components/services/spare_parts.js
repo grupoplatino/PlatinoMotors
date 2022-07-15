@@ -3,7 +3,7 @@ import { SparePartsImg } from "../../assets";
 function SpareParts() {
     return (
         <div className="bg-otherLight-50">
-            <div className="container mx-auto">
+            <div className="container mx-auto lg:px-4 xl:px-0">
                 <div className="rounded-md py-10 px-2">
                     <div className="grid grid-cols-1 items-center bg-white md:grid-cols-2 gap-0 mx-2 md:mx-0 rounded-xl drop-shadow-md">
                         <div>
