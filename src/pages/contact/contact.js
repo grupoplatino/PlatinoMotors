@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { LinkedinIcon } from '../../assets';
-import { Maps } from '../../components';
+import React, { useState } from "react";
+import { LinkedinIcon } from "../../assets";
+import { Maps } from "../../components";
 
 function Contact() {
 
     const [message, setMessage] = useState({});
     const openInNewTab = url => {
-        window.open(url, '_blank', 'noopener,noreferrer');
+        window.open(url, "_blank", "noopener,noreferrer");
     };
 
     return (
@@ -47,36 +47,36 @@ function Contact() {
                 </div>
             </section>
             <section className="w-full">
-                <div className="grid grid-cols-1 xl:grid-cols-2">
-                    <div className="w-full p-6 bg-otherLight-50 lg:p-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2">
+                    <div className="w-full p-6 bg-otherLight-50">
                         <form id="create-course-form">
                             <div className="overflow-hidden">
-                                <div className='flex justify-center'>
-                                    <p className='font-pop text-black text-3xl font-semibold'>Escribenos</p>
+                                <div className="flex justify-center">
+                                    <p className="font-pop text-black text-3xl font-semibold mb-3">Escribenos</p>
                                 </div>
-                                <div className='flex justify-center px-10'>
-                                    <p className='font-pop text-gray-500 text-sm text-center font-semibold'>Llena el siguiente formulario y dentro de poco un asesor de servicio al cliente se pondra en contacto contigo.</p>
+                                <div className="flex justify-center">
+                                    <p className="font-pop text-gray-500 text-sm text-center font-semibold xl:px-8">Llena el siguiente formulario y dentro de poco un asesor de servicio al cliente se pondra en contacto contigo.</p>
                                 </div>
-                                <div className="px-4 py-5 sm:p-6">
+                                <div className="py-5 sm:p-6">
                                     <div className="grid grid-cols-6 gap-6">
                                         <div className="col-span-6 sm:col-span-3">
-                                            <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Nombre"></input>
+                                            <input type="text" className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Nombre"></input>
                                         </div>
                                         <div className="col-span-6 sm:col-span-3">
-                                            <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Apellido"></input>
+                                            <input type="text" className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Apellido"></input>
                                         </div>
                                         <div className="col-span-6 sm:col-span-3">
-                                            <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Correo Electrónico"></input>
+                                            <input type="text" className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Correo Electrónico"></input>
                                         </div>
                                         <div className="col-span-6 sm:col-span-3">
-                                            <input type='text' className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Asunto"></input>
+                                            <input type="text" className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Asunto"></input>
                                         </div>
                                         <div className="col-span-6 sm:col-span-6">
                                             <textarea onChange={e => setMessage({ ...message, message: e.target.value })} name="message" rows="10" placeholder="Escribe tu mensaje aqui..." className="mt-1 block border p-2 w-full  shadow-sm bg-otherLight-50 sm:text-sm font-pop border-gray-300" required />
                                         </div>
                                     </div>
                                 </div>
-                                <div className="px-4 w-full py-3 text-center  sm:px-6">
+                                <div className="px-4 w-full py-3 text-center sm:px-6">
                                     <button
                                         type="submit"
                                         value="submit"
@@ -89,7 +89,7 @@ function Contact() {
                             </div>
                         </form>
                     </div>
-                    <div className="w-full h-80">
+                    <div className="w-full h-80 lg:h-auto">
                         <Maps />
                     </div>
                 </div>
