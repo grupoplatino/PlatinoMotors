@@ -48,10 +48,10 @@ function ProductCollection(props) {
     filters[3].values =     statuses;
     return (
         <div className="bg-background">
-            <div className="container mx-auto">
+            <div className="container mx-auto md:px-4 xl:px-0">
                 <div className="flex">
-                    <div className="grid grow grid-cols-1 sm:grid-cols-3 gap-2 md:gap-5 py-5 md:grid-cols-4">
-                        <div className="bg-successmx-5 sm:mx-0 col-span-1">
+                    <div className="grid grow grid-cols-1 sm:grid-cols-3 gap-2 md:gap-5 py-5 md:grid-cols-6 lg:grid-cols-4 px-4 md:px-0">
+                        <div className="col-span-1 md:col-span-2 lg:col-span-1">
                             <div className="flex items-center justify-between py-2 bg-black rounded-md">
                                 <div className="pl-2">
                                     <p className="text-white">Filtrar Por</p>
@@ -73,7 +73,7 @@ function ProductCollection(props) {
                             <div className="mt-1 bg-white py-4 px-2 rounded-md">
                                 {
                                     filters.map((item, index) => (
-                                        <Disclosure>
+                                        <Disclosure key={index}>
                                             {({ open }) => (
                                                 <>
                                                     <Disclosure.Button className="flex w-full justify-between font-pop  bg-white border-b px-4 py-2 text-left text-sm font-medium text-black hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
@@ -116,8 +116,8 @@ function ProductCollection(props) {
                                 }
                             </div>
                         </div>
-                        <div className="col-span-1 sm:col-span-2 md:col-span-3 grow mx-5 sm:mx-0">
-                            <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
+                        <div className="col-span-1 sm:col-span-2 md:col-span-4 lg:col-span-3 grow">
+                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5'>
                                 {
                                     products.map((item, index) => (
                                         <div key={index}>

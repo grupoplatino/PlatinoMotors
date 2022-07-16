@@ -101,7 +101,7 @@ const Footer = () => {
     };
     return (
         <footer className="text-white pt-7 bg-black">
-            <div className="p-10 container px-4 mx-auto flex items-center">
+            <div className="py-10 container px-4 mx-auto flex items-center">
                 <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-10">
                     <div className="mb-5">
                         <hr className="bg-primary mb-5 h-0.5 border-none"></hr>
@@ -158,7 +158,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className="flex flex-nowrap align-middle gap-3">
-                            <div className="mt-1"><img className="h-4" src={MapsWhiteIcon} alt="maps icon" /></div>
+                            <div className="mt-1"><img className="h-7" src={MapsWhiteIcon} alt="maps icon" /></div>
                             <div>
                                 <p className="font-pop">
                                     Autopista a La Lima, Bulevar del Este contiguo a Maderera Noriega. <br />San Pedro Sula, Cortes.

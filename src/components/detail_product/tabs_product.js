@@ -31,10 +31,10 @@ function TabsProduct(props) {
     ]
     return (
         <div className="bg-background pb-10">
-            
-            <div className="block  ">
+
+            <div className="block">
                 <div className="bg-white pt-2 px-2">
-                    <nav className="-mb-px flex justify-center space-x-1 md:space-x-5" aria-label="Tabs">
+                    <nav className="-mb-px flex justify-between md:justify-center space-x-1 md:space-x-5" aria-label="Tabs">
                         {tabs.map((tab, index) => (
                             <p
                                 key={index}
@@ -55,11 +55,11 @@ function TabsProduct(props) {
 
             <div className="container mx-auto">
                 <div className="flex justify-center">
-                        <div className="grow">
-                            {
-                                tabs[activeIndex].child
-                            }
-                        </div>
+                    <div className="grow">
+                        {
+                            tabs[activeIndex].child
+                        }
+                    </div>
                 </div>
 
             </div>
@@ -68,7 +68,7 @@ function TabsProduct(props) {
 }
 function Qualities(props) {
     return (
-        <div>
+        <div className="px-4 lg:px-6 xl:px-0">
             <div className="flex py-5 justify-center">
                 <p className="font-pop text-2xl font-semibold">Características</p>
             </div>
@@ -139,7 +139,7 @@ function DataSheet(props) {
         }
     }
     return (
-        <div>
+        <div className="lg:px-6 xl:px-0">
             <div className="flex py-5 justify-center">
                 <p className="font-pop text-2xl font-semibold">Ficha Técnica</p>
             </div>
@@ -208,56 +208,61 @@ function DataSheet(props) {
     );
 }
 function QuotePetition(props) {
-    return (<div>
-        <form>
-            <div className="flex pt-5 justify-center">
-                <p className="font-pop text-2xl font-semibold">Cotización</p>
-            </div>
-            <div className="flex justify-center px-2 py-5">
-                <div className="grid  grow px-2 md:px-48 grid-cols-1 md:grid-cols-2">
-                    <div className="flex py-2  grow  mb-0 ">
-                        <select name="categories" className="font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2">
-                            {
-                                productsCategories.map(function (item, index) {
-                                    return (
-                                        <option value={item.id} key={index}>{item.name}</option>
-                                    );
-                                })
-                            }
-                        </select>
-                    </div>
-                    <div className="flex grow py-2 mb-0 ">
-                        <select name="products" className="font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2">
-                            {
-                                products.map(function (item, index) {
-                                    return (
-                                        <option value={item.id} key={index}>{item.name}</option>
-                                    );
-                                })
-                            }
-                        </select>
+    return (
+        <div className="px-4 lg:px-6 xl:px-0 max-w-2xl mx-auto">
+            <form>
+                <div className="pt-5 text-center">
+                    <p className="font-pop text-2xl font-semibold">Cotización</p>
+                </div>
+                <div className="flex justify-center py-5">
+                    <div className="grid grow grid-cols-1 md:grid-cols-2">
+                        <div className="flex py-2 grow  mb-0">
+                            <select name="categories" className="font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2">
+                                {
+                                    productsCategories.map(function (item, index) {
+                                        return (
+                                            <option value={item.id} key={index}>{item.name}</option>
+                                        );
+                                    })
+                                }
+                            </select>
+                        </div>
+                        <div className="flex grow py-2 mb-0">
+                            <select name="products" className="font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2">
+                                {
+                                    products.map(function (item, index) {
+                                        return (
+                                            <option value={item.id} key={index}>{item.name}</option>
+                                        );
+                                    })
+                                }
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="flex px-5 sm:px-0  justify-center">
-                <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Nombres"></input>
-            </div>
-            <div className="flex px-5 sm:px-0 justify-center">
-                <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Compañia"></input>
-            </div>
-            <div className="flex px-5 sm:px-0 justify-center">
-                <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="RTN"></input>
-            </div>
-            <div className="flex px-5 sm:px-0 justify-center">
-                <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Numero"></input>
-            </div>
-            <div className="flex px-5 sm:px-0 justify-center">
-                <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="E-mail"></input>
-            </div>
-            <div>
-            </div>
-        </form>
-    </div>
+                <div>
+                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Nombres"></input>
+                </div>
+                <div>
+                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Compañia"></input>
+                </div>
+                <div>
+                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="RTN"></input>
+                </div>
+                <div>
+                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Numero"></input>
+                </div>
+                <div>
+                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="E-mail"></input>
+                </div>
+                <div className="mx-auto mt-6 w-3/5 lg:w-1/3">
+                    <button type="button" className="text-white font-pop bg-primary w-full rounded-3xl focus:ring-4 
+                                    focus:outline-none focus:ring-blue-300 border-none font-medium text-sm py-2 px-2 md:px-4 text-center">
+                            Generar Cotización
+                    </button>
+                </div>
+            </form>
+        </div>
     );
 }
 
