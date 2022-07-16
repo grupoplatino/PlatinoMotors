@@ -534,7 +534,7 @@ function HeroCategorySlider() {
                 {
                     categories.map((item) => (
                         <div key={item.id} className="cursor-pointer py-2 lg:py-0" onClick={() => handleSetIndex(item.id)}>
-                            <div className="p-1 border border-gray-100 w-32 sm:w-28 xl:w-auto">
+                            <div className={`p-1 border border-gray-100 w-32 sm:w-28 xl:w-auto ${categoryId === item.id ? "border-b-4 border-b-red-500":""}`}>
                                 <div className="bg-gray-100 mx-4 my-2 p-1 rounded-md">
                                     <img src={item.img} alt={item.name} />
                                 </div>
@@ -546,31 +546,12 @@ function HeroCategorySlider() {
                     ))
                 }
             </div>
-            <div className="hidden xl:block container mx-auto mb-5">
-                <div className="grid grid-cols-1 py-5 grow gap-4 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="container mx-auto mb-5 lg:px-4 xl:px-0">
+                <div className="grid grid-cols-1 py-5 grow gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     {
                         // eslint-disable-next-line
                         productCategory.map(function (item, index) {
-
-                            return (
-                                <div key={index}>
-                                    <SpecialProduct product={item} />
-                                </div>
-                            );
-                        })
-                    }
-                </div>
-                <div className="conatiner mx-auto text-center">
-                    <button type="button" className="text-background bg-gradient-to-r rounded-3xl pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
-                focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-20 py-2.5 text-center mr-2 mb-2">Ver todos</button>
-                </div>
-            </div>
-            <div className="block xl:hidden container mx-auto mb-5 lg:px-4 xl:px-0">
-                <div className="grid grid-cols-1 py-5 grow gap-4 sm:grid-cols-3">
-                    {
-                        // eslint-disable-next-line
-                        productCategory.map(function (item, index) {
-                            if (index < 3) {
+                            if (index < 4) {
                                 return (
                                     <div key={index}>
                                         <SpecialProduct product={item} />
