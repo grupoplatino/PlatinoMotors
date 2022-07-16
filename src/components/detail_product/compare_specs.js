@@ -1,36 +1,50 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Dialog, Switch, Disclosure, Transition } from '@headlessui/react';
 import { UpArrowOrangeIcon, DownArrowBlackIcon } from '../../assets';
 
 function CompareSpecs(props) {
-
-    const vsProduct = [
-        {
-            name: props.product.name,
-        },
-    ];
+    const vsProduct = [];
+    vsProduct.push(props.product);
     const [isOpen, setIsOpen] = useState(false);
     const [listed, setListed] = useState(false);
-    
-    const [vsAdded,setVsAdded] = useState(vsProduct[{name: props.product.name}]);
-
+    const [vsAdded, setVsAdded] = useState(vsProduct[{ name: props.product.name }]);
     function closeModal() {
         setIsOpen(false)
     };
     function openModal() {
         setIsOpen(true)
     };
-    const addProduct = (product) => {
-        if(listed === true)
-        {
+    const vsDetailsProduct = [];
+    function compareProducts() {
+        for (let i = 0; i < vsProduct.length; i++) {
+            console.log(vsProduct[i]);
+            for (let e = 0; e < products.length; e++) {
+                if (products[e].name === vsProduct[i].name) {
+                    vsDetailsProduct.push(products[e]);
+                }
+            }
+        }
+        setIsOpen(false);
+    };
+
+    function addProduct(product) {
+        if (listed === true) {
             let newVsProduct = {
                 name: product.name
             };
             vsProduct.push(newVsProduct);
-            console.log(vsProduct);
+        }
+        else {
+            let index = 0;
+            for (let i = 0; i < vsProduct.length; i++) {
+                if (vsProduct[i].name === product.name) {
+                    index = i;
+                }
+            }
+            vsProduct.slice(index, 1);
         }
         return setListed;
-    }
+    };
     const products = [
         {
             id: 1,
@@ -689,8 +703,6 @@ function CompareSpecs(props) {
             productsBySameCategory.push(products[i]);
         }
     };
-
-
     let filters = [
         {
             title: "Marca",
@@ -710,8 +722,6 @@ function CompareSpecs(props) {
         }
     ];
     //Filtro temporal por mientras terminan el API
-
-
     for (let i = 0; i < productsBySameCategory.length; i++) {
         filters[0].values.push(products[i].brand);
         filters[1].values.push(products[i].motor);
@@ -731,8 +741,6 @@ function CompareSpecs(props) {
     filters[2].values = motorsPower;
     filters[3].values = statuses;
 
-
-
     return (
         <div className='bg-white'>
             <div className='container mx-auto'>
@@ -747,201 +755,7 @@ function CompareSpecs(props) {
                         <img className=' mx-auto h-40 my-5 rounded-md' alt={props.product.name} src={props.product.img} />
                         <span>{props.product.name}</span>
                     </div>
-                    <div className='bg-gray-100 content-center rounded-xl'>
-                        <button
-                            type="button"
-                            onClick={openModal}
-                            className="relative block w-full h-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                            <p className="flex items-center justify-around">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                                </svg>
-                                <span className="block text-sm font-medium text-gray-900">Añadir modelo</span>
-                            </p>
-                        </button>
-                        <Transition appear show={isOpen} as={Fragment}>
-                            <Dialog as="div" className="relative z-30" onClose={closeModal}>
-                                <Transition.Child
-                                    as={Fragment}
-                                    enter="ease-out duration-300"
-                                    enterFrom="opacity-0"
-                                    enterTo="opacity-100"
-                                    leave="ease-in duration-200"
-                                    leaveFrom="opacity-100"
-                                    leaveTo="opacity-0">
-                                    <div className="fixed inset-0 bg-black bg-opacity-25" />
-                                </Transition.Child>
-
-                                <div className="fixed inset-0 overflow-y-auto">
-                                    <div className='bg-white flex'>
-
-                                    </div>
-                                    <div className="container mx-auto  items-center justify-center p-4 text-center">
-                                        <Transition.Child
-                                            as={Fragment}
-                                            enter="ease-out duration-300"
-                                            enterFrom="opacity-0 scale-95"
-                                            enterTo="opacity-100 scale-100"
-                                            leave="ease-in duration-200"
-                                            leaveFrom="opacity-100 scale-100"
-                                            leaveTo="opacity-0 scale-95"
-                                        >
-                                            <Dialog.Panel className="w-full transform overflow-hidden rounded-2xl bg-white  p-6 text-left align-middle shadow-xl transition-all">
-                                                <Dialog.Title
-                                                    as="h3"
-                                                    className="text-lg py-2 px-2 font-pop font-medium bg-background  shadow-sm flex items-center justify-between rounded-md leading-6 text-black">
-                                                    <div className='flex'>
-                                                        <div className='mr-2'>
-                                                            <p>Escoge la maquinaria para la comparativa</p>
-                                                        </div>
-                                                        {
-                                                            vsProduct.map((item, index) => (
-                                                                <div key={index} className='border-2 rounded-md border-primary text-primary'>
-                                                                    <p className='px-2'>{item.name}</p>
-                                                                </div>
-                                                            ))
-                                                        }
-                                                    </div>
-                                                    <div>
-                                                        <button
-                                                            type="button"
-                                                            className="inline-flex justify-center rounded-md border border-transparent bg-primary text-white px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                                            onClick={closeModal}
-                                                        >
-                                                            Comparar
-                                                        </button>
-                                                    </div>
-                                                </Dialog.Title>
-                                                <div className="mt-2">
-                                                    <div className='grid grid-cols-10'>
-                                                        <div className='m-2 col-span-2 rounded-sm '>
-                                                            {
-                                                                filters.map((item, index) => (
-                                                                    <Disclosure key={index}>
-                                                                        {({ open }) => (
-                                                                            <div key={index}>
-                                                                                <Disclosure.Button className="flex w-full justify-between font-pop  bg-white border-b px-4 py-2 text-left text-sm font-medium text-black hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
-                                                                                    <span>{item.title}</span>
-                                                                                    {
-                                                                                        open ? <img className='h-4 w-4' alt='arrow' src={UpArrowOrangeIcon} /> : <img alt='arrow' className='h-4 w-4' src={DownArrowBlackIcon} />
-                                                                                    }
-                                                                                </Disclosure.Button>
-                                                                                <Transition
-                                                                                    enter="transition duration-100 ease-out"
-                                                                                    enterFrom="transform scale-95 opacity-0"
-                                                                                    enterTo="transform scale-100 opacity-100"
-                                                                                    leave="transition duration-75 ease-out"
-                                                                                    leaveFrom="transform scale-100 opacity-100"
-                                                                                    leaveTo="transform scale-95 opacity-0">
-                                                                                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
-                                                                                        {
-                                                                                            item.values.map((item, index) => (
-                                                                                                <div key={index}>
-                                                                                                    <div className='flex font-pop justify-between'>
-                                                                                                        <div>
-                                                                                                            <span>{item}</span>
-                                                                                                        </div>
-                                                                                                        <div>
-                                                                                                            <input
-                                                                                                                type="checkbox"
-                                                                                                                className="focus:ring-primary h-4 w-4 text-primary border-gray rounded"
-                                                                                                            />
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            ))
-                                                                                        }
-                                                                                    </Disclosure.Panel>
-                                                                                </Transition>
-                                                                            </div>
-                                                                        )}
-                                                                    </Disclosure>
-                                                                ))
-                                                            }
-                                                        </div>
-                                                        <div className='m-2 col-span-8 rounded-sm '>
-                                                            <div className='grid gap-2 grid-cols-3'>
-                                                                {
-                                                                    productsBySameCategory.map((item, key) => (
-                                                                        <div key={key} className='flex py-5 px-2 bg-background rounded-xl justify-items-center'>
-                                                                            <div className='grow'>
-                                                                                <div className='flex justify-between'>
-                                                                                    <p className='font-pop text-black font-medium text-2xl'>{item.name} </p>
-                                                                                    <Switch
-                                                                                       
-                                                                                        checked={listed}
-                                                                                        onChange={addProduct(item)}
-                                                                                        className={`${listed ? 'bg-primary' : ' bg-pirmaryScarlet-100'}
-                                                                                            relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
-                                                                                        >
-                                                                                        <span className="sr-only">Use setting</span>
-                                                                                        <span
-                                                                                            aria-hidden="true"
-                                                                                            className={`${listed ? 'translate-x-3' : 'translate-x-0'}
-                                                                                             pointer-events-none inline-block h-4 w-5 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
-                                                                                        />
-                                                                                    </Switch>
-                                                                                </div>
-                                                                                <div className='flex justify-center'>
-                                                                                    <img src={props.product.img} alt={props.product.name} className="h-48" />
-                                                                                </div>
-                                                                                <div className='flex flex-nowrap'>
-                                                                                    <div>
-                                                                                        <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Potencia: </p>
-                                                                                    </div>
-                                                                                    <div>
-                                                                                        <p className='font-pop text-fiord text-sm'>{props.product.motorPower} </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className='flex flex-nowrap'>
-                                                                                    <div>
-                                                                                        <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Peso: </p>
-                                                                                    </div>
-                                                                                    <div>
-                                                                                        <p className='font-pop text-fiord text-sm'>{props.product.weight} </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className='flex flex-nowrap'>
-                                                                                    <div>
-                                                                                        <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Cucharon: </p>
-                                                                                    </div>
-                                                                                    <div>
-                                                                                        <p className='font-pop text-fiord text-sm'>{props.product.cucharon} </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className='flex flex-nowrap'>
-                                                                                    <div>
-                                                                                        <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Motor: </p>
-                                                                                    </div>
-                                                                                    <div>
-                                                                                        <p className='font-pop text-fiord text-sm'>{props.product.motor} </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className='flex pt-2 flex-nowrap'>
-                                                                                    <div>
-                                                                                        <p className={(props.product.status === "Disponible" ? 'text-success' : props.product.status === "Por Encargo" ? 'text-black' : 'text-primary') + ' font-pop text-sm pr-1 font-semibold'}>{props.product.status} </p>
-                                                                                    </div>
-                                                                                    <div>
-                                                                                        <p className='font-pop text-fiord text-sm'>{props.product.status === "Disponible" ? "Entrega inmediata" : props.product.status === "Por Encargo" ? "Entrega en 2 semanas" : ""} </p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    ))
-                                                                }
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </Dialog.Panel>
-                                        </Transition.Child>
-                                    </div>
-                                </div>
-                            </Dialog>
-                        </Transition>
-                    </div>
+                    <SwitchComponent vsDetail={vsDetailsProduct} product={props.product} action={{ openModal }} />
                     <div className=' bg-gray-100 rounded-xl'>
                         <button
                             onClick={openModal}
@@ -964,7 +778,6 @@ function CompareSpecs(props) {
                                 </div>
                             ))
                         }
-
                     </div>
                     <div className='py-2 px-5 bg-background  rounded-xl'>
                         {
@@ -975,16 +788,259 @@ function CompareSpecs(props) {
                             ))
                         }
                     </div>
-                    <div className='p-10 bg-background rounded-xl'>
-
+                    <div className='py-2 px-5 bg-background rounded-xl'>
+                        {
+                            vsProduct.length === 1
+                                ? <Fragment />
+                                : products[0].dataSheet.map((item, index) => (
+                                    <div key={index} className="rounded my-1 border-b pb-2">
+                                        <p className="font-pop  text-black text-lg">{item.value}</p>
+                                    </div>
+                                ))
+                        }
                     </div>
-                    <div className='p-10 bg-background rounded-xl'>
+                    <div className='py-2 px-5 bg-background rounded-xl'>
+                        {
+                            vsProduct.length > 2
+                                ? products[1].dataSheet.map((item, index) => (
+                                    <div key={index} className="rounded my-1 border-b pb-2">
+                                        <p className="font-pop  text-black text-lg">{item.value}</p>
+                                    </div>
+                                ))
+                                : <Fragment />
+                        }
                     </div>
                 </div>
+                <Transition appear show={isOpen} as={Fragment}>
+                    <Dialog as="div" className="relative z-30" onClose={closeModal}>
+                        <Transition.Child
+                            as={Fragment}
+                            enter="ease-out duration-300"
+                            enterFrom="opacity-0"
+                            enterTo="opacity-100"
+                            leave="ease-in duration-200"
+                            leaveFrom="opacity-100"
+                            leaveTo="opacity-0">
+                            <div className="fixed inset-0 bg-black bg-opacity-25" />
+                        </Transition.Child>
+                        <div className="fixed inset-0 overflow-y-auto">
+                            <div className='bg-white flex'>
 
+                            </div>
+                            <div className="container mx-auto  items-center justify-center p-4 text-center">
+                                <Transition.Child
+                                    as={Fragment}
+                                    enter="ease-out duration-300"
+                                    enterFrom="opacity-0 scale-95"
+                                    enterTo="opacity-100 scale-100"
+                                    leave="ease-in duration-200"
+                                    leaveFrom="opacity-100 scale-100"
+                                    leaveTo="opacity-0 scale-95"
+                                >
+                                    <Dialog.Panel className="w-full transform overflow-hidden rounded-2xl bg-white  p-6 text-left align-middle shadow-xl transition-all">
+                                        <Dialog.Title
+                                            as="h3"
+                                            className="text-lg py-2 px-2 font-pop font-medium bg-background  shadow-sm flex items-center justify-between rounded-md leading-6 text-black">
+                                            <div className='flex'>
+                                                <div className='mr-2'>
+                                                    <p>Escoge la maquinaria para la comparativa</p>
+                                                </div>
+                                                <ProductsHeader vsProducts={vsProduct} />
+                                            </div>
+                                            <div>
+                                                <button
+                                                    type="button"
+                                                    className="inline-flex justify-center rounded-md border border-transparent bg-primary text-white px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                                                    onClick={compareProducts}
+                                                >
+                                                    Comparar
+                                                </button>
+                                            </div>
+                                        </Dialog.Title>
+                                        <div className="mt-2">
+                                            <div className='grid grid-cols-10'>
+                                                <div className='m-2 col-span-2 rounded-sm '>
+                                                    {
+                                                        filters.map((item, index) => (
+                                                            <Disclosure key={index}>
+                                                                {({ open }) => (
+                                                                    <div key={index}>
+                                                                        <Disclosure.Button className="flex w-full justify-between font-pop  bg-white border-b px-4 py-2 text-left text-sm font-medium text-black hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                                                                            <span>{item.title}</span>
+                                                                            {
+                                                                                open ? <img className='h-4 w-4' alt='arrow' src={UpArrowOrangeIcon} /> : <img alt='arrow' className='h-4 w-4' src={DownArrowBlackIcon} />
+                                                                            }
+                                                                        </Disclosure.Button>
+                                                                        <Transition
+                                                                            enter="transition duration-100 ease-out"
+                                                                            enterFrom="transform scale-95 opacity-0"
+                                                                            enterTo="transform scale-100 opacity-100"
+                                                                            leave="transition duration-75 ease-out"
+                                                                            leaveFrom="transform scale-100 opacity-100"
+                                                                            leaveTo="transform scale-95 opacity-0">
+                                                                            <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+                                                                                {
+                                                                                    item.values.map((item, index) => (
+                                                                                        <div key={index}>
+                                                                                            <div className='flex font-pop justify-between'>
+                                                                                                <div>
+                                                                                                    <span>{item}</span>
+                                                                                                </div>
+                                                                                                <div>
+                                                                                                    <input
+                                                                                                        type="checkbox"
+                                                                                                        className="focus:ring-primary h-4 w-4 text-primary border-gray rounded"
+                                                                                                    />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    ))
+                                                                                }
+                                                                            </Disclosure.Panel>
+                                                                        </Transition>
+                                                                    </div>
+                                                                )}
+                                                            </Disclosure>
+                                                        ))
+                                                    }
+                                                </div>
+                                                <div className='m-2 col-span-8 rounded-sm'>
+                                                    <div className='grid gap-2 grid-cols-3'>
+                                                        {
+                                                            productsBySameCategory.map((item, key) => (
+                                                                <div key={key} className='flex py-5 px-2 bg-background rounded-xl justify-items-center'>
+                                                                    <CardProductToCompare product={item} listed={listed} addProduct={addProduct} />
+                                                                </div>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Dialog.Panel>
+                                </Transition.Child>
+                            </div>
+                        </div>
+                    </Dialog>
+                </Transition>
             </div>
         </div>
     );
 };
+
+function ProductsHeader(props) {
+    const products = props.vsProducts;
+    return (
+        products.map((item, index) => (
+            <div key={index} className='border-2 mx-2 rounded-md border-primary text-primary'>
+                <p className='px-2'>{item.name}</p>
+            </div>
+        ))
+    );
+};
+
+function CardProductToCompare(props) {
+    return (
+        <div className='grow'>
+            <div className='flex justify-between'>
+                <p className='font-pop text-black font-medium text-2xl'>{props.product.name} </p>
+                <Switch
+                    checked={props.listed}
+                    onChange={props.addProduct(props.product)}
+                    className={`${props.listed ? 'bg-primary' : ' bg-pirmaryScarlet-100'}
+                                                                                            relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+                >
+                    <span className="sr-only">Use setting</span>
+                    <span
+                        aria-hidden="true"
+                        className={`${props.listed ? 'translate-x-3' : 'translate-x-0'}
+                                                                                             pointer-events-none inline-block h-4 w-5 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
+                    />
+                </Switch>
+            </div>
+            <div className='flex justify-center'>
+                <img src={props.product.img} alt={props.product.name} className="h-48" />
+            </div>
+            <div className='flex flex-nowrap'>
+                <div>
+                    <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Potencia: </p>
+                </div>
+                <div>
+                    <p className='font-pop text-fiord text-sm'>{props.product.motorPower} </p>
+                </div>
+            </div>
+            <div className='flex flex-nowrap'>
+                <div>
+                    <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Peso: </p>
+                </div>
+                <div>
+                    <p className='font-pop text-fiord text-sm'>{props.product.weight} </p>
+                </div>
+            </div>
+            <div className='flex flex-nowrap'>
+                <div>
+                    <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Cucharon: </p>
+                </div>
+                <div>
+                    <p className='font-pop text-fiord text-sm'>{props.product.cucharon} </p>
+                </div>
+            </div>
+            <div className='flex flex-nowrap'>
+                <div>
+                    <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Motor: </p>
+                </div>
+                <div>
+                    <p className='font-pop text-fiord text-sm'>{props.product.motor} </p>
+                </div>
+            </div>
+            <div className='flex pt-2 flex-nowrap'>
+                <div>
+                    <p className={(props.product.status === "Disponible" ? 'text-success' : props.product.status === "Por Encargo" ? 'text-black' : 'text-primary') + ' font-pop text-sm pr-1 font-semibold'}>{props.product.status} </p>
+                </div>
+                <div>
+                    <p className='font-pop text-fiord text-sm'>{props.product.status === "Disponible" ? "Entrega inmediata" : props.product.status === "Por Encargo" ? "Entrega en 2 semanas" : ""} </p>
+                </div>
+            </div>
+        </div>
+    );
+
+}
+
+function ReferenceImgProduct(props) {
+    return (
+        <div className=' bg-background font-pop text-xl font-bold pb-2 text-center rounded-xl relative'>
+            <img className=' mx-auto h-40 my-5 rounded-md' alt={props.product.name} src={props.product.img} />
+            <span>{props.product.name}</span>
+        </div>
+    );
+};
+
+function AddProductButton(props) {
+    return (
+        <div className='bg-gray-100 content-center rounded-xl'>
+            <button
+                type="button"
+                onClick={props.action.openModal}
+                className="relative block w-full h-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+                <p className="flex items-center justify-around">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                    <span className="block text-sm font-medium text-gray-900">Añadir modelo</span>
+                </p>
+            </button>
+        </div>
+    );
+}
+function SwitchComponent(props) {
+    return (
+        props.vsDetail.length === 1
+        ? <AddProductButton action={props.action} />
+        : <ReferenceImgProduct product={props.product} />
+    );
+}
+
+
 
 export default CompareSpecs;
