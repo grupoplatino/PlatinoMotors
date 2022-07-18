@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,Fragment } from "react";
+import { Combobox,Transition } from "@headlessui/react";
+import { CheckIcon } from "@heroicons/react/solid";
 import { DownloadBlackIcon } from "../../assets";
 
 const products = [
@@ -8,21 +10,61 @@ const products = [
     { name: "SY-DDDD-1234", id: 2 },
     { name: "SY-EEEE-1234", id: 3 },
 ]
-const productsCategories = [
-    { name: "Volquetas", id: 1 },
-    { name: "Retroexcavadora", id: 2 },
-    { name: "Moto Niveladora", id: 3 },
-]
+const categories = [
+    {
+        id: 1,
+        name: "Excavadoras",
+    },
+    {
+        id: 2,
+        name: "Cargadoras",
+    },
+    {
+        id: 3,
+        name: "Volquetas",
+    },
+    {
+        id: 4,
+        name: "Motoniveladoras",
+    },
+    {
+        id: 5,
+        name: "Vibrocompactador",
+    },
+    {
+        id: 6,
+        name: "Hormigon",
+    },
+    {
+        id: 7,
+        name: "Grúas",
+    },
+    {
+        id: 8,
+        name: "Pilotaje",
+    },
+    {
+        id: 9,
+        name: "Portuaria",
+    },
+    {
+        id: 10,
+        name: "Minera",
+    },
+    {
+        id: 11,
+        name: "Bomberos",
+    }
+];
 const openInNewTab = url => {
     window.open(url, "_blank", "noopener,noreferrer");
 };
-
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 };
-
 function TabsProduct(props) {
     const [activeIndex, setActiveIndex] = useState(0);
+    
     const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
     let tabs = [
         { name: 'Características', href: '', current: true, child: <Qualities qualities={props.product.qualities} /> },
@@ -208,6 +250,15 @@ function DataSheet(props) {
     );
 }
 function QuotePetition(props) {
+    const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+    const [query, setQuery] = useState('');
+    const filteredCategory =
+        query === ''
+            ? categories
+            : categories.filter((category) => {
+                return category.name.toLowerCase().includes(query.toLowerCase());
+            });
+
     return (
         <div className="px-4 lg:px-6 xl:px-0 max-w-2xl mx-auto">
             <form>
@@ -217,26 +268,130 @@ function QuotePetition(props) {
                 <div className="flex justify-center py-5">
                     <div className="grid grow grid-cols-1 md:grid-cols-2">
                         <div className="flex py-2 grow  mb-0">
-                            <select name="categories" className="font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2">
-                                {
-                                    productsCategories.map(function (item, index) {
-                                        return (
-                                            <option value={item.id} key={index}>{item.name}</option>
-                                        );
-                                    })
-                                }
-                            </select>
+                            <Combobox value={selectedCategory} onChange={setSelectedCategory}>
+                                <div className="relative mt-1">
+                                    <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                                        <Combobox.Input
+                                            className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-black bg-transparent "
+                                            displayValue={(category) => category.name}
+                                            onChange={(event) => setQuery(event.target.value)}
+                                        />
+                                        <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="#FFFFFF">
+                                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                            </svg>
+                                        </Combobox.Button>
+                                    </div>
+                                    <Transition
+                                        as={Fragment}
+                                        leave="transition ease-in duration-100"
+                                        leaveFrom="opacity-100"
+                                        leaveTo="opacity-0"
+                                        afterLeave={() => setQuery('')}
+                                    >
+                                        <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                            {filteredCategory.length === 0 && query !== '' ? (
+                                                <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
+                                                    Nada encontrado.
+                                                </div>
+                                            ) : (
+                                                filteredCategory.map((category) => (
+                                                    <Combobox.Option
+                                                        key={category.id}
+                                                        className={({ active }) =>
+                                                            `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? ' text-black bg-pirmaryScarlet-300' : 'text-gray-900'
+                                                            }`
+                                                        }
+                                                        value={category}
+                                                    >
+                                                        {({ selected, active }) => (
+                                                            <>
+                                                                <span
+                                                                    className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                                                                        }`}
+                                                                >
+                                                                    {category.name}
+                                                                </span>
+                                                                {selected ? (
+                                                                    <span
+                                                                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-black' : 'text-otherSuccess-900'
+                                                                            }`}
+                                                                    >
+                                                                        <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                                                    </span>
+                                                                ) : null}
+                                                            </>
+                                                        )}
+                                                    </Combobox.Option>
+                                                ))
+                                            )}
+                                        </Combobox.Options>
+                                    </Transition>
+                                </div>
+                            </Combobox>
                         </div>
                         <div className="flex grow py-2 mb-0">
-                            <select name="products" className="font-pop py-2 border-b bg-otherLight-50 grow border-non active:border-primary checked:border-primary px-2">
-                                {
-                                    products.map(function (item, index) {
-                                        return (
-                                            <option value={item.id} key={index}>{item.name}</option>
-                                        );
-                                    })
-                                }
-                            </select>
+                        <Combobox value={selectedCategory} onChange={setSelectedCategory}>
+                                <div className="relative mt-1">
+                                    <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                                        <Combobox.Input
+                                            className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-black bg-transparent "
+                                            displayValue={(category) => category.name}
+                                            onChange={(event) => setQuery(event.target.value)}
+                                        />
+                                        <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="#FFFFFF">
+                                                <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                            </svg>
+                                        </Combobox.Button>
+                                    </div>
+                                    <Transition
+                                        as={Fragment}
+                                        leave="transition ease-in duration-100"
+                                        leaveFrom="opacity-100"
+                                        leaveTo="opacity-0"
+                                        afterLeave={() => setQuery('')}
+                                    >
+                                        <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                            {filteredCategory.length === 0 && query !== '' ? (
+                                                <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
+                                                    Nada encontrado.
+                                                </div>
+                                            ) : (
+                                                filteredCategory.map((category) => (
+                                                    <Combobox.Option
+                                                        key={category.id}
+                                                        className={({ active }) =>
+                                                            `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? ' text-black bg-pirmaryScarlet-300' : 'text-gray-900'
+                                                            }`
+                                                        }
+                                                        value={category}
+                                                    >
+                                                        {({ selected, active }) => (
+                                                            <>
+                                                                <span
+                                                                    className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                                                                        }`}
+                                                                >
+                                                                    {category.name}
+                                                                </span>
+                                                                {selected ? (
+                                                                    <span
+                                                                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-black' : 'text-otherSuccess-900'
+                                                                            }`}
+                                                                    >
+                                                                        <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                                                                    </span>
+                                                                ) : null}
+                                                            </>
+                                                        )}
+                                                    </Combobox.Option>
+                                                ))
+                                            )}
+                                        </Combobox.Options>
+                                    </Transition>
+                                </div>
+                            </Combobox>
                         </div>
                     </div>
                 </div>
@@ -258,7 +413,7 @@ function QuotePetition(props) {
                 <div className="mx-auto mt-6 w-3/5 lg:w-1/3">
                     <button type="button" className="text-white font-pop bg-primary w-full rounded-3xl focus:ring-4 
                                     focus:outline-none focus:ring-blue-300 border-none font-medium text-sm py-2 px-2 md:px-4 text-center">
-                            Generar Cotización
+                        Generar Cotización
                     </button>
                 </div>
             </form>

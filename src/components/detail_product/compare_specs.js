@@ -7,7 +7,8 @@ function CompareSpecs(props) {
     vsProduct.push(props.product);
     const [isOpen, setIsOpen] = useState(false);
     const [listed, setListed] = useState(false);
-    const [vsAdded, setVsAdded] = useState(vsProduct[{ name: props.product.name }]);
+    const [listProductToCompare, setListOroductToCompare] = useState([]);
+
     function closeModal() {
         setIsOpen(false)
     };
@@ -17,13 +18,15 @@ function CompareSpecs(props) {
     const vsDetailsProduct = [];
     function compareProducts() {
         for (let i = 0; i < vsProduct.length; i++) {
-            console.log(vsProduct[i]);
+           
             for (let e = 0; e < products.length; e++) {
                 if (products[e].name === vsProduct[i].name) {
                     vsDetailsProduct.push(products[e]);
+                    setListOroductToCompare(vsDetailsProduct);
                 }
             }
         }
+        console.log(vsDetailsProduct);
         setIsOpen(false);
     };
 
@@ -695,9 +698,7 @@ function CompareSpecs(props) {
             ]
         },
     ];
-
     let productsBySameCategory = [];
-
     for (let i = 0; i < products.length; i++) {
         if (products[i].categoryId === props.product.categoryId) {
             productsBySameCategory.push(products[i]);
@@ -721,6 +722,7 @@ function CompareSpecs(props) {
             values: []
         }
     ];
+
     //Filtro temporal por mientras terminan el API
     for (let i = 0; i < productsBySameCategory.length; i++) {
         filters[0].values.push(products[i].brand);
@@ -749,13 +751,13 @@ function CompareSpecs(props) {
                 </div>
                 <div className='grid grid-cols-4 gap-4'>
                     <div className=' bg-background rounded-xl'>
-                        <span>Compare hasta 3 modelos distintos</span>
+                        <span className=''>Compare hasta 3 modelos distintos</span>
                     </div>
                     <div className=' bg-background font-pop text-xl font-bold pb-2 text-center rounded-xl'>
                         <img className=' mx-auto h-40 my-5 rounded-md' alt={props.product.name} src={props.product.img} />
                         <span>{props.product.name}</span>
                     </div>
-                    <SwitchComponent vsDetail={vsDetailsProduct} product={props.product} action={{ openModal }} />
+                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} />
                     <div className=' bg-gray-100 rounded-xl'>
                         <button
                             onClick={openModal}
@@ -1003,7 +1005,6 @@ function CardProductToCompare(props) {
             </div>
         </div>
     );
-
 }
 
 function ReferenceImgProduct(props) {
@@ -1011,6 +1012,9 @@ function ReferenceImgProduct(props) {
         <div className=' bg-background font-pop text-xl font-bold pb-2 text-center rounded-xl relative'>
             <img className=' mx-auto h-40 my-5 rounded-md' alt={props.product.name} src={props.product.img} />
             <span>{props.product.name}</span>
+            <button className='absolute top-2 right-2'><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg></button>
         </div>
     );
 };
@@ -1035,9 +1039,9 @@ function AddProductButton(props) {
 }
 function SwitchComponent(props) {
     return (
-        props.vsDetail.length === 1
-        ? <AddProductButton action={props.action} />
-        : <ReferenceImgProduct product={props.product} />
+        props.productToCompare.length === 0
+            ? <AddProductButton action={props.action} />
+            : <ReferenceImgProduct product={props.productToCompare[0]} />
     );
 }
 
