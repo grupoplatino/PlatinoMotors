@@ -1,52 +1,43 @@
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Dialog, Switch, Disclosure, Transition } from '@headlessui/react';
 import { UpArrowOrangeIcon, DownArrowBlackIcon } from '../../assets';
 
 function CompareSpecs(props) {
-    const vsProduct = [];
-    vsProduct.push(props.product);
     const [isOpen, setIsOpen] = useState(false);
-    const [listed, setListed] = useState(false);
-    const [listProductToCompare, setListOroductToCompare] = useState([]);
-
+    const [listProductToCompare, setListProductToCompare] = useState([]);
+    const referenceVsProduct = [];
+    const vsDetailsProduct=[];
     function closeModal() {
         setIsOpen(false)
     };
     function openModal() {
         setIsOpen(true)
     };
-    const vsDetailsProduct = [];
     function compareProducts() {
-        for (let i = 0; i < vsProduct.length; i++) {
-           
+        for (let i = 0; i < referenceVsProduct.length; i++) {
             for (let e = 0; e < products.length; e++) {
-                if (products[e].name === vsProduct[i].name) {
+                if (products[e].name === referenceVsProduct[i].name) {
                     vsDetailsProduct.push(products[e]);
-                    setListOroductToCompare(vsDetailsProduct);
+                    setListProductToCompare(vsDetailsProduct);
                 }
             }
         }
-        console.log(vsDetailsProduct);
         setIsOpen(false);
     };
-
     function addProduct(product) {
-        if (listed === true) {
-            let newVsProduct = {
-                name: product.name
-            };
-            vsProduct.push(newVsProduct);
-        }
-        else {
-            let index = 0;
-            for (let i = 0; i < vsProduct.length; i++) {
-                if (vsProduct[i].name === product.name) {
-                    index = i;
-                }
+        let newVsProduct = {
+            name: product.name
+        };
+        referenceVsProduct.push(newVsProduct);
+    };
+    function removeProduct(product) {
+        let index = 0;
+        for (let i = 0; i < referenceVsProduct.length; i++) {
+            if (referenceVsProduct[i].name === product.name) {
+                index = i;
             }
-            vsProduct.slice(index, 1);
         }
-        return setListed;
+        referenceVsProduct.slice(index, 1);
     };
     const products = [
         {
@@ -269,7 +260,79 @@ function CompareSpecs(props) {
             id: 1,
             status: "Disponible",
             brand: "SANY",
-            name: "SY16 C EU-US",
+            name: "SY14 C EU-US",
+            cucharon: '0.04m',
+            motorPower: "10,3/2200kW/rpm",
+            categoryId: 2,
+            category: "Volqueta",
+            subCategoryId: 2,
+            subCategory: "Excavadora Mediana",
+            img: "https://img.directindustry.es/images_di/photo-m2/52887-16186553.jpg",
+            motor: "Yanmar 3TNV70",
+            weight: "1920kg",
+            manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+            qualities: [
+                {
+                    title: "Caractieristica uno",
+                    description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+                },
+                {
+                    title: "Caractieristica dos",
+                    description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+                },
+                {
+                    title: "Caractieristica tres",
+                    description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+                },
+                {
+                    title: "Caractieristica cuatro",
+                    description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+                },
+            ],
+            dataSheet: [
+                {
+                    title: "Motor",
+                    value: "XB-4588"
+                },
+                {
+                    title: "Tamaño",
+                    value: "15Tons"
+                },
+                {
+                    title: "Color",
+                    value: "Negro"
+                },
+                {
+                    title: "Garantia",
+                    value: "4 años"
+                },
+                {
+                    title: "Fabricante",
+                    value: "SANY"
+                },
+                {
+                    title: "Caja de cambios",
+                    value: "Manual"
+                },
+                {
+                    title: "Llantas",
+                    value: "Antibalas"
+                },
+                {
+                    title: "Cabina",
+                    value: "Acondicionada"
+                },
+                {
+                    title: "Montura",
+                    value: "Cuero"
+                },
+            ]
+        },
+        {
+            id: 1,
+            status: "Disponible",
+            brand: "SANY",
+            name: "SY15 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
             categoryId: 2,
@@ -413,79 +476,7 @@ function CompareSpecs(props) {
             id: 1,
             status: "Disponible",
             brand: "SANY",
-            name: "SY16 C EU-US",
-            cucharon: '0.04m',
-            motorPower: "10,3/2200kW/rpm",
-            categoryId: 2,
-            category: "Volqueta",
-            subCategoryId: 2,
-            subCategory: "Excavadora Mediana",
-            img: "https://img.directindustry.es/images_di/photo-m2/52887-16186553.jpg",
-            motor: "Yanmar 3TNV70",
-            weight: "1920kg",
-            manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
-            qualities: [
-                {
-                    title: "Caractieristica uno",
-                    description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
-                },
-                {
-                    title: "Caractieristica dos",
-                    description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
-                },
-                {
-                    title: "Caractieristica tres",
-                    description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
-                },
-                {
-                    title: "Caractieristica cuatro",
-                    description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
-                },
-            ],
-            dataSheet: [
-                {
-                    title: "Motor",
-                    value: "XB-4588"
-                },
-                {
-                    title: "Tamaño",
-                    value: "15Tons"
-                },
-                {
-                    title: "Color",
-                    value: "Negro"
-                },
-                {
-                    title: "Garantia",
-                    value: "4 años"
-                },
-                {
-                    title: "Fabricante",
-                    value: "SANY"
-                },
-                {
-                    title: "Caja de cambios",
-                    value: "Manual"
-                },
-                {
-                    title: "Llantas",
-                    value: "Antibalas"
-                },
-                {
-                    title: "Cabina",
-                    value: "Acondicionada"
-                },
-                {
-                    title: "Montura",
-                    value: "Cuero"
-                },
-            ]
-        },
-        {
-            id: 1,
-            status: "Disponible",
-            brand: "SANY",
-            name: "SY16 C EU-US",
+            name: "SY17 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
             categoryId: 3,
@@ -557,7 +548,7 @@ function CompareSpecs(props) {
             id: 1,
             status: "Disponible",
             brand: "SANY",
-            name: "SY16 C EU-US",
+            name: "SY18 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
             categoryId: 3,
@@ -629,7 +620,7 @@ function CompareSpecs(props) {
             id: 1,
             status: "Disponible",
             brand: "SANY",
-            name: "SY16 C EU-US",
+            name: "SY19 C EU-US",
             cucharon: '0.04m',
             motorPower: "10,3/2200kW/rpm",
             categoryId: 3,
@@ -722,14 +713,13 @@ function CompareSpecs(props) {
             values: []
         }
     ];
-
     //Filtro temporal por mientras terminan el API
     for (let i = 0; i < productsBySameCategory.length; i++) {
         filters[0].values.push(products[i].brand);
         filters[1].values.push(products[i].motor);
         filters[2].values.push(products[i].motorPower);
         filters[3].values.push(products[i].status);
-    }
+    };
     let dataBrands = new Set(filters[0].values);
     let dataMotors = new Set(filters[1].values);
     let dataMotorsPower = new Set(filters[2].values);
@@ -742,7 +732,6 @@ function CompareSpecs(props) {
     filters[1].values = motors;
     filters[2].values = motorsPower;
     filters[3].values = statuses;
-
     return (
         <div className='bg-white hidden md:block'>
             <div className='container mx-auto'>
@@ -757,19 +746,8 @@ function CompareSpecs(props) {
                         <img className=' mx-auto h-40 my-5 rounded-md' alt={props.product.name} src={props.product.img} />
                         <span>{props.product.name}</span>
                     </div>
-                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} />
-                    <div className=' bg-gray-100 rounded-xl'>
-                        <button
-                            onClick={openModal}
-                            type="button"
-                            className="relative block w-full h-full border-2 border-gray-300 border-dashed rounded-lg p-12 text-center hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
-                            </svg>
-                            <span className="mt-2 block text-sm font-medium text-gray-900">Añadir modelo</span>
-                        </button>
-                    </div>
+                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{openModal}} position={1}/>
+                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{openModal}} position={2}/>
                 </div>
                 <div className='grid grid-cols-4 mt-2 gap-4'>
                     <div className='py-2 px-5 bg-background rounded-xl'>
@@ -792,9 +770,9 @@ function CompareSpecs(props) {
                     </div>
                     <div className='py-2 px-5 bg-background rounded-xl'>
                         {
-                            vsProduct.length === 1
+                            listProductToCompare.length === 0
                                 ? <Fragment />
-                                : products[0].dataSheet.map((item, index) => (
+                                : listProductToCompare[0].dataSheet.map((item, index) => (
                                     <div key={index} className="rounded my-1 border-b pb-2">
                                         <p className="font-pop  text-black text-lg">{item.value}</p>
                                     </div>
@@ -803,8 +781,8 @@ function CompareSpecs(props) {
                     </div>
                     <div className='py-2 px-5 bg-background rounded-xl'>
                         {
-                            vsProduct.length > 2
-                                ? products[1].dataSheet.map((item, index) => (
+                            listProductToCompare.length > 1
+                                ? listProductToCompare[1].dataSheet.map((item, index) => (
                                     <div key={index} className="rounded my-1 border-b pb-2">
                                         <p className="font-pop  text-black text-lg">{item.value}</p>
                                     </div>
@@ -847,7 +825,7 @@ function CompareSpecs(props) {
                                                 <div className='mr-2'>
                                                     <p>Escoge la maquinaria para la comparativa</p>
                                                 </div>
-                                                <ProductsHeader vsProducts={vsProduct} />
+                                                <ProductsHeader vsProducts={referenceVsProduct} />
                                             </div>
                                             <div>
                                                 <button
@@ -911,7 +889,7 @@ function CompareSpecs(props) {
                                                         {
                                                             productsBySameCategory.map((item, key) => (
                                                                 <div key={key} className='flex py-5 px-2 bg-background rounded-xl justify-items-center'>
-                                                                    <CardProductToCompare product={item} listed={listed} addProduct={addProduct} />
+                                                                    <CardProductToCompare product={item}  addProduct={addProduct} removeProduct={removeProduct} />
                                                                 </div>
                                                             ))
                                                         }
@@ -942,21 +920,34 @@ function ProductsHeader(props) {
 };
 
 function CardProductToCompare(props) {
+    const [listed, setListed] = useState(false);
+    function addProduct(product){
+        props.addProduct(product);
+        if(listed)
+        {
+            setListed(false);
+        }
+        else{
+
+            setListed(true);
+        }
+    }
+
     return (
         <div className='grow'>
             <div className='flex justify-between'>
                 <p className='font-pop text-black font-medium text-2xl'>{props.product.name} </p>
                 <Switch
-                    checked={props.listed}
-                    onChange={props.addProduct(props.product)}
-                    className={`${props.listed ? 'bg-primary' : ' bg-pirmaryScarlet-100'}
-                                                                                            relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+                    checked={listed}
+                    onChange={()=>(addProduct(props.product))}
+                    className={`${listed ? 'bg-primary' : ' bg-pirmaryScarlet-100'}
+                     relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
                 >
                     <span className="sr-only">Use setting</span>
                     <span
                         aria-hidden="true"
-                        className={`${props.listed ? 'translate-x-3' : 'translate-x-0'}
-                                                                                             pointer-events-none inline-block h-4 w-5 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
+                        className={`${listed ? 'translate-x-3' : 'translate-x-0'}
+                        pointer-events-none inline-block h-4 w-5 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
                     />
                 </Switch>
             </div>
@@ -1039,12 +1030,13 @@ function AddProductButton(props) {
 }
 function SwitchComponent(props) {
     return (
-        props.productToCompare.length === 0
+        props.productToCompare.length === 0 && props.position === 1
             ? <AddProductButton action={props.action} />
-            : <ReferenceImgProduct product={props.productToCompare[0]} />
+            : props.productToCompare.length > 0 && props.position === 1
+                ? <ReferenceImgProduct product={props.productToCompare[0]} />
+                : props.productToCompare.length === 2 && props.position === 2
+                    ?  <ReferenceImgProduct product={props.productToCompare[1]} />
+                    :  <AddProductButton action={props.action} />
     );
 }
-
-
-
 export default CompareSpecs;
