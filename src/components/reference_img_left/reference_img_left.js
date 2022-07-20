@@ -1,7 +1,7 @@
 import { LandingHero } from "../../assets/index"
 function ReferneceImgLeft() {
     return (
-        <div className="container mx-auto py-5">
+        <div className="container mx-auto py-5 lg:px-4 xl:px-0">
             <div className="flex justify-center md:justify-between px-2 md:px-0">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-5 my-5">
                     <div className="mr-0 flex justify-center md:justify-start px-2 sm:px-0">

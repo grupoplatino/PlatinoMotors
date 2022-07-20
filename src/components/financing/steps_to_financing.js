@@ -2,14 +2,14 @@ import { DownArrowOrange, RightArrowBlack } from "../../assets/index"
 function StepsToFinancing() {
     return (
         <div className="bg-white py-5 md:py-10">
-            <div className="container mx-auto">
-                <div className="flex flex-wrap mx-2 my-5 justify-center md:justify-start">
-                    <div className="flex justify-center md:justify-start">
-                        <p className="font-pop text-center font-bold text-black text-xl md:text-2xl">¡Inicia tu Solicitud ahora!</p>
+            <div className="container mx-auto lg:px-4 xl:px-0">
+                <div className="my-5 px-4">
+                    <div>
+                        <p className="font-pop font-bold text-black text-xl md:text-2xl">¡Inicia tu Solicitud ahora!</p>
                     </div>
                 </div>
-                <div className="flex mx-2 my-2 justify-center">
-                    <div className="grid grow grid-cols-1 sm:grid-cols-3 sm:gap-2">
+                <div className="flex my-2 px-4 justify-center">
+                    <div className="grid grow grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-2">
                         <div className="rounded-xl border relative border-lightPlaceHolder bg-white py-4 md:py-10 my-1 px-4">
                             <div className="flex justify-start mb-2">
                                 <p className="text-primary mr-2 font-pop font-semibold">1.</p>

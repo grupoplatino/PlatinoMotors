@@ -2,18 +2,17 @@ import React from 'react';
 import { RightArrowBreadOrange } from "../../assets";
 
 function HeroCategory(props) {
+    
     let cantProducts = 0;
     for (let i = 0; i < props.products.length; i++) {
         if(props.products[i].categoryId === props.category.id){
             cantProducts++;
         }
     }
-   
-    
     return (
     <div className="bg-b bg-white">
-        <div className="container mx-auto">
-                <div className="flex pt-16 mx-5 md:mx-0 justify-between flex-wrap">
+        <div className="container mx-auto md:px-4 xl:px-0">
+                <div className="flex pt-16 px-4 justify-between flex-wrap">
                     <div className="flex pt-2 items-center">
                         <p className="pr-2 text-blackPearl-900 font-pop text-sm">Comprar</p>
                         <img className="h-3 pr-2" src={RightArrowBreadOrange} alt="icono flecha derecha" />
@@ -23,7 +22,7 @@ function HeroCategory(props) {
                         <p className="font-pop text-gray-700 text-sm"> {cantProducts} Resultados</p>
                     </div>
                 </div>
-                <div className="flex pt-4 pb-4 mx-5 md:mx-0 items-center flex-wrap justify-between">
+                <div className="flex p-4 items-center flex-wrap justify-between">
                     <div>
                         <p className="font-pop mb-1 font-semibold text-3xl text-blackPearl-800"> {props.category.name}</p>
                     </div>
