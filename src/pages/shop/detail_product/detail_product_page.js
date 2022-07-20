@@ -75,11 +75,11 @@ function DetailProduct() {
     };
     
     return (<>
-    <HeaderProduct product={product}/>
-    <BannerProduct product={product}/>
-    <TabsProduct product={product}/>
-    <CompareSpecs product={product}/>
-    </> );
+                <HeaderProduct product={product}/>
+                <BannerProduct product={product}/>
+                <TabsProduct product={product}/>
+                <CompareSpecs product={product}/>
+            </> );
 }
 
 export default DetailProduct;
