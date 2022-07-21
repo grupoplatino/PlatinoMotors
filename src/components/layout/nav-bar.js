@@ -226,7 +226,7 @@ export default function Navbar() {
                                     childCategories(item.id).map(
                                       (child, key) => (
                                         <div key={key} >
-                                          <Link to="/shop/product">
+                                          <Link to="/shop/category">
                                             <p className="text-gray-500 hover:text-pirmaryScarlet-600 text-sm pl-1">
                                               {child.name}
                                             </p>
@@ -276,7 +276,8 @@ export default function Navbar() {
         leaveTo="opacity-0 scale-95"
       >
         <Popover.Panel focus className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden">
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+          
+          <div className="rounded-lg  md:hidden shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5 sm:pb-8">
               <div className="flex items-center justify-between">
                 <div>
@@ -293,14 +294,14 @@ export default function Navbar() {
                   </Popover.Button>
                 </div>
               </div>
-              <div className="mt-6 sm:mt-8">
-                <nav>
+              <div className="mt-6 sm:mt-8 ">
+                <nav className="md:flex md:justify-between">
                   <Disclosure>
                     {
                       ({ extended }) => (
-                        <>
+                        <div className="">
                           <Disclosure.Button>
-                            <div className="flex justify-between items-center ">
+                            <div className="flex justify-between  items-center ">
                               <div>
                                 <span className="px-3 py-2 w-max flex items-center text-sm font-bold leading-snug hover:opacity-75">Equipo</span>
                               </div>
@@ -350,19 +351,118 @@ export default function Navbar() {
                               ))
                             }
                           </Disclosure.Panel>
-                        </>
+                        </div>
                       )
                     }
 
                   </Disclosure>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col md:flex-row">
+                    <Link to="/servicios"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Partes/Servicio</span></Link>
+                    <Link to="/financiamiento"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Financiamiento</span></Link>
+                    <Link to="/contacto"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Contacto</span></Link>
+                    <div>
+                      <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-6 pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
+                    focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm py-2.5 text-center mx-4 mb-2">Inicio/Registro</button>
+                    </div>
+
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-white hidden md:block shadow-lg ring-1 ring-black ring-opacity-5  divide-y-2 divide-gray-50">
+            <div className="pt-5 pb-6 px-5 sm:pb-8">
+              <div className="flex items-center justify-between">
+                <div>
+                  <Link to="/">
+                    <img className="h-6 container w-auto md:h-15" src={PlatinoMotorsBlack} alt="Platino Motors Logo" />
+                  </Link>
+                </div>
+                <div className="-mr-2">
+                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <span className="sr-only">Cerrar Menu</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="#000000">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                  </Popover.Button>
+                </div>
+              </div>
+              <div className="mt-6 sm:mt-8 ">
+                <div className="hidden md:flex-1 md:flex md:items-center md:justify-end">
+                  <Popover.Group as="nav" className="flex z-40 space-x-2">
+                    <Popover>
+                      {({ open }) => (
+                        <>
+                          <Popover.Button className={classNames(open ? "text-gray-900" : "text-gray-900",
+                            "group bg-white rounded-md inline-flex items-center text-base z-40 font-medium hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pirmaryScarlet-100"
+                          )}>
+                            <span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Venta/Renta</span>
+                          </Popover.Button>
+                          <Transition
+                            as={Fragment}
+                            enter="transition ease-out duration-200"
+                            enterFrom="opacity-0 -translate-y-1"
+                            enterTo="opacity-100 translate-y-0"
+                            leave="transition ease-in duration-150"
+                            leaveFrom="opacity-100 translate-y-0"
+                            leaveTo="opacity-0 -translate-y-1"
+                          >
+                            <Popover.Panel className="hidden md:block absolute z-30 top-full inset-x-0 transform shadow-lg bg-white">
+                              <div className="max-w-7xl mx-auto grid gap-y-4 px-4 py-2 grid-cols-4 lg:px-8">
+                                {
+                                  categories.map((item, index) => (
+                                    <div key={index}>
+                                      <Link to="/shop/category" className="-m-3 my-1 flex flex-col font-pop justify-between rounded-lg hover:bg-gray-50">
+                                        <div className="flex  items-center">
+                                          <div className="mr-2">
+                                            <img src={RightArrowBreadOrange} alt="flecha derecha" />
+                                          </div>
+                                          <div>{item.name}</div>
+                                        </div>
+                                      </Link>
+                                      <div>
+                                        {
+                                          childCategories(item.id).map(
+                                            (child, key) => (
+                                              <div key={key} >
+                                                <Link to="/shop/category">
+                                                  <p className="text-gray-500 hover:text-pirmaryScarlet-600 text-sm pl-1">
+                                                    {child.name}
+                                                  </p>
+                                                </Link>
+                                              </div>
+                                            )
+                                          )
+                                        }
+                                      </div>
+                                    </div>
+                                  ))
+                                }
+                              </div>
+                              <div className="container mx-auto">
+                                <hr />
+                                <div className="flex justify-center my-2">
+                                  <Link to="/shop/category">
+                                    <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-10 py-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
+                            focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm  text-center">Ver Todo</button>
+                                  </Link>
+                                </div>
+                              </div>
+                            </Popover.Panel>
+                          </Transition>
+                        </>
+                      )}
+                    </Popover>
                     <Link to="/servicios"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Partes/Servicio</span></Link>
                     <Link to="/financiamiento"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Financiamiento</span></Link>
                     <Link to="/contacto"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Contacto</span></Link>
                     <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-6 pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
-                    focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm py-2.5 text-center mx-4 mb-2">Inicio/Registro</button>
-                  </div>
-                </nav>
+                focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm py-2.5 text-center mx-4 mb-2">Inicio/Registro</button>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 pl-1 pt-1 inline-block align-middle" viewBox="0 0 20 20" fill="blackPearl">
+                      <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+                    </svg>
+                  </Popover.Group>
+                </div>
               </div>
             </div>
           </div>
