@@ -6,8 +6,9 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 function CompareSpecs(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [listProductToCompare, setListProductToCompare] = useState([]);
-    const referenceVsProduct = [];
+    const [referenceVsProduct, setReferenceVsProduct] = useState([]);
     const vsDetailsProduct = [];
+
     function closeModal() {
         setIsOpen(false)
     };
@@ -30,15 +31,46 @@ function CompareSpecs(props) {
             name: product.name
         };
         referenceVsProduct.push(newVsProduct);
+        setReferenceVsProduct(referenceVsProduct);
     };
     function removeProduct(product) {
         let index = 0;
         for (let i = 0; i < referenceVsProduct.length; i++) {
             if (referenceVsProduct[i].name === product.name) {
                 index = i;
+                referenceVsProduct.slice(index, 1);
+                setReferenceVsProduct(referenceVsProduct);
             }
         }
-        referenceVsProduct.slice(index, 1);
+        index = 0;
+        let temporalList = listProductToCompare;
+        temporalList.filter((item) => item !== product);
+        setListProductToCompare(temporalList);
+        debugger
+
+        for (let i = 0; i < listProductToCompare.length; i++) {
+            if (listProductToCompare[i].name === product.name) {
+                let temporalList = listProductToCompare;
+                index = i;
+                console.log("La lista antes de eliminar")
+                console.log(temporalList);
+                temporalList.filter((item) => item !== product);
+                console.log("La lista despues de eliminar")
+                console.log(temporalList);
+                console.log("El producto eliminado es: " + temporalList[i].name);
+                debugger
+                setListProductToCompare(temporalList);
+            }
+        }
+        index = 0;
+        for (let i = 0; i < vsDetailsProduct.length; i++) {
+            if (vsDetailsProduct[i].name === product.name) {
+                index = i;
+                console.log("El producto eliminado es: " + vsDetailsProduct[i].name);
+                vsDetailsProduct.slice(index, 1);
+                setListProductToCompare(vsDetailsProduct);
+            }
+        }
     };
     const products = [
         {
@@ -743,9 +775,9 @@ function CompareSpecs(props) {
                     <div className="bg-background rounded-xl h-full flex items-center px-4 justify-center text-lg font-semibold text-center">
                         <div>
                             <div className="p-2 bg-white w-fit mx-auto border-2 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
-                            </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
+                                </svg>
                             </div>
                             <span>Compare hasta 3 modelos distintos</span>
                         </div>
@@ -754,8 +786,8 @@ function CompareSpecs(props) {
                         <img className="mx-auto h-40 my-5 rounded-md" alt={props.product.name} src={props.product.img} />
                         <span>{props.product.name}</span>
                     </div>
-                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} position={1} />
-                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} position={2} />
+                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} position={1} removeProduct={removeProduct} />
+                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} position={2} removeProduct={removeProduct} />
                 </div>
                 <div className="grid grid-cols-3 lg:grid-cols-4 mt-2 gap-4">
                     <div className="py-2 px-5 bg-background rounded-xl">
@@ -833,7 +865,13 @@ function CompareSpecs(props) {
                                                 <div className="mr-2">
                                                     <p>Escoge la maquinaria para la comparativa</p>
                                                 </div>
-                                                <ProductsHeader vsProducts={referenceVsProduct} />
+                                                {
+                                                    referenceVsProduct.map((item, index) => (
+                                                        <div key={index} className="border-2 mx-2 rounded-md border-primary text-primary">
+                                                            <p className="px-2">{item.name}</p>
+                                                        </div>
+                                                    ))
+                                                }
                                             </div>
                                             <div>
                                                 <button
@@ -917,9 +955,9 @@ function CompareSpecs(props) {
 };
 
 function ProductsHeader(props) {
-    const products = props.vsProducts;
+
     return (
-        products.map((item, index) => (
+        props.referenceVsProduct.map((item, index) => (
             <div key={index} className="border-2 mx-2 rounded-md border-primary text-primary">
                 <p className="px-2">{item.name}</p>
             </div>
@@ -930,12 +968,12 @@ function ProductsHeader(props) {
 function CardProductToCompare(props) {
     const [listed, setListed] = useState(false);
     function addProduct(product) {
-        props.addProduct(product);
         if (listed) {
+            props.removeProduct(product);
             setListed(false);
         }
         else {
-
+            props.addProduct(product);
             setListed(true);
         }
     }
@@ -1006,11 +1044,16 @@ function CardProductToCompare(props) {
 }
 
 function ReferenceImgProduct(props) {
+    function removeProduct(product) {
+            props.removeProduct(product);
+    }
+    
     return (
         <div className=" bg-background font-pop text-xl font-bold pb-2 text-center rounded-xl relative">
             <img className=" mx-auto h-40 my-5 rounded-md" alt={props.product.name} src={props.product.img} />
             <span>{props.product.name}</span>
-            <button className="absolute top-2 right-2"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <button onClick={()=>removeProduct(props.product)} className="absolute top-2 right-2">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             </button>
@@ -1041,10 +1084,10 @@ function SwitchComponent(props) {
         props.productToCompare.length === 0 && props.position === 1
             ? <AddProductButton action={props.action} />
             : props.productToCompare.length > 0 && props.position === 1
-                ? <ReferenceImgProduct product={props.productToCompare[0]} />
+                ? <ReferenceImgProduct product={props.productToCompare[0]} removeProduct={props.removeProduct} />
                 : props.productToCompare.length === 2 && props.position === 2
-                    ? <ReferenceImgProduct product={props.productToCompare[1]} />
-                    : <AddProductButton action={props.action} hidden={true} />
+                    ? <ReferenceImgProduct product={props.productToCompare[1]} removeProduct={props.removeProduct} />
+                    : <AddProductButton action={props.action} hidden={true}/>
     );
 }
 export default CompareSpecs;
