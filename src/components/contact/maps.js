@@ -7,8 +7,8 @@ import {
 
 
 const containerStyle = {
-    width: '100%',
-    height: '100%'
+    width: "100%",
+    height: "100%"
 };
 
 const center = {
@@ -20,13 +20,13 @@ const api_key = config.googleMapsApiKey;
 
 function Maps() {
     const { isLoaded } = useJsApiLoader({
-        id: 'google-map-script',
+        id: "google-map-script",
         googleMapsApiKey: api_key
     })
 
     const openMap =()=>{
         let url = "https://goo.gl/maps/DxMNfHoP9jxF8HAQ8";
-        window.open(url, '_blank');
+        window.open(url, "_blank");
     }
 
     return isLoaded ? (

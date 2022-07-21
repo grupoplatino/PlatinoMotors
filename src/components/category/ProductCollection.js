@@ -1,7 +1,7 @@
-import React from 'react';
-import { Disclosure, Transition } from '@headlessui/react';
-import { UpArrowOrangeIcon, UpdateWhiteIcon, DownArrowBlackIcon } from '../../assets';
-import { ProductCard } from '../../components';
+import React from "react";
+import { Disclosure, Transition } from "@headlessui/react";
+import { UpArrowOrangeIcon, UpdateWhiteIcon, DownArrowBlackIcon } from "../../assets";
+import { ProductCard } from "../../components";
 function ProductCollection(props) {
     let products = [];
     let filters = [
@@ -58,12 +58,12 @@ function ProductCollection(props) {
                                 </div>
                                 <div className="flex items-center">
                                     <button>
-                                        <div className='flex'>
+                                        <div className="flex">
                                             <div>
-                                                <p className='text-white font-pop text-sm mr-1'>limpiar</p>
+                                                <p className="text-white font-pop text-sm mr-1">limpiar</p>
                                             </div>
                                             <div className="pr-2">
-                                                <img alt='actualizar' className='h-4' src={UpdateWhiteIcon} />
+                                                <img alt="actualizar" className="h-4" src={UpdateWhiteIcon} />
                                             </div>
                                         </div>
 
@@ -79,7 +79,7 @@ function ProductCollection(props) {
                                                     <Disclosure.Button className="flex w-full justify-between font-pop  bg-white border-b px-4 py-2 text-left text-sm font-medium text-black hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                                                         <span>{item.title}</span>
                                                         {
-                                                            open ? <img className='h-4 w-4' alt='arrow' src={UpArrowOrangeIcon} /> : <img alt='arrow' className='h-4 w-4' src={DownArrowBlackIcon} />
+                                                            open ? <img className="h-4 w-4" alt="arrow" src={UpArrowOrangeIcon} /> : <img alt="arrow" className="h-4 w-4" src={DownArrowBlackIcon} />
                                                         }
                                                     </Disclosure.Button>
                                                     <Transition
@@ -93,7 +93,7 @@ function ProductCollection(props) {
                                                             {
                                                                 item.values.map((item, index) => (
                                                                     <div key={index}>
-                                                                        <div className='flex font-pop justify-between'>
+                                                                        <div className="flex font-pop justify-between">
                                                                             <div>
                                                                                 <span>{item}</span>
                                                                             </div>
@@ -116,8 +116,8 @@ function ProductCollection(props) {
                                 }
                             </div>
                         </div>
-                        <div className="col-span-1 sm:col-span-2 md:col-span-4 lg:col-span-3 grow">
-                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5'>
+                        <div className="col-span-1 sm:col-span-2 md:col-span-4 lg:col-span-3 grow mb-10">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
                                 {
                                     products.map((item, index) => (
                                         <div key={index}>
