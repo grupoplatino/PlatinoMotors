@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { HeroCategory, ProductCollection} from '../../../components';
+import ScrollToTop from "../../../utils/scroll_to_top";
+
 function Category() {
     const products =[
         {
@@ -881,6 +883,10 @@ function Category() {
             name:"Mixer"
         }
     ];
+
+    useEffect(() => {
+        ScrollToTop();
+    }, []);
 
     return (
         <div>

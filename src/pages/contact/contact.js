@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LinkedinIcon } from "../../assets";
 import { Maps } from "../../components";
+import ScrollToTop from "../../utils/scroll_to_top";
 
 function Contact() {
 
@@ -8,6 +9,10 @@ function Contact() {
     const openInNewTab = url => {
         window.open(url, "_blank", "noopener,noreferrer");
     };
+
+    useEffect(() => {
+        ScrollToTop();
+    }, []);
 
     return (
         <div>

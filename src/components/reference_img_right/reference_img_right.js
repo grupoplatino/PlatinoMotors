@@ -4,7 +4,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 function ReferenceImgRight() {
     return (
-        <div className="container mx-auto py-5 lg:px-4 xl:px-0">
+        <div className="container mx-auto py-5 lg:px-5 xl:px-10">
             <div className="flex justify-center md:justify-between px-2">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-1 md:my-5">
                     <div>

@@ -1,7 +1,6 @@
 import React, { Component} from 'react';
 import { HashLoader } from 'react-spinners';
 import { PlatinoMotors } from '../../assets';
-import ScrollToTop from '../../utils/scroll_to_top';
 function LoadingWelcomeMessage() {
     return (
         <div className="bg-black bg-opacity-10 h-screen flex px-5 flex-col justify-center items-center">
@@ -34,7 +33,7 @@ function WithSplashScreen(WrappedComponent) {
             this.setState({
               loading: false,
             });
-          }, 10000)
+          }, 1000)
         } catch (err) {
           console.log(err);
           this.setState({

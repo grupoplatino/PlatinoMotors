@@ -546,7 +546,7 @@ function HeroCategorySlider() {
                     ))
                 }
             </div>
-            <div className="container mx-auto mb-5 lg:px-4 xl:px-0">
+            <div className="container mx-auto mb-5 lg:px-5 xl:px-10">
                 <div className="grid grid-cols-1 py-5 grow gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     {
                         productCategory.map(function (item, index) {

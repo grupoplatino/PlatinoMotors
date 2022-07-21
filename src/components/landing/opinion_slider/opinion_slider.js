@@ -8,7 +8,7 @@ import "./opinion_slider.css";
 
 function SliderOpinion() {
     return (
-        <div className="container my-5 mx-auto lg:px-4 xl:px-0">
+        <div className="container my-5 mx-auto lg:px-5 xl:px-10">
             <div className="opinion-carousel mx-2 sm:mx-0">
                 <Slider
                     autoplay={false}

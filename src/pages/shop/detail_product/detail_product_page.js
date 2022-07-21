@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HeaderProduct, BannerProduct, TabsProduct, CompareSpecs } from "../../../components";
-
+import ScrollToTop from "../../../utils/scroll_to_top";
 
 function DetailProduct() {
     const product = {
@@ -73,6 +73,10 @@ function DetailProduct() {
             },
         ]
     };
+
+    useEffect(() => {
+        ScrollToTop();
+    }, []);
 
     return (
         <div>
