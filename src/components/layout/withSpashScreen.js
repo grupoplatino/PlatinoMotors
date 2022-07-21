@@ -19,7 +19,8 @@ function LoadingWelcomeMessage() {
 };
 function withSpashScreen(WrappedComponent) {
     const [isLoading, setIsLoading] = useState(true);
-    Promise componentDidMount() {
+     componentDidMount() 
+     {
         try {
          
             useEffect(() => {
@@ -40,7 +41,8 @@ function withSpashScreen(WrappedComponent) {
             })
         }
     }
-    render() {
+    render()
+     {
         if (this.state.loading) return LoadingWelcomeMessage();
         return <WrappedComponent {...this.props} />
     }
