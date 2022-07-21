@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { HashLoader } from 'react-spinners';
 import { PlatinoMotors } from '../../assets';
-import ScrollToTop from '../../utils/scroll_to_top';
+
 function LoadingWelcomeMessage() {
     return (
         <div className="bg-black bg-opacity-10 h-screen flex px-5 flex-col justify-center items-center">
@@ -9,7 +9,7 @@ function LoadingWelcomeMessage() {
                 <img src={PlatinoMotors} alt="Platino HN" className='w-72' />
             </div>
             <div>
-                <HashLoader color='#000000' height={10} width={200} />
+                <HashLoader color='#E02523' height={10} width={200} />
             </div>
             <div className='mt-8 text-gray-500 font-pop font-semibold text-xl'>
                 Cargando...
@@ -34,7 +34,7 @@ function WithSplashScreen(WrappedComponent) {
             this.setState({
               loading: false,
             });
-          }, 10000)
+          }, 3000)
         } catch (err) {
           console.log(err);
           this.setState({

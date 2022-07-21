@@ -1,10 +1,64 @@
-import React from "react"
+import React, { useState, Fragment } from "react"
 import { CalculatorWhiteIcon, RightArrowBread, RightArrowBreadOrange, SeeIcon, ShareIcon } from "../../assets";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { Transition } from "@headlessui/react";
 function HeaderProduct(props) {
+    const url = window.location.href;
+    const [show, setShow] = useState(false);
+    function showCopyToClipBoard() {
+        setShow(true)
+        setTimeout(()=>(setShow(false)),3000);
+    }
     return (
         <div className="container mx-auto pt-24 bg-white">
+            <div
+                aria-live="assertive"
+                className="fixed inset-0 flex items-end mt-14 z-40 px-4 py-6 pointer-events-none sm:p-6 sm:items-start"
+            >
+                <div className="w-full flex flex-col items-center space-y-4 sm:items-end">
+                    <Transition
+                        show={show}
+                        as={Fragment}
+                        enter="transform ease-out duration-300 transition"
+                        enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+                        enterTo="translate-y-0 opacity-100 sm:translate-x-0"
+                        leave="transition ease-in duration-100"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                        <div className="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
+                            <div className="p-4">
+                                <div className="flex items-start">
+                                    <div className="flex-shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#18AD19" strokeWidth={2}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <div className="ml-3 w-0 flex-1 pt-0.5">
+                                        <p className="text-sm font-medium text-gray-900">Copiado exitosamente</p>
+                                        <p className="mt-1 text-sm text-gray-500">¡Comparte el enlace con quien sea!</p>
+                                    </div>
+                                    <div className="ml-4 flex-shrink-0 flex">
+                                        <button
+                                            className="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                            onClick={() => {
+                                                setShow(false)
+                                            }}
+                                        >
+                                            <span className="sr-only">Close</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Transition>
+                </div>
+            </div>
             <div className="flex flex-wrap justify-start pl-5 items-center">
                 <p className="pr-2 text-blackPearl-900 font-pop text-sm">Tienda</p>
                 <img className="h-3 pr-2" src={RightArrowBread} alt="icono flecha derecha" />
@@ -31,12 +85,19 @@ function HeaderProduct(props) {
                     </div>
                     <div className="flex mx-4 flex-wrap mb-5 md:mb-0">
                         <div className="mt-5">
-                            <button type="button" className="text-background bg-otherLight-50 rounded-3xl py-2 px-2 md:px-4 focus:ring-2 
+                            <CopyToClipboard text={url}>
+                                <button data-tooltip-target="tooltip-default" onClick={showCopyToClipBoard} type="button" className="text-background bg-otherLight-50 rounded-3xl py-2 px-2 md:px-4 focus:ring-2 
                                     focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm text-center">
-                                <img className="h-5" src={ShareIcon} alt="Compartir" />
-                            </button>
+                                    <img className="h-5" src={ShareIcon} alt="Compartir" />
+                                </button>
+                            </CopyToClipboard>
+                            <div id="tooltip-default" role="tooltip" className="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+                                Tooltip content
+                                <div className="tooltip-arrow" data-popper-arrow></div>
+                            </div>
                         </div>
                         <div className="grow md:grow-0 mx-4 mt-5">
+
                             <button type="button" className="text-black font-pop bg-otherLight-50 w-full rounded-3xl py-2 px-2 md:px-4 focus:ring-4 
                                      focus:outline-none focus:ring-blue-300 border-none font-medium text-sm text-center">
                                 <div className="flex justify-center">
@@ -44,6 +105,7 @@ function HeaderProduct(props) {
                                     <p>Tour Virtual</p>
                                 </div>
                             </button>
+
                         </div>
                         <div className="grow sm:grow-0 mt-5">
                             <button type="button" className="text-white font-pop bg-primary w-full rounded-3xl focus:ring-4 
