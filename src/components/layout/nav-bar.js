@@ -166,20 +166,20 @@ export default function Navbar() {
     return children;
   }
   function classNames(...classes) {
-    return classes.filter(Boolean).join(' ');
+    return classes.filter(Boolean).join(" ");
   }
   return (
     <Popover className="fixed w-screen z-20 font-pop bg-white">
       <div className="absolute inset-0 shadow z-20 pointer-events-none" aria-hidden="true" />
       <div className="relative z-20">
-        <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-5 sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
+        <div className="max-w-7xl mx-auto flex justify-between w-full items-center px-4 py-2 sm:px-6 lg:px-8 md:space-x-10">
           <div>
             <span className="sr-only">Platino Motors</span>
             <Link to="/">
               <img className="h-10 container w-auto md:h-15" src={PlatinoMotorsBlack} alt="Platino Motors Logo" />
             </Link>
           </div>
-          <div className="-mr-2 -my-2 md:hidden">
+          <div className="-mr-2 -my-2 lg:hidden">
             <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-inset focus:ring-primary">
               <span className="sr-only">Abrir Opciones</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -187,7 +187,7 @@ export default function Navbar() {
               </svg>
             </Popover.Button>
           </div>
-          <div className="hidden md:flex-1 md:flex md:items-center md:justify-end">
+          <div className="hidden lg:flex-1 lg:flex lg:items-center lg:justify-end">
             <Popover.Group as="nav" className="flex z-40 space-x-2">
               <Popover>
                 {({ open }) => (
@@ -207,7 +207,7 @@ export default function Navbar() {
                       leaveTo="opacity-0 -translate-y-1"
                     >
                       <Popover.Panel className="hidden md:block absolute z-30 top-full inset-x-0 transform shadow-lg bg-white">
-                        <div className="max-w-7xl mx-auto grid gap-y-4 px-4 py-4 sm:grid-cols-2 sm:gap-2 sm:px-6 sm:py-4 lg:grid-cols-4 lg:px-8 lg:py-4 xl:py-4">
+                        <div className="max-w-7xl mx-auto grid gap-y-4 px-4 py-2 sm:grid-cols-2 sm:gap-2 sm:px-6 lg:grid-cols-4 lg:px-8">
                           {
                             categories.map((item, index) => (
                               <div key={index}>
@@ -241,7 +241,7 @@ export default function Navbar() {
                         <div className="container mx-auto">
                           <hr />
                           <div className="flex justify-center my-2">
-                            <Link to='/shop/category'>
+                            <Link to="/shop/category">
                               <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-10 py-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
                             focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm  text-center">Ver Todo</button>
                             </Link>
@@ -273,7 +273,7 @@ export default function Navbar() {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        <Popover.Panel focus className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+        <Popover.Panel focus className="absolute z-30 top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden">
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5 sm:pb-8">
               <div className="flex items-center justify-between">
@@ -303,14 +303,14 @@ export default function Navbar() {
                                 <span className="px-3 py-2 w-max flex items-center text-sm font-bold leading-snug hover:opacity-75">Equipo</span>
                               </div>
                               <div>
-                                <img src={RightArrowBreadOrange} alt="flecha derecha" className={`${extended ? 'rotate-90 transform' : ''
+                                <img src={RightArrowBreadOrange} alt="flecha derecha" className={`${extended ? "rotate-90 transform" : ""
                                   } h-3 w-3`} />
                               </div>
                             </div>
                           </Disclosure.Button>
                           <Disclosure.Panel>
                             <div className="flex justify-center">
-                              <Link to='/shop/category'>
+                              <Link to="/shop/category">
                                 <button type="button" className="text-black font-pop bg-white w-full rounded-3xl  focus:ring-4 
                                     focus:outline-none focus:ring-blue-300  border border-black shadow-md font-medium text-sm px-12 py-2 sm:py-2 text-center mr-2 mb-2">Ver Todo</button>
                               </Link>
@@ -324,7 +324,7 @@ export default function Navbar() {
                                         <>
                                           <Disclosure.Button className="flex w-full justify-between items-center rounded-lg  px-4 py-2 text-left text-sm font-">
                                             <span>{category.name}</span>
-                                            <img src={RightArrowBreadOrange} alt="flecha derecha" className={`${open ? 'rotate-90 transform' : ''
+                                            <img src={RightArrowBreadOrange} alt="flecha derecha" className={`${open ? "rotate-90 transform" : ""
                                               } h-3 w-3`} />
                                           </Disclosure.Button>
                                           <Disclosure.Panel>

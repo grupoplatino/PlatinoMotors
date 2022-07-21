@@ -2,11 +2,13 @@ import {FinancingHero, LoginRequest, StepsToFinancing} from "../../components/in
 
 
 function Financing() {
-    return ( <>
+    return ( 
+    <div>
      <FinancingHero/>
      <StepsToFinancing/>
      <LoginRequest/>
-    </> );
+    </div>
+    );
 }
 
 export default Financing;

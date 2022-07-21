@@ -3,7 +3,7 @@ import { HeaderProduct, BannerProduct, TabsProduct, CompareSpecs } from "../../.
 
 
 function DetailProduct() {
-    const product= {
+    const product = {
         id: 1,
         status: "Disponible",
         name: "SY16 C EU-US",
@@ -73,13 +73,15 @@ function DetailProduct() {
             },
         ]
     };
-    
-    return (<>
-                <HeaderProduct product={product}/>
-                <BannerProduct product={product}/>
-                <TabsProduct product={product}/>
-                <CompareSpecs product={product}/>
-            </> );
+
+    return (
+        <div>
+            <HeaderProduct product={product} />
+            <BannerProduct product={product} />
+            <TabsProduct product={product} />
+            <CompareSpecs product={product} />
+        </div>
+    );
 }
 
 export default DetailProduct;

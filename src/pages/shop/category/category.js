@@ -883,10 +883,10 @@ function Category() {
     ];
 
     return (
-        <>
+        <div>
            <HeroCategory category={categories[2]} products={products}/>
            <ProductCollection category={categories[2]} products={products} />
-        </>
+        </div>
     );
 }
 
