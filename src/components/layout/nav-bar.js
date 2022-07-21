@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { PlatinoMotorsBlack, RightArrowBreadOrange } from "../../assets/index";
 import { Popover, Transition, Disclosure } from "@headlessui/react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function Navbar() {
   const categories = [
@@ -176,7 +178,7 @@ export default function Navbar() {
           <div>
             <span className="sr-only">Platino Motors</span>
             <Link to="/">
-              <img className="h-10 container w-auto md:h-15" src={PlatinoMotorsBlack} alt="Platino Motors Logo" />
+              <LazyLoadImage effect="blur" className="h-10 container w-auto md:h-15" src={PlatinoMotorsBlack} alt="Platino Motors Logo" />
             </Link>
           </div>
           <div className="-mr-2 -my-2 lg:hidden">
@@ -279,7 +281,7 @@ export default function Navbar() {
               <div className="flex items-center justify-between">
                 <div>
                   <Link to="/">
-                    <img className="h-6 container w-auto md:h-15" src={PlatinoMotorsBlack} alt="Platino Motors Logo" />
+                    <LazyLoadImage effect="blur" className="h-6 container w-auto md:h-15" src={PlatinoMotorsBlack} alt="Platino Motors Logo" />
                   </Link>
                 </div>
                 <div className="-mr-2">

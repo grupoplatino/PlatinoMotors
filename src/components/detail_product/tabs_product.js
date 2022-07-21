@@ -1,6 +1,5 @@
 import React, { useState,Fragment } from "react";
 import { Combobox,Transition } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/solid";
 import { DownloadBlackIcon } from "../../assets";
 
 const categories = [
@@ -66,9 +65,8 @@ function TabsProduct(props) {
     ]
     return (
         <div className="bg-background pb-10">
-
             <div className="block">
-                <div className="bg-white pt-2 px-2">
+                <div className="bg-white pt-2 px-4 lg:px-2">
                     <nav className="-mb-px flex justify-between md:justify-center space-x-1 md:space-x-5" aria-label="Tabs">
                         {tabs.map((tab, index) => (
                             <p
@@ -87,7 +85,6 @@ function TabsProduct(props) {
                     </nav>
                 </div>
             </div>
-
             <div className="container mx-auto">
                 <div className="flex justify-center">
                     <div className="grow">
@@ -259,13 +256,13 @@ function QuotePetition(props) {
                     <p className="font-pop text-2xl font-semibold">Cotización</p>
                 </div>
                 <div className="flex justify-center py-5">
-                    <div className="grid grow grid-cols-1 md:grid-cols-2">
+                    <div className="grid grow grid-cols-2">
                         <div className="flex py-2 grow justify-center mb-0">
                             <Combobox value={selectedCategory} onChange={setSelectedCategory}>
                                 <div className="relative mt-1">
-                                    <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                                    <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                                         <Combobox.Input
-                                            className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-black bg-transparent "
+                                            className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-black bg-transparent"
                                             displayValue={(category) => category.name}
                                             onChange={(event) => setQuery(event.target.value)}
                                         />
@@ -282,7 +279,7 @@ function QuotePetition(props) {
                                         leaveTo="opacity-0"
                                         afterLeave={() => setQuery("")}
                                     >
-                                        <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                        <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                             {filteredCategory.length === 0 && query !== "" ? (
                                                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                                     Nada encontrado.
@@ -292,7 +289,7 @@ function QuotePetition(props) {
                                                     <Combobox.Option
                                                         key={category.id}
                                                         className={({ active }) =>
-                                                            `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? " text-black bg-pirmaryScarlet-300" : "text-gray-900"
+                                                            `relative cursor-default select-none py-2 px-4 ${active ? "text-black " : "text-gray-900"
                                                             }`
                                                         }
                                                         value={category}
@@ -305,14 +302,6 @@ function QuotePetition(props) {
                                                                 >
                                                                     {category.name}
                                                                 </span>
-                                                                {selected ? (
-                                                                    <span
-                                                                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? "text-black" : "text-otherSuccess-900"
-                                                                            }`}
-                                                                    >
-                                                                        <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                                                                    </span>
-                                                                ) : null}
                                                             </>
                                                         )}
                                                     </Combobox.Option>
@@ -326,9 +315,9 @@ function QuotePetition(props) {
                         <div className="flex grow justify-center py-2 mb-0">
                         <Combobox value={selectedCategory} onChange={setSelectedCategory}>
                                 <div className="relative mt-1">
-                                    <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                                    <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                                         <Combobox.Input
-                                            className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-black bg-transparent "
+                                            className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-black bg-transparent"
                                             displayValue={(category) => category.name}
                                             onChange={(event) => setQuery(event.target.value)}
                                         />
@@ -345,7 +334,7 @@ function QuotePetition(props) {
                                         leaveTo="opacity-0"
                                         afterLeave={() => setQuery("")}
                                     >
-                                        <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                        <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                             {filteredCategory.length === 0 && query !== "" ? (
                                                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                                     Nada encontrado.
@@ -355,7 +344,7 @@ function QuotePetition(props) {
                                                     <Combobox.Option
                                                         key={category.id}
                                                         className={({ active }) =>
-                                                            `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? " text-black bg-pirmaryScarlet-300" : "text-gray-900"
+                                                            `relative cursor-default select-none py-2 px-4 ${active ? " text-black " : "text-gray-900"
                                                             }`
                                                         }
                                                         value={category}
@@ -368,14 +357,6 @@ function QuotePetition(props) {
                                                                 >
                                                                     {category.name}
                                                                 </span>
-                                                                {selected ? (
-                                                                    <span
-                                                                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? "text-black" : "text-otherSuccess-900"
-                                                                            }`}
-                                                                    >
-                                                                        <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                                                                    </span>
-                                                                ) : null}
                                                             </>
                                                         )}
                                                     </Combobox.Option>
