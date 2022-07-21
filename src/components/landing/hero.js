@@ -5,7 +5,7 @@ import sanyLogo from "../../assets/images/sany_red.png"
 
 function Hero() {
     return (
-        <div className="pt-16">
+        <div className="pt-14">
             <section className="bg-hero h-100 sm:h-120 w-full bg-cover bg-center py hidden lg:block">
                 <div className="flex justify-center sm:justify-start">
                     <div className="px-2 sm:px-10 py-36 mx-20">

@@ -2,12 +2,12 @@ import { HeroServices, Maintenance, SpareParts, SpecialAtention } from "../../co
 
 function Services() {
     return (
-        <>
+        <div>
             <HeroServices />
             <Maintenance />
             <SpecialAtention />
             <SpareParts />
-        </>
+        </div>
     );
 }
 

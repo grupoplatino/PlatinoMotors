@@ -4,7 +4,7 @@ import {Hero,ReferenceImgRight,ReferneceImgLeft,Searcher,SliderHome, SliderOpini
 
 function Home() {
     return (
-        <>
+        <div>
         <Hero/>
         <HeroCategorySlider/>
         <Searcher/>
@@ -13,7 +13,7 @@ function Home() {
         <ReferenceImgRight/>
         <SliderOpinions/>
         <ContactUs/>
-        </>
+        </div>
     );
 }
 
