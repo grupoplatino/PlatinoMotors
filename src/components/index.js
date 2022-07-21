@@ -1,6 +1,7 @@
 //Layout Components
 export {default as NavBar} from './layout/nav-bar';
 export {default as Footer} from './layout/footer';
+export {default as WhitSplashScreen} from './layout/withSpashScreen';
 //Components for Home Page
 export {default as Hero} from './landing/hero';
 export {default as Searcher} from './landing/searcher';

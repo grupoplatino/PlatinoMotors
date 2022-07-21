@@ -3,13 +3,6 @@ import { Combobox,Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/solid";
 import { DownloadBlackIcon } from "../../assets";
 
-const products = [
-    { name: "SY-AAAA-1234", id: 1 },
-    { name: "SY-BBBB-1234", id: 1 },
-    { name: "SY-CCCC-1234", id: 2 },
-    { name: "SY-DDDD-1234", id: 2 },
-    { name: "SY-EEEE-1234", id: 3 },
-]
 const categories = [
     {
         id: 1,
