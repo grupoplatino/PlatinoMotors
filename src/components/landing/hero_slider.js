@@ -561,8 +561,8 @@ function HeroCategorySlider() {
                     }
                 </div>
                 <div className="conatiner mx-auto text-center">
-                    <button type="button" className="text-background bg-gradient-to-r rounded-3xl pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
-                focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-20 py-2.5 text-center mr-2 mb-2">Ver todos</button>
+                <Link to="/shop/category" type="button" className="text-background bg-gradient-to-r rounded-3xl pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
+                focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-20 py-2.5 text-center mr-2 mb-2">Ver todos</Link>
                 </div>
             </div>
         </div>
