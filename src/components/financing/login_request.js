@@ -1,4 +1,6 @@
 import {PlatinoHnPanel } from "../../assets";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 function LoginRequest() {
     return (
@@ -22,8 +24,8 @@ function LoginRequest() {
                             </div>
                         </div>
                     </div>
-                    <div className="">
-                        <img className="shadow-lg object-cover rounded-xl" src={PlatinoHnPanel} alt="Platino HN" />
+                    <div>
+                        <LazyLoadImage effect="blur" className="shadow-lg object-cover rounded-xl" src={PlatinoHnPanel} alt="Platino HN" />
                     </div>
                 </div>
             </div>

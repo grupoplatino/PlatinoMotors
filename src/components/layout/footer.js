@@ -22,6 +22,8 @@ import {
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Footer = () => {
     const companies = [
@@ -106,7 +108,7 @@ const Footer = () => {
                     <div className="mb-5">
                         <hr className="bg-primary mb-5 h-0.5 border-none"></hr>
                         <div className="grid justify-items-center sm:justify-items-start">
-                            <img className="h-16 sm:justify-center md:justify-start mb-7" src={PlatinoMotorsWhite} alt="Platino Motors Logo" />
+                            <LazyLoadImage effect="blur" className="h-16 sm:justify-center md:justify-start mb-7" src={PlatinoMotorsWhite} alt="Platino Motors Logo" />
                         </div>
                         <div className="flex flex-nowrap align-middle gap-3 mb-2">
                             <div className="mt-2"><img className="h-3" src={EmailWhiteIcon} alt="email icon" /></div>
@@ -189,13 +191,13 @@ const Footer = () => {
                     </div>
                     <div className="mb-5 sm:mb-0 grid grid-cols-1 sm:grid-cols-2">
                         <div className="mx-auto">
-                            <img className="h-10 mb-5" src={PlatinoHnWhite} alt="Platino Hn" />
+                            <LazyLoadImage effect="blur" className="h-10 mb-5" src={PlatinoHnWhite} alt="Platino Hn" />
                         </div>
                         <div className="sm:hidden mb-5">
                             <p className="text-center sm:text-start text-sm font-pop">© 2022 Distribuidora Platino S.A. Todos los derechos reservados.</p>
                         </div>
                         <div className="mx-auto">
-                            <img className="h-10" src={GrupoPlatinoAllWhite} alt="Grupo Platino" />
+                            <LazyLoadImage effect="blur" className="h-10" src={GrupoPlatinoAllWhite} alt="Grupo Platino" />
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,8 @@
 import React, { useState, Fragment } from "react";
 import { Dialog, Switch, Disclosure, Transition } from "@headlessui/react";
 import { UpArrowOrangeIcon, DownArrowBlackIcon } from "../../assets";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 function CompareSpecs(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [listProductToCompare, setListProductToCompare] = useState([]);
@@ -750,7 +751,7 @@ function CompareSpecs(props) {
                         </div>
                     </div>
                     <div className="bg-background font-pop text-xl font-bold pb-2 text-center rounded-xl">
-                        <img className=" mx-auto h-40 my-5 rounded-md" alt={props.product.name} src={props.product.img} />
+                        <img className="mx-auto h-40 my-5 rounded-md" alt={props.product.name} src={props.product.img} />
                         <span>{props.product.name}</span>
                     </div>
                     <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} position={1} />
@@ -958,7 +959,7 @@ function CardProductToCompare(props) {
                 </Switch>
             </div>
             <div className="flex justify-center">
-                <img src={props.product.img} alt={props.product.name} className="h-48" />
+                <LazyLoadImage effect="blur" src={props.product.img} alt={props.product.name} className="h-48" />
             </div>
             <div className="flex flex-nowrap">
                 <div>

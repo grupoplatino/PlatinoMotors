@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { 
     Crane,
     DumpTruck,
@@ -521,8 +523,6 @@ function HeroCategorySlider() {
     const [categoryId, setCategoryId]= useState(categories[0].id);
     const [allProducts] = useState(products);
     const [productCategory, setProductCategory] = useState(allProducts.filter(a => a.categoryId === categoryId));
-    // const [activeIndex, setActiveIndex] = useState(1);
-    // const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
     const handleSetIndex = (categoryId) => {
         setCategoryId(categoryId);
         let result = allProducts.filter(a => a.categoryId === categoryId);
@@ -536,7 +536,7 @@ function HeroCategorySlider() {
                         <div key={item.id} className="cursor-pointer py-2 lg:py-0" onClick={() => handleSetIndex(item.id)}>
                             <div className={`p-1 border border-gray-100 w-32 sm:w-28 xl:w-auto ${categoryId === item.id ? "border-b-4 border-b-red-500":""}`}>
                                 <div className="bg-gray-100 mx-4 my-2 p-1 rounded-md">
-                                    <img src={item.img} alt={item.name} />
+                                    <LazyLoadImage effect="blur" src={item.img} alt={item.name} />
                                 </div>
                                 <div>
                                     <p className="font-pop text-center text-fiord-900 text-xs truncate">{item.name}</p>
@@ -549,7 +549,6 @@ function HeroCategorySlider() {
             <div className="container mx-auto mb-5 lg:px-4 xl:px-0">
                 <div className="grid grid-cols-1 py-5 grow gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     {
-                        // eslint-disable-next-line
                         productCategory.map(function (item, index) {
                             if (index < 4) {
                                 return (
@@ -586,7 +585,7 @@ function SpecialProduct(props) {
                     </div>
                 </div>
                 <div className="justify-center flex mb-2">
-                    <img src={props.product.img} alt={props.product.name} className="h-40" />
+                    <LazyLoadImage effect="blur" src={props.product.img} alt={props.product.name} className="h-40" />
                 </div>
                 <div className="flex flex-nowrap">
                     <div>

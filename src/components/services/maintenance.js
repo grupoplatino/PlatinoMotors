@@ -1,5 +1,6 @@
 import { MaintenanceMen, ConfidenceCheckIcon, ToolsIcon } from "../../assets/index";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 function Maintenance() {
     const faq = [
@@ -20,7 +21,7 @@ function Maintenance() {
                 <div className="px-2 md:px-0">
                     <div className="grid grid-cols-1 items-center lg:grid-cols-2 gap-2 py-5">
                         <div className="px-2 sm:mb-5">
-                            <img alt="Retroexcavadora SANY" className="rounded-[15px] mx-auto w-full h-80 lg:h-auto object-cover" src={MaintenanceMen} />
+                            <LazyLoadImage effect="blur" alt="Retroexcavadora SANY" className="rounded-[15px] mx-auto w-full h-80 lg:h-auto object-cover" src={MaintenanceMen} />
                         </div>
                         <div className="mx-2 xl:mx-6">
                             <div className="grid grid-cols-1">

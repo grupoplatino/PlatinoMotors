@@ -1,5 +1,7 @@
 import React from "react"
 import { CalculatorWhiteIcon, RightArrowBread, RightArrowBreadOrange, SeeIcon, ShareIcon } from "../../assets";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 function HeaderProduct(props) {
     return (
         <div className="container mx-auto pt-24 bg-white">
@@ -16,7 +18,7 @@ function HeaderProduct(props) {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:items-center">
                 <div className="sm:order-last flex justify-center md:justify-end">
-                    <img className="h-56 sm:h-60 md:h-80" src={props.product.img} alt={props.product.name} />
+                    <LazyLoadImage effect="blur" className="h-56 sm:h-60 md:h-80" src={props.product.img} alt={props.product.name} />
                 </div>
                 <div className="py-2 md:grow">
                     <div className="px-5 flex">
@@ -27,14 +29,14 @@ function HeaderProduct(props) {
                         <p className="font-pop text-2xl font-semibold mb-0 text-blackPearl">{props.product.name}</p>
                         <p className="font-pop text-md font-base mt-0 text-blackPearl">{props.product.subCategory}</p>
                     </div>
-                    <div className="flex mx-4 flex-wrap my-5">
-                        <div>
+                    <div className="flex mx-4 flex-wrap mb-5 md:mb-0">
+                        <div className="mt-5">
                             <button type="button" className="text-background bg-otherLight-50 rounded-3xl py-2 px-2 md:px-4 focus:ring-2 
                                     focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm text-center">
                                 <img className="h-5" src={ShareIcon} alt="Compartir" />
                             </button>
                         </div>
-                        <div className="grow md:grow-0 mx-4">
+                        <div className="grow md:grow-0 mx-4 mt-5">
                             <button type="button" className="text-black font-pop bg-otherLight-50 w-full rounded-3xl py-2 px-2 md:px-4 focus:ring-4 
                                      focus:outline-none focus:ring-blue-300 border-none font-medium text-sm text-center">
                                 <div className="flex justify-center">
@@ -43,7 +45,7 @@ function HeaderProduct(props) {
                                 </div>
                             </button>
                         </div>
-                        <div className="grow sm:grow-0">
+                        <div className="grow sm:grow-0 mt-5">
                             <button type="button" className="text-white font-pop bg-primary w-full rounded-3xl focus:ring-4 
                                     focus:outline-none focus:ring-blue-300 border-none font-medium text-sm py-2 px-2 md:px-4 text-center">
                                 <div className="flex justify-center items-center">

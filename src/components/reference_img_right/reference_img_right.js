@@ -1,4 +1,7 @@
 import { PostSale } from "../../assets";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 function ReferenceImgRight() {
     return (
         <div className="container mx-auto py-5 lg:px-4 xl:px-0">
@@ -16,7 +19,7 @@ function ReferenceImgRight() {
                         </div>
                     </div>
                     <div className="ml-0 md:ml-5 flex justify-center md:justify-start 2xl:justify-end px-2 sm:px-0">
-                        <img alt="Mantenimiento SANY" className="rounded-[15px] object-cover w-max 2xl:h-96" src={PostSale} />
+                        <LazyLoadImage effect="blur" alt="Mantenimiento SANY" className="rounded-[15px] object-cover w-max 2xl:h-96" src={PostSale} />
                     </div>
                 </div>
             </div>
