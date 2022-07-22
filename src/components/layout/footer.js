@@ -103,7 +103,7 @@ const Footer = () => {
     };
     return (
         <footer className="text-white pt-7 bg-black">
-            <div className="py-10 container px-4 mx-auto flex items-center">
+            <div className="py-10 container px-4 mx-auto flex items-center xl:px-10">
                 <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-10">
                     <div className="mb-5">
                         <hr className="bg-primary mb-5 h-0.5 border-none"></hr>
@@ -184,7 +184,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="max-w-7xl container mx-auto px-4 mb-4">
+            <div className="max-w-7xl container mx-auto px-4 mb-4 xl:px-10">
                 <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
                     <div className="hidden sm:block">
                         <p className="text-center sm:text-start text-sm font-pop">© 2022 Distribuidora Platino S.A. Todos los derechos reservados.</p>
@@ -203,12 +203,12 @@ const Footer = () => {
                 </div>
             </div>
             <div className="bg-white">
-                <div className="mx-5  lg:px-0 py-6">
+                <div className="container mx-auto lg:px-5 xl:px-10 py-6">
                     <Slider {...settings}>
                         {companies.map(function (item, index) {
                             return (
                                 <div key={index} className="text-center px-4">
-                                    <img className="h-10" src={item.logo} alt={item.name} />
+                                    <img className="max-h-9" src={item.logo} alt={item.name} />
                                 </div>
                             )
                         })}

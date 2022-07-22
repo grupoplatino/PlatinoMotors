@@ -4,8 +4,8 @@ function FinancingHero() {
     return (
         <div className="financingHero">
             <div className="container mx-auto">
-                <div className="py-10 md:py-14 xl:w-3/5 lg:text-start lg:mx-4 xl:mx-0">
-                    <div className="text-center lg:text-start mx-4">
+                <div className="py-10 md:py-14 xl:w-3/5 lg:text-start px-4 md:px-5 xl:px-10">
+                    <div className="text-center lg:text-start">
                         <div className="mt-28">
                             <p className="text-white font-pop md:leading-snug font-bold text-4xl sm:text-5xl mb-3">Financiamiento para Maquinaria</p>
                         </div>

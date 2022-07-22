@@ -48,7 +48,7 @@ function ProductCollection(props) {
     filters[3].values =     statuses;
     return (
         <div className="bg-background">
-            <div className="container mx-auto md:px-4 xl:px-0">
+            <div className="container mx-auto md:px-5 xl:px-10">
                 <div className="flex">
                     <div className="grid grow grid-cols-1 sm:grid-cols-3 gap-2 md:gap-5 py-5 md:grid-cols-6 lg:grid-cols-4 px-4 md:px-0">
                         <div className="col-span-1 md:col-span-2 lg:col-span-1">

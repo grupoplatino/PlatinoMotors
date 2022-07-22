@@ -1,7 +1,7 @@
 function BannerProduct(props) {
     return (
         <div className="bg-black">
-            <div className="container mx-auto lg:px-2 xl:px-0">
+            <div className="container mx-auto sm:px-2 xl:px-8">
                 <div className="flex justify-between md:justify-start py-2 items-center flex-wrap">
                     <div className="px-1">
                         <div className="grid grid-cols-1 py-2 px-2">

@@ -5,10 +5,10 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 function SpareParts() {
     return (
         <div className="bg-otherLight-50">
-            <div className="container mx-auto lg:px-4 xl:px-0">
-                <div className="rounded-md py-10 px-2">
+            <div className="container mx-auto px-2 sm:px-4 lg:px-5 xl:px-10">
+                <div className="rounded-md py-10">
                     <div className="grid grid-cols-1 items-center bg-white md:grid-cols-2 lg:grid-cols-3 gap-0 mx-2 md:mx-0 rounded-xl drop-shadow-md">
-                        <div className="lg:col-span-1">
+                        <div className="grid grid-cols-1 lg:col-span-1">
                             <LazyLoadImage effect="blur" src={SparePartsImg} className="object-cover w-full md:rounded-l-xl max-h-96" alt="repuestos SANY Honduras" />
                         </div>
                         <div className="mx-4 md:mx-5 mt-3 xl:mx-10 lg:col-span-2">

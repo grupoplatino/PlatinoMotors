@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LinkedinIcon } from "../../assets";
 import { Maps } from "../../components";
+import ScrollToTop from "../../utils/scroll_to_top";
 
 function Contact() {
 
@@ -9,16 +10,20 @@ function Contact() {
         window.open(url, "_blank", "noopener,noreferrer");
     };
 
+    useEffect(() => {
+        ScrollToTop();
+    }, []);
+
     return (
         <div>
             <section className="w-full financingHero text-white">
                 <div className="container mx-auto">
-                    <div className="text-center lg:text-start pt-48 pb-36 md:mx-4 lg:w-3/5">
-                        <div className="mx-4 xl:mx-0">
+                    <div className="text-center lg:text-start pt-48 pb-36 lg:w-3/5">
+                        <div className="lg:px-5 xl:px-10">
                             <h1 className="text-white font-pop md:leading-snug font-bold text-4xl sm:text-5xl mb-3">
                                 Contáctanos
                             </h1>
-                            <p className="text-white font-pop text-base font-medium">
+                            <p className="text-white font-pop text-base font-medium px-4 sm:px-0">
                                 ¿Tiene alguna duda o comentario sobre nuestra
                                 web corporativa? Utilice el formulario de contacto que
                                 aparece en la parte inferior.

@@ -56,13 +56,18 @@
   color: rgb(255, 255, 255);
 }
 
+@media (max-width: 760px) {
+  .opinion-carousel .slick-dots li button {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .opinion-carousel .slick-arrow.slick-prev,
   .opinion-carousel .slick-arrow.slick-next {
     display: none;
   }
-
-  .opinion-carousel .slick-dots li button {
+  /* .opinion-carousel .slick-dots li button {
     display: none;
-  }
+  } */
 }

@@ -771,7 +771,7 @@ function Searcher() {
                         </div>
                     </div>
                     <form className="pb-10 sm:p-0 md:pb-0 ">
-                        <div className="grid grid-cols-1 md:grid-cols-12 justify-center items-center flex-wrap md:px-5 sm:pt-2 sm:pb-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 justify-center items-center flex-wrap md:px-5 sm:pt-2 sm:pb-5">
                             <div className="mx-4 px-0 py-2 mb-1 relative md:col-span-2">
                                 <Combobox value={selectedBrand} onChange={setSelectedBrand}>
                                     <div className="relative mt-1">
@@ -1024,9 +1024,9 @@ function Searcher() {
                                     </div>
                                 </Combobox>
                             </div>
-                            <div className="mx-4 mt-4 md:mt-6 md:col-span-12 lg:col-span-1 text-center md:mx-0">
+                            <div className="mx-4 sm:col-span-2 md:col-span-12 lg:col-span-1 text-center md:mx-0 sm:mt-4">
                                 <button className="rounded-full w-full text-white bg-gradient-to-r from-startGradiant to-endGradiant hover:bg-gradient-to-br
-                                focus:outline-none border-none font-medium text-sm text-center px-4 py-3 md:px-12 lg:px-3 md:w-fit">
+                                focus:outline-none border-none font-medium text-sm text-center px-4 py-2 lg:py-3 sm:px-10 md:px-12 lg:px-3 sm:w-fit">
                                     <div className="flex justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
