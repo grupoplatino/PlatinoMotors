@@ -14,7 +14,7 @@ function ReferneceImgLeft() {
                             <p className="text-primary text-xs font-bold text-center md:text-left mb-2">SOBRE NOSOTROS</p>
                             <p className="text-3xl font-bold mb-3 text-center md:text-left">Motores que Trabajan por Mejores Resultados</p>
                             <p className="font-pop mx-2 md:mx-0 lg:mr-5 sm:text-center md:text-start">Nuestro equipo se caracteriza por su alta eficiencia, comodidad y economía. Somos distribuidores oficiales de grandes marcas productoras de maquinaria y equipo para contrucción.</p>
-                            <p className="font-pop mx-2 md:mx-0 lg:mr-5 hidden sm:block md:hidden sm:text-center md:text-start">Dentro de nuestro catálogo podras encontrar motoniveladoras, excavadoras, y demás maquinaria industrial. Estamos listos para apoyarte en tus proyectos, ya sea para comprar o rentar maquinaria.</p>
+                            <p className="font-pop mx-2 md:mx-0 lg:mr-5 hidden sm:block md:hidden xl:block xl:mt-2 sm:text-center md:text-start">Dentro de nuestro catálogo podras encontrar motoniveladoras, excavadoras, y demás maquinaria industrial. Estamos listos para apoyarte en tus proyectos, ya sea para comprar o rentar maquinaria.</p>
                         </div>
                     </div>
                 </div>
