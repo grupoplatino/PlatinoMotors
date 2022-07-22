@@ -1,11 +1,13 @@
-import React, { Fragment } from "react";
+import React, { Fragment,useState } from "react";
 import { Link } from "react-router-dom";
 import { PlatinoMotorsBlack, RightArrowBreadOrange } from "../../assets/index";
 import { Popover, Transition, Disclosure } from "@headlessui/react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
+
 export default function Navbar() {
+  const [isSearching, setIsSearching] = useState(false);
   const categories = [
     {
       id: 1,
@@ -170,6 +172,9 @@ export default function Navbar() {
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
+  function beginSearching(){
+   setIsSearching(true);
+  }
   return (
     <Popover className="fixed w-screen z-20 font-pop bg-white">
       <div className="absolute inset-0 shadow z-20 pointer-events-none" aria-hidden="true" />
@@ -181,7 +186,9 @@ export default function Navbar() {
               <LazyLoadImage effect="blur" className="h-10 container w-auto md:h-15" src={PlatinoMotorsBlack} alt="Platino Motors Logo" />
             </Link>
           </div>
-          <div className="-mr-2 -my-2 lg:hidden">
+          {
+            isSearching ===false
+            ?  <div className="-mr-2 -my-2 lg:hidden">
             <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-inset focus:ring-primary">
               <span className="sr-only">Abrir Opciones</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -189,7 +196,12 @@ export default function Navbar() {
               </svg>
             </Popover.Button>
           </div>
-          <div className="hidden lg:flex-1 lg:flex lg:items-center lg:justify-end">
+            : <div className="bg-success flex">Cosas de la vida</div>
+          }
+          {
+            isSearching?
+            <p>Me haz dado click</p>
+            : <div className="hidden lg:flex-1 lg:flex lg:items-center lg:justify-end">
             <Popover.Group as="nav" className="flex z-40 space-x-2">
               <Popover>
                 {({ open }) => (
@@ -259,11 +271,21 @@ export default function Navbar() {
               <Link to="/contacto"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Contacto</span></Link>
               <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-6 pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
                 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm py-2.5 text-center mx-4 mb-2">Inicio/Registro</button>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 pl-1 pt-1 inline-block align-middle" viewBox="0 0 20 20" fill="blackPearl">
+              <div>
+                <button onClick={beginSearching} className="bg-background shadow-sm p-1 rounded-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 pl-1  inline-block align-middle" viewBox="0 0 20 20" fill="blackPearl">
                 <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
               </svg>
+                </button>
+
+             
+              </div>
             </Popover.Group>
           </div>
+
+          }
+         
+         
         </div>
       </div>
       <Transition

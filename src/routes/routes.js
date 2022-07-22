@@ -10,6 +10,7 @@ function Pages() {
                 <Route path='/servicios' element={<Services/>}/>
                 <Route path="/shop/product" element={<DetailProduct/>}/>
                 <Route path="/shop/category" element={<Category/>}/>
+                <Route path="*" element={<Home/>}/>
         </Routes>
     );
 }
