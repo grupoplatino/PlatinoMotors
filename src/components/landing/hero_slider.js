@@ -549,6 +549,7 @@ function HeroCategorySlider() {
             <div className="container mx-auto mb-5 sm:px-4 md:px-5 xl:px-10">
                 <div className="grid grid-cols-1 py-5 grow gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     {
+                        // eslint-disable-next-line
                         productCategory.map(function (item, index) {
                             if (index < 4) {
                                 return (
