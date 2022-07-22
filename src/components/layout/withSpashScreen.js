@@ -8,7 +8,7 @@ function LoadingWelcomeMessage() {
                 <img src={PlatinoMotors} alt="Platino HN" className='w-72' />
             </div>
             <div>
-                <HashLoader color='#000000' height={10} width={200} />
+                <HashLoader color='#E02523' height={10} width={200} />
             </div>
             <div className='mt-8 text-gray-500 font-pop font-semibold text-xl'>
                 Cargando...
@@ -33,7 +33,7 @@ function WithSplashScreen(WrappedComponent) {
             this.setState({
               loading: false,
             });
-          }, 1000)
+          }, 3000)
         } catch (err) {
           console.log(err);
           this.setState({

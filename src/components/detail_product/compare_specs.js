@@ -6,8 +6,8 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 function CompareSpecs(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [listProductToCompare, setListProductToCompare] = useState([]);
-    const referenceVsProduct = [];
-    const vsDetailsProduct = [];
+    const [referenceVsProduct, setReferenceVsProduct] = useState([]);
+
     function closeModal() {
         setIsOpen(false)
     };
@@ -15,30 +15,35 @@ function CompareSpecs(props) {
         setIsOpen(true)
     };
     function compareProducts() {
+        let vsDetailsProduct = [];
+        setListProductToCompare([]);
         for (let i = 0; i < referenceVsProduct.length; i++) {
             for (let e = 0; e < products.length; e++) {
                 if (products[e].name === referenceVsProduct[i].name) {
                     vsDetailsProduct.push(products[e]);
-                    setListProductToCompare(vsDetailsProduct);
                 }
             }
         }
+        setListProductToCompare(vsDetailsProduct);
         setIsOpen(false);
     };
     function addProduct(product) {
         let newVsProduct = {
             name: product.name
         };
-        referenceVsProduct.push(newVsProduct);
+        let temporalReferenceListProduct = referenceVsProduct;
+
+        temporalReferenceListProduct.push(newVsProduct);
+        setReferenceVsProduct(temporalReferenceListProduct);
     };
     function removeProduct(product) {
-        let index = 0;
-        for (let i = 0; i < referenceVsProduct.length; i++) {
-            if (referenceVsProduct[i].name === product.name) {
-                index = i;
-            }
-        }
-        referenceVsProduct.slice(index, 1);
+        //Removiendo de la lista de encabezados
+        let temporalList = listProductToCompare.filter((item) => item !== product);
+        setListProductToCompare(temporalList);
+        //Removiendo de la lista de referencia
+        let temporalReference = referenceVsProduct.filter((item) => item.name !== product.name);
+        setReferenceVsProduct(temporalReference);
+        //Removiendo lista de detalles
     };
     const products = [
         {
@@ -149,7 +154,7 @@ function CompareSpecs(props) {
             dataSheet: [
                 {
                     title: "Motor",
-                    value: "XB-4588"
+                    value: "567"
                 },
                 {
                     title: "Tamaño",
@@ -437,7 +442,7 @@ function CompareSpecs(props) {
             dataSheet: [
                 {
                     title: "Motor",
-                    value: "XB-4588"
+                    value: "1234"
                 },
                 {
                     title: "Tamaño",
@@ -743,9 +748,9 @@ function CompareSpecs(props) {
                     <div className="bg-background rounded-xl h-full flex items-center px-4 justify-center text-lg font-semibold text-center">
                         <div>
                             <div className="p-2 bg-white w-fit mx-auto border-2 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
-                            </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
+                                </svg>
                             </div>
                             <span>Compare hasta 3 modelos distintos</span>
                         </div>
@@ -754,8 +759,8 @@ function CompareSpecs(props) {
                         <img className="mx-auto h-40 my-5 rounded-md" alt={props.product.name} src={props.product.img} />
                         <span>{props.product.name}</span>
                     </div>
-                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} position={1} />
-                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} position={2} />
+                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} position={1} removeProduct={removeProduct} />
+                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} position={2} removeProduct={removeProduct} />
                 </div>
                 <div className="grid grid-cols-3 lg:grid-cols-4 mt-2 gap-4">
                     <div className="py-2 px-5 bg-background rounded-xl">
@@ -777,26 +782,10 @@ function CompareSpecs(props) {
                         }
                     </div>
                     <div className="py-2 px-5 bg-background rounded-xl">
-                        {
-                            listProductToCompare.length === 0
-                                ? <Fragment />
-                                : listProductToCompare[0].dataSheet.map((item, index) => (
-                                    <div key={index} className="rounded my-1 border-b pb-2">
-                                        <p className="font-pop  text-black text-lg">{item.value}</p>
-                                    </div>
-                                ))
-                        }
+                        <ProductSheet listProductToCompare={listProductToCompare} position={1} />
                     </div>
                     <div className="py-2 px-5 bg-background rounded-xl hidden lg:block">
-                        {
-                            listProductToCompare.length > 1
-                                ? listProductToCompare[1].dataSheet.map((item, index) => (
-                                    <div key={index} className="rounded my-1 border-b pb-2">
-                                        <p className="font-pop  text-black text-lg">{item.value}</p>
-                                    </div>
-                                ))
-                                : <Fragment />
-                        }
+                        <ProductSheet listProductToCompare={listProductToCompare} position={2} />
                     </div>
                 </div>
                 <Transition appear show={isOpen} as={Fragment}>
@@ -833,7 +822,13 @@ function CompareSpecs(props) {
                                                 <div className="mr-2">
                                                     <p>Escoge la maquinaria para la comparativa</p>
                                                 </div>
-                                                <ProductsHeader vsProducts={referenceVsProduct} />
+                                                {
+                                                    referenceVsProduct.map((item, index) => (
+                                                        <div key={index} className="border-2 mx-2 rounded-md border-primary text-primary">
+                                                            <p className="px-2">{item.name}</p>
+                                                        </div>
+                                                    ))
+                                                }
                                             </div>
                                             <div>
                                                 <button
@@ -915,31 +910,39 @@ function CompareSpecs(props) {
         </div>
     );
 };
-
-function ProductsHeader(props) {
-    const products = props.vsProducts;
+function ProductSheet(props) {
     return (
-        products.map((item, index) => (
-            <div key={index} className="border-2 mx-2 rounded-md border-primary text-primary">
-                <p className="px-2">{item.name}</p>
-            </div>
-        ))
+        props.listProductToCompare.length === 0
+            ? <Fragment />
+            : props.listProductToCompare.length > 0 && props.position === 1
+                ? props.listProductToCompare[0].dataSheet.map((item, index) => (
+                    <div key={index} className="rounded my-1 border-b pb-2">
+                        <p className="font-pop  text-black text-lg">{item.value}</p>
+                    </div>
+                ))
+                : props.listProductToCompare.length > 1 && props.position === 2
+                    ? props.listProductToCompare[1].dataSheet.map((item, index) => (
+                        <div key={index} className="rounded my-1 border-b pb-2">
+                            <p className="font-pop  text-black text-lg">{item.value}</p>
+                        </div>
+                    ))
+                    : <Fragment />
     );
-};
+}
+
 
 function CardProductToCompare(props) {
     const [listed, setListed] = useState(false);
     function addProduct(product) {
-        props.addProduct(product);
         if (listed) {
+            props.removeProduct(product);
             setListed(false);
         }
         else {
-
+            props.addProduct(product);
             setListed(true);
         }
     }
-
     return (
         <div className="grow px-2">
             <div className="flex justify-between">
@@ -1006,13 +1009,17 @@ function CardProductToCompare(props) {
 }
 
 function ReferenceImgProduct(props) {
+    function removeProduct(product) {
+        props.removeProduct(product);
+    }
     return (
         <div className=" bg-background font-pop text-xl font-bold pb-2 text-center rounded-xl relative">
             <img className=" mx-auto h-40 my-5 rounded-md" alt={props.product.name} src={props.product.img} />
             <span>{props.product.name}</span>
-            <button className="absolute top-2 right-2"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            <button onClick={() => removeProduct(props.product)} className="absolute top-2 right-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
             </button>
         </div>
     );
@@ -1041,9 +1048,9 @@ function SwitchComponent(props) {
         props.productToCompare.length === 0 && props.position === 1
             ? <AddProductButton action={props.action} />
             : props.productToCompare.length > 0 && props.position === 1
-                ? <ReferenceImgProduct product={props.productToCompare[0]} />
-                : props.productToCompare.length === 2 && props.position === 2
-                    ? <ReferenceImgProduct product={props.productToCompare[1]} />
+                ? <ReferenceImgProduct product={props.productToCompare[0]} removeProduct={props.removeProduct} />
+                : props.productToCompare.length > 1 && props.position === 2
+                    ? <ReferenceImgProduct product={props.productToCompare[1]} removeProduct={props.removeProduct} />
                     : <AddProductButton action={props.action} hidden={true} />
     );
 }
