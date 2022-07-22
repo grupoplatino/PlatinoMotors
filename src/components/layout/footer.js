@@ -203,12 +203,12 @@ const Footer = () => {
                 </div>
             </div>
             <div className="bg-white">
-                <div className="mx-5  lg:px-0 py-6">
+                <div className="container mx-auto lg:px-5 xl:px-10 py-6">
                     <Slider {...settings}>
                         {companies.map(function (item, index) {
                             return (
                                 <div key={index} className="text-center px-4">
-                                    <img className="h-10" src={item.logo} alt={item.name} />
+                                    <img className="max-h-9" src={item.logo} alt={item.name} />
                                 </div>
                             )
                         })}

@@ -735,7 +735,7 @@ function CompareSpecs(props) {
     filters[3].values = statuses;
     return (
         <div className="bg-white hidden md:block">
-            <div className="container mx-auto mb-10">
+            <div className="container mx-auto mb-10 md:px-5 xl:px-10">
                 <div className="text-center font-pop pb-10 pt-20 text-3xl font-bold text-black">
                     <span>Especificaciones y Comparativa</span>
                 </div>

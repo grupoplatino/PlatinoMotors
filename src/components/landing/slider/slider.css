@@ -107,7 +107,25 @@
   height: 75vh;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 640px) {
+  .img-slider-bg{
+    height: 35vh !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .img-slider-bg{
+    height: 40vh !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .img-slider-bg{
+    height: 35vh !important;
+  }
+}
+
+@media (min-width: 1024px) {
   .img-slider-bg{
     height: 40vh !important;
   }

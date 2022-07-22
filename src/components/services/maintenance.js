@@ -17,11 +17,11 @@ function Maintenance() {
     ]
     return (
         <div className="bg-otherLight-50">
-            <div className="container mx-auto lg:px-4 xl:px-0">
-                <div className="px-2 md:px-0">
+            <div className="container mx-auto px-4 lg:px-5 xl:px-10">
+                <div>
                     <div className="grid grid-cols-1 items-center lg:grid-cols-2 gap-2 py-5">
                         <div className="px-2 sm:mb-5">
-                            <LazyLoadImage effect="blur" alt="Retroexcavadora SANY" className="rounded-[15px] mx-auto w-full h-80 lg:h-auto object-cover" src={MaintenanceMen} />
+                            <img loading="lazy" alt="Retroexcavadora SANY" className="rounded-[15px] mx-auto w-full h-80 lg:h-auto object-cover" src={MaintenanceMen} />
                         </div>
                         <div className="mx-2 xl:mx-6">
                             <div className="grid grid-cols-1">

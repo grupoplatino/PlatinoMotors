@@ -2,10 +2,10 @@ import { EmailBlackIcon, WhatsappBlackIcon, FacebookBlackIcon, InstagramBlackIco
 import Maps from "../contact/maps";
 function ContactUs() {
     return (
-        <div className="bg-otherLight-50 lg:px-5 xl:px-10">
-            <div className="container mx-auto px-2 sm:px-0 py-5 md:py-16">
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                    <div>
+        <div className="bg-otherLight-50">
+            <div className="container mx-auto md:px-5 xl:px-10 pt-5 md:pt-16">
+                <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                    <div className="px-4 md:px-0">
                         <div className="flex justify-center sm:justify-start">
                             <div>
                                 <p className="text-3xl text-black font-bold font-pop mb-2 md:mb-5">Contáctanos</p>
@@ -38,7 +38,7 @@ function ContactUs() {
                         focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-center mb-2">Enviar Mensaje</button>
                             </div>
                         </form>
-                        <div className="flex mt-2 sm:mt-5 flex-wrap">
+                        <div className="flex mt-2 sm:mt-5 lg:mb-5 flex-wrap">
                             <div className="mr-2 mt-1">
                                 <p className="font-pop text-sm font-semibold text-black my-4 sm:my-0 md:my-0">o puedes contactarnos por</p>
                             </div>
@@ -76,7 +76,7 @@ function ContactUs() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-full h-80 sm:h-auto mt-5 sm:mt-0">
+                    <div className="w-full h-80 mt-5 sm:mt-0">
                         <Maps />
                     </div>
                 </div>

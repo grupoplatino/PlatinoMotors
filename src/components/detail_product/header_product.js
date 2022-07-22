@@ -4,8 +4,8 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 function HeaderProduct(props) {
     return (
-        <div className="container mx-auto pt-24 bg-white">
-            <div className="flex flex-wrap justify-start pl-5 items-center">
+        <div className="container mx-auto pt-24 bg-white px-4 md:px-5 xl:px-10">
+            <div className="flex flex-wrap justify-start items-center">
                 <p className="pr-2 text-blackPearl-900 font-pop text-sm">Tienda</p>
                 <img className="h-3 pr-2" src={RightArrowBread} alt="icono flecha derecha" />
                 <p className="pr-2 text-blackPearl-900 font-pop text-sm">{props.product.category}</p>
@@ -21,15 +21,15 @@ function HeaderProduct(props) {
                     <LazyLoadImage effect="blur" className="h-56 sm:h-60 md:h-80" src={props.product.img} alt={props.product.name} />
                 </div>
                 <div className="py-2 md:grow">
-                    <div className="px-5 flex">
+                    <div className="flex">
                         <p className={"mr-1 font-pop text-md " + (props.product.status === "Disponible" ? "text-success" : "text-primary")}>{props.product.status}</p>
                         <p className="font-pop text-md"> {props.product.status === "Disponible" ? "para entrega inmediata" : props.product.status === "Por encargo" ? " por encargo" : ""}</p>
                     </div>
-                    <div className="pt-5 px-5">
+                    <div className="pt-5">
                         <p className="font-pop text-2xl font-semibold mb-0 text-blackPearl">{props.product.name}</p>
                         <p className="font-pop text-md font-base mt-0 text-blackPearl">{props.product.subCategory}</p>
                     </div>
-                    <div className="flex mx-4 flex-wrap mb-5 md:mb-0">
+                    <div className="flex flex-wrap mb-5 md:mb-0">
                         <div className="mt-5">
                             <button type="button" className="text-background bg-otherLight-50 rounded-3xl py-2 px-2 md:px-4 focus:ring-2 
                                     focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm text-center">

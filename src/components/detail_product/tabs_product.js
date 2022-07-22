@@ -100,7 +100,7 @@ function TabsProduct(props) {
 }
 function Qualities(props) {
     return (
-        <div className="px-4 lg:px-6 xl:px-0">
+        <div className="px-4 md:px-5 xl:px-10">
             <div className="flex py-5 justify-center">
                 <p className="font-pop text-2xl font-semibold">Características</p>
             </div>
@@ -171,7 +171,7 @@ function DataSheet(props) {
         }
     }
     return (
-        <div className="lg:px-6 xl:px-0">
+        <div className="md:px-5 xl:px-0">
             <div className="flex py-5 justify-center">
                 <p className="font-pop text-2xl font-semibold">Ficha Técnica</p>
             </div>

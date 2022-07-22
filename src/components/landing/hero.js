@@ -31,12 +31,12 @@ function Hero() {
                         <div className="pb-4 pt-1">
                             <img className="h-10 sm:mx-auto" alt="Sany Honduras" src={sanyLogo} />
                         </div>
-                        <div>
+                        <div className="mt-2 md:mt-0">
                         <Link to="/shop/category" className="text-background bg-gradient-to-r rounded-3xl px-12 py-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
                             focus:outline-none border-none font-medium text-md text-center mr-2 mb-2 font-pop">Cotizar</Link>
                         </div>
                     </div>
-                    <div className="md:px-6 md:py-10 sm:pb-10">
+                    <div className="sm:px-4 md:px-6 md:py-10 sm:pb-10">
                         <img className="sm:rounded-3xl md:rounded-3xl" src={BgSany} alt="Sany Honduras" />
                     </div>
                 </div>
