@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import { Combobox, Transition } from '@headlessui/react'
+import { Combobox, Transition } from "@headlessui/react"
 import { CheckIcon } from "@heroicons/react/solid";
 
 const brands = [
@@ -728,27 +728,27 @@ function Searcher() {
     const [selectedTarget, setSelectedTarget] = useState(targets[0]);
     const [selectedCategory, setSelectedCategory] = useState(categories[0]);
     const [selectedProduct, setSelectedProduct] = useState(products[0]);
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState("");
     const filteredBrand =
-        query === ''
+        query === ""
             ? brands
             : brands.filter((brand) => {
                 return brand.name.toLowerCase().includes(query.toLowerCase());
             });
     const filteredTarget =
-        query === ''
+        query === ""
             ? targets
             : targets.filter((target) => {
                 return target.name.toLowerCase().includes(query.toLowerCase());
             });
     const filteredCategory =
-        query === ''
+        query === ""
             ? categories
             : categories.filter((category) => {
                 return category.name.toLowerCase().includes(query.toLowerCase());
             });
     const filteredProducts =
-        query === ''
+        query === ""
             ? products
             : products.filter((product) => {
                 return product.name.toLowerCase().includes(query.toLowerCase());
@@ -771,7 +771,7 @@ function Searcher() {
                         </div>
                     </div>
                     <form className="pb-10 sm:p-0 md:pb-0 ">
-                        <div className="grid grid-cols-1 md:grid-cols-12 justify-center items-center flex-wrap md:px-5 sm:pt-2 sm:pb-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 justify-center items-center flex-wrap md:px-5 sm:pt-2 sm:pb-5">
                             <div className="mx-4 px-0 py-2 mb-1 relative md:col-span-2">
                                 <Combobox value={selectedBrand} onChange={setSelectedBrand}>
                                     <div className="relative mt-1">
@@ -792,10 +792,10 @@ function Searcher() {
                                             leave="transition ease-in duration-100"
                                             leaveFrom="opacity-100"
                                             leaveTo="opacity-0"
-                                            afterLeave={() => setQuery('')}
+                                            afterLeave={() => setQuery("")}
                                         >
                                             <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                                {filteredBrand.length === 0 && query !== '' ? (
+                                                {filteredBrand.length === 0 && query !== "" ? (
                                                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                                         Nada encontrado.
                                                     </div>
@@ -804,7 +804,7 @@ function Searcher() {
                                                         <Combobox.Option
                                                             key={brand.id}
                                                             className={({ active }) =>
-                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? ' text-white bg-pirmaryScarlet-300' : 'text-gray-900'
+                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? " text-white bg-pirmaryScarlet-300" : "text-gray-900"
                                                                 }`
                                                             }
                                                             value={brand}
@@ -812,14 +812,14 @@ function Searcher() {
                                                             {({ selected, active }) => (
                                                                 <>
                                                                     <span
-                                                                        className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                                                                        className={`block truncate ${selected ? "font-medium" : "font-normal"
                                                                             }`}
                                                                     >
                                                                         {brand.name}
                                                                     </span>
                                                                     {selected ? (
                                                                         <span
-                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-otherSuccess-900'
+                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? "text-white" : "text-otherSuccess-900"
                                                                                 }`}
                                                                         >
                                                                             <CheckIcon className="h-5 w-5" aria-hidden="true" />
@@ -855,10 +855,10 @@ function Searcher() {
                                             leave="transition ease-in duration-100"
                                             leaveFrom="opacity-100"
                                             leaveTo="opacity-0"
-                                            afterLeave={() => setQuery('')}
+                                            afterLeave={() => setQuery("")}
                                         >
                                             <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                                {filteredTarget.length === 0 && query !== '' ? (
+                                                {filteredTarget.length === 0 && query !== "" ? (
                                                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                                         Nada encontrado.
                                                     </div>
@@ -867,7 +867,7 @@ function Searcher() {
                                                         <Combobox.Option
                                                             key={target.id}
                                                             className={({ active }) =>
-                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? ' text-white bg-pirmaryScarlet-300' : 'text-gray-900'
+                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? " text-white bg-pirmaryScarlet-300" : "text-gray-900"
                                                                 }`
                                                             }
                                                             value={target}
@@ -875,14 +875,14 @@ function Searcher() {
                                                             {({ selected, active }) => (
                                                                 <>
                                                                     <span
-                                                                        className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                                                                        className={`block truncate ${selected ? "font-medium" : "font-normal"
                                                                             }`}
                                                                     >
                                                                         {target.name}
                                                                     </span>
                                                                     {selected ? (
                                                                         <span
-                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-otherSuccess-900'
+                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? "text-white" : "text-otherSuccess-900"
                                                                                 }`}
                                                                         >
                                                                             <CheckIcon className="h-5 w-5" aria-hidden="true" />
@@ -918,10 +918,10 @@ function Searcher() {
                                             leave="transition ease-in duration-100"
                                             leaveFrom="opacity-100"
                                             leaveTo="opacity-0"
-                                            afterLeave={() => setQuery('')}
+                                            afterLeave={() => setQuery("")}
                                         >
                                             <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                                {filteredCategory.length === 0 && query !== '' ? (
+                                                {filteredCategory.length === 0 && query !== "" ? (
                                                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                                         Nada encontrado.
                                                     </div>
@@ -930,7 +930,7 @@ function Searcher() {
                                                         <Combobox.Option
                                                             key={category.id}
                                                             className={({ active }) =>
-                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? ' text-white bg-pirmaryScarlet-300' : 'text-gray-900'
+                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? " text-white bg-pirmaryScarlet-300" : "text-gray-900"
                                                                 }`
                                                             }
                                                             value={category}
@@ -938,14 +938,14 @@ function Searcher() {
                                                             {({ selected, active }) => (
                                                                 <>
                                                                     <span
-                                                                        className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                                                                        className={`block truncate ${selected ? "font-medium" : "font-normal"
                                                                             }`}
                                                                     >
                                                                         {category.name}
                                                                     </span>
                                                                     {selected ? (
                                                                         <span
-                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-otherSuccess-900'
+                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? "text-white" : "text-otherSuccess-900"
                                                                                 }`}
                                                                         >
                                                                             <CheckIcon className="h-5 w-5" aria-hidden="true" />
@@ -981,10 +981,10 @@ function Searcher() {
                                             leave="transition ease-in duration-100"
                                             leaveFrom="opacity-100"
                                             leaveTo="opacity-0"
-                                            afterLeave={() => setQuery('')}
+                                            afterLeave={() => setQuery("")}
                                         >
                                             <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                                {filteredProducts.length === 0 && query !== '' ? (
+                                                {filteredProducts.length === 0 && query !== "" ? (
                                                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                                         Nada encontrado.
                                                     </div>
@@ -993,7 +993,7 @@ function Searcher() {
                                                         <Combobox.Option
                                                             key={product.id}
                                                             className={({ active }) =>
-                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? ' text-white bg-pirmaryScarlet-300' : 'text-gray-900'
+                                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? " text-white bg-pirmaryScarlet-300" : "text-gray-900"
                                                                 }`
                                                             }
                                                             value={product}
@@ -1001,14 +1001,14 @@ function Searcher() {
                                                             {({ selected, active }) => (
                                                                 <>
                                                                     <span
-                                                                        className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                                                                        className={`block truncate ${selected ? "font-medium" : "font-normal"
                                                                             }`}
                                                                     >
                                                                         {product.name}
                                                                     </span>
                                                                     {selected ? (
                                                                         <span
-                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-otherSuccess-900'
+                                                                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? "text-white" : "text-otherSuccess-900"
                                                                                 }`}
                                                                         >
                                                                             <CheckIcon className="h-5 w-5" aria-hidden="true" />
@@ -1024,9 +1024,9 @@ function Searcher() {
                                     </div>
                                 </Combobox>
                             </div>
-                            <div className="mx-4 mt-4 md:mt-6 md:col-span-12 lg:col-span-1 text-center md:mx-0">
+                            <div className="mx-4 sm:col-span-2 md:col-span-12 lg:col-span-1 text-center md:mx-0 sm:mt-4">
                                 <button className="rounded-full w-full text-white bg-gradient-to-r from-startGradiant to-endGradiant hover:bg-gradient-to-br
-                                focus:outline-none border-none font-medium text-sm text-center px-4 py-3 md:px-12 lg:px-3 md:w-fit">
+                                focus:outline-none border-none font-medium text-sm text-center px-4 py-2 lg:py-3 sm:px-10 md:px-12 lg:px-3 sm:w-fit">
                                     <div className="flex justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

@@ -1,12 +1,13 @@
-import React, { useState, Fragment } from 'react';
-import { Dialog, Switch, Disclosure, Transition } from '@headlessui/react';
-import { UpArrowOrangeIcon, DownArrowBlackIcon } from '../../assets';
-
+import React, { useState, Fragment } from "react";
+import { Dialog, Switch, Disclosure, Transition } from "@headlessui/react";
+import { UpArrowOrangeIcon, DownArrowBlackIcon } from "../../assets";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 function CompareSpecs(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [listProductToCompare, setListProductToCompare] = useState([]);
-    const referenceVsProduct = [];
-    const vsDetailsProduct=[];
+    const [referenceVsProduct, setReferenceVsProduct] = useState([]);
+
     function closeModal() {
         setIsOpen(false)
     };
@@ -14,30 +15,35 @@ function CompareSpecs(props) {
         setIsOpen(true)
     };
     function compareProducts() {
+        let vsDetailsProduct = [];
+        setListProductToCompare([]);
         for (let i = 0; i < referenceVsProduct.length; i++) {
             for (let e = 0; e < products.length; e++) {
                 if (products[e].name === referenceVsProduct[i].name) {
                     vsDetailsProduct.push(products[e]);
-                    setListProductToCompare(vsDetailsProduct);
                 }
             }
         }
+        setListProductToCompare(vsDetailsProduct);
         setIsOpen(false);
     };
     function addProduct(product) {
         let newVsProduct = {
             name: product.name
         };
-        referenceVsProduct.push(newVsProduct);
+        let temporalReferenceListProduct = referenceVsProduct;
+
+        temporalReferenceListProduct.push(newVsProduct);
+        setReferenceVsProduct(temporalReferenceListProduct);
     };
     function removeProduct(product) {
-        let index = 0;
-        for (let i = 0; i < referenceVsProduct.length; i++) {
-            if (referenceVsProduct[i].name === product.name) {
-                index = i;
-            }
-        }
-        referenceVsProduct.slice(index, 1);
+        //Removiendo de la lista de encabezados
+        let temporalList = listProductToCompare.filter((item) => item !== product);
+        setListProductToCompare(temporalList);
+        //Removiendo de la lista de referencia
+        let temporalReference = referenceVsProduct.filter((item) => item.name !== product.name);
+        setReferenceVsProduct(temporalReference);
+        //Removiendo lista de detalles
     };
     const products = [
         {
@@ -148,7 +154,7 @@ function CompareSpecs(props) {
             dataSheet: [
                 {
                     title: "Motor",
-                    value: "XB-4588"
+                    value: "567"
                 },
                 {
                     title: "Tamaño",
@@ -436,7 +442,7 @@ function CompareSpecs(props) {
             dataSheet: [
                 {
                     title: "Motor",
-                    value: "XB-4588"
+                    value: "1234"
                 },
                 {
                     title: "Tamaño",
@@ -733,62 +739,53 @@ function CompareSpecs(props) {
     filters[2].values = motorsPower;
     filters[3].values = statuses;
     return (
-        <div className='bg-white hidden md:block'>
-            <div className='container mx-auto'>
-                <div className='text-center font-pop pb-10 pt-20 text-3xl font-bold text-black'>
+        <div className="bg-white hidden md:block">
+            <div className="container mx-auto mb-10 md:px-5 xl:px-10">
+                <div className="text-center font-pop pb-10 pt-20 text-3xl font-bold text-black">
                     <span>Especificaciones y Comparativa</span>
                 </div>
-                <div className='grid grid-cols-4 gap-4'>
-                    <div className=' bg-background rounded-xl'>
-                        <span className=''>Compare hasta 3 modelos distintos</span>
+                <div className="grid grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div className="bg-background rounded-xl h-full flex items-center px-4 justify-center text-lg font-semibold text-center">
+                        <div>
+                            <div className="p-2 bg-white w-fit mx-auto border-2 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
+                                </svg>
+                            </div>
+                            <span>Compare hasta 3 modelos distintos</span>
+                        </div>
                     </div>
-                    <div className=' bg-background font-pop text-xl font-bold pb-2 text-center rounded-xl'>
-                        <img className=' mx-auto h-40 my-5 rounded-md' alt={props.product.name} src={props.product.img} />
+                    <div className="bg-background font-pop text-xl font-bold pb-2 text-center rounded-xl">
+                        <img className="mx-auto h-40 my-5 rounded-md" alt={props.product.name} src={props.product.img} />
                         <span>{props.product.name}</span>
                     </div>
-                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{openModal}} position={1}/>
-                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{openModal}} position={2}/>
+                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} position={1} removeProduct={removeProduct} />
+                    <SwitchComponent productToCompare={listProductToCompare} product={props.product} action={{ openModal }} position={2} removeProduct={removeProduct} />
                 </div>
-                <div className='grid grid-cols-4 mt-2 gap-4'>
-                    <div className='py-2 px-5 bg-background rounded-xl'>
+                <div className="grid grid-cols-3 lg:grid-cols-4 mt-2 gap-4">
+                    <div className="py-2 px-5 bg-background rounded-xl">
                         {
                             props.product.dataSheet.map((item, index) => (
                                 <div key={index} className="rounded my-1 border-b pb-2">
-                                    <p className="font-pop font-bold text-black text-lg">{item.title}</p>
+                                    <p className="font-pop font-semibold text-black text-lg">{item.title}</p>
                                 </div>
                             ))
                         }
                     </div>
-                    <div className='py-2 px-5 bg-background  rounded-xl'>
+                    <div className="py-2 px-5 bg-background rounded-xl">
                         {
                             props.product.dataSheet.map((item, index) => (
                                 <div key={index} className="rounded my-1 border-b pb-2">
-                                    <p className="font-pop  text-black text-lg">{item.value}</p>
+                                    <p className="font-pop text-black text-lg">{item.value}</p>
                                 </div>
                             ))
                         }
                     </div>
-                    <div className='py-2 px-5 bg-background rounded-xl'>
-                        {
-                            listProductToCompare.length === 0
-                                ? <Fragment />
-                                : listProductToCompare[0].dataSheet.map((item, index) => (
-                                    <div key={index} className="rounded my-1 border-b pb-2">
-                                        <p className="font-pop  text-black text-lg">{item.value}</p>
-                                    </div>
-                                ))
-                        }
+                    <div className="py-2 px-5 bg-background rounded-xl">
+                        <ProductSheet listProductToCompare={listProductToCompare} position={1} />
                     </div>
-                    <div className='py-2 px-5 bg-background rounded-xl'>
-                        {
-                            listProductToCompare.length > 1
-                                ? listProductToCompare[1].dataSheet.map((item, index) => (
-                                    <div key={index} className="rounded my-1 border-b pb-2">
-                                        <p className="font-pop  text-black text-lg">{item.value}</p>
-                                    </div>
-                                ))
-                                : <Fragment />
-                        }
+                    <div className="py-2 px-5 bg-background rounded-xl hidden lg:block">
+                        <ProductSheet listProductToCompare={listProductToCompare} position={2} />
                     </div>
                 </div>
                 <Transition appear show={isOpen} as={Fragment}>
@@ -804,10 +801,10 @@ function CompareSpecs(props) {
                             <div className="fixed inset-0 bg-black bg-opacity-25" />
                         </Transition.Child>
                         <div className="fixed inset-0 overflow-y-auto">
-                            <div className='bg-white flex'>
+                            <div className="bg-white flex">
 
                             </div>
-                            <div className="container mx-auto  items-center justify-center p-4 text-center">
+                            <div className="container mx-auto items-center justify-center p-4 text-center">
                                 <Transition.Child
                                     as={Fragment}
                                     enter="ease-out duration-300"
@@ -817,15 +814,21 @@ function CompareSpecs(props) {
                                     leaveFrom="opacity-100 scale-100"
                                     leaveTo="opacity-0 scale-95"
                                 >
-                                    <Dialog.Panel className="w-full transform overflow-hidden rounded-2xl bg-white  p-6 text-left align-middle shadow-xl transition-all">
+                                    <Dialog.Panel className="w-full transform overflow-hidden rounded-2xl bg-background p-6 text-left align-middle shadow-xl transition-all">
                                         <Dialog.Title
                                             as="h3"
-                                            className="text-lg py-2 px-2 font-pop font-medium bg-background  shadow-sm flex items-center justify-between rounded-md leading-6 text-black">
-                                            <div className='flex'>
-                                                <div className='mr-2'>
+                                            className="text-lg py-2 px-2 font-pop font-medium shadow-sm flex items-center justify-between rounded-md leading-6 text-black">
+                                            <div className="flex">
+                                                <div className="mr-2">
                                                     <p>Escoge la maquinaria para la comparativa</p>
                                                 </div>
-                                                <ProductsHeader vsProducts={referenceVsProduct} />
+                                                {
+                                                    referenceVsProduct.map((item, index) => (
+                                                        <div key={index} className="border-2 mx-2 rounded-md border-primary text-primary">
+                                                            <p className="px-2">{item.name}</p>
+                                                        </div>
+                                                    ))
+                                                }
                                             </div>
                                             <div>
                                                 <button
@@ -838,8 +841,8 @@ function CompareSpecs(props) {
                                             </div>
                                         </Dialog.Title>
                                         <div className="mt-2">
-                                            <div className='grid grid-cols-10'>
-                                                <div className='m-2 col-span-2 rounded-sm '>
+                                            <div className="grid grid-cols-3 xl:grid-cols-4">
+                                                <div className="m-2 col-span-1 rounded-sm">
                                                     {
                                                         filters.map((item, index) => (
                                                             <Disclosure key={index}>
@@ -848,7 +851,7 @@ function CompareSpecs(props) {
                                                                         <Disclosure.Button className="flex w-full justify-between font-pop  bg-white border-b px-4 py-2 text-left text-sm font-medium text-black hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                                                                             <span>{item.title}</span>
                                                                             {
-                                                                                open ? <img className='h-4 w-4' alt='arrow' src={UpArrowOrangeIcon} /> : <img alt='arrow' className='h-4 w-4' src={DownArrowBlackIcon} />
+                                                                                open ? <img className="h-4 w-4" alt="arrow" src={UpArrowOrangeIcon} /> : <img alt="arrow" className="h-4 w-4" src={DownArrowBlackIcon} />
                                                                             }
                                                                         </Disclosure.Button>
                                                                         <Transition
@@ -862,7 +865,7 @@ function CompareSpecs(props) {
                                                                                 {
                                                                                     item.values.map((item, index) => (
                                                                                         <div key={index}>
-                                                                                            <div className='flex font-pop justify-between'>
+                                                                                            <div className="flex font-pop justify-between">
                                                                                                 <div>
                                                                                                     <span>{item}</span>
                                                                                                 </div>
@@ -884,12 +887,12 @@ function CompareSpecs(props) {
                                                         ))
                                                     }
                                                 </div>
-                                                <div className='m-2 col-span-8 rounded-sm'>
-                                                    <div className='grid gap-2 grid-cols-3'>
+                                                <div className="m-2 col-span-2 xl:col-span-3 rounded-sm">
+                                                    <div className="grid gap-2 grid-cols-1 ml-10 lg:mx-0 lg:grid-cols-3 2xl:gap-10">
                                                         {
                                                             productsBySameCategory.map((item, key) => (
-                                                                <div key={key} className='flex py-5 px-2 bg-background rounded-xl justify-items-center'>
-                                                                    <CardProductToCompare product={item}  addProduct={addProduct} removeProduct={removeProduct} />
+                                                                <div key={key} className="flex py-5 px-2 rounded-xl justify-items-center bg-white shadow-md">
+                                                                    <CardProductToCompare product={item} addProduct={addProduct} removeProduct={removeProduct} />
                                                                 </div>
                                                             ))
                                                         }
@@ -907,91 +910,98 @@ function CompareSpecs(props) {
         </div>
     );
 };
-
-function ProductsHeader(props) {
-    const products = props.vsProducts;
+function ProductSheet(props) {
     return (
-        products.map((item, index) => (
-            <div key={index} className='border-2 mx-2 rounded-md border-primary text-primary'>
-                <p className='px-2'>{item.name}</p>
-            </div>
-        ))
+        props.listProductToCompare.length === 0
+            ? <Fragment />
+            : props.listProductToCompare.length > 0 && props.position === 1
+                ? props.listProductToCompare[0].dataSheet.map((item, index) => (
+                    <div key={index} className="rounded my-1 border-b pb-2">
+                        <p className="font-pop  text-black text-lg">{item.value}</p>
+                    </div>
+                ))
+                : props.listProductToCompare.length > 1 && props.position === 2
+                    ? props.listProductToCompare[1].dataSheet.map((item, index) => (
+                        <div key={index} className="rounded my-1 border-b pb-2">
+                            <p className="font-pop  text-black text-lg">{item.value}</p>
+                        </div>
+                    ))
+                    : <Fragment />
     );
-};
+}
+
 
 function CardProductToCompare(props) {
     const [listed, setListed] = useState(false);
-    function addProduct(product){
-        props.addProduct(product);
-        if(listed)
-        {
+    function addProduct(product) {
+        if (listed) {
+            props.removeProduct(product);
             setListed(false);
         }
-        else{
-
+        else {
+            props.addProduct(product);
             setListed(true);
         }
     }
-
     return (
-        <div className='grow'>
-            <div className='flex justify-between'>
-                <p className='font-pop text-black font-medium text-2xl'>{props.product.name} </p>
+        <div className="grow px-2">
+            <div className="flex justify-between">
+                <p className="font-pop text-black font-medium text-2xl">{props.product.name} </p>
                 <Switch
                     checked={listed}
-                    onChange={()=>(addProduct(props.product))}
-                    className={`${listed ? 'bg-primary' : ' bg-pirmaryScarlet-100'}
+                    onChange={() => (addProduct(props.product))}
+                    className={`${listed ? "bg-primary" : " bg-pirmaryScarlet-100"}
                      relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
                 >
                     <span className="sr-only">Use setting</span>
                     <span
                         aria-hidden="true"
-                        className={`${listed ? 'translate-x-3' : 'translate-x-0'}
+                        className={`${listed ? "translate-x-3" : "translate-x-0"}
                         pointer-events-none inline-block h-4 w-5 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
                     />
                 </Switch>
             </div>
-            <div className='flex justify-center'>
-                <img src={props.product.img} alt={props.product.name} className="h-48" />
+            <div className="flex justify-center">
+                <LazyLoadImage effect="blur" src={props.product.img} alt={props.product.name} className="h-48" />
             </div>
-            <div className='flex flex-nowrap'>
+            <div className="flex flex-nowrap">
                 <div>
-                    <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Potencia: </p>
+                    <p className="font-pop text-bermudaGray-500 text-sm pr-1">Potencia: </p>
                 </div>
                 <div>
-                    <p className='font-pop text-fiord text-sm'>{props.product.motorPower} </p>
-                </div>
-            </div>
-            <div className='flex flex-nowrap'>
-                <div>
-                    <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Peso: </p>
-                </div>
-                <div>
-                    <p className='font-pop text-fiord text-sm'>{props.product.weight} </p>
+                    <p className="font-pop text-fiord text-sm">{props.product.motorPower} </p>
                 </div>
             </div>
-            <div className='flex flex-nowrap'>
+            <div className="flex flex-nowrap">
                 <div>
-                    <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Cucharon: </p>
+                    <p className="font-pop text-bermudaGray-500 text-sm pr-1">Peso: </p>
                 </div>
                 <div>
-                    <p className='font-pop text-fiord text-sm'>{props.product.cucharon} </p>
-                </div>
-            </div>
-            <div className='flex flex-nowrap'>
-                <div>
-                    <p className='font-pop text-bermudaGray-500 text-sm pr-1'>Motor: </p>
-                </div>
-                <div>
-                    <p className='font-pop text-fiord text-sm'>{props.product.motor} </p>
+                    <p className="font-pop text-fiord text-sm">{props.product.weight} </p>
                 </div>
             </div>
-            <div className='flex pt-2 flex-nowrap'>
+            <div className="flex flex-nowrap">
                 <div>
-                    <p className={(props.product.status === "Disponible" ? 'text-success' : props.product.status === "Por Encargo" ? 'text-black' : 'text-primary') + ' font-pop text-sm pr-1 font-semibold'}>{props.product.status} </p>
+                    <p className="font-pop text-bermudaGray-500 text-sm pr-1">Cucharon: </p>
                 </div>
                 <div>
-                    <p className='font-pop text-fiord text-sm'>{props.product.status === "Disponible" ? "Entrega inmediata" : props.product.status === "Por Encargo" ? "Entrega en 2 semanas" : ""} </p>
+                    <p className="font-pop text-fiord text-sm">{props.product.cucharon} </p>
+                </div>
+            </div>
+            <div className="flex flex-nowrap">
+                <div>
+                    <p className="font-pop text-bermudaGray-500 text-sm pr-1">Motor: </p>
+                </div>
+                <div>
+                    <p className="font-pop text-fiord text-sm">{props.product.motor} </p>
+                </div>
+            </div>
+            <div className="flex pt-2 flex-nowrap">
+                <div>
+                    <p className={(props.product.status === "Disponible" ? "text-success" : props.product.status === "Por Encargo" ? "text-black" : "text-primary") + " font-pop text-sm pr-1 font-semibold"}>{props.product.status} </p>
+                </div>
+                <div>
+                    <p className="font-pop text-fiord text-sm">{props.product.status === "Disponible" ? "Entrega inmediata" : props.product.status === "Por Encargo" ? "Entrega en 2 semanas" : ""} </p>
                 </div>
             </div>
         </div>
@@ -999,20 +1009,25 @@ function CardProductToCompare(props) {
 }
 
 function ReferenceImgProduct(props) {
+    function removeProduct(product) {
+        props.removeProduct(product);
+    }
     return (
-        <div className=' bg-background font-pop text-xl font-bold pb-2 text-center rounded-xl relative'>
-            <img className=' mx-auto h-40 my-5 rounded-md' alt={props.product.name} src={props.product.img} />
+        <div className=" bg-background font-pop text-xl font-bold pb-2 text-center rounded-xl relative">
+            <img className=" mx-auto h-40 my-5 rounded-md" alt={props.product.name} src={props.product.img} />
             <span>{props.product.name}</span>
-            <button className='absolute top-2 right-2'><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg></button>
+            <button onClick={() => removeProduct(props.product)} className="absolute top-2 right-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </button>
         </div>
     );
 };
 
 function AddProductButton(props) {
     return (
-        <div className='bg-gray-100 content-center rounded-xl'>
+        <div className={`bg-gray-100 content-center ${props.hidden === true ? "hidden lg:block" : ""} rounded-xl`}>
             <button
                 type="button"
                 onClick={props.action.openModal}
@@ -1033,10 +1048,10 @@ function SwitchComponent(props) {
         props.productToCompare.length === 0 && props.position === 1
             ? <AddProductButton action={props.action} />
             : props.productToCompare.length > 0 && props.position === 1
-                ? <ReferenceImgProduct product={props.productToCompare[0]} />
-                : props.productToCompare.length === 2 && props.position === 2
-                    ?  <ReferenceImgProduct product={props.productToCompare[1]} />
-                    :  <AddProductButton action={props.action} />
+                ? <ReferenceImgProduct product={props.productToCompare[0]} removeProduct={props.removeProduct} />
+                : props.productToCompare.length > 1 && props.position === 2
+                    ? <ReferenceImgProduct product={props.productToCompare[1]} removeProduct={props.removeProduct} />
+                    : <AddProductButton action={props.action} hidden={true} />
     );
 }
 export default CompareSpecs;

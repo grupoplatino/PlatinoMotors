@@ -1,9 +1,11 @@
 import {PlatinoHnPanel } from "../../assets";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 function LoginRequest() {
     return (
-        <div className="container mx-auto mb-10 lg:px-4 xl:px-0">
-            <div className="border rounded-xl p-5 mx-4 bg-background">
+        <div className="container mx-auto mb-10 px-4 md:px-5 xl:px-10">
+            <div className="border rounded-xl p-5 bg-background">
                 <div className="grid grid-cols-1 py-5 gap-10 justify-between lg:grid-cols-2">
                     <div>
                         <div className="py-2">
@@ -22,8 +24,8 @@ function LoginRequest() {
                             </div>
                         </div>
                     </div>
-                    <div className="">
-                        <img className="shadow-lg object-cover rounded-xl" src={PlatinoHnPanel} alt="Platino HN" />
+                    <div>
+                        <LazyLoadImage effect="blur" className="shadow-lg object-cover rounded-xl" src={PlatinoHnPanel} alt="Platino HN" />
                     </div>
                 </div>
             </div>

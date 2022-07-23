@@ -8,7 +8,7 @@ import "./opinion_slider.css";
 
 function SliderOpinion() {
     return (
-        <div className="container my-5 mx-auto lg:px-4 xl:px-0">
+        <div className="container my-5 mx-auto px-2 sm:px-4 md:px-5 xl:px-10">
             <div className="opinion-carousel mx-2 sm:mx-0">
                 <Slider
                     autoplay={false}
@@ -21,14 +21,14 @@ function SliderOpinion() {
                     dotsClass="slick-dots"
                 >
                     {data.map((item, index) => (
-                        <div key={index} className="my-2 py-5 md:py-24 container bg-fiord-600 rounded-xl">
+                        <div key={index} className="my-2 py-5 md:py-16 lg:py-24 container bg-fiord-600 rounded-xl">
                             <div className="flex justify-center mx-0 lg:mx-40">
                                 <div>
                                     <div className="flex justify-center">
                                         <p className="font-pop font-extrabold text-white mb-4">Titulo de la opinion</p>
                                     </div>
                                     <div className="flex justify-center ">
-                                        <p className="mx-6 md:mx-24 lg:mx-14 font-pop text-white font-medium text-center"> Loren imsum et dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo cosequat.</p>
+                                        <p className="mx-6 md:mx-24 lg:mx-14 font-pop text-white font-medium text-center text-sm"> Loren imsum et dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo cosequat.</p>
                                     </div>
                                     <div className="flex justify-center align-middle pt-5">
                                         <div className="">

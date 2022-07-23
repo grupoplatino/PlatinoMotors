@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HeaderProduct, BannerProduct, TabsProduct, CompareSpecs } from "../../../components";
-
+import ScrollToTop from "../../../utils/scroll_to_top";
 
 function DetailProduct() {
-    const product= {
+    const product = {
         id: 1,
         status: "Disponible",
         name: "SY16 C EU-US",
@@ -73,13 +73,19 @@ function DetailProduct() {
             },
         ]
     };
-    
-    return (<>
-                <HeaderProduct product={product}/>
-                <BannerProduct product={product}/>
-                <TabsProduct product={product}/>
-                <CompareSpecs product={product}/>
-            </> );
+
+    useEffect(() => {
+        ScrollToTop();
+    }, []);
+
+    return (
+        <div>
+            <HeaderProduct product={product} />
+            <BannerProduct product={product} />
+            <TabsProduct product={product} />
+            <CompareSpecs product={product} />
+        </div>
+    );
 }
 
 export default DetailProduct;

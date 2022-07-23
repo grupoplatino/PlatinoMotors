@@ -1,6 +1,7 @@
 //Layout Components
 export {default as NavBar} from './layout/nav-bar';
 export {default as Footer} from './layout/footer';
+export {default as WhitSplashScreen} from './layout/withSpashScreen';
 //Components for Home Page
 export {default as Hero} from './landing/hero';
 export {default as Searcher} from './landing/searcher';
@@ -25,7 +26,6 @@ export {default as HeaderProduct} from './detail_product/header_product';
 export {default as BannerProduct} from './detail_product/banner_product';
 export {default as TabsProduct} from './detail_product/tabs_product';
 export {default as CompareSpecs} from './detail_product/compare_specs';
-export {default as ProductsByCategoryOverlay} from './detail_product/category_overlay';
 //Components for Contact Page
 export {default as Maps} from './contact/maps';
 //Components for Category Shop Page

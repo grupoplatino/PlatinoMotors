@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 function ProductCard(props) {
     return (
@@ -16,7 +17,7 @@ function ProductCard(props) {
                     </button>
                 </div>
                 <div className="flex justify-center">
-                    <img src={props.product.img} alt={props.product.name} className="h-48"/>
+                    <LazyLoadImage effect="blur" src={props.product.img} alt={props.product.name} className="h-48"/>
                 </div>
                 <div className="flex flex-nowrap">
                     <div>

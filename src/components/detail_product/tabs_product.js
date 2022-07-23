@@ -1,15 +1,7 @@
 import React, { useState,Fragment } from "react";
 import { Combobox,Transition } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/solid";
 import { DownloadBlackIcon } from "../../assets";
 
-const products = [
-    { name: "SY-AAAA-1234", id: 1 },
-    { name: "SY-BBBB-1234", id: 1 },
-    { name: "SY-CCCC-1234", id: 2 },
-    { name: "SY-DDDD-1234", id: 2 },
-    { name: "SY-EEEE-1234", id: 3 },
-]
 const categories = [
     {
         id: 1,
@@ -60,22 +52,21 @@ const openInNewTab = url => {
     window.open(url, "_blank", "noopener,noreferrer");
 };
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(" ")
 };
 function TabsProduct(props) {
     const [activeIndex, setActiveIndex] = useState(0);
     
     const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
     let tabs = [
-        { name: 'Características', href: '', current: true, child: <Qualities qualities={props.product.qualities} /> },
-        { name: 'Ficha Técnica', href: '', current: false, child: <DataSheet data={props.product} /> },
-        { name: 'Cotización', href: '', current: false, child: <QuotePetition product={props.product} /> },
+        { name: "Características", href: "", current: true, child: <Qualities qualities={props.product.qualities} /> },
+        { name: "Ficha Técnica", href: "", current: false, child: <DataSheet data={props.product} /> },
+        { name: "Cotización", href: "", current: false, child: <QuotePetition product={props.product} /> },
     ]
     return (
         <div className="bg-background pb-10">
-
             <div className="block">
-                <div className="bg-white pt-2 px-2">
+                <div className="bg-white pt-2 px-4 lg:px-2">
                     <nav className="-mb-px flex justify-between md:justify-center space-x-1 md:space-x-5" aria-label="Tabs">
                         {tabs.map((tab, index) => (
                             <p
@@ -83,9 +74,9 @@ function TabsProduct(props) {
                                 onClick={() => handleSetIndex(index)}
                                 className={classNames(
                                     activeIndex === index
-                                        ? 'border-primary text-primary font-pop font-semibold  text-base'
-                                        : 'border-transparent text-blackPearl-900 font-pop hover:text-gray-700 text-base hover:border-gray-300',
-                                    'whitespace-nowrap pt-3 pb-2 px-1 border-b-2 font-medium cursor-pointer text-sm'
+                                        ? "border-primary text-primary font-pop font-semibold  text-base"
+                                        : "border-transparent text-blackPearl-900 font-pop hover:text-gray-700 text-base hover:border-gray-300",
+                                    "whitespace-nowrap pt-3 pb-2 px-1 border-b-2 font-medium cursor-pointer text-sm"
                                 )}
                             >
                                 {tab.name}
@@ -94,7 +85,6 @@ function TabsProduct(props) {
                     </nav>
                 </div>
             </div>
-
             <div className="container mx-auto">
                 <div className="flex justify-center">
                     <div className="grow">
@@ -110,7 +100,7 @@ function TabsProduct(props) {
 }
 function Qualities(props) {
     return (
-        <div className="px-4 lg:px-6 xl:px-0">
+        <div className="px-4 md:px-5 xl:px-10">
             <div className="flex py-5 justify-center">
                 <p className="font-pop text-2xl font-semibold">Características</p>
             </div>
@@ -181,7 +171,7 @@ function DataSheet(props) {
         }
     }
     return (
-        <div className="lg:px-6 xl:px-0">
+        <div className="md:px-5 xl:px-0">
             <div className="flex py-5 justify-center">
                 <p className="font-pop text-2xl font-semibold">Ficha Técnica</p>
             </div>
@@ -251,9 +241,9 @@ function DataSheet(props) {
 }
 function QuotePetition(props) {
     const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState("");
     const filteredCategory =
-        query === ''
+        query === ""
             ? categories
             : categories.filter((category) => {
                 return category.name.toLowerCase().includes(query.toLowerCase());
@@ -266,13 +256,13 @@ function QuotePetition(props) {
                     <p className="font-pop text-2xl font-semibold">Cotización</p>
                 </div>
                 <div className="flex justify-center py-5">
-                    <div className="grid grow grid-cols-1 md:grid-cols-2">
-                        <div className="flex py-2 grow  mb-0">
+                    <div className="grid grow grid-cols-2">
+                        <div className="flex py-2 grow justify-center mb-0">
                             <Combobox value={selectedCategory} onChange={setSelectedCategory}>
                                 <div className="relative mt-1">
-                                    <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                                    <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                                         <Combobox.Input
-                                            className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-black bg-transparent "
+                                            className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-black bg-transparent"
                                             displayValue={(category) => category.name}
                                             onChange={(event) => setQuery(event.target.value)}
                                         />
@@ -287,10 +277,10 @@ function QuotePetition(props) {
                                         leave="transition ease-in duration-100"
                                         leaveFrom="opacity-100"
                                         leaveTo="opacity-0"
-                                        afterLeave={() => setQuery('')}
+                                        afterLeave={() => setQuery("")}
                                     >
-                                        <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                            {filteredCategory.length === 0 && query !== '' ? (
+                                        <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                            {filteredCategory.length === 0 && query !== "" ? (
                                                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                                     Nada encontrado.
                                                 </div>
@@ -299,7 +289,7 @@ function QuotePetition(props) {
                                                     <Combobox.Option
                                                         key={category.id}
                                                         className={({ active }) =>
-                                                            `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? ' text-black bg-pirmaryScarlet-300' : 'text-gray-900'
+                                                            `relative cursor-default select-none py-2 px-4 ${active ? "text-black " : "text-gray-900"
                                                             }`
                                                         }
                                                         value={category}
@@ -307,19 +297,11 @@ function QuotePetition(props) {
                                                         {({ selected, active }) => (
                                                             <>
                                                                 <span
-                                                                    className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                                                                    className={`block truncate ${selected ? "font-medium" : "font-normal"
                                                                         }`}
                                                                 >
                                                                     {category.name}
                                                                 </span>
-                                                                {selected ? (
-                                                                    <span
-                                                                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-black' : 'text-otherSuccess-900'
-                                                                            }`}
-                                                                    >
-                                                                        <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                                                                    </span>
-                                                                ) : null}
                                                             </>
                                                         )}
                                                     </Combobox.Option>
@@ -330,12 +312,12 @@ function QuotePetition(props) {
                                 </div>
                             </Combobox>
                         </div>
-                        <div className="flex grow py-2 mb-0">
+                        <div className="flex grow justify-center py-2 mb-0">
                         <Combobox value={selectedCategory} onChange={setSelectedCategory}>
                                 <div className="relative mt-1">
-                                    <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+                                    <div className="relative w-full cursor-default overflow-hidden rounded-lg text-left  focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
                                         <Combobox.Input
-                                            className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-black bg-transparent "
+                                            className="w-full border-b border-primary font-pop py-2 pl-3 pr-10 text-sm leading-5 focus:outline-none text-black bg-transparent"
                                             displayValue={(category) => category.name}
                                             onChange={(event) => setQuery(event.target.value)}
                                         />
@@ -350,10 +332,10 @@ function QuotePetition(props) {
                                         leave="transition ease-in duration-100"
                                         leaveFrom="opacity-100"
                                         leaveTo="opacity-0"
-                                        afterLeave={() => setQuery('')}
+                                        afterLeave={() => setQuery("")}
                                     >
-                                        <Combobox.Options className="absolute mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white bg-opacity-70 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                            {filteredCategory.length === 0 && query !== '' ? (
+                                        <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                            {filteredCategory.length === 0 && query !== "" ? (
                                                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
                                                     Nada encontrado.
                                                 </div>
@@ -362,7 +344,7 @@ function QuotePetition(props) {
                                                     <Combobox.Option
                                                         key={category.id}
                                                         className={({ active }) =>
-                                                            `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? ' text-black bg-pirmaryScarlet-300' : 'text-gray-900'
+                                                            `relative cursor-default select-none py-2 px-4 ${active ? " text-black " : "text-gray-900"
                                                             }`
                                                         }
                                                         value={category}
@@ -370,19 +352,11 @@ function QuotePetition(props) {
                                                         {({ selected, active }) => (
                                                             <>
                                                                 <span
-                                                                    className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                                                                    className={`block truncate ${selected ? "font-medium" : "font-normal"
                                                                         }`}
                                                                 >
                                                                     {category.name}
                                                                 </span>
-                                                                {selected ? (
-                                                                    <span
-                                                                        className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-black' : 'text-otherSuccess-900'
-                                                                            }`}
-                                                                    >
-                                                                        <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                                                                    </span>
-                                                                ) : null}
                                                             </>
                                                         )}
                                                     </Combobox.Option>
@@ -412,7 +386,7 @@ function QuotePetition(props) {
                 </div>
                 <div className="mx-auto mt-6 w-3/5 lg:w-1/3">
                     <button type="button" className="text-white font-pop bg-primary w-full rounded-3xl focus:ring-4 
-                                    focus:outline-none focus:ring-blue-300 border-none font-medium text-sm py-2 px-2 md:px-4 text-center">
+                                    focus:outline-none focus:ring-blue-300 border-none font-medium text-sm py-3 px-2 md:px-4 text-center">
                         Generar Cotización
                     </button>
                 </div>
