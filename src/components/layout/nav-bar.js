@@ -7,7 +7,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 
 export default function Navbar() {
-  //const [isSearching, setIsSearching] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
   const categories = [
     {
       id: 1,
@@ -172,9 +172,9 @@ export default function Navbar() {
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
-//  function beginSearching(){
-//   setIsSearching(true);
-//  }
+  function beginSearching(){
+   setIsSearching(true);
+  }
   return (
     <Popover className="fixed w-screen z-40 font-pop bg-white">
       <div className="absolute inset-0 shadow z-20 pointer-events-none" aria-hidden="true" />
