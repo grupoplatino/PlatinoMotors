@@ -1,5 +1,5 @@
 import { MaintenanceMen, ConfidenceCheckIcon, ToolsIcon } from "../../assets/index";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 function Maintenance() {

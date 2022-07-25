@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { LinkedinIcon } from "../../assets";
+import { LinkedinIcon} from "../../assets";
 import { Maps } from "../../components";
 import ScrollToTop from "../../utils/scroll_to_top";
 
 function Contact() {
-
     const [message, setMessage] = useState({});
     const openInNewTab = url => {
         window.open(url, "_blank", "noopener,noreferrer");
     };
-
     useEffect(() => {
         ScrollToTop();
     }, []);
-
     return (
         <div>
             <section className="w-full financingHero text-white">
                 <div className="container mx-auto">
-                    <div className="text-center lg:text-start pt-48 pb-36 lg:w-3/5">
+                    <div className="text-center lgs:text-start pt-48 pb-36 lg:w-3/5">
                         <div className="lg:px-5 xl:px-10">
                             <h1 className="text-white font-pop md:leading-snug font-bold text-4xl sm:text-5xl mb-3">
                                 Contáctanos

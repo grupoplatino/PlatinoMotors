@@ -7,7 +7,6 @@ function CompareSpecs(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [listProductToCompare, setListProductToCompare] = useState([]);
     const [referenceVsProduct, setReferenceVsProduct] = useState([]);
-
     function closeModal() {
         setIsOpen(false)
     };
@@ -32,7 +31,6 @@ function CompareSpecs(props) {
             name: product.name
         };
         let temporalReferenceListProduct = referenceVsProduct;
-
         temporalReferenceListProduct.push(newVsProduct);
         setReferenceVsProduct(temporalReferenceListProduct);
     };
@@ -719,7 +717,7 @@ function CompareSpecs(props) {
             values: []
         }
     ];
-    //Filtro temporal por mientras terminan el API
+    //TODO: Filtro temporal por mientras terminan el API
     for (let i = 0; i < productsBySameCategory.length; i++) {
         filters[0].values.push(products[i].brand);
         filters[1].values.push(products[i].motor);
@@ -789,7 +787,7 @@ function CompareSpecs(props) {
                     </div>
                 </div>
                 <Transition appear show={isOpen} as={Fragment}>
-                    <Dialog as="div" className="relative z-30" onClose={closeModal}>
+                    <Dialog as="div" className="relative z-50" onClose={closeModal}>
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -801,9 +799,7 @@ function CompareSpecs(props) {
                             <div className="fixed inset-0 bg-black bg-opacity-25" />
                         </Transition.Child>
                         <div className="fixed inset-0 overflow-y-auto">
-                            <div className="bg-white flex">
 
-                            </div>
                             <div className="container mx-auto items-center justify-center p-4 text-center">
                                 <Transition.Child
                                     as={Fragment}
@@ -822,13 +818,7 @@ function CompareSpecs(props) {
                                                 <div className="mr-2">
                                                     <p>Escoge la maquinaria para la comparativa</p>
                                                 </div>
-                                                {
-                                                    referenceVsProduct.map((item, index) => (
-                                                        <div key={index} className="border-2 mx-2 rounded-md border-primary text-primary">
-                                                            <p className="px-2">{item.name}</p>
-                                                        </div>
-                                                    ))
-                                                }
+                                                <ReferenceProductsName referenceVsProduct={referenceVsProduct} />
                                             </div>
                                             <div>
                                                 <button
@@ -892,7 +882,7 @@ function CompareSpecs(props) {
                                                         {
                                                             productsBySameCategory.map((item, key) => (
                                                                 <div key={key} className="flex py-5 px-2 rounded-xl justify-items-center bg-white shadow-md">
-                                                                    <CardProductToCompare product={item} addProduct={addProduct} removeProduct={removeProduct} />
+                                                                    <CardProductToCompare product={item} addProduct={addProduct} removeProduct={removeProduct} listProductToCompare={listProductToCompare} />
                                                                 </div>
                                                             ))
                                                         }
@@ -928,9 +918,7 @@ function ProductSheet(props) {
                     ))
                     : <Fragment />
     );
-}
-
-
+};
 function CardProductToCompare(props) {
     const [listed, setListed] = useState(false);
     function addProduct(product) {
@@ -1006,8 +994,16 @@ function CardProductToCompare(props) {
             </div>
         </div>
     );
-}
-
+};
+function ReferenceProductsName(props) {
+    return (
+        props.referenceVsProduct.map((item, index) => (
+            <div key={index} className="border-2 mx-2 rounded-md border-primary text-primary">
+                <p className="px-2">{item.name}</p>
+            </div>
+        ))
+    );
+};
 function ReferenceImgProduct(props) {
     function removeProduct(product) {
         props.removeProduct(product);
@@ -1024,7 +1020,6 @@ function ReferenceImgProduct(props) {
         </div>
     );
 };
-
 function AddProductButton(props) {
     return (
         <div className={`bg-gray-100 content-center ${props.hidden === true ? "hidden lg:block" : ""} rounded-xl`}>
@@ -1042,7 +1037,7 @@ function AddProductButton(props) {
             </button>
         </div>
     );
-}
+};
 function SwitchComponent(props) {
     return (
         props.productToCompare.length === 0 && props.position === 1
@@ -1053,5 +1048,5 @@ function SwitchComponent(props) {
                     ? <ReferenceImgProduct product={props.productToCompare[1]} removeProduct={props.removeProduct} />
                     : <AddProductButton action={props.action} hidden={true} />
     );
-}
+};
 export default CompareSpecs;
