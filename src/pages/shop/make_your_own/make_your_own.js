@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-import { HeaderProduct, BannerProduct, TabsProduct, CompareSpecs } from "../../../components";
-import ScrollToTop from "../../../utils/scroll_to_top";
+import React from 'react';
+import { Body } from '../../../components';
 
-function DetailProduct() {
+function MakeYourOwn() {
     const product = {
         id: 1,
         status: "Disponible",
@@ -73,19 +72,11 @@ function DetailProduct() {
             },
         ]
     };
-
-    useEffect(() => {
-        ScrollToTop();
-    }, []);
-
-    return (
+    return ( 
         <>
-            <HeaderProduct product={product} />
-            <BannerProduct product={product} />
-            <TabsProduct product={product} />
-            <CompareSpecs product={product} />
+        <Body product = {product}/>
         </>
-    );
+     );
 }
 
-export default DetailProduct;
+export default MakeYourOwn;
