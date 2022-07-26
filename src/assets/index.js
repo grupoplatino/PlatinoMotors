@@ -69,7 +69,6 @@ export {default as Pilotage} from './category_reference/pilotaje.png';
 export {default as Port} from './category_reference/portuaria.png';
 export {default as VibroCompactor} from './category_reference/vibrocompactador.png';
 export {default as DumpTruck} from './category_reference/volquetas.png';
-
 //Server errors
 export {default as Error404} from './images/page_not_found.svg';
 export {default as Error500} from './images/server_down.svg';

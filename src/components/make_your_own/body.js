@@ -3,7 +3,7 @@ import React, { useState, Fragment } from 'react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
 function Body(props) {
-    const [selected, setSelected] = useState(false);
+    
     const variants = [
         {
             name: "Cucharon",
@@ -63,6 +63,7 @@ function Body(props) {
             avalible: false,
         },
     ];
+    const [selected, setSelected] = useState(operations[0]);
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
     }
@@ -182,17 +183,19 @@ function Body(props) {
                                 <img className='h-56' alt={props.product.name} src={props.product.img} />
                             </div>
                         </div>
-                        <div className='absolute container py-10 bg-background bottom-2'>
+                        <div className=' mt-5 container rounded-lg  py-10 bg-background left-0'>
+                        </div>
+                        <div className=' mt-5 container rounded-lg  py-10 bg-background left-0'>
                         </div>
                     </div>
                     <div className='py-5 px-5 bg-white rounded-xl'>
                         <div>
-                            <p className='f font-semibold'>Personaliza tu {props.product.category}</p>
+                            <p className='font-semibold'>Personaliza tu {props.product.category}</p>
                         </div>
                         <div>
                             <hr />
                         </div>
-                        <div className='font-pop '>
+                        <div className='font-pop'>
                             {
                                 variants.map((variant, index) => (
                                     <VariantOptions key={index} variant={variant} />

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { Home, Financing, Contact, Services, DetailProduct, Category, MakeYourOwn} from "../pages";
-import PageNotFound from "../pages/server_errors/page_not_found";
+import { Home, Financing, Contact, Services, DetailProduct, Category, MakeYourOwn, PageNotFound} from "../pages";
+
 
 function Pages() {
     return (
