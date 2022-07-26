@@ -32,3 +32,5 @@ export {default as Maps} from './contact/maps';
 export {default as HeroCategory} from './category/hero_category';
 export {default as ProductCollection} from './category/ProductCollection';
 export {default as ProductCard} from './category/product_card';
+//Components for Make your Own Page
+export {default as Body} from './make_your_own/body';

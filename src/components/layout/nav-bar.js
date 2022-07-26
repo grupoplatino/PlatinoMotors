@@ -8,6 +8,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function Navbar() {
   const [isSearching, setIsSearching] = useState(false);
+  const [isOpenMegaMenu, setIsOpenMegaMenu] = useState(false);
   const categories = [
     {
       id: 1,
@@ -169,6 +170,9 @@ export default function Navbar() {
     }
     return children;
   }
+  function closeMegaMenu(open) {
+    return false;
+  }
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
@@ -230,7 +234,7 @@ export default function Navbar() {
                                   {
                                     childCategories(item.id).map(
                                       (child, key) => (
-                                        <div key={key} className="pb-1">
+                                        <div key={key} onClick={(open) => { open = false; }} className="pb-1">
                                           <Link to="/shop/category">
                                             <p className="text-gray-500 hover:text-pirmaryScarlet-600 text-sm pl-2">
                                               {child.name}
@@ -278,7 +282,6 @@ export default function Navbar() {
               </div>
             </Popover.Group>
           </div>
-
         </div>
       </div>
       <Transition
@@ -405,9 +408,9 @@ export default function Navbar() {
               <div className="hidden md:flex-1 md:flex md:items-center md:justify-end">
                 <Popover.Group as="nav" className="flex z-40 space-x-2">
                   <Popover>
-                    {({ open }) => (
+                    {(isOpenMegaMenu) => (
                       <>
-                        <Popover.Button className={classNames(open ? "text-gray-900" : "text-gray-900",
+                        <Popover.Button className={classNames(isOpenMegaMenu ? "text-gray-900" : "text-gray-900",
                           "group bg-white rounded-md inline-flex items-center text-base z-40 font-medium hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pirmaryScarlet-100"
                         )}>
                           <span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Venta/Renta</span>
@@ -425,7 +428,7 @@ export default function Navbar() {
                             <div className="max-w-7xl mx-auto grid gap-y-4 px-4 py-2 grid-cols-4 lg:px-8">
                               {
                                 categories.map((item, index) => (
-                                  <div key={index}>
+                                  <div key={index} onClick={setIsOpenMegaMenu(false)}>
                                     <Link to="/shop/category" className="-m-3 my-1 flex flex-col font-pop justify-between rounded-lg hover:bg-gray-50">
                                       <div className="flex  items-center">
                                         <div className="mr-2">
@@ -438,7 +441,7 @@ export default function Navbar() {
                                       {
                                         childCategories(item.id).map(
                                           (child, key) => (
-                                            <div key={key} >
+                                            <div key={key} onClick={setIsOpenMegaMenu(isOpenMegaMenu)}>
                                               <Link to="/shop/category">
                                                 <p className="text-gray-500 hover:text-pirmaryScarlet-600 text-sm pl-1">
                                                   {child.name}

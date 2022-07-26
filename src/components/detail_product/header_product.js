@@ -4,6 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Transition } from "@headlessui/react";
+import { Link } from "react-router-dom";
 function HeaderProduct(props) {
     const url = window.location.href;
     const [show, setShow] = useState(false);
@@ -108,13 +109,15 @@ function HeaderProduct(props) {
 
                         </div>
                         <div className="grow sm:grow-0 mt-5">
-                            <button type="button" className="text-white font-pop bg-primary w-full rounded-3xl focus:ring-4 
-                                    focus:outline-none focus:ring-blue-300 border-none font-medium text-sm py-2 px-2 md:px-4 text-center">
+                            <Link to="/shop/add-product-to-cart">
+                            <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-10 py-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
+                            focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm  text-center">
                                 <div className="flex justify-center items-center">
                                     <img className="h-5 md:h-4 mr-2" src={CalculatorWhiteIcon} alt="Cotizar" />
                                     <p>Cotizar</p>
                                 </div>
                             </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
