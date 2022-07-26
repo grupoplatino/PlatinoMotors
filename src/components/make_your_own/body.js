@@ -67,12 +67,11 @@ function Body(props) {
         return classes.filter(Boolean).join(' ')
     }
 
-
     return (
         <div className='bg-background'>
             <div className='container mx-auto pb-5 pt-20 md:pt-20'>
                 <div className='grid md:gap-5 font-pop xl:gap-10 gap-2 grid-cols-1 md:grid-cols-3 mx-2 md:mx-0'>
-                    <div className='py-2 md:py-5 px-5 bg-white md:col-span-2 rounded-xl'>
+                    <div className='py-2 relative md:py-5 px-5 bg-white md:col-span-2 rounded-xl'>
                         <div className='grid gap-2 md:grid-cols-2 grid-cols-1'>
                             <div className='order-2 md:order-1'>
                                 <p className='text-3xl font-semibold text-black'>{props.product.name}</p>
@@ -182,6 +181,8 @@ function Body(props) {
                             <div className='ord order-1 md:order-2 mx-auto'>
                                 <img className='h-56' alt={props.product.name} src={props.product.img} />
                             </div>
+                        </div>
+                        <div className='absolute container py-10 bg-background bottom-2'>
                         </div>
                     </div>
                     <div className='py-5 px-5 bg-white rounded-xl'>
