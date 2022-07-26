@@ -170,10 +170,10 @@ const Footer = () => {
                     </div>
                     <div className="mb-5 text-white">
                         <hr className="bg-primary mb-5 h-0.5 border-none"></hr>
-                        <p className="mb-2 font-bold font-pop"><strong>Sobre Nosotros</strong></p>
+                        <p className="mb-2 font-semibold font-pop"><strong>Sobre Nosotros</strong></p>
                         <p className="text-sm text-justify font-light text-white mb-5 font-pop"> Distribuimos, vendemos y rentamos maquinaria de alta potencia y calidad para el mercado minero, portuario y de contruccion. Además ofrecemos el servicio de mantenimiento preventivo y correctivo de nuestras maquinarias, asi garantizamos la satisfaccion y rentabilidad de nuestros clientes.</p>
                         <hr className="bg-primary mb-5 h-0.5 border-none"></hr>
-                        <p className="bold mb-2 font-bold font-pop"><strong>Empleos</strong></p>
+                        <p className="bold mb-2 font-semibold font-pop"><strong>Empleos</strong></p>
                         <p className="text-sm font-light mb-2 font-pop">¿Quieres unirte a nuestro equipo de trabajo?</p>
                         <p className="text-sm font-light font-pop hover:opacity-80 flex items-center">
                             <a target="_blank" rel="noreferrer" href="https://www.grupoplatino.hn/#/Careers">Ver Plazas Vacantes </a>

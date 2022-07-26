@@ -248,7 +248,7 @@ export default function Navbar() {
                         </div>
                         <div className="container mx-auto">
                           <hr />
-                          <div className="flex justify-center my-2">
+                          <div className="flex justify-center my-4">
                             <Link to="/shop/category">
                               <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-10 py-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
                             focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm  text-center">Ver Todo</button>
@@ -451,10 +451,10 @@ export default function Navbar() {
                               </div>
                               <div className="container mx-auto">
                                 <hr />
-                                <div className="flex justify-center my-2">
+                                <div className="flex justify-center my-4">
                                   <Link to="/shop/category">
                                     <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-10 py-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
-                            focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm  text-center">Ver Todo</button>
+                            focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm text-center">Ver Todo</button>
                                   </Link>
                                 </div>
                               </div>
