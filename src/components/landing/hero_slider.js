@@ -566,8 +566,7 @@ function HeroCategorySlider() {
 
                     <Link to="/shop/category">
                         <button type="button" className="text-background bg-gradient-to-r rounded-3xl from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
-                focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-20 py-2.5 text-center">Ver todos
-
+                            focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-20 py-2.5 text-center">Ver todos
                         </button>
                     </Link>
                 </div>
