@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { PlatinoMotorsBlack, RightArrowBreadOrange } from "../../assets/index";
-import { Popover, Transition, Disclosure, Switch } from "@headlessui/react";
+import { Popover, Transition, Disclosure, Switch, Combobox } from "@headlessui/react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { US, HN } from 'country-flag-icons/react/3x2'
+import { SearchIcon, SelectorIcon } from "@heroicons/react/solid";
 
 
 export default function Navbar() {
@@ -178,7 +178,6 @@ export default function Navbar() {
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
-  console.log(isSearching);
 
   return (
     <Popover className="fixed w-screen z-40 font-pop bg-white">
@@ -390,28 +389,938 @@ export default function Navbar() {
 }
 
 function SwitchNavBar(props) {
-  const [enabled, setEnabled] = useState(false)
-
+  const [enabled, setEnabled] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState("");
+  const [query, setQuery] = useState('');
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
   function beginSearching(isSearching) {
     props.setIsSearching(isSearching);
-  }
-  console.log(props.isSearching);
+  };
+  const products = [
+    {
+      id: 1,
+      status: "Disponible",
+      brand: "SANY",
+      name: "SY11 C EU-US",
+      cucharon: '0.04m',
+      motorPower: "10,3/2200kW/rpm",
+      categoryId: 1,
+      category: "Excavadora",
+      subCategoryId: 1,
+      subCategory: "Excavadora Mediana",
+      img: "https://www.sanyglobal.com/all/d/file/p/2016-12-16/68f19ca0a089c2b4d8149a4283e52f42.jpg",
+      motor: "Yanmar 3TNV70",
+      weight: "1920kg",
+      manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+      qualities: [
+        {
+          title: "Caractieristica uno",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica dos",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica tres",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica cuatro",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+      ],
+      dataSheet: [
+        {
+          title: "Motor",
+          value: "XB-4588"
+        },
+        {
+          title: "Tamaño",
+          value: "15Tons"
+        },
+        {
+          title: "Color",
+          value: "Negro"
+        },
+        {
+          title: "Garantia",
+          value: "4 años"
+        },
+        {
+          title: "Fabricante",
+          value: "SANY"
+        },
+        {
+          title: "Caja de cambios",
+          value: "Manual"
+        },
+        {
+          title: "Llantas",
+          value: "Antibalas"
+        },
+        {
+          title: "Cabina",
+          value: "Acondicionada"
+        },
+        {
+          title: "Montura",
+          value: "Cuero"
+        },
+      ]
+    },
+    {
+      id: 1,
+      status: "No Disponible",
+      brand: "SANY",
+      name: "SY12 C EU-US",
+      cucharon: '0.04m',
+      motorPower: "112,2/2200kW/rpm",
+      categoryId: 1,
+      category: "Excavadora",
+      subCategoryId: 1,
+      subCategory: "Excavadora Mediana",
+      img: "https://www.sanyglobal.com/all/d/file/p/2016-12-16/68f19ca0a089c2b4d8149a4283e52f42.jpg",
+      motor: "Yanmar 14TNV8",
+      weight: "1920kg",
+      manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+      qualities: [
+        {
+          title: "Caractieristica uno",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica dos",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica tres",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica cuatro",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+      ],
+      dataSheet: [
+        {
+          title: "Motor",
+          value: "XB-4588"
+        },
+        {
+          title: "Tamaño",
+          value: "15Tons"
+        },
+        {
+          title: "Color",
+          value: "Negro"
+        },
+        {
+          title: "Garantia",
+          value: "4 años"
+        },
+        {
+          title: "Fabricante",
+          value: "SANY"
+        },
+        {
+          title: "Caja de cambios",
+          value: "Manual"
+        },
+        {
+          title: "Llantas",
+          value: "Antibalas"
+        },
+        {
+          title: "Cabina",
+          value: "Acondicionada"
+        },
+        {
+          title: "Montura",
+          value: "Cuero"
+        },
+      ]
+    },
+    {
+      id: 1,
+      status: "Por Encargo",
+      brand: "SANY",
+      name: "SY13 C EU-US",
+      cucharon: '0.04m',
+      motorPower: "10,3/2200kW/rpm",
+      categoryId: 1,
+      category: "Excavadora",
+      subCategoryId: 1,
+      subCategory: "Excavadora Mediana",
+      img: "https://www.sanyglobal.com/all/d/file/p/2016-12-16/68f19ca0a089c2b4d8149a4283e52f42.jpg",
+      motor: "Yanmar 3TNV70",
+      weight: "1920kg",
+      manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+      qualities: [
+        {
+          title: "Caractieristica uno",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica dos",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica tres",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica cuatro",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+      ],
+      dataSheet: [
+        {
+          title: "Motor",
+          value: "XB-4588"
+        },
+        {
+          title: "Tamaño",
+          value: "15Tons"
+        },
+        {
+          title: "Color",
+          value: "Negro"
+        },
+        {
+          title: "Garantia",
+          value: "4 años"
+        },
+        {
+          title: "Fabricante",
+          value: "SANY"
+        },
+        {
+          title: "Caja de cambios",
+          value: "Manual"
+        },
+        {
+          title: "Llantas",
+          value: "Antibalas"
+        },
+        {
+          title: "Cabina",
+          value: "Acondicionada"
+        },
+        {
+          title: "Montura",
+          value: "Cuero"
+        },
+      ]
+    },
+    {
+      id: 1,
+      status: "Disponible",
+      brand: "SANY",
+      name: "SY16 C EU-US",
+      cucharon: '0.04m',
+      motorPower: "10,3/2200kW/rpm",
+      categoryId: 2,
+      category: "Volqueta",
+      subCategoryId: 2,
+      subCategory: "Excavadora Mediana",
+      img: "https://img.directindustry.es/images_di/photo-m2/52887-16186553.jpg",
+      motor: "Yanmar 3TNV70",
+      weight: "1920kg",
+      manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+      qualities: [
+        {
+          title: "Caractieristica uno",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica dos",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica tres",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica cuatro",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+      ],
+      dataSheet: [
+        {
+          title: "Motor",
+          value: "XB-4588"
+        },
+        {
+          title: "Tamaño",
+          value: "15Tons"
+        },
+        {
+          title: "Color",
+          value: "Negro"
+        },
+        {
+          title: "Garantia",
+          value: "4 años"
+        },
+        {
+          title: "Fabricante",
+          value: "SANY"
+        },
+        {
+          title: "Caja de cambios",
+          value: "Manual"
+        },
+        {
+          title: "Llantas",
+          value: "Antibalas"
+        },
+        {
+          title: "Cabina",
+          value: "Acondicionada"
+        },
+        {
+          title: "Montura",
+          value: "Cuero"
+        },
+      ]
+    },
+    {
+      id: 1,
+      status: "Disponible",
+      brand: "SANY",
+      name: "SY16 C EU-US",
+      cucharon: '0.04m',
+      motorPower: "10,3/2200kW/rpm",
+      categoryId: 2,
+      category: "Volqueta",
+      subCategoryId: 2,
+      subCategory: "Excavadora Mediana",
+      img: "https://img.directindustry.es/images_di/photo-m2/52887-16186553.jpg",
+      motor: "Yanmar 3TNV70",
+      weight: "1920kg",
+      manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+      qualities: [
+        {
+          title: "Caractieristica uno",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica dos",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica tres",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica cuatro",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+      ],
+      dataSheet: [
+        {
+          title: "Motor",
+          value: "XB-4588"
+        },
+        {
+          title: "Tamaño",
+          value: "15Tons"
+        },
+        {
+          title: "Color",
+          value: "Negro"
+        },
+        {
+          title: "Garantia",
+          value: "4 años"
+        },
+        {
+          title: "Fabricante",
+          value: "SANY"
+        },
+        {
+          title: "Caja de cambios",
+          value: "Manual"
+        },
+        {
+          title: "Llantas",
+          value: "Antibalas"
+        },
+        {
+          title: "Cabina",
+          value: "Acondicionada"
+        },
+        {
+          title: "Montura",
+          value: "Cuero"
+        },
+      ]
+    },
+    {
+      id: 1,
+      status: "Disponible",
+      brand: "SANY",
+      name: "SY16 C EU-US",
+      cucharon: '0.04m',
+      motorPower: "10,3/2200kW/rpm",
+      categoryId: 2,
+      category: "Volqueta",
+      subCategoryId: 2,
+      subCategory: "Excavadora Mediana",
+      img: "https://img.directindustry.es/images_di/photo-m2/52887-16186553.jpg",
+      motor: "Yanmar 3TNV70",
+      weight: "1920kg",
+      manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+      qualities: [
+        {
+          title: "Caractieristica uno",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica dos",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica tres",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica cuatro",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+      ],
+      dataSheet: [
+        {
+          title: "Motor",
+          value: "XB-4588"
+        },
+        {
+          title: "Tamaño",
+          value: "15Tons"
+        },
+        {
+          title: "Color",
+          value: "Negro"
+        },
+        {
+          title: "Garantia",
+          value: "4 años"
+        },
+        {
+          title: "Fabricante",
+          value: "SANY"
+        },
+        {
+          title: "Caja de cambios",
+          value: "Manual"
+        },
+        {
+          title: "Llantas",
+          value: "Antibalas"
+        },
+        {
+          title: "Cabina",
+          value: "Acondicionada"
+        },
+        {
+          title: "Montura",
+          value: "Cuero"
+        },
+      ]
+    },
+    {
+      id: 1,
+      status: "Disponible",
+      brand: "SANY",
+      name: "SY16 C EU-US",
+      cucharon: '0.04m',
+      motorPower: "10,3/2200kW/rpm",
+      categoryId: 3,
+      category: "Mixer",
+      subCategoryId: 3,
+      subCategory: "Excavadora Mediana",
+      img: "https://www.sanyglobal.com/all/d/file/p/2016-12-19/1a576ff33686891e211a9dc50ff7039a.jpg",
+      motor: "Yanmar 3TNV70",
+      weight: "1920kg",
+      manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+      qualities: [
+        {
+          title: "Caractieristica uno",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica dos",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica tres",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica cuatro",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+      ],
+      dataSheet: [
+        {
+          title: "Motor",
+          value: "XB-4588"
+        },
+        {
+          title: "Tamaño",
+          value: "15Tons"
+        },
+        {
+          title: "Color",
+          value: "Negro"
+        },
+        {
+          title: "Garantia",
+          value: "4 años"
+        },
+        {
+          title: "Fabricante",
+          value: "SANY"
+        },
+        {
+          title: "Caja de cambios",
+          value: "Manual"
+        },
+        {
+          title: "Llantas",
+          value: "Antibalas"
+        },
+        {
+          title: "Cabina",
+          value: "Acondicionada"
+        },
+        {
+          title: "Montura",
+          value: "Cuero"
+        },
+      ]
+    },
+    {
+      id: 1,
+      status: "Disponible",
+      brand: "SANY",
+      name: "SY16 C EU-US",
+      cucharon: '0.04m',
+      motorPower: "10,3/2200kW/rpm",
+      categoryId: 3,
+      category: "Mixer",
+      subCategoryId: 3,
+      subCategory: "Excavadora Mediana",
+      img: "https://www.sanyglobal.com/all/d/file/p/2016-12-19/1a576ff33686891e211a9dc50ff7039a.jpg",
+      motor: "Yanmar 3TNV70",
+      weight: "1920kg",
+      manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+      qualities: [
+        {
+          title: "Caractieristica uno",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica dos",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica tres",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica cuatro",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+      ],
+      dataSheet: [
+        {
+          title: "Motor",
+          value: "XB-4588"
+        },
+        {
+          title: "Tamaño",
+          value: "15Tons"
+        },
+        {
+          title: "Color",
+          value: "Negro"
+        },
+        {
+          title: "Garantia",
+          value: "4 años"
+        },
+        {
+          title: "Fabricante",
+          value: "SANY"
+        },
+        {
+          title: "Caja de cambios",
+          value: "Manual"
+        },
+        {
+          title: "Llantas",
+          value: "Antibalas"
+        },
+        {
+          title: "Cabina",
+          value: "Acondicionada"
+        },
+        {
+          title: "Montura",
+          value: "Cuero"
+        },
+      ]
+    },
+    {
+      id: 1,
+      status: "Disponible",
+      brand: "SANY",
+      name: "SY16 C EU-US",
+      cucharon: '0.04m',
+      motorPower: "10,3/2200kW/rpm",
+      categoryId: 3,
+      category: "Mixer",
+      subCategoryId: 3,
+      subCategory: "Excavadora Mediana",
+      img: "https://www.sanyglobal.com/all/d/file/p/2016-12-19/1a576ff33686891e211a9dc50ff7039a.jpg",
+      motor: "Yanmar 3TNV70",
+      weight: "1920kg",
+      manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+      qualities: [
+        {
+          title: "Caractieristica uno",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica dos",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica tres",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica cuatro",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+      ],
+      dataSheet: [
+        {
+          title: "Motor",
+          value: "XB-4588"
+        },
+        {
+          title: "Tamaño",
+          value: "15Tons"
+        },
+        {
+          title: "Color",
+          value: "Negro"
+        },
+        {
+          title: "Garantia",
+          value: "4 años"
+        },
+        {
+          title: "Fabricante",
+          value: "SANY"
+        },
+        {
+          title: "Caja de cambios",
+          value: "Manual"
+        },
+        {
+          title: "Llantas",
+          value: "Antibalas"
+        },
+        {
+          title: "Cabina",
+          value: "Acondicionada"
+        },
+        {
+          title: "Montura",
+          value: "Cuero"
+        },
+      ]
+    },
+    {
+      id: 1,
+      status: "Disponible",
+      brand: "SANY",
+      name: "SY16 C EU-US",
+      cucharon: '0.04m',
+      motorPower: "10,3/2200kW/rpm",
+      categoryId: 3,
+      category: "Mixer",
+      subCategoryId: 3,
+      subCategory: "Excavadora Mediana",
+      img: "https://www.sanyglobal.com/all/d/file/p/2016-12-19/1a576ff33686891e211a9dc50ff7039a.jpg",
+      motor: "Yanmar 3TNV70",
+      weight: "1920kg",
+      manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+      qualities: [
+        {
+          title: "Caractieristica uno",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica dos",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica tres",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica cuatro",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+      ],
+      dataSheet: [
+        {
+          title: "Motor",
+          value: "XB-4588"
+        },
+        {
+          title: "Tamaño",
+          value: "15Tons"
+        },
+        {
+          title: "Color",
+          value: "Negro"
+        },
+        {
+          title: "Garantia",
+          value: "4 años"
+        },
+        {
+          title: "Fabricante",
+          value: "SANY"
+        },
+        {
+          title: "Caja de cambios",
+          value: "Manual"
+        },
+        {
+          title: "Llantas",
+          value: "Antibalas"
+        },
+        {
+          title: "Cabina",
+          value: "Acondicionada"
+        },
+        {
+          title: "Montura",
+          value: "Cuero"
+        },
+      ]
+    },
+    {
+      id: 1,
+      status: "Disponible",
+      brand: "SANY",
+      name: "SY16 C EU-US",
+      cucharon: '0.04m',
+      motorPower: "10,3/2200kW/rpm",
+      categoryId: 3,
+      category: "Mixer",
+      subCategoryId: 3,
+      subCategory: "Excavadora Mediana",
+      img: "https://www.sanyglobal.com/all/d/file/p/2016-12-19/1a576ff33686891e211a9dc50ff7039a.jpg",
+      motor: "Yanmar 3TNV70",
+      weight: "1920kg",
+      manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+      qualities: [
+        {
+          title: "Caractieristica uno",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica dos",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica tres",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica cuatro",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+      ],
+      dataSheet: [
+        {
+          title: "Motor",
+          value: "XB-4588"
+        },
+        {
+          title: "Tamaño",
+          value: "15Tons"
+        },
+        {
+          title: "Color",
+          value: "Negro"
+        },
+        {
+          title: "Garantia",
+          value: "4 años"
+        },
+        {
+          title: "Fabricante",
+          value: "SANY"
+        },
+        {
+          title: "Caja de cambios",
+          value: "Manual"
+        },
+        {
+          title: "Llantas",
+          value: "Antibalas"
+        },
+        {
+          title: "Cabina",
+          value: "Acondicionada"
+        },
+        {
+          title: "Montura",
+          value: "Cuero"
+        },
+      ]
+    },
+    {
+      id: 1,
+      status: "Disponible",
+      brand: "SANY",
+      name: "SY16 C EU-US",
+      cucharon: '0.04m',
+      motorPower: "10,3/2200kW/rpm",
+      categoryId: 3,
+      category: "Mixer",
+      subCategoryId: 3,
+      subCategory: "Excavadora Mediana",
+      img: "https://www.sanyglobal.com/all/d/file/p/2016-12-19/1a576ff33686891e211a9dc50ff7039a.jpg",
+      motor: "Yanmar 3TNV70",
+      weight: "1920kg",
+      manualAttachment: "https://sanyglobal-img.sany.com.cn/product/picture_album/20210225/SY215C-101555.pdf",
+      qualities: [
+        {
+          title: "Caractieristica uno",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica dos",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica tres",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+        {
+          title: "Caractieristica cuatro",
+          description: "There is no acceptable default option for safety, security, or legal reasons and therefore the user must make an explicit choice. If the user doesn't make a selection, display an error message to force one."
+        },
+      ],
+      dataSheet: [
+        {
+          title: "Motor",
+          value: "XB-4588"
+        },
+        {
+          title: "Tamaño",
+          value: "15Tons"
+        },
+        {
+          title: "Color",
+          value: "Negro"
+        },
+        {
+          title: "Garantia",
+          value: "4 años"
+        },
+        {
+          title: "Fabricante",
+          value: "SANY"
+        },
+        {
+          title: "Caja de cambios",
+          value: "Manual"
+        },
+        {
+          title: "Llantas",
+          value: "Antibalas"
+        },
+        {
+          title: "Cabina",
+          value: "Acondicionada"
+        },
+        {
+          title: "Montura",
+          value: "Cuero"
+        },
+      ]
+    },
+  ];
+  const filteredProducts =
+    query === ''
+      ? products
+      : products.filter((product) => {
+        return product.name.toLowerCase().includes(query.toLowerCase())
+      })
   //TODO: DIBUJAR EL BUSCADOR
   return (
     props.isSearching === true ?
-      <div className="container mx-auto py-5">
-        <div className="flex justify-between mx-20 ">
-          <p>Hola Mundo</p>
-        </div>
-        <div>
-          <button onClick={() => (beginSearching(false))} className="bg-background shadow-sm p-1 rounded-xl">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 pl-1  inline-block align-middle" viewBox="0 0 20 20" fill="blackPearl">
-              <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-            </svg>
-          </button>
+      <div className="container  mx-auto py-5">
+        <div className="grid grid-cols-1  relative justify-between mx-20 px-20 ">
+          <div className="flex">
+            <Combobox value={selectedProduct} onChange={setSelectedProduct}>
+              <Combobox.Label>Buscar:</Combobox.Label>
+              <Combobox.Input
+                onChange={(event) => setQuery(event.target.value)}
+                displayValue={(product) => product.name}
+                className="grow bg-white border-b border-primary focus:border-none mx-4 px-5"
+              />
+              <Combobox.Button className="absolute inset-y-0 right-32 flex items-center pr-2">
+                <SearchIcon
+                  className="h-5 w-5 text-black"
+                  aria-hidden="true"
+                />
+              </Combobox.Button>
+
+              <Combobox.Options className="bg-white rounded-xl shadow-xl ml-16 container w-96 mt-10 absolute">
+                {filteredProducts.map((product) => (
+                  <Combobox.Option key={product.name} value={product}>
+                    <div className="py-1 flex items-center hover:bg-gray-200 font-pop cursor-pointer font-medium text-black pl-5">
+                      <div className="p-2 bg-gray-200 rounded-lg mr-3">
+                        <img className="h-10 w-10" alt={product.name} src={product.img} />
+                      </div>
+                      <div className="flex items-baseline">
+                        <p>
+                      {product.name} 
+                        </p>
+                        <p className="text-xs text-gray-400 ml-2">
+                      {product.category}
+
+                        </p>
+                      </div>
+                    </div>
+                  </Combobox.Option>
+                ))}
+              </Combobox.Options>
+
+            </Combobox>
+            <div>
+              <button onClick={() => (beginSearching(false))} className="bg-background shadow-sm p-1 rounded-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 pl-1  inline-block align-middle" viewBox="0 0 20 20" fill="blackPearl">
+                  <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -425,7 +1334,7 @@ function SwitchNavBar(props) {
             </Link>
           </div>
           <div className="-mr-2 -my-2 lg:hidden">
-            <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-inset focus:ring-primary">
+            <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-pirmaryScarlet-400 hover:text-gray-500 hover:bg-gray-100 focus:ring-2 focus:outline-none focus:ring-inset focus:ring-primary">
               <span className="sr-only">Abrir Opciones</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -500,25 +1409,23 @@ function SwitchNavBar(props) {
               <Link to="/servicios"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Partes/Servicio</span></Link>
               <Link to="/financiamiento"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Financiamiento</span></Link>
               <Link to="/contacto"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Contacto</span></Link>
-           
-                <Switch
-                  checked={enabled}
-                  onChange={setEnabled}
-                  className={`${enabled ? 'bg-blue-600' : 'bg-gray-200'
-                    } relative inline-flex h-8 w-11 bg-gray-200 items-center rounded-full`}
+
+              <Switch
+                checked={enabled}
+                onChange={setEnabled}
+                className={`${enabled ? 'bg-blue-600' : 'bg-gray-200'
+                  } relative inline-flex h-8 w-11 bg-gray-200 items-center rounded-full`}
+              >
+
+                <span
+                  className={`${enabled ? 'translate-x-4' : 'translate-x-1'
+                    } inline-block h-6 w-6  transform rounded-full bg-white`}
                 >
-                 
-                  <span
-                    className={`${enabled ? 'translate-x-4' : 'translate-x-1'
-                      } inline-block h-6 w-6  transform rounded-full bg-white`}
-                  >
-                    {
-                      enabled ? <p className="font-pop text-xs pt-1">ES</p> : <p className="font-pop text-xs pt-1">EN</p>
-                    }
-                  </span>
-                </Switch>
-               
-             
+                  {
+                    enabled ? <p className="font-pop text-xs pt-1">ES</p> : <p className="font-pop text-xs pt-1">EN</p>
+                  }
+                </span>
+              </Switch>
               <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-6 pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
                 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm py-2.5 text-center mx-4 mb-2">Inicio/Registro</button>
               <div>
