@@ -500,22 +500,25 @@ function SwitchNavBar(props) {
               <Link to="/servicios"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Partes/Servicio</span></Link>
               <Link to="/financiamiento"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Financiamiento</span></Link>
               <Link to="/contacto"><span className="px-3 py-2 flex items-center text-sm font-bold leading-snug hover:opacity-75">Contacto</span></Link>
-              <div className="grid grid-cols-3 items-center">
-                <HN title="United States" className="h-4"/>
+           
                 <Switch
                   checked={enabled}
                   onChange={setEnabled}
                   className={`${enabled ? 'bg-blue-600' : 'bg-gray-200'
-                    } relative inline-flex h-6 w-11 bg-gray-200 items-center rounded-full`}
+                    } relative inline-flex h-8 w-11 bg-gray-200 items-center rounded-full`}
                 >
+                 
                   <span
-                    className={`${enabled ? 'translate-x-6' : 'translate-x-1'
-                      } inline-block h-4 w-4  transform rounded-full bg-white`}
-                  />
+                    className={`${enabled ? 'translate-x-4' : 'translate-x-1'
+                      } inline-block h-6 w-6  transform rounded-full bg-white`}
+                  >
+                    {
+                      enabled ? <p className="font-pop text-xs pt-1">ES</p> : <p className="font-pop text-xs pt-1">EN</p>
+                    }
+                  </span>
                 </Switch>
-                <US title="United States" className="h-4"/>
-              </div>
-
+               
+             
               <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-6 pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
                 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm py-2.5 text-center mx-4 mb-2">Inicio/Registro</button>
               <div>
