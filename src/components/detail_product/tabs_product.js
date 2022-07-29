@@ -1,6 +1,7 @@
 import React, { useState,Fragment } from "react";
 import { Combobox,Transition } from "@headlessui/react";
 import { DownloadBlackIcon } from "../../assets";
+import { useTranslation } from "react-i18next";
 
 const categories = [
     {
@@ -55,20 +56,21 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(" ")
 };
 function TabsProduct(props) {
+    const [t] = useTranslation('common');
     const [activeIndex, setActiveIndex] = useState(0);
-    
+    let steps = t('shop.product.tabs_product', { returnObjects: true })
     const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
     let tabs = [
-        { name: "Características", href: "", current: true, child: <Qualities qualities={props.product.qualities} /> },
-        { name: "Ficha Técnica", href: "", current: false, child: <DataSheet data={props.product} /> },
-        { name: "Cotización", href: "", current: false, child: <QuotePetition product={props.product} /> },
+        { current: true, child: <Qualities qualities={props.product.qualities} /> },
+        { current: false, child: <DataSheet data={props.product} /> },
+        { current: false, child: <QuotePetition product={props.product} /> },
     ]
     return (
         <div className="bg-background pb-10">
             <div className="block">
                 <div className="bg-white pt-2 px-4 lg:px-2">
                     <nav className="-mb-px flex justify-between md:justify-center space-x-1 md:space-x-5" aria-label="Tabs">
-                        {tabs.map((tab, index) => (
+                        {steps.map((tab, index) => (
                             <p
                                 key={index}
                                 onClick={() => handleSetIndex(index)}
@@ -79,7 +81,7 @@ function TabsProduct(props) {
                                     "whitespace-nowrap pt-3 pb-2 px-1 border-b-2 font-medium cursor-pointer text-sm"
                                 )}
                             >
-                                {tab.name}
+                                {tab}
                             </p>
                         ))}
                     </nav>
@@ -101,16 +103,13 @@ function TabsProduct(props) {
 function Qualities(props) {
     return (
         <div className="px-4 md:px-5 xl:px-10">
-            <div className="flex py-5 justify-center">
-                <p className="font-pop text-2xl font-semibold">Características</p>
-            </div>
             <div className="mb-0 md:mb-6 col-span-12 md:pb-0 md:col-span-6">
                 <div className="tabs">
                     {props.qualities.map(function (item, index) {
                         return (
                             <div key={
                                 index
-                            } className="border-none rounded-md tab mt-3">
+                            } className="border-none rounded-md tab mt-8">
                                 <div className="bg-white relative">
                                     <input className="w-full absolute z-10 cursor-pointer opacity-0 h-5 top-6" type="checkbox" id="chck1" />
                                     <header className="flex justify-between items-center align-middle py-2 px-5  cursor-pointer select-none tab-label" >
@@ -171,11 +170,8 @@ function DataSheet(props) {
         }
     }
     return (
-        <div className="md:px-5 xl:px-0">
-            <div className="flex py-5 justify-center">
-                <p className="font-pop text-2xl font-semibold">Ficha Técnica</p>
-            </div>
-            <div className="grid grid-cols-1 gap-1 mx-5 md:mx-0 md:grid-cols-2">
+        <div className="md:px-5">
+            <div className="grid grid-cols-1 gap-1 mx-5 md:mx-0 md:grid-cols-2 mt-8">
                 <div className="grid grid-cols-2">
                     <div>
                         {
@@ -252,10 +248,7 @@ function QuotePetition(props) {
     return (
         <div className="px-4 lg:px-6 xl:px-0 max-w-2xl mx-auto">
             <form>
-                <div className="pt-5 text-center">
-                    <p className="font-pop text-2xl font-semibold">Cotización</p>
-                </div>
-                <div className="flex justify-center py-5">
+                <div className="flex justify-center py-5 ">
                     <div className="grid grow grid-cols-2">
                         <div className="flex py-2 grow justify-center mb-0">
                             <Combobox value={selectedCategory} onChange={setSelectedCategory}>

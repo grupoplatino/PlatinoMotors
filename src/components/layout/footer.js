@@ -24,8 +24,10 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+    const [t] = useTranslation('common');
     const companies = [
         {
             name: "Platino Motors",
@@ -163,20 +165,20 @@ const Footer = () => {
                             <div className="mt-1"><img className="h-7" src={MapsWhiteIcon} alt="maps icon" /></div>
                             <div>
                                 <p className="font-pop">
-                                    Autopista a La Lima, Bulevar del Este contiguo a Maderera Noriega. <br />San Pedro Sula, Cortes.
+                                {t("footer.address")} <br />San Pedro Sula, Cortes.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="mb-5 text-white">
                         <hr className="bg-primary mb-5 h-0.5 border-none"></hr>
-                        <p className="mb-2 font-bold font-pop">Sobre Nosotros</p>
-                        <p className="text-sm text-justify font-light text-white mb-5 font-pop"> Distribuimos, vendemos y rentamos maquinaria de alta potencia y calidad para el mercado minero, portuario y de contruccion. Además ofrecemos el servicio de mantenimiento preventivo y correctivo de nuestras maquinarias, asi garantizamos la satisfaccion y rentabilidad de nuestros clientes.</p>
+                        <p className="mb-2 font-bold font-pop">{t("footer.about.title")}</p>
+                        <p className="text-sm text-justify font-light text-white mb-5 font-pop">{t("footer.about.description")}</p>
                         <hr className="bg-primary mb-5 h-0.5 border-none"></hr>
-                        <p className="bold mb-2 font-bold font-pop">Empleos</p>
-                        <p className="text-sm font-light mb-2 font-pop">¿Quieres unirte a nuestro equipo de trabajo?</p>
+                        <p className="bold mb-2 font-bold font-pop">{t("footer.job.title")}</p>
+                        <p className="text-sm font-light mb-2 font-pop">{t("footer.job.description")}</p>
                         <p className="text-sm font-light font-pop hover:opacity-80 flex items-center">
-                            <a target="_blank" rel="noreferrer" href="https://www.grupoplatino.hn/#/Careers">Ver Plazas Vacantes </a>
+                            <a target="_blank" rel="noreferrer" href="https://www.grupoplatino.hn/#/Careers">{t("footer.job.button")} </a>
                             <span>
                                 <img className="h-3 ml-3" src={RightArrowWhiteIcon} alt="" />
                             </span>
@@ -187,14 +189,14 @@ const Footer = () => {
             <div className="max-w-7xl container mx-auto px-4 mb-4 xl:px-10">
                 <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
                     <div className="hidden sm:block">
-                        <p className="text-center sm:text-start text-sm font-pop">© 2022 Distribuidora Platino S.A. Todos los derechos reservados.</p>
+                        <p className="text-center sm:text-start text-sm font-pop">© 2022 Distribuidora Platino S.A. {t("footer.copy_right")}</p>
                     </div>
                     <div className="mb-5 sm:mb-0 grid grid-cols-1 sm:grid-cols-2">
                         <div className="mx-auto">
                             <LazyLoadImage effect="blur" className="h-10 mb-5" src={PlatinoHnWhite} alt="Platino Hn" />
                         </div>
                         <div className="sm:hidden mb-5">
-                            <p className="text-center sm:text-start text-sm font-pop">© 2022 Distribuidora Platino S.A. Todos los derechos reservados.</p>
+                            <p className="text-center sm:text-start text-sm font-pop">© 2022 Distribuidora Platino S.A. {t("footer.copy_right")}</p>
                         </div>
                         <div className="mx-auto">
                             <LazyLoadImage effect="blur" className="h-10" src={GrupoPlatinoAllWhite} alt="Grupo Platino" />

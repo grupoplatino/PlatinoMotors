@@ -6,3 +6,5 @@ export {Shop} from "./shop/index";
 export {DetailProduct} from "./shop/detail_product/index";
 export {Category} from "./shop/category/index";
 export {MakeYourOwn} from "./shop/make_your_own/index";
+export {PageNotFound} from "./server_errors/index";
+export {InternalServer} from "./server_errors/index";

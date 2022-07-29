@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from "react";
 import { Combobox, Transition } from "@headlessui/react"
 import { CheckIcon } from "@heroicons/react/solid";
+import { useTranslation } from "react-i18next";
 
 const brands = [
     {
@@ -724,6 +725,7 @@ const products = [
 ];
 
 function Searcher() {
+    const [t] = useTranslation('common');
     const [selectedBrand, setSelectedBrand] = useState(brands[0]);
     const [selectedTarget, setSelectedTarget] = useState(targets[0]);
     const [selectedCategory, setSelectedCategory] = useState(categories[0]);
@@ -763,9 +765,9 @@ function Searcher() {
                         <div className="flex px-5 pt-5 pb-5 w-full">
                             <div className="flex justify-center sm:justify-start w-full">
                                 <div className="grid grid-cols-1">
-                                    <p className="text-primary font-pop font-semibold text-sm">Buscador</p>
-                                    <p className="text-white font-pop text-3xl font-bold my-3">Busca tu Maquinaria</p>
-                                    <p className="text-white font-pop text-xsa">Maquinaria desarrollada para brindar el mayor rendimiento. Filtra y encuentra el equipo que necesitas para elevar la productivdad en tus proyectos de construcción.</p>
+                                    <p className="text-primary font-pop font-semibold text-sm">{t("home.searcher.title")}</p>
+                                    <p className="text-white font-pop text-3xl font-bold my-3">{t("home.searcher.sub_title")}</p>
+                                    <p className="text-white font-pop text-xsa">{t("home.searcher.description")}</p>
                                 </div>
                             </div>
                         </div>

@@ -3,7 +3,7 @@ import React, { useState, Fragment } from 'react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
 function Body(props) {
-    const [selected, setSelected] = useState(false);
+
     const variants = [
         {
             name: "Cucharon",
@@ -63,6 +63,7 @@ function Body(props) {
             avalible: false,
         },
     ];
+    const [selected, setSelected] = useState(operations[0]);
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
     }
@@ -72,7 +73,7 @@ function Body(props) {
         <div className='bg-background'>
             <div className='container mx-auto pb-5 pt-20 md:pt-20'>
                 <div className='grid md:gap-5 font-pop xl:gap-10 gap-2 grid-cols-1 md:grid-cols-3 mx-2 md:mx-0'>
-                    <div className='py-2 md:py-5 px-5 bg-white md:col-span-2 rounded-xl'>
+                    <div className='py-2 relative md:py-10 px-10 bg-white md:col-span-2 rounded-xl'>
                         <div className='grid gap-2 md:grid-cols-2 grid-cols-1'>
                             <div className='order-2 md:order-1'>
                                 <p className='text-3xl font-semibold text-black'>{props.product.name}</p>
@@ -138,7 +139,7 @@ function Body(props) {
                                                                         }
                                                                         value={operation}
                                                                     >
-                                                                        {({ selected, active }) => (
+                                                                        {({ select, active }) => (
                                                                             <>
                                                                                 <div className="flex items-center">
                                                                                     <span
@@ -183,15 +184,60 @@ function Body(props) {
                                 <img className='h-56' alt={props.product.name} src={props.product.img} />
                             </div>
                         </div>
+                        <div className='container mt-5  width rounded-lg py-5 bg-background'>
+                            <div className='flex justify-between items-center px-5'>
+                                <div className="grid grid-cols-2">
+                                    <div className='bg-white rounded-xl p-3 font-pop ml-2'>
+                                        <div>
+                                            <p className='font- font-medium text-black text-center'>Seguridad</p>
+                                        </div>
+                                        <div className='flex justify-center'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p className='text-xs text-center'>
+                                                Loren Ipsum et dolor fiel
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className='bg-white rounded-xl p-2 font-pop ml-2'>
+                                        <div>
+                                            <p className='font- font-medium text-black text-center'>El Mejor Costo-Beneficio</p>
+                                        </div>
+                                        <div className='flex justify-center'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p className='text-xs text-center'>
+                                                Loren Ipsum et dolor fiel
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-6 pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
+                                        focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm py-2.5 text-center mx-4 mb-2"><div className='flex items-center'><div><p>Añadir al Carrito</p></div><div className='ml-2'><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="#FFFFFF" strokeWidth={2}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg></div></div></button>
+
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
                     <div className='py-5 px-5 bg-white rounded-xl'>
                         <div>
-                            <p className='f font-semibold'>Personaliza tu {props.product.category}</p>
+                            <p className='font-semibold'>Personaliza tu {props.product.category}</p>
                         </div>
                         <div>
                             <hr />
                         </div>
-                        <div className='font-pop '>
+                        <div className='font-pop'>
                             {
                                 variants.map((variant, index) => (
                                     <VariantOptions key={index} variant={variant} />
@@ -208,15 +254,16 @@ function Body(props) {
     );
 }
 function VariantOptions(props) {
-    const [variant, setVariant] = useState("");
+    const [variant, setVariant] = useState(props.variant.name);
     return (
         <div>
             <p className='font-semibold py-1'>{props.variant.name}</p>
             <RadioGroup value={variant} onChange={setVariant}>
                 {
                     props.variant.values.map((value, index) => (
-                        <div className='my-1'>
-                            <RadioGroup.Option key={index} value={value} className={({ active, checked }) =>
+                        <div className='my-1' key={index}>
+                            <RadioGroup.Option value={value} className={({ active, checked }) =>
+
                                 `${active
                                     ? 'ring-2 ring-white ring-opacity-60 ring-offset-2 '
                                     : ''

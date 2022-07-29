@@ -2,7 +2,10 @@ import React from "react";
 import { Disclosure, Transition } from "@headlessui/react";
 import { UpArrowOrangeIcon, UpdateWhiteIcon, DownArrowBlackIcon } from "../../assets";
 import { ProductCard } from "../../components";
+import { useTranslation } from "react-i18next";
+
 function ProductCollection(props) {
+    const [t] = useTranslation('common');
     let products = [];
     let filters = [
         {
@@ -54,13 +57,13 @@ function ProductCollection(props) {
                         <div className="col-span-1 md:col-span-2 lg:col-span-1">
                             <div className="flex items-center justify-between py-2 bg-black rounded-md">
                                 <div className="pl-2">
-                                    <p className="text-white">Filtrar Por</p>
+                                    <p className="text-white">{t("shop.hero.filter.order_by")}</p>
                                 </div>
                                 <div className="flex items-center">
                                     <button>
                                         <div className="flex">
                                             <div>
-                                                <p className="text-white font-pop text-sm mr-1">limpiar</p>
+                                                <p className="text-white font-pop text-sm mr-1">{t("shop.hero.filter.clear")}</p>
                                             </div>
                                             <div className="pr-2">
                                                 <img alt="actualizar" className="h-4" src={UpdateWhiteIcon} />
