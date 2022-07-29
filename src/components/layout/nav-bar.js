@@ -4,13 +4,13 @@ import { PlatinoMotorsBlack, RightArrowBreadOrange } from "../../assets/index";
 import { Popover, Transition, Disclosure, Switch } from "@headlessui/react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { US, HN } from 'country-flag-icons/react/3x2'
-
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
   const [isSearching, setIsSearching] = useState(false);
   const [isOpenMegaMenu, setIsOpenMegaMenu] = useState(false);
   const [isLogued, setIsLogued] = useState(false);
+
   const categories = [
     {
       id: 1,
@@ -391,12 +391,22 @@ export default function Navbar() {
 
 function SwitchNavBar(props) {
   const [enabled, setEnabled] = useState(false)
-
+  const [t, i18n] = useTranslation('common');
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
   function beginSearching(isSearching) {
     props.setIsSearching(isSearching);
+  }
+
+  const translate = (change) => {
+    if(change === false){
+      setEnabled(true);
+      i18n.changeLanguage('en');
+    }else{
+      setEnabled(false);
+      i18n.changeLanguage('es');
+    }
   }
   console.log(props.isSearching);
   //TODO: DIBUJAR EL BUSCADOR
@@ -503,9 +513,9 @@ function SwitchNavBar(props) {
            
                 <Switch
                   checked={enabled}
-                  onChange={setEnabled}
+                  onChange={()=> translate(enabled)}
                   className={`${enabled ? 'bg-blue-600' : 'bg-gray-200'
-                    } relative inline-flex h-8 w-11 bg-gray-200 items-center rounded-full`}
+                    } relative flex h-7 w-11 bg-gray-200 items-center rounded-full mt-1`}
                 >
                  
                   <span
@@ -513,14 +523,14 @@ function SwitchNavBar(props) {
                       } inline-block h-6 w-6  transform rounded-full bg-white`}
                   >
                     {
-                      enabled ? <p className="font-pop text-xs pt-1">ES</p> : <p className="font-pop text-xs pt-1">EN</p>
+                      enabled ? <p className="font-pop text-xs pt-1">EN</p> : <p className="font-pop text-xs pt-1">ES</p>
                     }
                   </span>
                 </Switch>
                
              
-              <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-6 pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
-                focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm py-2.5 text-center mx-4 mb-2">Inicio/Registro</button>
+              <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-6 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
+                focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm py-2.5 text-center mx-8 mb-2">Inicio/Registro</button>
               <div>
                 <button onClick={() => (beginSearching(true))} className="bg-background shadow-sm p-1 rounded-xl">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 pl-1  inline-block align-middle" viewBox="0 0 20 20" fill="blackPearl">

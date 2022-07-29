@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { LinkedinIcon} from "../../assets";
+import { LinkedinIcon } from "../../assets";
 import { Maps } from "../../components";
 import ScrollToTop from "../../utils/scroll_to_top";
+import { useTranslation } from "react-i18next";
 
 function Contact() {
+    const [t] = useTranslation('common');
     const [message, setMessage] = useState({});
     const openInNewTab = url => {
         window.open(url, "_blank", "noopener,noreferrer");
@@ -15,15 +17,13 @@ function Contact() {
         <div>
             <section className="w-full financingHero text-white">
                 <div className="container mx-auto">
-                    <div className="text-center lgs:text-start pt-48 pb-36 lg:w-3/5">
+                    <div className="text-center lg:text-start pt-48 pb-36 lg:w-3/5 xl:w-2/4">
                         <div className="lg:px-5 xl:px-10">
                             <h1 className="text-white font-pop md:leading-snug font-bold text-4xl sm:text-5xl mb-3">
-                                Contáctanos
+                                {t("contact.hero.title")}
                             </h1>
                             <p className="text-white font-pop text-base font-medium px-4 sm:px-0">
-                                ¿Tiene alguna duda o comentario sobre nuestra
-                                web corporativa? Utilice el formulario de contacto que
-                                aparece en la parte inferior.
+                                {t("contact.hero.sub_title")}
                             </p>
                         </div>
                     </div>
@@ -39,12 +39,16 @@ function Contact() {
                     </div>
                     <div className="flex justify-center w-full">
                         <p className="text-base font-light font-pop text-gray-800">
-                            Buscanos en nuestra red social oficial y encuentra nuestras plazas disponibles.
+                            {t("contact.body.job.description")}
                         </p>
                     </div>
                     <div className="pt-10">
                         <button type="button" onClick={() => openInNewTab("https://www.linkedin.com/company/grupo-empresarial-platino-hn/mycompany/")} className="text-white font-pop bg-blue  w-full rounded-3xl pr-6 pl-6   focus:ring-4 
-                                    focus:outline-none focus:ring-blue-300  border-none font-medium text-sm px-5 py-3 text-center mr-2 mb-2"><div className="flex justify-center"><p>Aplica a tu trabajo ideal</p></div></button>
+                                    focus:outline-none focus:ring-blue-300  border-none font-medium text-sm px-5 py-3 text-center mr-2 mb-2">
+                            <div className="flex justify-center">
+                                <p>{t("contact.body.job.button")}</p>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -54,27 +58,27 @@ function Contact() {
                         <form id="create-course-form">
                             <div className="overflow-hidden">
                                 <div className="flex justify-center">
-                                    <p className="font-pop text-black text-3xl font-semibold mb-3">Escribenos</p>
+                                    <p className="font-pop text-black text-3xl font-semibold mb-3">{t("contact.body.form.title")}</p>
                                 </div>
                                 <div className="flex justify-center">
-                                    <p className="font-pop text-gray-500 text-sm text-center font-semibold xl:px-8">Llena el siguiente formulario y dentro de poco un asesor de servicio al cliente se pondra en contacto contigo.</p>
+                                    <p className="font-pop text-gray-500 text-sm text-center font-semibold xl:px-8">{t("contact.body.form.description")}</p>
                                 </div>
                                 <div className="py-5 sm:p-6">
                                     <div className="grid grid-cols-6 gap-6">
                                         <div className="col-span-6 sm:col-span-3">
-                                            <input type="text" className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Nombre"></input>
+                                            <input type="text" className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full p-2.5" placeholder={t("contact.body.form.first_name")}></input>
                                         </div>
                                         <div className="col-span-6 sm:col-span-3">
-                                            <input type="text" className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Apellido"></input>
+                                            <input type="text" className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full p-2.5" placeholder={t("contact.body.form.last_name")}></input>
                                         </div>
                                         <div className="col-span-6 sm:col-span-3">
-                                            <input type="text" className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Correo Electrónico"></input>
+                                            <input type="text" className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full p-2.5" placeholder={t("contact.body.form.email")}></input>
                                         </div>
                                         <div className="col-span-6 sm:col-span-3">
-                                            <input type="text" className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full pl-2 p-2.5 " placeholder="Asunto"></input>
+                                            <input type="text" className=" border-b text-sm bg-otherLight-50  text-fiord-500  focus:outline-none focus:border-primary border-lightPlaceHolder block font-pop w-full p-2.5" placeholder={t("contact.body.form.subject")}></input>
                                         </div>
                                         <div className="col-span-6 sm:col-span-6">
-                                            <textarea onChange={e => setMessage({ ...message, message: e.target.value })} name="message" rows="10" placeholder="Escribe tu mensaje aqui..." className="mt-1 block border p-2 w-full  shadow-sm bg-otherLight-50 sm:text-sm font-pop border-gray-300" required />
+                                            <textarea onChange={e => setMessage({ ...message, message: e.target.value })} name="message" rows="10" placeholder={`${t("contact.body.form.message")}...`} className="mt-1 block border p-2 w-full  shadow-sm bg-otherLight-50 sm:text-sm font-pop border-gray-300" required />
                                         </div>
                                     </div>
                                 </div>
@@ -85,7 +89,7 @@ function Contact() {
                                         className="text-background bg-gradient-to-r rounded-3xl pr-6 pl-6 pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
                                         focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-5 py-2.5 text-center mr-2 mb-2"
                                     >
-                                        Enviar Mensaje
+                                        {t("contact.body.form.button")}
                                     </button>
                                 </div>
                             </div>

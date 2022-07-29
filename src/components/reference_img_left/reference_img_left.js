@@ -1,7 +1,10 @@
 import { LandingHero } from "../../assets/index";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useTranslation } from "react-i18next";
+
 function ReferneceImgLeft() {
+    const [t] = useTranslation('common');
     return (
         <div className="container mx-auto py-5 sm:px-2 md:px-5 xl:px-10">
             <div className="flex justify-center md:justify-between px-2 md:px-0">
@@ -11,10 +14,10 @@ function ReferneceImgLeft() {
                     </div>
                     <div>
                         <div className="grid grid-cols-1 justify-center mb-5 mt-8 lg:mt-0 lg:mb-0 md:justify-start">
-                            <p className="text-primary text-xs font-bold text-center md:text-left mb-2">SOBRE NOSOTROS</p>
-                            <p className="text-3xl font-bold mb-3 text-center md:text-left">Motores que Trabajan por Mejores Resultados</p>
-                            <p className="font-pop mx-2 md:mx-0 lg:mr-5 sm:text-center md:text-start">Nuestro equipo se caracteriza por su alta eficiencia, comodidad y economía. Somos distribuidores oficiales de grandes marcas productoras de maquinaria y equipo para contrucción.</p>
-                            <p className="font-pop mx-2 md:mx-0 lg:mr-5 hidden sm:block md:hidden xl:block xl:mt-2 sm:text-center md:text-start">Dentro de nuestro catálogo podras encontrar motoniveladoras, excavadoras, y demás maquinaria industrial. Estamos listos para apoyarte en tus proyectos, ya sea para comprar o rentar maquinaria.</p>
+                            <p className="text-primary text-xs font-bold text-center md:text-left mb-2">{t("home.refernece_img_left.title")}</p>
+                            <p className="text-3xl font-bold mb-3 text-center md:text-left">{t("home.refernece_img_left.sub_title")}</p>
+                            <p className="font-pop mx-2 md:mx-0 lg:mr-5 sm:text-center md:text-start">{t("home.refernece_img_left.description")}</p>
+                            <p className="font-pop mx-2 md:mx-0 lg:mr-5 hidden sm:block md:hidden xl:block xl:mt-2 sm:text-center md:text-start">{t("home.refernece_img_left.another_description")}</p>
                         </div>
                     </div>
                 </div>

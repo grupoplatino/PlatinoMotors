@@ -3,7 +3,10 @@ import { Dialog, Switch, Disclosure, Transition } from "@headlessui/react";
 import { UpArrowOrangeIcon, DownArrowBlackIcon } from "../../assets";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useTranslation } from "react-i18next";
+
 function CompareSpecs(props) {
+    const [t] = useTranslation('common');
     const [isOpen, setIsOpen] = useState(false);
     const [listProductToCompare, setListProductToCompare] = useState([]);
     const [referenceVsProduct, setReferenceVsProduct] = useState([]);
@@ -740,7 +743,7 @@ function CompareSpecs(props) {
         <div className="bg-white hidden md:block">
             <div className="container mx-auto mb-10 md:px-5 xl:px-10">
                 <div className="text-center font-pop pb-10 pt-20 text-3xl font-bold text-black">
-                    <span>Especificaciones y Comparativa</span>
+                    <span>{t("shop.product.compare_specs.title")}</span>
                 </div>
                 <div className="grid grid-cols-3 lg:grid-cols-4 gap-4">
                     <div className="bg-background rounded-xl h-full flex items-center px-4 justify-center text-lg font-semibold text-center">
@@ -750,7 +753,7 @@ function CompareSpecs(props) {
                                     <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
                                 </svg>
                             </div>
-                            <span>Compare hasta 3 modelos distintos</span>
+                            <span>{t("shop.product.compare_specs.compare_description")}</span>
                         </div>
                     </div>
                     <div className="bg-background font-pop text-xl font-bold pb-2 text-center rounded-xl">
@@ -816,7 +819,7 @@ function CompareSpecs(props) {
                                             className="text-lg py-2 px-2 font-pop font-medium shadow-sm flex items-center justify-between rounded-md leading-6 text-black">
                                             <div className="flex">
                                                 <div className="mr-2">
-                                                    <p>Escoge la maquinaria para la comparativa</p>
+                                                    <p>{t("shop.product.compare_specs.modal.title")}</p>
                                                 </div>
                                                 <ReferenceProductsName referenceVsProduct={referenceVsProduct} />
                                             </div>
@@ -826,7 +829,7 @@ function CompareSpecs(props) {
                                                     className="inline-flex justify-center rounded-md border border-transparent bg-primary text-white px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                                                     onClick={compareProducts}
                                                 >
-                                                    Comparar
+                                                    {t("shop.product.compare_specs.modal.button")}
                                                 </button>
                                             </div>
                                         </Dialog.Title>
@@ -1021,6 +1024,7 @@ function ReferenceImgProduct(props) {
     );
 };
 function AddProductButton(props) {
+    const [t] = useTranslation('common');
     return (
         <div className={`bg-gray-100 content-center ${props.hidden === true ? "hidden lg:block" : ""} rounded-xl`}>
             <button
@@ -1032,7 +1036,7 @@ function AddProductButton(props) {
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                     </svg>
-                    <span className="block text-sm font-medium text-gray-900">Añadir modelo</span>
+                    <span className="block text-sm font-medium text-gray-900">{t("shop.product.compare_specs.add")}</span>
                 </p>
             </button>
         </div>

@@ -1,18 +1,16 @@
 import { MaintenanceMen, ConfidenceCheckIcon, ToolsIcon } from "../../assets/index";
-
+import { useTranslation } from "react-i18next";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 function Maintenance() {
+    const [t] = useTranslation('common');
+    let faq_list = t('services.body.maintenance.faqs', { returnObjects: true })
     const faq = [
         {
             icon: <img className="h-6" src={ConfidenceCheckIcon} alt="check icon" />,
-            title: "Mantenimiento Preventivo",
-            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
         {
             icon: <img className="h-6" src={ToolsIcon} alt="check icon" />,
-            title: "Mantenimiento Correctivo",
-            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         },
     ]
     return (
@@ -25,12 +23,12 @@ function Maintenance() {
                         </div>
                         <div className="mx-2 xl:mx-6">
                             <div className="grid grid-cols-1">
-                                <p className="text-realBlack mt-4 sm:mt-0 text-3xl xl:text-4xl font-bold mb-3">Servicio de Mantenimiento</p>
-                                <p className="font-pop sm:mb-2">Brindamos todo el mantenimiento que tu maquinaria necesita para mantenerse operando en su mejor estado. Nos aseguramos de alargar al máximo la vida útil de tus equipos para hacer que tu inversion sea altamente rentable    </p>
+                                <p className="text-realBlack mt-4 sm:mt-0 text-3xl xl:text-4xl font-bold mb-3">{t("services.body.maintenance.title")}</p>
+                                <p className="font-pop sm:mb-2">{t("services.body.maintenance.description")}</p>
                             </div>
                             <div className="mb-0 md:mb-6 col-span-12 md:col-span-6">
                                 <div className="tabs">
-                                    {faq.map(function (item, index) {
+                                    {faq_list.map(function (item, index) {
                                         return (
                                             <div key={
                                                 index
@@ -39,7 +37,7 @@ function Maintenance() {
                                                     <input className="w-full absolute z-10 cursor-pointer opacity-0 h-10 top-2" type="checkbox" id="chck1" />
                                                     <header className="flex justify-between items-center align-middle py-2 px-5  cursor-pointer select-none tab-label" >
                                                         <div className="flex pt-2 align-middle">
-                                                            {item.icon}
+                                                            {faq[index].icon}
                                                             <span className="text-lg ml-3">
                                                                 {item.title}
                                                             </span>
@@ -56,7 +54,7 @@ function Maintenance() {
                                                     <div className="tab-content">
                                                         <div className="pl-8 pr-8 pb-5 text-grey-darkest">
                                                             <p>
-                                                                {item.message}
+                                                                {item.description}
                                                             </p>
                                                         </div>
                                                     </div>
@@ -67,10 +65,10 @@ function Maintenance() {
                                 </div>
                             </div>
                             <div className="bg-white rounded-xl p-5 mt-3">
-                                <p className="text-center py-2 font-pop text-black font-semibold text-lg">Agenda el mantenimeinto de tu maquinaria con nosotros</p>
+                                <p className="text-center py-2 font-pop text-black font-semibold text-lg">{t("services.body.maintenance.calendar.title")}</p>
                                 <div>
                                     <div>
-                                        <p className="font-pop font-base text-center">Contacta con un agente y planifica tu próximo mantenimiento. No esperes a que tu equipo de problemas para ir al mecanico.</p>
+                                        <p className="font-pop font-base text-center">{t("services.body.maintenance.calendar.description")}</p>
                                         <div className="text-center">
                                             <button
                                                 type="submit"
@@ -78,7 +76,7 @@ function Maintenance() {
                                                 className="text-background text-center bg-gradient-to-r mt-5 rounded-3xl from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
                                             focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-6 py-2.5"
                                             >
-                                                Agendar Mantenimiento
+                                                {t("services.body.maintenance.calendar.button")}
                                             </button>
                                         </div>
                                     </div>

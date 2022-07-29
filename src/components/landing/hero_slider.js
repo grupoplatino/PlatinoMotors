@@ -16,6 +16,7 @@ import {
     RightArrowBreadOrange,
     VibroCompactor
 } from "../../assets";
+import { useTranslation } from "react-i18next";
 
 const categories = [
     {
@@ -521,6 +522,7 @@ const products = [
 ];
 
 function HeroCategorySlider() {
+    const [t] = useTranslation('common');
     const [categoryId, setCategoryId] = useState(categories[0].id);
     const [allProducts] = useState(products);
     const [productCategory, setProductCategory] = useState(allProducts.filter(a => a.categoryId === categoryId));
@@ -566,7 +568,7 @@ function HeroCategorySlider() {
 
                     <Link to="/shop/category">
                         <button type="button" className="text-background bg-gradient-to-r rounded-3xl from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
-                            focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-20 py-2.5 text-center">Ver todos
+                            focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm px-20 py-2.5 text-center">{t("home.category_slider.button")}
                         </button>
                     </Link>
                 </div>
@@ -576,6 +578,7 @@ function HeroCategorySlider() {
 }
 
 function SpecialProduct(props) {
+    const [t] = useTranslation('common');
     return (
         <div className="flex mx-6 sm:mx-0 py-4 px-5 bg-white rounded-3xl shadow-sm hover:shadow-md justify-items-center">
             <div className="grow">
@@ -584,7 +587,7 @@ function SpecialProduct(props) {
                 </div>
                 <div className="flex items-center">
                     <div>
-                        <Link to="/shop/product"><p className="font-pop text-primary font-medium text-xs">Ver Detalles </p></Link>
+                        <Link to="/shop/product"><p className="font-pop text-primary font-medium text-xs">{t("home.category_slider.detail")} </p></Link>
                     </div>
                     <div>
                         <img className="ml-1" src={RightArrowBreadOrange} alt="Flecha derecha" />

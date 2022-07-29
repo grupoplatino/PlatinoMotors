@@ -5,7 +5,10 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 function HeaderProduct(props) {
+    const [t] = useTranslation('common');
     const url = window.location.href;
     const [show, setShow] = useState(false);
     function showCopyToClipBoard() {
@@ -61,7 +64,7 @@ function HeaderProduct(props) {
                 </div>
             </div>
             <div className="flex flex-wrap justify-start items-center">
-                <p className="pr-2 text-blackPearl-900 font-pop text-sm">Tienda</p>
+                <p className="pr-2 text-blackPearl-900 font-pop text-sm">{t("shop.product.base")}</p>
                 <img className="h-3 pr-2" src={RightArrowBread} alt="icono flecha derecha" />
                 <p className="pr-2 text-blackPearl-900 font-pop text-sm">{props.product.category}</p>
                 <img className="h-3 pr-2" src={RightArrowBread} alt="icono flecha derecha" />
@@ -103,7 +106,7 @@ function HeaderProduct(props) {
                                      focus:outline-none focus:ring-blue-300 border-none font-medium text-sm text-center">
                                 <div className="flex justify-center">
                                     <img className="h-5 mr-2" src={SeeIcon} alt="Ver mas" />
-                                    <p>Tour Virtual</p>
+                                    <p>{t("shop.product.options.one")}</p>
                                 </div>
                             </button>
 
@@ -114,7 +117,7 @@ function HeaderProduct(props) {
                             focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm  text-center">
                                 <div className="flex justify-center items-center">
                                     <img className="h-5 md:h-4 mr-2" src={CalculatorWhiteIcon} alt="Cotizar" />
-                                    <p>Cotizar</p>
+                                    <p>{t("shop.product.options.two")}</p>
                                 </div>
                             </button>
                             </Link>
