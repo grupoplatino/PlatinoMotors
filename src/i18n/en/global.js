@@ -1,4 +1,13 @@
 export const TRANSLATIONS_EN = {
+    general: {
+        none: "Nothing found"
+    },
+    splash:{
+        description: "Loading"
+    },
+    nav_bar:{
+        button: "Login/Sign In"
+    },
     home:{
         hero:{
             title: "Purchase and Rental of Machinery",
@@ -65,6 +74,18 @@ export const TRANSLATIONS_EN = {
                 "Data sheet",
                 "Quotation"
             ],
+            copy:{
+                title: "Successfully copied",
+                description: "Share the link with anyone!"
+            },
+            brochure_button: "Download {{name}}",
+            form: {
+                full_name: "Full name",
+                company: "Company",
+                phone_number: "Phone number",
+                email: "Email",
+                button: "Generate Quote"
+            },
             compare_specs: {
                 title: "Specifications and Comparison",
                 compare_description: "Compare up to 3 different models",
@@ -73,6 +94,13 @@ export const TRANSLATIONS_EN = {
                     title: "Choose the machinery for comparison",
                     button: "Compare"
                 }
+            },
+            quote: {
+                type: "Option",
+                left_bar_title: "Customize your {{item}}",
+                button: "Add to cart",
+                characteristic_one: "Security",
+                characteristic_two: "The Best Cost-Benefit"
             }
         }
     },
