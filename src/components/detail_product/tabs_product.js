@@ -144,6 +144,7 @@ function Qualities(props) {
     );
 }
 function DataSheet(props) {
+    const [t] = useTranslation('common');
     let sheetdata = props.data.dataSheet;
     let quantityData = sheetdata.length;
     let leftSheet = [], rightSheet = [];
@@ -227,7 +228,7 @@ function DataSheet(props) {
                                     focus:outline-none focus:ring-blue-300  border border-black font-medium text-sm px-5 py-4 sm:py-2 text-center mr-2 mb-2">
                         <div className="flex justify-center">
                             <img className="h-5 md:h-4 mr-2" src={DownloadBlackIcon} alt="Cotizar" />
-                            <p>Descargar Brochure</p>
+                            <p>{t("shop.product.brochure_button", {name: "Brochure"})}</p>
                         </div>
                     </button>
                 </div>
@@ -236,6 +237,7 @@ function DataSheet(props) {
     );
 }
 function QuotePetition(props) {
+    const [t] = useTranslation('common');
     const [selectedCategory, setSelectedCategory] = useState(categories[0]);
     const [query, setQuery] = useState("");
     const filteredCategory =
@@ -275,7 +277,7 @@ function QuotePetition(props) {
                                         <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                             {filteredCategory.length === 0 && query !== "" ? (
                                                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
-                                                    Nada encontrado.
+                                                    {t("general.none")}
                                                 </div>
                                             ) : (
                                                 filteredCategory.map((category) => (
@@ -330,7 +332,7 @@ function QuotePetition(props) {
                                         <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                             {filteredCategory.length === 0 && query !== "" ? (
                                                 <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
-                                                    Nada encontrado.
+                                                    {t("general.none")}
                                                 </div>
                                             ) : (
                                                 filteredCategory.map((category) => (
@@ -363,24 +365,24 @@ function QuotePetition(props) {
                     </div>
                 </div>
                 <div>
-                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Nombres"></input>
+                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop" placeholder={t("shop.product.form.full_name")}></input>
                 </div>
                 <div>
-                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Compañia"></input>
+                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop" placeholder={t("shop.product.form.company")}></input>
                 </div>
                 <div>
-                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="RTN"></input>
+                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop" placeholder="RTN"></input>
                 </div>
                 <div>
-                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="Numero"></input>
+                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop" placeholder={t("shop.product.form.phone_number")}></input>
                 </div>
                 <div>
-                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop " placeholder="E-mail"></input>
+                    <input type="text" className="border-b text-sm focus:border-primary bg-otherLight-50 focus:outline-none placeholder:pop text-fiord-500 border-lightPlaceHolder active:border-primary block w-full pl-2 p-2.5 placeholder:font-pop" placeholder={t("shop.product.form.email")}></input>
                 </div>
                 <div className="mx-auto mt-6 w-3/5 lg:w-1/3">
                     <button type="button" className="text-white font-pop bg-primary w-full rounded-3xl focus:ring-4 
                                     focus:outline-none focus:ring-blue-300 border-none font-medium text-sm py-3 px-2 md:px-4 text-center">
-                        Generar Cotización
+                        {t("shop.product.form.button")}
                     </button>
                 </div>
             </form>

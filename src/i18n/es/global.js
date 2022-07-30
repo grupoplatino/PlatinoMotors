@@ -1,4 +1,13 @@
 export const TRANSLATIONS_ES = {
+    general: {
+        none: "Nada encontrado"
+    },
+    splash:{
+        description: "Cargando"
+    },
+    nav_bar:{
+        button: "Inicio/Registro"
+    },
     home:{
         hero:{
             title: "Compra y Renta de Maquinaria",
@@ -65,6 +74,18 @@ export const TRANSLATIONS_ES = {
                 "Ficha Técnica",
                 "Cotización"
             ],
+            copy:{
+                title: "Copiado exitosamente",
+                description: "¡Comparte el enlace con quien sea!"
+            },
+            brochure_button: "Descargar {{name}}",
+            form: {
+                full_name: "Nombre completo",
+                company: "Compañia",
+                phone_number: "Número de teléfono",
+                email: "Correo electrónico",
+                button: "Generar Cotización"
+            },
             compare_specs: {
                 title: "Especificaciones y Comparativa",
                 compare_description: "Compare hasta 3 modelos distintos",
@@ -73,6 +94,13 @@ export const TRANSLATIONS_ES = {
                     title: "Escoge la maquinaria para la comparativa",
                     button: "Comparar"
                 }
+            },
+            quote: {
+                type: "Opción",
+                left_bar_title: "Personaliza tu {{item}}",
+                button: "Añadir al carrito",
+                characteristic_one: "Seguridad",
+                characteristic_two: "El Mejor Costo-Beneficio"
             }
         }
     },

@@ -1,5 +1,5 @@
 import React from "react";
-import config from "../../config/config"
+import config from "../../config/config";
 import {
     GoogleMap, Marker,
     useJsApiLoader

@@ -799,7 +799,7 @@ function Searcher() {
                                             <Combobox.Options className="absolute z-20 mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                                 {filteredBrand.length === 0 && query !== "" ? (
                                                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
-                                                        Nada encontrado.
+                                                        {t("general.none")}
                                                     </div>
                                                 ) : (
                                                     filteredBrand.map((brand) => (
@@ -862,7 +862,7 @@ function Searcher() {
                                             <Combobox.Options className="absolute z-30 mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                                 {filteredTarget.length === 0 && query !== "" ? (
                                                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
-                                                        Nada encontrado.
+                                                        {t("general.none")}
                                                     </div>
                                                 ) : (
                                                     filteredTarget.map((target) => (
@@ -925,7 +925,7 @@ function Searcher() {
                                             <Combobox.Options className="absolute z-30 mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                                 {filteredCategory.length === 0 && query !== "" ? (
                                                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
-                                                        Nada encontrado.
+                                                        {t("general.none")}
                                                     </div>
                                                 ) : (
                                                     filteredCategory.map((category) => (
@@ -988,7 +988,7 @@ function Searcher() {
                                             <Combobox.Options className="absolute z-20 mt-1 max-h-60 w-full font-pop overflow-auto rounded-md bg-white  py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                                                 {filteredProducts.length === 0 && query !== "" ? (
                                                     <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
-                                                        Nada encontrado.
+                                                       {t("general.none")}
                                                     </div>
                                                 ) : (
                                                     filteredProducts.map((product) => (

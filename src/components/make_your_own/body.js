@@ -1,8 +1,10 @@
 import { RadioGroup, Listbox, Transition } from '@headlessui/react';
 import React, { useState, Fragment } from 'react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
+import { useTranslation } from "react-i18next";
 
 function Body(props) {
+    const [t] = useTranslation('common');
 
     const variants = [
         {
@@ -102,7 +104,7 @@ function Body(props) {
                                         <Listbox value={selected} onChange={setSelected}>
                                             {({ open }) => (
                                                 <>
-                                                    <Listbox.Label className="block text-sm font-pop font-medium text-black">Actividad</Listbox.Label>
+                                                    <Listbox.Label className="block text-sm font-pop font-medium text-black">{t("shop.product.quote.type")}</Listbox.Label>
                                                     <div className="mt-1 relative">
                                                         <Listbox.Button className="relative w-full bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                                             <div className="flex items-center">
@@ -189,7 +191,7 @@ function Body(props) {
                                 <div className="grid grid-cols-2">
                                     <div className='bg-white rounded-xl p-3 font-pop ml-2'>
                                         <div>
-                                            <p className='font- font-medium text-black text-center'>Seguridad</p>
+                                            <p className='font- font-medium text-black text-center'>{t("shop.product.quote.characteristic_one")}</p>
                                         </div>
                                         <div className='flex justify-center'>
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -204,7 +206,7 @@ function Body(props) {
                                     </div>
                                     <div className='bg-white rounded-xl p-2 font-pop ml-2'>
                                         <div>
-                                            <p className='font- font-medium text-black text-center'>El Mejor Costo-Beneficio</p>
+                                            <p className='font- font-medium text-black text-center'>{t("shop.product.quote.characteristic_two")}</p>
                                         </div>
                                         <div className='flex justify-center'>
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -220,7 +222,7 @@ function Body(props) {
                                 </div>
                                 <div>
                                     <button type="button" className="text-background bg-gradient-to-r rounded-3xl px-6 pb-2 pt-2 from-startGradiant to-endGradiant hover:bg-gradient-to-br focus:ring-4 
-                                        focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm py-2.5 text-center mx-4 mb-2"><div className='flex items-center'><div><p>Añadir al Carrito</p></div><div className='ml-2'><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="#FFFFFF" strokeWidth={2}>
+                                        focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 border-none font-medium text-sm py-2.5 text-center mx-4 mb-2"><div className='flex items-center'><div><p>{t("shop.product.quote.button")}</p></div><div className='ml-2'><svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="#FFFFFF" strokeWidth={2}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                                         </svg></div></div></button>
 
@@ -232,7 +234,7 @@ function Body(props) {
                     </div>
                     <div className='py-5 px-5 bg-white rounded-xl'>
                         <div>
-                            <p className='font-semibold'>Personaliza tu {props.product.category}</p>
+                            <p className='font-semibold'>{t("shop.product.quote.left_bar_title", {item: `${props.product.category}`})}</p>
                         </div>
                         <div>
                             <hr />
